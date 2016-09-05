@@ -7,7 +7,7 @@ import tools.ElapsedCpuTimer;
 
 public class TestAgent extends AbstractPlayer {
 	public TestAgent(StateObservation so, ElapsedCpuTimer elapsedTimer) throws Exception {
-		System.out.println("Resources: " + so.getAvatarResources());
+		
 	}
 	
 	@Override

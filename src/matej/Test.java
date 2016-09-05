@@ -25,7 +25,7 @@ public class Test {
                 "waitforbreakfast", "watergame", "waves", "whackamole", "witnessprotection",  //75-79
                 "zelda", "zenpuzzle" };                                                       //80, 81
         String[] games = new String[] {"angelsdemons", "assemblyline", "avoidgeorge",
-    			"cops", "freeway", "run", "thesnowman", "waves", "witnessprotection"};         
+    			"cops", "freeway", "racebet", "run", "thesnowman", "waves", "witnessprotection"};         
         String gamesPath = "examples/gridphysics/";
         
         games = allGames;

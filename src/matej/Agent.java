@@ -1,23 +1,23 @@
-	package matej;
-	
-	import java.util.*;
-	import core.game.Observation;
-	import core.game.StateObservation;
-	import core.player.AbstractPlayer;
-	import ontology.Types;
-	import tools.ElapsedCpuTimer;
-	
-	public class Agent extends AbstractPlayer {
-	
-	    public static int NUM_ACTIONS;
-	    public static int ROLLOUT_DEPTH = 10;
-	    public static double K = Math.sqrt(2);
-	    public static Types.ACTIONS[] actions;
-	    
-	    private static String[] games = {"angelsdemons", "assemblyline", "avoidgeorge",
-			"cops", "freeway", "run", "thesnowman", "waves", "witnessprotection"};         
-	    private String game;
-	    
+package matej;
+
+import java.util.*;
+import core.game.Observation;
+import core.game.StateObservation;
+import core.player.AbstractPlayer;
+import ontology.Types;
+import tools.ElapsedCpuTimer;
+
+public class Agent extends AbstractPlayer {
+
+    public static int NUM_ACTIONS;
+    public static int ROLLOUT_DEPTH = 10;
+    public static double K = Math.sqrt(2);
+    public static Types.ACTIONS[] actions;
+    
+    private static String[] games = {"angelsdemons", "assemblyline", "avoidgeorge",
+		"cops", "freeway", "racebet", "run", "thesnowman", "waves", "witnessprotection"};         
+    private String game;
+    
 	/**
 	 * Public constructor with state observation and time due.
 	 * @param so state observation of the current game.
@@ -54,10 +54,8 @@
 	 */
 	public void result(StateObservation stateObservation, ElapsedCpuTimer elapsedCpuTimer)
 	{
-	//        System.out.println("MCTS avg iters: " + SingleMCTSPlayer.iters / SingleMCTSPlayer.num);
-	    //Include your code here to know how it all ended.
-	    //System.out.println("Game over? " + stateObservation.isGameOver());
-	    }
-	
-	
-	}
+		// System.out.println("MCTS avg iters: " + SingleMCTSPlayer.iters / SingleMCTSPlayer.num);
+		// Include your code here to know how it all ended.
+		// System.out.println("Game over? " + stateObservation.isGameOver());
+    }
+}
