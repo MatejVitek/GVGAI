@@ -1,4 +1,4 @@
-data <- read.csv("readable_data.csv")
+data <- read.csv("readable_basic.csv")
 data.in <- data.frame(data[1:8])
 data.out <- data.frame(data[9:18])
 
@@ -21,15 +21,17 @@ BS <- function (observedMatrix, predictedMatrix) {
 # nnet
 library(nnet)
 
+df.to.predict <- df[c(1:10, (nrow(df)-10):nrow(df)),]
 model.nn <- nnet(data.in, data.out, data = df, size = 12, decay = 0.0001, maxit = 10000)
-pred.nn <- predict(model.nn, df[1:10,], type = "raw")
+pred.nn <- predict(model.nn, df.to.predict, type = "raw")
 
-for (i in 1:10) {
+for (i in 1:20) {
+	print(i)
 	print(which.max(pred.nn[i,]) == i)
 	print(max(pred.nn[i,]))
 }
 
-obsMat <- data.out[1:10,]
+obsMat <- data.out[c(1:10, (nrow(df)-10):nrow(df)),]
 BS(obsMat, pred.nn)
 
 

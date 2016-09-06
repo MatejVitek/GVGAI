@@ -1,22 +1,19 @@
 package matej;
 
-import java.util.*;
-import core.game.Observation;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import ontology.Types;
 import tools.ElapsedCpuTimer;
 
 public class Agent extends AbstractPlayer {
-
+	public static final String[] games = {"camelRace", "digdug", "firestorms", "infection",
+			"firecaster", "overload", "pacman", "seaquest", "whackamole", "eggomania"};         
+	    
     public static int NUM_ACTIONS;
     public static int ROLLOUT_DEPTH = 10;
     public static double K = Math.sqrt(2);
     public static Types.ACTIONS[] actions;
-    
-    private static String[] games = {"angelsdemons", "assemblyline", "avoidgeorge",
-		"cops", "freeway", "racebet", "run", "thesnowman", "waves", "witnessprotection"};         
-    private String game;
+    private Policy policy;
     
 	/**
 	 * Public constructor with state observation and time due.
@@ -26,7 +23,12 @@ public class Agent extends AbstractPlayer {
 	public Agent(StateObservation so, ElapsedCpuTimer elapsedTimer) 
 	{
 		NNHandler nn = new NNHandler(so, games);
-	    game = nn.getPrediction();
+	    String game = nn.getPrediction();
+	    
+	    // in actual implementation all policies should be learned offline and saved via Policy.saveToFile
+	    // the following constructor call should then be replaced with policy.loadFromFile
+	    // learning the policy from scratch during the actual agent run may take too long and timeout the agent
+	    policy = new Policy(game);
 	}
 	
 	
@@ -39,23 +41,23 @@ public class Agent extends AbstractPlayer {
 	 */
 	@Override
 	public Types.ACTIONS act(StateObservation so, ElapsedCpuTimer elapsedTimer) {
-	
-	    ArrayList<Observation> obs[] = so.getFromAvatarSpritesPositions();
-	    ArrayList<Observation> grid[][] = so.getObservationGrid();
-	
-	    return actions[0];
+		return policy.getAction(so);
 	}
 	
-	/**
-	 * Function called when the game is over. This method must finish before CompetitionParameters.TEAR_DOWN_TIME,
-	 *  or the agent will be DISQUALIFIED
-	 * @param stateObservation the game state at the end of the game
-	 * @param elapsedCpuTimer timer when this method is meant to finish.
-	 */
-	public void result(StateObservation stateObservation, ElapsedCpuTimer elapsedCpuTimer)
-	{
-		// System.out.println("MCTS avg iters: " + SingleMCTSPlayer.iters / SingleMCTSPlayer.num);
-		// Include your code here to know how it all ended.
-		// System.out.println("Game over? " + stateObservation.isGameOver());
-    }
+	// TODO: implement policy learning and utilizing
+	private static class Policy {
+		String game;
+		public Policy(String game) {
+			this.game = game;
+			learn();
+		}
+		public void learn(){}
+		
+		public Types.ACTIONS getAction(StateObservation so) {
+			return so.getAvailableActions().get(0);
+		}
+		
+		public void saveToFile(String filePath){}
+		public static Policy loadFromFile(String filePath){ return null; }
+	}
 }

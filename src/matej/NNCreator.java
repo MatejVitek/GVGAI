@@ -10,39 +10,35 @@ import core.ArcadeMachine;
 
 public class NNCreator {
 	public static final String PATH = "datasets/";
-	public static final String NAME = "data.csv";
+	public static final String NAME = "extra_with_errors.csv";
 	
 	//All public games
-	private static final String[] allGames = new String[]{"aliens", "angelsdemons", "assemblyline", "avoidgeorge", "bait", //0-4
-	        "blacksmoke", "boloadventures", "bomber", "boulderchase", "boulderdash",      //5-9
-	        "brainman", "butterflies", "cakybaky", "camelRace", "catapults",              //10-14
-	        "chainreaction", "chase", "chipschallenge", "clusters", "colourescape",       //15-19
-	        "chopper", "cookmepasta", "cops", "crossfire", "defem",                       //20-24
-	        "defender", "digdug", "dungeon", "eggomania", "enemycitadel",                 //25-29
-	        "escape", "factorymanager", "firecaster",  "fireman", "firestorms",           //30-34
-	        "freeway", "frogs", "gymkhana", "hungrybirds", "iceandfire",                  //35-39
-	        "infection", "intersection", "islands", "jaws", "labyrinth",                  //40-44
-	        "labyrinthdual", "lasers", "lasers2", "lemmings", "missilecommand",           //45-49
-	        "modality", "overload", "pacman", "painter", "plants",                        //50-54
-	        "plaqueattack", "portals", "racebet", "raceBet2", "realportals",              //55-59
-	        "realsokoban", "rivers", "roguelike", "run", "seaquest",                      //60-64
-	        "sheriff", "shipwreck", "sokoban", "solarfox" ,"superman",                    //65-69
-	        "surround", "survivezombies", "tercio", "thecitadel", "thesnowman",           //70-74
-	        "waitforbreakfast", "watergame", "waves", "whackamole", "witnessprotection",  //75-79
-	        "zelda", "zenpuzzle"};                                                       //80, 81
-	private static final String[] games = new String[] {"angelsdemons", "assemblyline", "avoidgeorge",
-			"cops", "freeway", "run", "racebet", "thesnowman", "waves", "witnessprotection"};         
+	public static final String[] allGames = {"aliens", "boulderdash",
+			"butterflies", "chase", "frogs", "missilecommand", "portals", "sokoban",
+			"survivezombies", "zelda", "camelRace", "digdug", "firestorms", "infection",
+			"firecaster", "overload", "pacman", "seaquest", "whackamole", "eggomania", "bait",
+			"boloadventures", "brainman", "chipschallenge", "modality", "painter", "realportals",
+			"realsokoban", "thecitadel", "zenpuzzle", "roguelike", "surround", "catapults", "plants",
+			"plaqueattack", "jaws", "labyrinth", "boulderchase", "escape", "lemmings", "solarfox",
+			"defender", "enemycitadel", "crossfire", "lasers", "sheriff", "chopper", "superman",
+			"waitforbreakfast", "cakybaky", "lasers2", "hungrybirds", "cookmepasta", "factorymanager",
+			"raceBet2", "intersection", "blacksmoke", "iceandfire", "gymkhana", "tercio"};                                                       //80, 81
 	private static final String gamesPath = "examples/gridphysics/";
 	private static final String controller = "matej.DataSetAgent";
 	private static final int N_SAMPLES = 10;
+	private static final Random rnd = new Random();
+	private static final double THRESHOLD = 0.1;
 	
+	// things for DataSetAgent
 	public static DataSet data;
-	public static double[] gameVector;
+	public static String currentGame;
+	public static double[] outputVector;
+	public static boolean simulateErrors;
 	
 	public static void main(String[] args) throws IOException
     {
-	//	createDataSet();
-		trainNeuralNetwork();
+		//createDataSet();
+		//trainNeuralNetwork();
 		testNeuralNetwork();
     }
 	
@@ -52,46 +48,58 @@ public class NNCreator {
 	 * @throws IOException
 	 */
 	public static void createDataSet() throws IOException {
-		data = new DataSet(NNHandler.FEATURE_NAMES.length, games.length);
-		data.setColumnNames(Utils.concatenate(NNHandler.FEATURE_NAMES, games));
-		
-		// run through all levels (0-4) or just a single one for each game?
+		// should an instance be created for each level (0-4) or just a single one for each game?
 		boolean levels = false;
+		// balance the dataset?
+		boolean balanced = false;
+		// simulate errors for extra attributes?
+		boolean errors = true;
+	
+		simulateErrors = true;
+		data = new DataSet(NNHandler.FEATURE_NAMES.length, Agent.games.length);
+		data.setColumnNames(Utils.concatenate(NNHandler.FEATURE_NAMES, Agent.games));
 		
-		for (int k = 0; k < N_SAMPLES; k++) {
-			for (int i = 0; i < games.length; i++) {
-				String game = gamesPath + games[i] + ".txt";
-				gameVector = new double[games.length];
-				gameVector[i] = 1;
+		int bound = (errors || balanced) ? N_SAMPLES : 1;
+		for (int k = 0; k < bound; k++) {
+			for (int i = 0; i < Agent.games.length; i++) {
+				String game = gamesPath + Agent.games[i] + ".txt";
+				outputVector = new double[Agent.games.length];
+				outputVector[i] = 1;
+				currentGame = Agent.games[i];
 				
 		    	if (levels)
 		    		for (int j = 0; j <= 4; j++) {
-		    			String level = gamesPath + games[i] + "_lvl" + j + ".txt";
-		    			ArcadeMachine.runOneGame(game, level, false, controller, null, new Random().nextInt(), 0);
+		    			String level = gamesPath + Agent.games[i] + "_lvl" + j + ".txt";
+		    			ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
 		    		}
 		    	else {
-		    		String level = gamesPath + games[i] + "_lvl" + 0 + ".txt";
-		    		ArcadeMachine.runOneGame(game, level, false, controller, null, new Random().nextInt(), 0);
+		    		String level = gamesPath + Agent.games[i] + "_lvl" + rnd.nextInt(5) + ".txt";
+		    		ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
 				}
 			}
 		}
 		
-		gameVector = new double[games.length];
-		HashSet<String> checkedGames = new HashSet<String>(Arrays.asList(games));
+		outputVector = new double[Agent.games.length];
+		HashSet<String> checkedGames = new HashSet<String>(Arrays.asList(Agent.games));
 		
-		for (int k = 0; k < N_SAMPLES; k++) {
-			int i = new Random().nextInt(allGames.length);
-			if (checkedGames.contains(allGames[i])) continue;
+		bound = balanced ? N_SAMPLES : allGames.length;
+		for (int k = 0; k < bound; k++) {
+			int i = balanced ? rnd.nextInt(allGames.length) : k;
+			if (checkedGames.contains(allGames[i])) {
+				if (balanced) k--;
+				continue;
+			}
 			String game = gamesPath + allGames[i] + ".txt";
+			currentGame = allGames[i];
 			
-			if (levels)
+			if (levels || errors)
         		for (int j = 0; j <= 4; j++) {
         			String level = gamesPath + allGames[i] + "_lvl" + j + ".txt";
-        			ArcadeMachine.runOneGame(game, level, false, controller, null, new Random().nextInt(), 0);
+        			ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
         		}
         	else {
-        		String level = gamesPath + allGames[i] + "_lvl" + 0 + ".txt";
-        		ArcadeMachine.runOneGame(game, level, false, controller, null, new Random().nextInt(), 0);
+        		String level = gamesPath + allGames[i] + "_lvl" + rnd.nextInt(5) + ".txt";
+        		ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
     		}
 		}
 		
@@ -107,12 +115,62 @@ public class NNCreator {
 		br.write(data.toCSV());
 		br.flush();
 		br.close();
+		
+		
+		// create separate test set
+		if (errors) {
+			simulateErrors = true;
+			data = new DataSet(NNHandler.FEATURE_NAMES.length, Agent.games.length);
+			data.setColumnNames(Utils.concatenate(NNHandler.FEATURE_NAMES, Agent.games));
+			
+			for (int k = 0; k < N_SAMPLES; k++) {
+				for (int i = 0; i < Agent.games.length; i++) {
+					String game = gamesPath + Agent.games[i] + ".txt";
+					outputVector = new double[Agent.games.length];
+					outputVector[i] = 1;
+					currentGame = Agent.games[i];
+					
+			    	if (levels)
+			    		for (int j = 0; j <= 4; j++) {
+			    			String level = gamesPath + Agent.games[i] + "_lvl" + j + ".txt";
+			    			ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+			    		}
+			    	else {
+			    		String level = gamesPath + Agent.games[i] + "_lvl" + rnd.nextInt(5) + ".txt";
+			    		ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+					}
+				}
+			}
+			
+			outputVector = new double[Agent.games.length];
+			
+			for (int i = 0; i < allGames.length; i++) {
+				if (checkedGames.contains(allGames[i]))
+					continue;
+				String game = gamesPath + allGames[i] + ".txt";
+				currentGame = allGames[i];
+				
+				String level = gamesPath + allGames[i] + "_lvl" + rnd.nextInt(5) + ".txt";
+	        	ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+	    	}
+			
+			// save dataset to a file
+			data.save(PATH + "test_" + NAME);
+			
+			// and create a human-readable file
+			f = new File(PATH + "readable_test_" + NAME);
+			f.createNewFile();
+			br = new BufferedWriter(new FileWriter(f, false));
+			br.write(data.toCSV());
+			br.flush();
+			br.close();
+		}
     }
 	
 	public static void trainNeuralNetwork() throws IOException {
 		DataSet data = DataSet.load(PATH + NAME);
 		
-		NeuralNetwork nn = new MultiLayerPerceptron(NNHandler.FEATURE_NAMES.length, 10, games.length);
+		NeuralNetwork nn = new MultiLayerPerceptron(NNHandler.FEATURE_NAMES.length, 10, Agent.games.length);
 		IterativeLearning rule = (IterativeLearning) nn.getLearningRule();
 		rule.setMaxIterations(10000);
 		nn.learn(data);
@@ -123,14 +181,19 @@ public class NNCreator {
 	}
 	
 	public static void testNeuralNetwork() throws IOException {
-		DataSet data = DataSet.load(PATH + NAME);
-		List<DataSetRow> testSet = data.getRows().subList(0, 10);
+		DataSet data = DataSet.load(PATH + "test_" + NAME);
 		NeuralNetwork nn = NeuralNetwork.createFromFile(NNHandler.PATH + NNHandler.NAME);
-		for (DataSetRow row : testSet) {
+		int correct = 0;
+		for (DataSetRow row : data.getRows()) {
 			nn.setInput(row.getInput());
 			nn.calculate();
-			System.out.print(Utils.argmax(nn.getOutput()) + " " + Utils.argmax(row.getDesiredOutput()));
+			double[] out = nn.getOutput();
+			if (Utils.max(out) < THRESHOLD && Utils.allZero(row.getDesiredOutput()) ||
+				Utils.max(out) >= THRESHOLD && Utils.argmax(out) == Utils.argmax(row.getDesiredOutput()))
+					correct++;
+			System.out.print(Utils.max(nn.getOutput()) + " " + Utils.argmax(nn.getOutput()) + " " + Utils.argmax(row.getDesiredOutput()));
 			System.out.println();
 		}
+		System.out.println("CA: " + 100.0 * correct / data.size());
 	}
 }

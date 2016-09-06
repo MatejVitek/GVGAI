@@ -10,7 +10,9 @@ public class NNHandler {
 	public static final String PATH = "nns/";
 	public static final String NAME = "MLP.nnet";
 	public static final String[] FEATURE_NAMES = {"Use", "UpDown", "LeftRight", 
-			"InitHP", "MaxHP", "Speed", "OrientationX", "OrientationY"};
+			"InitHP", "MaxHP", "Speed", "OrientationX", "OrientationY", "Puzzle",
+			"Shooting", "Destroying", "Collecting", "Coloring", "Positioning",
+			"Pushing", "InstantWin", "Creating"};
 
 	private StateObservation so;
 	private String[] games;
@@ -55,20 +57,24 @@ public class NNHandler {
 		ArrayList<Types.ACTIONS> actions = so.getAvailableActions();
 
 		// is USE available
-		features[0] = actions.contains(ACTION_USE) ? 1.0 : -1.0;
+		features[0] = actions.contains(ACTION_USE) ? 1.0 : 0.0;
 		// are UP/DOWN available
-		features[1] = actions.contains(ACTION_UP) ? 1.0 : -1.0;
+		features[1] = actions.contains(ACTION_UP) ? 1.0 : 0.0;
 		// are LEFT/RIGHT available
-		features[2] = actions.contains(ACTION_LEFT) ? 1.0 : -1.0;
+		features[2] = actions.contains(ACTION_LEFT) ? 1.0 : 0.0;
 
 		// initial and max HP (normalized for NN)
-		features[3] = 2 * (double) so.getAvatarHealthPoints() / (double) so.getAvatarLimitHealthPoints() - 1.0;
-		features[4] = 2 * (double) so.getAvatarLimitHealthPoints() / 1000.0 - 1.0;
+		features[3] = (double) so.getAvatarHealthPoints() / (double) so.getAvatarLimitHealthPoints();
+		features[4] = (double) so.getAvatarLimitHealthPoints() / 1000.0;
 		
 		// speed, orientation (already normalized)
-		features[5] = 2 * so.getAvatarSpeed() - 1.0;
-		features[6] = 2 * so.getAvatarOrientation().x - 1.0;
-		features[7] = 2 * so.getAvatarOrientation().y - 1.0;
+		features[5] = so.getAvatarSpeed();
+		features[6] = so.getAvatarOrientation().x;
+		features[7] = so.getAvatarOrientation().y;
+		
+		// TODO: Here there should be extra features from Nejc's classifier
+		for (int i = 8; i < FEATURE_NAMES.length; i++)
+			features[i] = 0.0;
 		
 		return features;
 	}

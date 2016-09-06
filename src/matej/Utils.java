@@ -25,4 +25,17 @@ public class Utils {
 			}
 		return maxIndex;
 	}
+	
+	public static double max(double[] arr) {
+		double max = Double.NEGATIVE_INFINITY;
+		for (int i = 0; i < arr.length; i++)
+			if (arr[i] > max)
+				max = arr[i];
+		return max;
+	}
+	public static boolean allZero(double[] out) {
+		for (double d : out)
+			if (d != 0.0) return false;
+		return true;
+	}
 }
