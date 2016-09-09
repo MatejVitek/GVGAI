@@ -1,4 +1,4 @@
-package matej;
+package matej.nn;
 
 import java.io.*;
 import java.util.*;
@@ -7,6 +7,8 @@ import org.neuroph.core.data.*;
 import org.neuroph.nnet.*;
 import org.neuroph.core.learning.*;
 import core.ArcadeMachine;
+import matej.Agent;
+import matej.Utils;
 
 public class NNCreator {
 	public static final String PATH = "datasets/";

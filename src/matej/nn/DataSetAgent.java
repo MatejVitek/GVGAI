@@ -1,4 +1,4 @@
-package matej;
+package matej.nn;
 
 import java.util.HashMap;
 import org.neuroph.core.data.DataSetRow;
@@ -30,8 +30,8 @@ public class DataSetAgent extends AbstractPlayer {
 				features[i] = 1;
 	}
 	
-	private static final HashMap<String, double[]> nejc;
-	private static final double[] recall, npv;
+	public static final HashMap<String, double[]> nejc;
+	public static final double[] recall, npv;
 	static {
 		nejc = new HashMap<String, double[]>();
 		nejc.put("aliens", new double[]{0,1,1,0,0,0,0,0,0});

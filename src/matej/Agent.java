@@ -2,6 +2,8 @@ package matej;
 
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
+import matej.nn.NNHandler;
+import matej.rf.RFHandler;
 import ontology.Types;
 import tools.ElapsedCpuTimer;
 
@@ -22,8 +24,8 @@ public class Agent extends AbstractPlayer {
 	 */
 	public Agent(StateObservation so, ElapsedCpuTimer elapsedTimer) 
 	{
-		NNHandler nn = new NNHandler(so, games);
-	    String game = nn.getPrediction();
+		ClassificationHandler handler = new RFHandler(so, games);
+	    String game = handler.getPrediction();
 	    
 	    // in actual implementation all policies should be learned offline and saved via Policy.saveToFile
 	    // the following constructor call should then be replaced with policy.loadFromFile

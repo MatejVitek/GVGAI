@@ -1,25 +1,21 @@
-package matej;
+package matej.nn;
 
 import java.util.ArrayList;
 import org.neuroph.core.NeuralNetwork;
 import core.game.StateObservation;
+import matej.ClassificationHandler;
 import ontology.Types;
-import static ontology.Types.ACTIONS.*;
 
-public class NNHandler {
+import static ontology.Types.ACTIONS.*;
+import static matej.ClassificationHandler.FEATURE_NAMES;
+
+public class NNHandler extends ClassificationHandler {
+
 	public static final String PATH = "nns/";
 	public static final String NAME = "MLP.nnet";
-	public static final String[] FEATURE_NAMES = {"Use", "UpDown", "LeftRight", 
-			"InitHP", "MaxHP", "Speed", "OrientationX", "OrientationY", "Puzzle",
-			"Shooting", "Destroying", "Collecting", "Coloring", "Positioning",
-			"Pushing", "InstantWin", "Creating"};
-
-	private StateObservation so;
-	private String[] games;
-
+	
 	public NNHandler(StateObservation so, String[] games) {
-		this.so = so;
-		this.games = games;
+		super(so, games);
 	}
 
 	/**
