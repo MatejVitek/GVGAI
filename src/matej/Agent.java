@@ -25,7 +25,7 @@ public class Agent extends AbstractPlayer {
 	public Agent(StateObservation so, ElapsedCpuTimer elapsedTimer) 
 	{
 		ClassificationHandler handler = new RFHandler(so, games);
-	    String game = handler.getPrediction();
+	    String game = handler.getPrediction().game;
 	    
 	    // in actual implementation all policies should be learned offline and saved via Policy.saveToFile
 	    // the following constructor call should then be replaced with policy.loadFromFile
@@ -48,7 +48,7 @@ public class Agent extends AbstractPlayer {
 	
 	// TODO: implement policy learning and utilizing
 	private static class Policy {
-		String game;
+		private String game;
 		public Policy(String game) {
 			this.game = game;
 			learn();

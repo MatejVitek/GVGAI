@@ -11,7 +11,7 @@ import matej.Agent;
 import matej.Utils;
 
 public class NNCreator {
-	public static final String PATH = "datasets/";
+	public static final String PATH = "datasets/nn/";
 	public static final String NAME = "extra_with_errors.csv";
 	
 	//All public games
@@ -26,7 +26,7 @@ public class NNCreator {
 			"waitforbreakfast", "cakybaky", "lasers2", "hungrybirds", "cookmepasta", "factorymanager",
 			"raceBet2", "intersection", "blacksmoke", "iceandfire", "gymkhana", "tercio"};                                                       //80, 81
 	private static final String gamesPath = "examples/gridphysics/";
-	private static final String controller = "matej.DataSetAgent";
+	private static final String controller = "matej.nn.DataSetAgent";
 	private static final int N_SAMPLES = 10;
 	private static final Random rnd = new Random();
 	private static final double THRESHOLD = 0.1;
@@ -35,7 +35,7 @@ public class NNCreator {
 	public static DataSet data;
 	public static String currentGame;
 	public static double[] outputVector;
-	public static boolean simulateErrors;
+	public static boolean errors;
 	
 	public static void main(String[] args) throws IOException
     {
@@ -55,9 +55,8 @@ public class NNCreator {
 		// balance the dataset?
 		boolean balanced = false;
 		// simulate errors for extra attributes?
-		boolean errors = true;
+		errors = true;
 	
-		simulateErrors = true;
 		data = new DataSet(NNHandler.FEATURE_NAMES.length, Agent.games.length);
 		data.setColumnNames(Utils.concatenate(NNHandler.FEATURE_NAMES, Agent.games));
 		
@@ -121,7 +120,6 @@ public class NNCreator {
 		
 		// create separate test set
 		if (errors) {
-			simulateErrors = true;
 			data = new DataSet(NNHandler.FEATURE_NAMES.length, Agent.games.length);
 			data.setColumnNames(Utils.concatenate(NNHandler.FEATURE_NAMES, Agent.games));
 			
@@ -183,7 +181,13 @@ public class NNCreator {
 	}
 	
 	public static void testNeuralNetwork() throws IOException {
-		DataSet data = DataSet.load(PATH + "test_" + NAME);
+		DataSet data;
+		try {
+			data = DataSet.load(PATH + "test_" + NAME);
+		}
+		catch (org.neuroph.core.exceptions.NeurophException e) {
+			data = DataSet.load(PATH + NAME);
+		}
 		NeuralNetwork nn = NeuralNetwork.createFromFile(NNHandler.PATH + NNHandler.NAME);
 		int correct = 0;
 		for (DataSetRow row : data.getRows()) {

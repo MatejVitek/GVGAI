@@ -1,17 +1,20 @@
 package matej.nn;
 
-import java.util.HashMap;
+import java.util.*;
 import org.neuroph.core.data.DataSetRow;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
+import matej.rf.RFHandler;
 import ontology.Types.ACTIONS;
 import tools.ElapsedCpuTimer;
 
 public class DataSetAgent extends AbstractPlayer {
+	private static Random rnd = new Random();
+	
 	public DataSetAgent(StateObservation so, ElapsedCpuTimer elapsedTimer) throws Exception {
 		double[] features = NNHandler.getFeatures(so);
 		double[] extras = nejc.get(NNCreator.currentGame);
-		if (NNCreator.simulateErrors) simulateErrors(extras);
+		if (NNCreator.errors) simulateErrors(extras);
 		System.arraycopy(extras, 0, features, features.length - extras.length, extras.length);
 		DataSetRow row = new DataSetRow(features, NNCreator.outputVector);
 		NNCreator.data.addRow(row);
@@ -24,9 +27,9 @@ public class DataSetAgent extends AbstractPlayer {
 	
 	private static void simulateErrors(double[] features) {
 		for (int i = 0; i < features.length; i++)
-			if (features[i] == 1 && Math.random() < 1 - recall[i])
+			if (features[i] == 1 && rnd.nextDouble() > recall[i])
 				features[i] = 0;
-			else if (features[i] == 0 && Math.random() < 1 - npv[i])
+			else if (features[i] == 0 && rnd.nextDouble() > npv[i])
 				features[i] = 1;
 	}
 	
@@ -95,13 +98,12 @@ public class DataSetAgent extends AbstractPlayer {
 		nejc.put("gymkhana", new double[]{0,0,0,1,0,0,0,0,0});
 		nejc.put("tercio", new double[]{1,0,0,0,1,0,1,0,0});
 		
-		recall = new double[]{0.95, 0.29, 0.88, 0.67, 0.64, 0.93, 0.40, 1.0, 1.0};
-		double[] ca = {0.85, 0.83, 0.88, 0.84, 1.00, 0.95, 0.92, 1.0, 1.0};
+		recall = new double[]{0.95, 0.29, 0.95, 0.98, 0.86, 0.70, 0.87, 1.0, 1.0};
+		double[] ca = {0.85, 0.83, 0.81, 0.86, 0.82, 0.86, 0.82, 1.0, 1.0};
 		npv = new double[recall.length];
-		for (int i = 0; i < recall.length; i++) {
+		for (int i = 0; i < recall.length; i++) {		
 			double p1 = 0;
-			for (double[] features : nejc.values())
-				p1 += features[i];
+			for (double[] features : nejc.values()) p1 += features[i];
 			p1 /= nejc.size();
 			npv[i] = (ca[i] - recall[i] * p1) / (1 - p1);
 		}

@@ -16,5 +16,5 @@ public abstract class ClassificationHandler {
 		this.games = games;
 	}
 	
-	public abstract String getPrediction();
+	public abstract Prediction getPrediction();
 }

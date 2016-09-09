@@ -33,9 +33,24 @@ public class Utils {
 				max = arr[i];
 		return max;
 	}
+	
 	public static boolean allZero(double[] out) {
 		for (double d : out)
 			if (d != 0.0) return false;
 		return true;
+	}
+	
+	public static <T> T[] sample(T[] src, T[] dst, boolean replacement) {
+		if (replacement) {
+			Random rnd = new Random();
+			for (int i = 0; i < dst.length; i++)
+				dst[i] = src[rnd.nextInt(src.length)];
+			return dst;
+		}
+		else {
+			ArrayList<T> shuffledSrc = new ArrayList<T>(Arrays.asList(src));
+			Collections.shuffle(shuffledSrc);
+			return shuffledSrc.subList(0, dst.length).toArray(dst);
+		}
 	}
 }

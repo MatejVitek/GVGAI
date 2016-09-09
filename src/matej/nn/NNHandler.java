@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import org.neuroph.core.NeuralNetwork;
 import core.game.StateObservation;
 import matej.ClassificationHandler;
+import matej.Prediction;
 import ontology.Types;
 
 import static ontology.Types.ACTIONS.*;
-import static matej.ClassificationHandler.FEATURE_NAMES;
 
 public class NNHandler extends ClassificationHandler {
 
@@ -23,7 +23,7 @@ public class NNHandler extends ClassificationHandler {
 	 * 
 	 * @return Name of predicted game
 	 */
-	public String getPrediction() {
+	public Prediction getPrediction() {
 		double[] features = getFeatures(so);
 		double[] predictions = new double[games.length];
 
@@ -39,7 +39,7 @@ public class NNHandler extends ClassificationHandler {
 				maxIndex = i;
 				max = predictions[i];
 			}
-		return games[maxIndex];
+		return new Prediction(games[maxIndex], max);
 	}
 
 	/**
