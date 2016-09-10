@@ -12,7 +12,7 @@ public class ConvolutionalBackpropagation extends MomentumBackpropagation {
 
 	private static final long serialVersionUID = -7134947805154423695L;
 
-        @Override
+	@Override
 	protected void calculateErrorAndUpdateHiddenNeurons() {
 		List<Layer> layers = neuralNetwork.getLayers();
 		for (int layerIdx = layers.size() - 2; layerIdx > 0; layerIdx--) {
@@ -26,37 +26,35 @@ public class ConvolutionalBackpropagation extends MomentumBackpropagation {
 		} // for
 	}
 
-        
-        // ova mora da se overriduje jer glavna uzima izvod //  ali ova treba samo za pooling sloj 
-    @Override     
-    protected double calculateHiddenNeuronError(Neuron neuron) {
+	// ova mora da se overriduje jer glavna uzima izvod // ali ova treba samo za pooling sloj
+	@Override
+	protected double calculateHiddenNeuronError(Neuron neuron) {
 
-        // for convolutional layers use standard backprop formula
-        if (neuron.getParentLayer() instanceof ConvolutionalLayer ) {
-            return super.calculateHiddenNeuronError(neuron);
-        }
-                
-        // for pooling layer just transfer error without using tranfer function derivative
-        double deltaSum = 0d;
-        for (Connection connection : neuron.getOutConnections()) {
-            double delta = connection.getToNeuron().getError()
-                    * connection.getWeight().value;
-            deltaSum += delta; // weighted delta sum from the next layer
-        } // for
+		// for convolutional layers use standard backprop formula
+		if (neuron.getParentLayer() instanceof ConvolutionalLayer) {
+			return super.calculateHiddenNeuronError(neuron);
+		}
 
-       return deltaSum;
-    }        
-        
-//	@Override
-//	protected double calculateHiddenNeuronError(Neuron neuron) {
-//		double totalError = super.calculateHiddenNeuronError(neuron);
-//
-//        if (neuron.getParentLayer() instanceof  Layer2D) {
-//            Layer2D parentLayer = (Layer2D) neuron.getParentLayer();
-//            double weight = parentLayer.getHeight() * parentLayer.getWidth();
-//            return totalError / weight;
-//        }
-//        return totalError;
-//	}
+		// for pooling layer just transfer error without using tranfer function derivative
+		double deltaSum = 0d;
+		for (Connection connection : neuron.getOutConnections()) {
+			double delta = connection.getToNeuron().getError() * connection.getWeight().value;
+			deltaSum += delta; // weighted delta sum from the next layer
+		} // for
+
+		return deltaSum;
+	}
+
+	// @Override
+	// protected double calculateHiddenNeuronError(Neuron neuron) {
+	// double totalError = super.calculateHiddenNeuronError(neuron);
+	//
+	// if (neuron.getParentLayer() instanceof Layer2D) {
+	// Layer2D parentLayer = (Layer2D) neuron.getParentLayer();
+	// double weight = parentLayer.getHeight() * parentLayer.getWidth();
+	// return totalError / weight;
+	// }
+	// return totalError;
+	// }
 
 }

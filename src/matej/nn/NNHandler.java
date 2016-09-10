@@ -6,14 +6,13 @@ import core.game.StateObservation;
 import matej.ClassificationHandler;
 import matej.Prediction;
 import ontology.Types;
-
 import static ontology.Types.ACTIONS.*;
 
 public class NNHandler extends ClassificationHandler {
 
 	public static final String PATH = "nns/";
 	public static final String NAME = "MLP.nnet";
-	
+
 	public NNHandler(StateObservation so, String[] games) {
 		super(so, games);
 	}
@@ -23,7 +22,7 @@ public class NNHandler extends ClassificationHandler {
 	 * 
 	 * @return Name of predicted game
 	 */
-	public Prediction getPrediction() {
+	public Prediction getPrediction(long timeInMilliseconds) {
 		double[] features = getFeatures(so);
 		double[] predictions = new double[games.length];
 
@@ -45,7 +44,8 @@ public class NNHandler extends ClassificationHandler {
 	/**
 	 * Extracts features from initial state observation.
 	 * 
-	 * @param stateObs Observation of the initial state
+	 * @param stateObs
+	 *            Observation of the initial state
 	 * @return A vector of features in the correct order for input to NN
 	 */
 	public static double[] getFeatures(StateObservation so) {
@@ -62,16 +62,16 @@ public class NNHandler extends ClassificationHandler {
 		// initial and max HP (normalized for NN)
 		features[3] = (double) so.getAvatarHealthPoints() / (double) so.getAvatarLimitHealthPoints();
 		features[4] = (double) so.getAvatarLimitHealthPoints() / 1000.0;
-		
+
 		// speed, orientation (already normalized)
 		features[5] = so.getAvatarSpeed();
 		features[6] = so.getAvatarOrientation().x;
 		features[7] = so.getAvatarOrientation().y;
-		
+
 		// TODO: Here there should be extra features from Nejc's classifier
 		for (int i = 8; i < FEATURE_NAMES.length; i++)
 			features[i] = 0.0;
-		
+
 		return features;
 	}
 }

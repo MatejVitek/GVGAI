@@ -1,17 +1,7 @@
 /**
- * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You
+ * may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
 package org.neuroph.nnet;
@@ -29,14 +19,15 @@ import org.neuroph.util.TransferFunctionType;
 
 /**
  * Bidirectional Associative Memory
+ * 
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class BAM extends NeuralNetwork {
+
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Creates an instance of BAM network with specified number of neurons
-         * in input and output layers.
+	 * Creates an instance of BAM network with specified number of neurons in input and output layers.
 	 * 
 	 * @param inputNeuronsCount
 	 *            number of neurons in input layer
@@ -54,8 +45,8 @@ public class BAM extends NeuralNetwork {
 		neuronProperties.setProperty("transferFunction.yLow", new Double(0));
 
 		this.createNetwork(inputNeuronsCount, outputNeuronsCount, neuronProperties);
-	}	
-	
+	}
+
 	/**
 	 * Creates BAM network architecture
 	 * 
@@ -66,9 +57,9 @@ public class BAM extends NeuralNetwork {
 	 * @param neuronProperties
 	 *            neuron properties
 	 */
-	private void createNetwork(int inputNeuronsCount, int outputNeuronsCount,  NeuronProperties neuronProperties) {
+	private void createNetwork(int inputNeuronsCount, int outputNeuronsCount, NeuronProperties neuronProperties) {
 
-                // set network type
+		// set network type
 		this.setNetworkType(NeuralNetworkType.BAM);
 
 		// create input layer
@@ -77,19 +68,19 @@ public class BAM extends NeuralNetwork {
 		this.addLayer(inputLayer);
 
 		// create output layer
-		Layer outputLayer = LayerFactory.createLayer(outputNeuronsCount, neuronProperties);	
+		Layer outputLayer = LayerFactory.createLayer(outputNeuronsCount, neuronProperties);
 		// add output layer to network
 		this.addLayer(outputLayer);
-		
-		// create full connectivity from in to out layer	
-		ConnectionFactory.fullConnect(inputLayer, outputLayer);		
+
+		// create full connectivity from in to out layer
+		ConnectionFactory.fullConnect(inputLayer, outputLayer);
 		// create full connectivity from out to in layer
 		ConnectionFactory.fullConnect(outputLayer, inputLayer);
-				
+
 		// set input and output cells for this network
 		NeuralNetworkFactory.setDefaultIO(this);
 
 		// set Hebbian learning rule for this network
-		this.setLearningRule(new BinaryHebbianLearning());			
-	}		
+		this.setLearningRule(new BinaryHebbianLearning());
+	}
 }

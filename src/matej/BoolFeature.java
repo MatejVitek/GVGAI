@@ -1,7 +1,13 @@
 package matej;
 
 public class BoolFeature extends Feature<Boolean> {
-	public BoolFeature(boolean value) {
-		super(value);
+
+	public BoolFeature(String name, boolean value) {
+		super(name, value);
+	}
+
+	@Override
+	public boolean test(Boolean value) {
+		return this.value;
 	}
 }

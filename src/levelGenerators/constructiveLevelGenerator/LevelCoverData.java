@@ -1,11 +1,12 @@
 package levelGenerators.constructiveLevelGenerator;
 
-
 /**
  * Class contains information about the cover areas of the level
+ * 
  * @author AhmedKhalifa
  */
 public class LevelCoverData {
+
 	/**
 	 * the percentage of the covered level
 	 */

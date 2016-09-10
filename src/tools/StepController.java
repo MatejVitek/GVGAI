@@ -1,14 +1,13 @@
 package tools;
 
 import java.util.ArrayList;
-
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import ontology.Types;
 import ontology.Types.ACTIONS;
 
-public class StepController{
-	
+public class StepController {
+
 	/**
 	 * the selected agent to play the game
 	 */
@@ -25,27 +24,33 @@ public class StepController{
 	 * the length of the time step used by the agent
 	 */
 	private long stepTime;
-	
+
 	/**
 	 * Initialize the Step Agent
-	 * @param agent		agent used to play the game
-	 * @param stepTime	amount of time spend for each step
+	 * 
+	 * @param agent
+	 *            agent used to play the game
+	 * @param stepTime
+	 *            amount of time spend for each step
 	 */
-	public StepController(AbstractPlayer agent, long stepTime){
+	public StepController(AbstractPlayer agent, long stepTime) {
 		this.stepTime = stepTime;
 		this.agent = agent;
 	}
-	
+
 	/**
 	 * play the current game for a specific amount of time using the initialized player
-	 * @param stateObs		starting observation object
-	 * @param elapsedTimer	amount of time that can be spent in this function
+	 * 
+	 * @param stateObs
+	 *            starting observation object
+	 * @param elapsedTimer
+	 *            amount of time that can be spent in this function
 	 */
 	public void playGame(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
 		solution = new ArrayList<Types.ACTIONS>();
 		finalState = stateObs;
-		
-		while(elapsedTimer.remainingTimeMillis() > stepTime && !finalState.isGameOver()){
+
+		while (elapsedTimer.remainingTimeMillis() > stepTime && !finalState.isGameOver()) {
 			ElapsedCpuTimer timer = new ElapsedCpuTimer();
 			timer.setMaxTimeMillis(stepTime);
 			Types.ACTIONS action = agent.act(finalState.copy(), timer);
@@ -56,7 +61,8 @@ public class StepController{
 
 	/**
 	 * get list of action used during playing the game
-	 * @return	list of actions used during playing
+	 * 
+	 * @return list of actions used during playing
 	 */
 	public ArrayList<ACTIONS> getSolution() {
 		return solution;
@@ -64,7 +70,8 @@ public class StepController{
 
 	/**
 	 * called after playing a game and return the final game state reached
-	 * @return	game state after playing the game
+	 * 
+	 * @return game state after playing the game
 	 */
 	public StateObservation getFinalState() {
 		return finalState;

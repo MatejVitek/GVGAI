@@ -2,22 +2,23 @@ package org.neuroph.core.exceptions;
 
 /**
  * Base exception type for Neuroph.
+ * 
  * @author jheaton
  */
 public class NeurophException extends RuntimeException {
+
 	/**
 	 * The version ID.
 	 */
 	private static final long serialVersionUID = 0L;
 
-	
 	/**
 	 * Default constructor.
 	 */
 	public NeurophException() {
-		
+
 	}
-	
+
 	/**
 	 * Construct a message exception.
 	 * 
@@ -37,7 +38,7 @@ public class NeurophException extends RuntimeException {
 	public NeurophException(final Throwable t) {
 		super(t);
 	}
-	
+
 	/**
 	 * Construct an exception that holds another exception.
 	 * 

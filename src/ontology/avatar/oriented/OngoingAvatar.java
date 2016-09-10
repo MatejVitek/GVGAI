@@ -1,7 +1,6 @@
 package ontology.avatar.oriented;
 
 import java.awt.Dimension;
-
 import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
@@ -11,91 +10,82 @@ import tools.Utils;
 import tools.Vector2d;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Diego
- * Date: 21/10/13
- * Time: 17:35
- * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
+ * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 17:35 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class OngoingAvatar extends OrientedAvatar
-{
-    public OngoingAvatar(){}
+public class OngoingAvatar extends OrientedAvatar {
 
-    public OngoingAvatar(Vector2d position, Dimension size, SpriteContent cnt)
-    {
-        //Init the sprite
-        this.init(position, size);
+	public OngoingAvatar() {}
 
-        //Specific class default parameter values.
-        loadDefaults();
+	public OngoingAvatar(Vector2d position, Dimension size, SpriteContent cnt) {
+		// Init the sprite
+		this.init(position, size);
 
-        //Parse the arguments.
-        this.parseParameters(cnt);
-    }
+		// Specific class default parameter values.
+		loadDefaults();
 
-    protected void loadDefaults()
-    {
-        super.loadDefaults();
-        speed = 1;
-        is_oriented = true;
-    }
+		// Parse the arguments.
+		this.parseParameters(cnt);
+	}
 
-    /**
-     * This update call is for the game tick() loop.
-     * @param game current state of the game.
-     */
-    public void update(Game game)
-    {
-        lastMovementType = Types.MOVEMENT.MOVE;
+	protected void loadDefaults() {
+		super.loadDefaults();
+		speed = 1;
+		is_oriented = true;
+	}
 
-        //Get the input from the player.
-        requestPlayerInput(game);
+	/**
+	 * This update call is for the game tick() loop.
+	 * 
+	 * @param game
+	 *            current state of the game.
+	 */
+	public void update(Game game) {
+		lastMovementType = Types.MOVEMENT.MOVE;
 
-        //Map from the action mask to a Vector2D action.
-        Direction action2D = Utils.processMovementActionKeys(getKeyHandler().getMask(), getPlayerID());
+		// Get the input from the player.
+		requestPlayerInput(game);
 
-        //Update the orientation for this cycle's movement,
-        // but only if there was a direction indicated.
-        if(!(action2D.equals(Types.DNONE)))
-            this._updateOrientation(action2D);
+		// Map from the action mask to a Vector2D action.
+		Direction action2D = Utils.processMovementActionKeys(getKeyHandler().getMask(), getPlayerID());
 
-        //Update movement.
-        super.updatePassive();
-    }
+		// Update the orientation for this cycle's movement,
+		// but only if there was a direction indicated.
+		if (!(action2D.equals(Types.DNONE))) this._updateOrientation(action2D);
 
+		// Update movement.
+		super.updatePassive();
+	}
 
-    /**
-     * This move call is for the Forward Model tick() loop.
-     * @param game current state of the game.
-     * @param actionMask action to apply.
-     */
-    public void move(Game game, boolean[] actionMask)
-    {
-        lastMovementType = Types.MOVEMENT.MOVE;
+	/**
+	 * This move call is for the Forward Model tick() loop.
+	 * 
+	 * @param game
+	 *            current state of the game.
+	 * @param actionMask
+	 *            action to apply.
+	 */
+	public void move(Game game, boolean[] actionMask) {
+		lastMovementType = Types.MOVEMENT.MOVE;
 
-        //Map from the action mask to a Vector2D action.
-        Direction action2D = Utils.processMovementActionKeys(actionMask, getPlayerID());
+		// Map from the action mask to a Vector2D action.
+		Direction action2D = Utils.processMovementActionKeys(actionMask, getPlayerID());
 
-        //Update the orientation for this cycle's movement,
-        // but only if there was a direction indicated.
-        if(!(action2D.equals(Types.DNONE)))
-            this._updateOrientation(action2D);
+		// Update the orientation for this cycle's movement,
+		// but only if there was a direction indicated.
+		if (!(action2D.equals(Types.DNONE))) this._updateOrientation(action2D);
 
-        //Update movement.
-        super.updatePassive();
-    }
+		// Update movement.
+		super.updatePassive();
+	}
 
+	public VGDLSprite copy() {
+		OngoingAvatar newSprite = new OngoingAvatar();
+		this.copyTo(newSprite);
+		return newSprite;
+	}
 
-    public VGDLSprite copy()
-    {
-        OngoingAvatar newSprite = new OngoingAvatar();
-        this.copyTo(newSprite);
-        return newSprite;
-    }
-
-    public void copyTo(VGDLSprite target)
-    {
-        OngoingAvatar targetSprite = (OngoingAvatar) target;
-        super.copyTo(targetSprite);
-    }
+	public void copyTo(VGDLSprite target) {
+		OngoingAvatar targetSprite = (OngoingAvatar) target;
+		super.copyTo(targetSprite);
+	}
 }

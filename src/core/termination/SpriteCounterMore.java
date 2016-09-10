@@ -3,50 +3,43 @@ package core.termination;
 import core.VGDLRegistry;
 import core.content.TerminationContent;
 import core.game.Game;
-
 import java.util.ArrayList;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Diego
- * Date: 22/10/13
- * Time: 18:52
- * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
+ * Created with IntelliJ IDEA. User: Diego Date: 22/10/13 Time: 18:52 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class SpriteCounterMore extends Termination
-{
-    public String stype;
-    public int itype;
+public class SpriteCounterMore extends Termination {
 
-    public SpriteCounterMore(){}
+	public String stype;
+	public int itype;
 
-    public SpriteCounterMore(TerminationContent cnt)
-    {
-        //Parse the arguments.
-        this.parseParameters(cnt);
-        itype = VGDLRegistry.GetInstance().getRegisteredSpriteValue(stype);
-    }
+	public SpriteCounterMore() {}
 
-    @Override
-    public boolean isDone(Game game) {
+	public SpriteCounterMore(TerminationContent cnt) {
+		// Parse the arguments.
+		this.parseParameters(cnt);
+		itype = VGDLRegistry.GetInstance().getRegisteredSpriteValue(stype);
+	}
 
-        boolean ended = super.isFinished(game);
-        if(ended)
-            return true;
+	@Override
+	public boolean isDone(Game game) {
 
-        if(game.getNumSprites(itype) - game.getNumDisabledSprites(itype) >= limit && canEnd) {
-            countScore(game);
-            return true;
-        }
+		boolean ended = super.isFinished(game);
+		if (ended) return true;
 
-        return false;
-    }
+		if (game.getNumSprites(itype) - game.getNumDisabledSprites(itype) >= limit && canEnd) {
+			countScore(game);
+			return true;
+		}
+
+		return false;
+	}
 
 	@Override
 	public ArrayList<String> getTerminationSprites() {
 		ArrayList<String> result = new ArrayList<String>();
 		result.add(stype);
-		
+
 		return result;
 	}
 

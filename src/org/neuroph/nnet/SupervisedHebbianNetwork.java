@@ -1,17 +1,7 @@
 /**
- * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You
+ * may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
 package org.neuroph.nnet;
@@ -27,22 +17,19 @@ import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
 /**
- * Hebbian neural network with supervised Hebbian learning algorithm.
- * In order to work this network needs aditional bias neuron in input layer which is allways 1 in training set!
+ * Hebbian neural network with supervised Hebbian learning algorithm. In order to work this network needs aditional bias neuron in input layer which is allways 1 in training set!
  * 
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class SupervisedHebbianNetwork extends NeuralNetwork {
 
 	/**
-	 * The class fingerprint that is set to indicate serialization
-	 * compatibility with a previous version of the class.
+	 * The class fingerprint that is set to indicate serialization compatibility with a previous version of the class.
 	 */
 	private static final long serialVersionUID = 2L;
 
 	/**
-	 * Creates an instance of Supervised Hebbian Network net with specified 
-	 * number neurons in input and output layer
+	 * Creates an instance of Supervised Hebbian Network net with specified number neurons in input and output layer
 	 * 
 	 * @param inputNeuronsNum
 	 *            number of neurons in input layer
@@ -50,13 +37,11 @@ public class SupervisedHebbianNetwork extends NeuralNetwork {
 	 *            number of neurons in output layer
 	 */
 	public SupervisedHebbianNetwork(int inputNeuronsNum, int outputNeuronsNum) {
-		this.createNetwork(inputNeuronsNum, outputNeuronsNum,
-			TransferFunctionType.RAMP);
+		this.createNetwork(inputNeuronsNum, outputNeuronsNum, TransferFunctionType.RAMP);
 	}
 
 	/**
-	 * Creates an instance of Supervised Hebbian Network  with specified number
-	 * of neurons in input layer and output layer, and transfer function
+	 * Creates an instance of Supervised Hebbian Network with specified number of neurons in input layer and output layer, and transfer function
 	 * 
 	 * @param inputNeuronsNum
 	 *            number of neurons in input layer
@@ -65,15 +50,12 @@ public class SupervisedHebbianNetwork extends NeuralNetwork {
 	 * @param transferFunctionType
 	 *            transfer function type id
 	 */
-	public SupervisedHebbianNetwork(int inputNeuronsNum, int outputNeuronsNum,
-		TransferFunctionType transferFunctionType) {
-		this.createNetwork(inputNeuronsNum, outputNeuronsNum,
-			transferFunctionType);
+	public SupervisedHebbianNetwork(int inputNeuronsNum, int outputNeuronsNum, TransferFunctionType transferFunctionType) {
+		this.createNetwork(inputNeuronsNum, outputNeuronsNum, transferFunctionType);
 	}
 
 	/**
-	 *Creates an instance of Supervised Hebbian Network with specified number
-	 * of neurons in input layer, output layer and transfer function
+	 * Creates an instance of Supervised Hebbian Network with specified number of neurons in input layer, output layer and transfer function
 	 * 
 	 * @param inputNeuronsNum
 	 *            number of neurons in input layer
@@ -82,29 +64,26 @@ public class SupervisedHebbianNetwork extends NeuralNetwork {
 	 * @param transferFunctionType
 	 *            transfer function type
 	 */
-	private void createNetwork(int inputNeuronsNum, int outputNeuronsNum,
-		TransferFunctionType transferFunctionType) {
+	private void createNetwork(int inputNeuronsNum, int outputNeuronsNum, TransferFunctionType transferFunctionType) {
 
 		// init neuron properties
 		NeuronProperties neuronProperties = new NeuronProperties();
 		neuronProperties.setProperty("transferFunction", transferFunctionType);
 		neuronProperties.setProperty("transferFunction.slope", new Double(1));
 		neuronProperties.setProperty("transferFunction.yHigh", new Double(1));
-		neuronProperties.setProperty("transferFunction.xHigh", new Double(1));		
+		neuronProperties.setProperty("transferFunction.xHigh", new Double(1));
 		neuronProperties.setProperty("transferFunction.yLow", new Double(-1));
 		neuronProperties.setProperty("transferFunction.xLow", new Double(-1));
-		
+
 		// set network type code
 		this.setNetworkType(NeuralNetworkType.SUPERVISED_HEBBIAN_NET);
 
 		// createLayer input layer
-		Layer inputLayer = LayerFactory.createLayer(inputNeuronsNum,
-			neuronProperties);
+		Layer inputLayer = LayerFactory.createLayer(inputNeuronsNum, neuronProperties);
 		this.addLayer(inputLayer);
 
 		// createLayer output layer
-		Layer outputLayer = LayerFactory.createLayer(outputNeuronsNum,
-			neuronProperties);
+		Layer outputLayer = LayerFactory.createLayer(outputNeuronsNum, neuronProperties);
 		this.addLayer(outputLayer);
 
 		// createLayer full conectivity between input and output layer

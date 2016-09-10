@@ -1,50 +1,41 @@
 package ontology.sprites.npc;
 
 import java.awt.Dimension;
-
 import core.VGDLSprite;
 import core.content.SpriteContent;
 import tools.Vector2d;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Diego
- * Date: 21/10/13
- * Time: 18:33
- * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
+ * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 18:33 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
  */
-public class Fleeing extends Chaser
-{
-    public Fleeing(){}
+public class Fleeing extends Chaser {
 
-    public Fleeing(Vector2d position, Dimension size, SpriteContent cnt)
-    {
-        //Init the sprite
-        this.init(position, size);
+	public Fleeing() {}
 
-        //Specific class default parameter values.
-        loadDefaults();
+	public Fleeing(Vector2d position, Dimension size, SpriteContent cnt) {
+		// Init the sprite
+		this.init(position, size);
 
-        //Parse the arguments.
-        this.parseParameters(cnt);
-    }
+		// Specific class default parameter values.
+		loadDefaults();
 
-    protected void loadDefaults()
-    {
-        super.loadDefaults();
-        fleeing = true;
-    }
+		// Parse the arguments.
+		this.parseParameters(cnt);
+	}
 
-    public VGDLSprite copy()
-    {
-        Fleeing newSprite = new Fleeing();
-        this.copyTo(newSprite);
-        return newSprite;
-    }
+	protected void loadDefaults() {
+		super.loadDefaults();
+		fleeing = true;
+	}
 
-    public void copyTo(VGDLSprite target)
-    {
-        Fleeing targetSprite = (Fleeing) target;
-        super.copyTo(targetSprite);
-    }
+	public VGDLSprite copy() {
+		Fleeing newSprite = new Fleeing();
+		this.copyTo(newSprite);
+		return newSprite;
+	}
+
+	public void copyTo(VGDLSprite target) {
+		Fleeing targetSprite = (Fleeing) target;
+		super.copyTo(targetSprite);
+	}
 }

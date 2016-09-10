@@ -1,7 +1,6 @@
 package levelGenerators.geneticLevelGenerator;
 
 import java.util.Random;
-
 import core.game.GameDescription;
 import tools.GameAnalyzer;
 
@@ -39,7 +38,7 @@ public class SharedData {
 	 * very small value
 	 */
 	public static final double EIPSLON = 1e-6;
-	
+
 	/**
 	 * the amount of mutations done on a chromosome to start as random
 	 */
@@ -56,7 +55,7 @@ public class SharedData {
 	 * the amount of times the mutation has to be done on a single chromosome
 	 */
 	public static final int MUTATION_AMOUNT = 1;
-	
+
 	/**
 	 * used for calculating the minimum required score for the generated level
 	 */
@@ -64,7 +63,7 @@ public class SharedData {
 	/**
 	 * a fitness value given if the player ends in draw (not winning neither losing)
 	 */
-	public static final double DRAW_FITNESS  = 0;
+	public static final double DRAW_FITNESS = 0;
 	/**
 	 * minimum level size
 	 */
@@ -97,7 +96,7 @@ public class SharedData {
 	 * starting the GA with seeds from the constructive algorithm
 	 */
 	public static final boolean CONSTRUCTIVE_INITIALIZATION = true;
-	
+
 	/**
 	 * The name of a the best agent with some human error
 	 */
@@ -110,7 +109,7 @@ public class SharedData {
 	 * The name of the do nothing agent
 	 */
 	public static final String DO_NOTHING_AGENT_NAME = "controllers.singlePlayer.doNothing.Agent";
-	
+
 	/**
 	 * The game description object
 	 */
@@ -127,5 +126,5 @@ public class SharedData {
 	 * constructive level generator to help in speeding up the level generation process
 	 */
 	public static levelGenerators.constructiveLevelGenerator.LevelGenerator constructiveGen;
-	
+
 }

@@ -3,4 +3,3 @@
  */
 
 package org.neuroph.core.transfer;
-

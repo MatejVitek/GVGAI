@@ -1,17 +1,7 @@
 /**
- * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You
+ * may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
 package org.neuroph.core.transfer;
@@ -25,31 +15,30 @@ import java.io.Serializable;
  * @see org.neuroph.core.Neuron
  */
 abstract public class TransferFunction implements Serializable {
-	
+
 	/**
-	 * The class fingerprint that is set to indicate serialization
-	 * compatibility with a previous version of the class.
-	 */		
+	 * The class fingerprint that is set to indicate serialization compatibility with a previous version of the class.
+	 */
 	private static final long serialVersionUID = 1L;
-        
-        /**
-         * Output result
-         */
-        protected double output; // cached output value to avoid double calculation for derivative
+
+	/**
+	 * Output result
+	 */
+	protected double output; // cached output value to avoid double calculation for derivative
 
 	/**
 	 * Returns the ouput of this function.
 	 * 
 	 * @param totalInput
-	 *            total input 
+	 *            total input
 	 */
 	abstract public double getOutput(double totalInput);
 
 	/**
-	 * Returns the first derivative of this function.
-	 * Note: should this method should be abstract?
+	 * Returns the first derivative of this function. Note: should this method should be abstract?
+	 * 
 	 * @param totalInput
-	 *            total  input
+	 *            total input
 	 */
 	public double getDerivative(double totalInput) {
 		return 1d;

@@ -1,17 +1,7 @@
 /**
- * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You
+ * may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
 package org.neuroph.nnet;
@@ -42,11 +32,10 @@ import org.neuroph.util.TransferFunctionType;
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class NeuroFuzzyPerceptron extends NeuralNetwork {
-	
+
 	/**
-	 * The class fingerprint that is set to indicate serialization
-	 * compatibility with a previous version of the class.
-	 */	
+	 * The class fingerprint that is set to indicate serialization compatibility with a previous version of the class.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	public NeuroFuzzyPerceptron(double[][] pointsSets, double[][] timeSets) {
@@ -62,8 +51,7 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 	}
 
 	// build example network for student classification
-	private void createStudentNFR(int inputNum, List<Integer> inputSets, int outNum,
-			double[][] pointsSets, double[][] timeSets) {
+	private void createStudentNFR(int inputNum, List<Integer> inputSets, int outNum, double[][] pointsSets, double[][] timeSets) {
 
 		// set network type
 		this.setNetworkType(NeuralNetworkType.NEURO_FUZZY_REASONER);
@@ -74,27 +62,25 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 		this.addLayer(inLayer);
 
 		// createLayer fuzzy set layer
-		neuronProperties.setProperty("transferFunction",
-				TransferFunctionType.TRAPEZOID);
+		neuronProperties.setProperty("transferFunction", TransferFunctionType.TRAPEZOID);
 		Iterator<Integer> e = inputSets.iterator();
 		int fuzzySetsNum = 0;
 		while (e.hasNext()) {
 			Integer i = e.next();
 			fuzzySetsNum = fuzzySetsNum + i.intValue();
 		}
-		Layer setLayer = LayerFactory.createLayer(fuzzySetsNum,
-				neuronProperties);
+		Layer setLayer = LayerFactory.createLayer(fuzzySetsNum, neuronProperties);
 		this.addLayer(setLayer);
 
 		// TODO: postavi parametre funkcija pripadnosti
 		// nizove sa trning elementima iznesi van klase i prosledjuj ih kao
 		// parametre
-//		Iterator<Neuron> ii = setLayer.getNeuronsIterator();
+		// Iterator<Neuron> ii = setLayer.getNeuronsIterator();
 		Iterator<Integer> en;// =setLayer.neurons();
 		int c = 0;
-                for(Neuron cell : setLayer.getNeurons()) {
-//		while (ii.hasNext()) {
-//			Neuron cell = ii.next();
+		for (Neuron cell : setLayer.getNeurons()) {
+			// while (ii.hasNext()) {
+			// Neuron cell = ii.next();
 			Trapezoid tf = (Trapezoid) cell.getTransferFunction();
 
 			if (c <= 3) {
@@ -102,7 +88,8 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 				tf.setLeftHigh(pointsSets[c][1]);
 				tf.setRightLow(pointsSets[c][3]);
 				tf.setRightHigh(pointsSets[c][2]);
-			} else {
+			}
+			else {
 				tf.setLeftLow(timeSets[c - 4][0]);
 				tf.setLeftHigh(timeSets[c - 4][1]);
 				tf.setRightLow(timeSets[c - 4][3]);
@@ -126,18 +113,14 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 		// ----------------------------------------------------------
 
 		// createLayer rules layer
-		NeuronProperties ruleNeuronProperties = new NeuronProperties(
-                        Neuron.class,
-                        WeightedSum.class,
-                        Linear.class);
+		NeuronProperties ruleNeuronProperties = new NeuronProperties(Neuron.class, WeightedSum.class, Linear.class);
 		en = inputSets.iterator();
 		int fuzzyAntNum = 1;
 		while (en.hasNext()) {
 			Integer i = en.next();
 			fuzzyAntNum = fuzzyAntNum * i.intValue();
 		}
-		Layer ruleLayer = LayerFactory.createLayer(fuzzyAntNum,
-				ruleNeuronProperties);
+		Layer ruleLayer = LayerFactory.createLayer(fuzzyAntNum, ruleNeuronProperties);
 		this.addLayer(ruleLayer);
 
 		int scIdx = 0; // set cell index
@@ -176,8 +159,7 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 
 		// kreiraj izlazni sloj
 		neuronProperties = new NeuronProperties();
-		neuronProperties.setProperty("transferFunction",
-				TransferFunctionType.STEP);
+		neuronProperties.setProperty("transferFunction", TransferFunctionType.STEP);
 		Layer outLayer = LayerFactory.createLayer(outNum, neuronProperties);
 		this.addLayer(outLayer);
 
@@ -210,8 +192,7 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 		this.addLayer(inLayer);
 
 		// CREATE FUZZY SET LAYER
-		neuronProperties.setProperty("transferFunction",
-				TransferFunctionType.TRAPEZOID);
+		neuronProperties.setProperty("transferFunction", TransferFunctionType.TRAPEZOID);
 		Enumeration<Integer> e = inputSets.elements();
 		int fuzzySetsNum = 0;
 		while (e.hasMoreElements()) {
@@ -224,19 +205,16 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 		// TODO: postavi parametre funkcija pripadnosti
 		// nizove sa trning elementima iznesi van klase i prosledjuj ih kao
 		// parametre
-//		Iterator<Neuron> ii = setLayer.getNeuronsIterator();
+		// Iterator<Neuron> ii = setLayer.getNeuronsIterator();
 		Enumeration<Integer> en;// =setLayer.neurons();
 		int c = 0;
-                for(Neuron cell : setLayer.getNeurons()) {                
-//		while (ii.hasNext()) {
-//			Neuron cell = ii.next();
+		for (Neuron cell : setLayer.getNeurons()) {
+			// while (ii.hasNext()) {
+			// Neuron cell = ii.next();
 			Trapezoid tf = (Trapezoid) cell.getTransferFunction();
 			/*
-			 * if (c<=3) { tf.setLeftLow(pointsSets[c][0]);
-			 * tf.setLeftHigh(pointsSets[c][1]); tf.setRightLow(pointsSets[c][3]);
-			 * tf.setRightHigh(pointsSets[c][2]); } else { tf.setLeftLow(timeSets[c-4][0]);
-			 * tf.setLeftHigh(timeSets[c-4][1]); tf.setRightLow(timeSets[c-4][3]);
-			 * tf.setRightHigh(timeSets[c-4][2]); } c++;
+			 * if (c<=3) { tf.setLeftLow(pointsSets[c][0]); tf.setLeftHigh(pointsSets[c][1]); tf.setRightLow(pointsSets[c][3]); tf.setRightHigh(pointsSets[c][2]); } else {
+			 * tf.setLeftLow(timeSets[c-4][0]); tf.setLeftHigh(timeSets[c-4][1]); tf.setRightLow(timeSets[c-4][3]); tf.setRightHigh(timeSets[c-4][2]); } c++;
 			 */
 		}
 
@@ -256,8 +234,7 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 
 		// kreiraj sloj pravila
 		neuronProperties.setProperty("inputFunction", Min.class);
-		neuronProperties.setProperty("transferFunction",
-				Linear.class);
+		neuronProperties.setProperty("transferFunction", Linear.class);
 		en = inputSets.elements();
 		int fuzzyAntNum = 1;
 		while (en.hasMoreElements()) {

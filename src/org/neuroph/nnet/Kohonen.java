@@ -1,17 +1,7 @@
 /**
- * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright 2010 Neuroph Project http://neuroph.sourceforge.net Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You
+ * may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
 package org.neuroph.nnet;
@@ -30,16 +20,14 @@ import org.neuroph.util.*;
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Kohonen extends NeuralNetwork {
-	
+
 	/**
-	 * The class fingerprint that is set to indicate serialization
-	 * compatibility with a previous version of the class.
-	 */	
+	 * The class fingerprint that is set to indicate serialization compatibility with a previous version of the class.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Creates new Kohonen network with specified number of neurons in input and
-	 * map layer
+	 * Creates new Kohonen network with specified number of neurons in input and map layer
 	 * 
 	 * @param inputNeuronsCount
 	 *            number of neurons in input layer
@@ -51,8 +39,7 @@ public class Kohonen extends NeuralNetwork {
 	}
 
 	/**
-	 * Creates Kohonen network architecture with specified number of neurons in
-	 * input and map layer
+	 * Creates Kohonen network architecture with specified number of neurons in input and map layer
 	 * 
 	 * @param inputNeuronsCount
 	 *            number of neurons in input layer
@@ -66,22 +53,19 @@ public class Kohonen extends NeuralNetwork {
 		NeuronProperties inputNeuronProperties = new NeuronProperties();
 
 		// specify map neuron properties
-		NeuronProperties outputNeuronProperties = new NeuronProperties(
-                                            Neuron.class,        // neuron type
-                                            Difference.class,   // input function
-                                            Linear.class       // transfer function
-                                                    );
+		NeuronProperties outputNeuronProperties = new NeuronProperties(Neuron.class, // neuron type
+				Difference.class, // input function
+				Linear.class // transfer function
+		);
 		// set network type
 		this.setNetworkType(NeuralNetworkType.KOHONEN);
 
 		// createLayer input layer
-		Layer inLayer = LayerFactory.createLayer(inputNeuronsCount,
-				inputNeuronProperties);
+		Layer inLayer = LayerFactory.createLayer(inputNeuronsCount, inputNeuronProperties);
 		this.addLayer(inLayer);
 
 		// createLayer map layer
-		Layer mapLayer = LayerFactory.createLayer(outputNeuronsCount,
-				outputNeuronProperties);
+		Layer mapLayer = LayerFactory.createLayer(outputNeuronsCount, outputNeuronProperties);
 		this.addLayer(mapLayer);
 
 		// createLayer full connectivity between input and output layer
