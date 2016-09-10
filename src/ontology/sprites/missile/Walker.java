@@ -25,18 +25,21 @@ public class Walker extends Missile {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		airsteering = false;
 		is_stochastic = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Walker newSprite = new Walker();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Walker targetSprite = (Walker) target;
 		targetSprite.airsteering = this.airsteering;

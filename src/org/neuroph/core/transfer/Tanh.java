@@ -86,7 +86,7 @@ public class Tanh extends TransferFunction implements Serializable {
 
 	@Override
 	final public double getDerivative(double net) {
-		return (1d - output * output);
+		return 1d - output * output;
 	}
 
 	/**

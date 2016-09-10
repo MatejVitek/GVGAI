@@ -6,22 +6,13 @@
 
 package org.neuroph.nnet;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import java.util.*;
+import org.neuroph.core.*;
 import org.neuroph.core.input.WeightedSum;
 import org.neuroph.core.transfer.Linear;
-import org.neuroph.nnet.comp.neuron.BiasNeuron;
-import org.neuroph.nnet.comp.neuron.InputNeuron;
-import org.neuroph.nnet.learning.BackPropagation;
-import org.neuroph.nnet.learning.MomentumBackpropagation;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.nnet.comp.neuron.*;
+import org.neuroph.nnet.learning.*;
+import org.neuroph.util.*;
 import org.neuroph.util.random.RangeRandomizer;
 
 /**
@@ -60,8 +51,8 @@ public class MultiLayerPerceptron extends NeuralNetwork<BackPropagation> {
 		neuronProperties.setProperty("inputFunction", WeightedSum.class);
 
 		List<Integer> neuronsInLayersVector = new ArrayList<>();
-		for (int i = 0; i < neuronsInLayers.length; i++) {
-			neuronsInLayersVector.add(Integer.valueOf(neuronsInLayers[i]));
+		for (int neuronsInLayer : neuronsInLayers) {
+			neuronsInLayersVector.add(Integer.valueOf(neuronsInLayer));
 		}
 
 		this.createNetwork(neuronsInLayersVector, neuronProperties);
@@ -75,8 +66,8 @@ public class MultiLayerPerceptron extends NeuralNetwork<BackPropagation> {
 		neuronProperties.setProperty("inputFunction", WeightedSum.class);
 
 		List<Integer> neuronsInLayersVector = new ArrayList<>();
-		for (int i = 0; i < neuronsInLayers.length; i++) {
-			neuronsInLayersVector.add(Integer.valueOf(neuronsInLayers[i]));
+		for (int neuronsInLayer : neuronsInLayers) {
+			neuronsInLayersVector.add(Integer.valueOf(neuronsInLayer));
 		}
 
 		this.createNetwork(neuronsInLayersVector, neuronProperties);
@@ -136,7 +127,7 @@ public class MultiLayerPerceptron extends NeuralNetwork<BackPropagation> {
 			// createLayer layer
 			layer = LayerFactory.createLayer(neuronsNum, neuronProperties);
 
-			if (useBias && (layerIdx < (neuronsInLayers.size() - 1))) {
+			if (useBias && layerIdx < neuronsInLayers.size() - 1) {
 				layer.addNeuron(new BiasNeuron());
 			}
 

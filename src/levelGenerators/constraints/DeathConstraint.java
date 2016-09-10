@@ -20,7 +20,7 @@ public class DeathConstraint extends AbstractConstraint {
 
 	/**
 	 * Check if the do nothing player staisfy the minDoNothingSteps and didn't win
-	 * 
+	 *
 	 * @return 1 if the do nothing player didn't win and statisfy the minDoNothingSteps while percentage of statisfying otherwise
 	 */
 	@Override

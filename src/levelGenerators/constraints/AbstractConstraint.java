@@ -1,14 +1,14 @@
 package levelGenerators.constraints;
 
-import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.lang.reflect.Field;
 
 public abstract class AbstractConstraint {
 
 	/**
 	 * Set the parameter of the constrains from a HashMap
-	 * 
+	 *
 	 * @param parameters hashmap of constraints parameters
 	 */
 	public void setParameters(HashMap<String, Object> parameters) {
@@ -37,7 +37,7 @@ public abstract class AbstractConstraint {
 
 	/**
 	 * Check if the current constrain is achieved or not
-	 * 
+	 *
 	 * @return Reflect how much the constrain is achieved 1: achieved 0: very bad
 	 */
 	public abstract double checkConstraint();

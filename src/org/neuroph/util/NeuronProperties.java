@@ -7,10 +7,8 @@ package org.neuroph.util;
 
 import java.util.Iterator;
 import org.neuroph.core.Neuron;
-import org.neuroph.core.input.InputFunction;
-import org.neuroph.core.input.WeightedSum;
-import org.neuroph.core.transfer.Linear;
-import org.neuroph.core.transfer.TransferFunction;
+import org.neuroph.core.input.*;
+import org.neuroph.core.transfer.*;
 
 /**
  * Represents properties of a neuron.

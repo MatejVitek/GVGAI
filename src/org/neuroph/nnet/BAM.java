@@ -6,20 +6,14 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.neuron.InputOutputNeuron;
 import org.neuroph.nnet.learning.BinaryHebbianLearning;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Bidirectional Associative Memory
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class BAM extends NeuralNetwork {
@@ -28,7 +22,7 @@ public class BAM extends NeuralNetwork {
 
 	/**
 	 * Creates an instance of BAM network with specified number of neurons in input and output layers.
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 */
@@ -47,7 +41,7 @@ public class BAM extends NeuralNetwork {
 
 	/**
 	 * Creates BAM network architecture
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 * @param neuronProperties neuron properties

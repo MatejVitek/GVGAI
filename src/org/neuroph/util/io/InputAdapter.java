@@ -8,14 +8,14 @@ package org.neuroph.util.io;
 
 /**
  * Interface for reading neural network inputs from various data sources. Provides methods to read from and close data source.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public interface InputAdapter {
 
 	/**
 	 * Reads input from data source and returns input for neural network as array of doubles.
-	 * 
+	 *
 	 * @return neural network input as array of doubles
 	 */
 	public double[] readInput();

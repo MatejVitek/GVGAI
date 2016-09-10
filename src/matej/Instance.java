@@ -1,8 +1,6 @@
 package matej;
 
-import static ontology.Types.ACTIONS.ACTION_LEFT;
-import static ontology.Types.ACTIONS.ACTION_UP;
-import static ontology.Types.ACTIONS.ACTION_USE;
+import static ontology.Types.ACTIONS.*;
 import java.util.*;
 import core.game.StateObservation;
 import ontology.Types;
@@ -27,7 +25,7 @@ public class Instance {
 
 		// initial and max HP (normalized for NN)
 		features.put("InitHP", new DoubleFeature("InitHP", (double) so.getAvatarHealthPoints() / (double) so.getAvatarLimitHealthPoints()));
-		features.put("MaxHP", new DoubleFeature("MaxHP", (double) so.getAvatarLimitHealthPoints() / 1000.0));
+		features.put("MaxHP", new DoubleFeature("MaxHP", so.getAvatarLimitHealthPoints() / 1000.0));
 
 		// speed, orientation (already normalized)
 		features.put("Speed", new DoubleFeature("Speed", so.getAvatarSpeed()));
@@ -46,12 +44,13 @@ public class Instance {
 		if (names.length != values.length) throw new org.neuroph.core.exceptions.VectorSizeMismatchException("Sizes of feature names and feature values do not match.");
 		features = new HashMap<String, Feature>(values.length);
 		if (values.length <= 1) {
-			output = (values.length == 1) ? values[0] : null;
+			output = values.length == 1 ? values[0] : null;
 			return;
 		}
 
 		for (int i = 0; i < values.length - 1; i++) {
-			if (values[i].equals(TRUE) || values[i].equals(FALSE)) features.put(names[i], new BoolFeature(names[i], values[i].equals(TRUE)));
+			if (values[i].equals(TRUE) || values[i].equals(FALSE))
+				features.put(names[i], new BoolFeature(names[i], values[i].equals(TRUE)));
 			else features.put(names[i], new DoubleFeature(names[i], Double.valueOf(values[i])));
 		}
 
@@ -61,7 +60,8 @@ public class Instance {
 	public String toCSV(String[] featureNameOrder, String delimiter) {
 		StringBuilder sb = new StringBuilder();
 		for (String feature : featureNameOrder) {
-			if (features.get(feature) instanceof BoolFeature) sb.append((boolean) features.get(feature).value ? TRUE : FALSE);
+			if (features.get(feature) instanceof BoolFeature)
+				sb.append((boolean) features.get(feature).value ? TRUE : FALSE);
 			else sb.append((double) features.get(feature).value);
 			sb.append(delimiter);
 		}

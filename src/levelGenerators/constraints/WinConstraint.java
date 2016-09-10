@@ -13,7 +13,7 @@ public class WinConstraint extends AbstractConstraint {
 
 	/**
 	 * check if the player win the game
-	 * 
+	 *
 	 * @return 1 if the automated player wins and 0 otherwise
 	 */
 	@Override

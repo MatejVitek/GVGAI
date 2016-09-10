@@ -6,18 +6,16 @@
 
 package org.neuroph.util;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.*;
 import org.neuroph.core.Neuron;
 import org.neuroph.core.exceptions.NeurophException;
 import org.neuroph.core.input.InputFunction;
 import org.neuroph.core.transfer.TransferFunction;
-import org.neuroph.nnet.comp.neuron.InputOutputNeuron;
-import org.neuroph.nnet.comp.neuron.ThresholdNeuron;
+import org.neuroph.nnet.comp.neuron.*;
 
 /**
  * Provides methods to create customized instances of Neuron.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class NeuronFactory {
@@ -29,7 +27,7 @@ public class NeuronFactory {
 
 	/**
 	 * Creates and returns neuron instance according to the given specification in neuronProperties.
-	 * 
+	 *
 	 * @param neuronProperties specification of neuron properties
 	 * @return returns instance of neuron with specified properties
 	 */
@@ -116,7 +114,7 @@ public class NeuronFactory {
 
 	/**
 	 * Creates and returns instance of transfer function
-	 * 
+	 *
 	 * @param tfProperties transfer function properties
 	 * @return returns transfer function
 	 */
@@ -129,11 +127,11 @@ public class NeuronFactory {
 			Class[] paramTypes = null;
 
 			Constructor[] cons = tfClass.getConstructors();
-			for (int i = 0; i < cons.length; i++) {
-				paramTypes = cons[i].getParameterTypes();
+			for (Constructor con : cons) {
+				paramTypes = con.getParameterTypes();
 
 				// use constructor with one parameter of Properties type
-				if ((paramTypes.length == 1) && (paramTypes[0] == Properties.class)) {
+				if (paramTypes.length == 1 && paramTypes[0] == Properties.class) {
 					Class[] argTypes = new Class[1];
 					argTypes[0] = Properties.class;
 					Constructor ct = tfClass.getConstructor(argTypes);

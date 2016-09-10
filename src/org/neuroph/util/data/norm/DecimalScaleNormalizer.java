@@ -5,8 +5,7 @@
  */
 package org.neuroph.util.data.norm;
 
-import org.neuroph.core.data.DataSet;
-import org.neuroph.core.data.DataSetRow;
+import org.neuroph.core.data.*;
 
 /**
  * Decimal scaling normalization method, which normalize data by moving decimal point in regard to max element in training set (by columns) Normalization is done according to formula:
@@ -37,7 +36,7 @@ public class DecimalScaleNormalizer implements Normalizer {
 
 	/**
 	 * Finds max values for all columns in dataset (inputs and outputs) Sets max column values to maxIn and maxOut fields
-	 * 
+	 *
 	 * @param dataSet
 	 */
 	private void findMaxVectors(DataSet dataSet) {

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  * This class is main benchmark driver. It holds collection of benchmarking tasks and provides benchmarking workflow.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Benchmark {
@@ -26,7 +26,7 @@ public class Benchmark {
 
 	/**
 	 * Adds specified benchmark task
-	 * 
+	 *
 	 * @param task benchmark task
 	 */
 	public void addTask(BenchmarkTask task) {
@@ -36,7 +36,7 @@ public class Benchmark {
 	/**
 	 * Runs specified benchmark tasks, the basic benchmarking workflow. Prepares benchmark, run warming up iterations, measures the execution time for specified number of benchmarking iterations, and
 	 * gets the benchmarking results
-	 * 
+	 *
 	 * @param task
 	 */
 	public static void runTask(BenchmarkTask task) {

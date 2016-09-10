@@ -6,15 +6,8 @@
 
 package org.neuroph.util.random;
 
-import java.util.List;
 import java.util.Random;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.learning.LearningRule;
-import org.neuroph.nnet.comp.layer.FeatureMapsLayer;
-import org.neuroph.nnet.comp.layer.FeatureMapLayer;
+import org.neuroph.core.*;
 
 /**
  * Basic weights randomizer, iterates and randomizes all connection weights in network.

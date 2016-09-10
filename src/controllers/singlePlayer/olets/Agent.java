@@ -1,15 +1,14 @@
 package controllers.singlePlayer.olets;
 
+import java.util.*;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import ontology.Types;
 import tools.ElapsedCpuTimer;
-import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Code written by Adrien Couetoux, acouetoux@ulg.ac.be. Date: 15/12/2015
- * 
+ *
  * @author Adrien Couëtoux
  */
 
@@ -58,6 +57,7 @@ public class Agent extends AbstractPlayer {
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
+	@Override
 	public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
 
 		// Set the state observation object as the new root of the tree.

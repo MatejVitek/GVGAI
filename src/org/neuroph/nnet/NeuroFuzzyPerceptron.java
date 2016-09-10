@@ -6,29 +6,16 @@
 
 package org.neuroph.nnet;
 
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Vector;
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.input.Min;
-import org.neuroph.core.input.WeightedSum;
-import org.neuroph.core.transfer.Linear;
-import org.neuroph.core.transfer.Trapezoid;
+import java.util.*;
+import org.neuroph.core.*;
+import org.neuroph.core.input.*;
+import org.neuroph.core.transfer.*;
 import org.neuroph.nnet.learning.LMS;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * The NeuroFuzzyReasoner class represents Neuro Fuzzy Reasoner architecture.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class NeuroFuzzyPerceptron extends NeuralNetwork {
@@ -173,7 +160,7 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 
 	/**
 	 * Creates custom NFR architecture
-	 * 
+	 *
 	 * @param inputNum number of getInputsIterator
 	 * @param inputSets input fuzzy sets
 	 * @param outNum number of outputs

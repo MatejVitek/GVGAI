@@ -1,9 +1,7 @@
 package ontology.effects.unary;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.util.*;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
 import ontology.effects.Effect;

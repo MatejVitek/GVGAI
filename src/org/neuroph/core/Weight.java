@@ -5,8 +5,7 @@
  */
 package org.neuroph.core;
 
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Neuron connection weight.
@@ -131,7 +130,7 @@ public class Weight implements java.io.Serializable, Cloneable {
 
 	/**
 	 * Returns cloned instance of this weight Important: trainingData will be lost in cloned instance
-	 * 
+	 *
 	 * @return cloned instance of this weight
 	 * @throws CloneNotSupportedException
 	 */
@@ -146,12 +145,12 @@ public class Weight implements java.io.Serializable, Cloneable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((trainingData == null) ? 0 : trainingData.hashCode());
+		result = prime * result + (trainingData == null ? 0 : trainingData.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(value);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + (int) (temp ^ temp >>> 32);
 		temp = Double.doubleToLongBits(weightChange);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + (int) (temp ^ temp >>> 32);
 		return result;
 	}
 

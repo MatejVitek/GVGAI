@@ -11,7 +11,7 @@ import org.neuroph.util.Properties;
 
 /**
  * Linear neuron transfer function.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Linear extends TransferFunction implements Serializable {
@@ -55,7 +55,7 @@ public class Linear extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns the slope parametar of this function
-	 * 
+	 *
 	 * @return slope parametar of this function
 	 */
 	public double getSlope() {
@@ -64,7 +64,7 @@ public class Linear extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets the slope parametar for this function
-	 * 
+	 *
 	 * @param slope value for the slope parametar
 	 */
 	public void setSlope(double slope) {

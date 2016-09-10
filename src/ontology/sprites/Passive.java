@@ -24,17 +24,20 @@ public class Passive extends VGDLSprite {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		color = Types.RED;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Passive newSprite = new Passive();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Passive targetSprite = (Passive) target;
 		super.copyTo(targetSprite);

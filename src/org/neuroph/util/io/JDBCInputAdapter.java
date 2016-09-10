@@ -6,17 +6,12 @@
 
 package org.neuroph.util.io;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
+import java.sql.*;
 
 /**
  * Implementation of InputAdapter interface for reading neural network inputs from database.
- * 
+ *
  * @see InputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
@@ -40,7 +35,7 @@ public class JDBCInputAdapter implements InputAdapter {
 
 	/**
 	 * Reads next row from result set and returns input for neural network as array of doubles.
-	 * 
+	 *
 	 * @return neural network input as array of doubles
 	 */
 	@Override

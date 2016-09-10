@@ -3,9 +3,7 @@ package tools;
 /**
  * Created by diego on 26/02/14.
  */
-
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadMXBean;
+import java.lang.management.*;
 
 public class ElapsedCpuTimer {
 

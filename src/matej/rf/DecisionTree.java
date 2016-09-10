@@ -1,8 +1,8 @@
 package matej.rf;
 
-import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.io.Serializable;
 import matej.*;
 import tools.Pair;
 
@@ -29,13 +29,15 @@ public class DecisionTree implements Serializable {
 	}
 
 	private Node buildNode(List<Instance> instances) {
-		if (pure(instances)) return new Leaf(instances.get(0).output);
+		if (pure(instances))
+			return new Leaf(instances.get(0).output);
 
 		else {
 			// add separate features for each possible point of splitting in continuous variables
 			List<Feature> extendedFeatures = new LinkedList<>();
 			for (Feature feature : features)
-				if (feature instanceof BoolFeature) extendedFeatures.add(feature);
+				if (feature instanceof BoolFeature)
+					extendedFeatures.add(feature);
 				else extendedFeatures.addAll(instances.parallelStream().map(x -> x.features.get(feature.name)).distinct().collect(Collectors.toList()));
 
 			// rank features in order of best split to worst
@@ -102,7 +104,7 @@ public class DecisionTree implements Serializable {
 
 		@Override
 		public String traverse(Instance inst) {
-			Node child = (inst.features.get(feature.name).test(feature.value)) ? yes : no;
+			Node child = inst.features.get(feature.name).test(feature.value) ? yes : no;
 			return child.traverse(inst);
 		}
 	}

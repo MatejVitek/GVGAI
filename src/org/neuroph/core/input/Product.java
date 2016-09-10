@@ -5,8 +5,8 @@
  */
 package org.neuroph.core.input;
 
-import java.io.Serializable;
 import java.util.List;
+import java.io.Serializable;
 import org.neuroph.core.Connection;
 
 /**

@@ -1,9 +1,8 @@
 package matej.rf;
 
-import java.io.*;
 import java.util.*;
+import java.io.*;
 import matej.*;
-import tools.ElapsedCpuTimer;
 
 public class RandomForest implements Serializable {
 
@@ -61,8 +60,10 @@ public class RandomForest implements Serializable {
 
 		for (int i = 0; i < trees.length; i++) {
 			int nFeatures;
-			if (features.length < 5) nFeatures = features.length;
-			else if (features.length < 36) nFeatures = 5;
+			if (features.length < 5)
+				nFeatures = features.length;
+			else if (features.length < 36)
+				nFeatures = 5;
 			else nFeatures = (int) Math.sqrt(features.length);
 
 			List<Feature> featureBag = Utils.sample(features, nFeatures, false);
@@ -84,7 +85,8 @@ public class RandomForest implements Serializable {
 		for (DecisionTree t : trees) {
 			if (System.currentTimeMillis() - time > timeInMilliseconds) break;
 			String prediction = t.predict(inst);
-			if (counter.containsKey(prediction)) counter.put(prediction, counter.get(prediction) + 1);
+			if (counter.containsKey(prediction))
+				counter.put(prediction, counter.get(prediction) + 1);
 			else counter.put(prediction, 1);
 		}
 

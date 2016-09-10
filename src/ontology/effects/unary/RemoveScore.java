@@ -1,13 +1,11 @@
 package ontology.effects.unary;
 
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.util.*;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
 import ontology.avatar.MovingAvatar;
 import ontology.effects.Effect;
-import java.util.Iterator;
-import java.util.Objects;
 
 public class RemoveScore extends Effect {
 

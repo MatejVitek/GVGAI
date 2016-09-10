@@ -5,9 +5,7 @@ import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created by Diego on 24/02/14.
@@ -29,15 +27,18 @@ public class RandomAltChaser extends AlternateChaser {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		epsilon = 0.0;
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 	}
 
+	@Override
 	public void update(Game game) {
 		double roll = game.getRandomGenerator().nextDouble();
 		if (roll < epsilon) {
@@ -51,12 +52,14 @@ public class RandomAltChaser extends AlternateChaser {
 		}
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		RandomAltChaser newSprite = new RandomAltChaser();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		RandomAltChaser targetSprite = (RandomAltChaser) target;
 		targetSprite.epsilon = this.epsilon;

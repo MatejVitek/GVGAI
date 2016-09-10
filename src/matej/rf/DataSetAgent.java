@@ -35,7 +35,8 @@ public class DataSetAgent extends AbstractPlayer {
 
 		for (int i = 0; i < features.length; i++) {
 			boolean value;
-			if (values[i] == 1) value = !RFHandler.errors || rnd.nextDouble() <= recall[i];
+			if (values[i] == 1)
+				value = !RFHandler.errors || rnd.nextDouble() <= recall[i];
 			else value = RFHandler.errors && rnd.nextDouble() > npv[i];
 			inst.features.put(features[i], new BoolFeature(features[i], value));
 		}

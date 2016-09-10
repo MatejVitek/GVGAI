@@ -1,10 +1,7 @@
 package tools;
 
-import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
+import java.awt.*;
 import ontology.Types;
 
 /**
@@ -36,7 +33,7 @@ public class Utils {
 
 	/**
 	 * Returns the Polygon for a triangle in the middle of the provided rect, pointing in the orientation (given as angle from upwards, or orientation vector)
-	 * 
+	 *
 	 * @param rect rectangle with the location
 	 * @param orientation orientation of the sprite.
 	 * @return a polygon (triangle) with the specified orientation.
@@ -77,7 +74,8 @@ public class Utils {
 		}
 
 		if (horizontal == 0) {
-			if (vertical == 1) return Types.DDOWN;
+			if (vertical == 1)
+				return Types.DDOWN;
 			else if (vertical == -1) return Types.DUP;
 		}
 		else if (vertical == 0) {
@@ -91,14 +89,15 @@ public class Utils {
 
 	// Normalizes a value between its MIN and MAX.
 	public static double normalise(double a_value, double a_min, double a_max) {
-		if (a_min < a_max) return (a_value - a_min) / (a_max - a_min);
+		if (a_min < a_max)
+			return (a_value - a_min) / (a_max - a_min);
 		else // if bounds are invalid, then return same value
 			return a_value;
 	}
 
 	/**
 	 * Adds a small noise to the input value.
-	 * 
+	 *
 	 * @param input value to be altered
 	 * @param epsilon relative amount the input will be altered
 	 * @param random random variable in range [0,1]

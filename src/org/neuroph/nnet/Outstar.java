@@ -6,19 +6,13 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.learning.OutstarLearning;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Outstar neural network with Outstar learning rule.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Outstar extends NeuralNetwork {
@@ -30,7 +24,7 @@ public class Outstar extends NeuralNetwork {
 
 	/**
 	 * Creates an instance of Outstar network with specified number of neurons in output layer.
-	 * 
+	 *
 	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	public Outstar(int outputNeuronsCount) {
@@ -39,7 +33,7 @@ public class Outstar extends NeuralNetwork {
 
 	/**
 	 * Creates Outstar architecture with specified number of neurons in output layer
-	 * 
+	 *
 	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	private void createNetwork(int outputNeuronsCount) {

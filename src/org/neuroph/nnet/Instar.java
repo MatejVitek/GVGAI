@@ -6,19 +6,13 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.learning.InstarLearning;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Instar neural network with Instar learning rule.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Instar extends NeuralNetwork {
@@ -30,7 +24,7 @@ public class Instar extends NeuralNetwork {
 
 	/**
 	 * Creates new Instar with specified number of input neurons.
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 */
 	public Instar(int inputNeuronsCount) {
@@ -39,7 +33,7 @@ public class Instar extends NeuralNetwork {
 
 	/**
 	 * Creates Instar architecture with specified number of input neurons
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 */
 	private void createNetwork(int inputNeuronsCount) {

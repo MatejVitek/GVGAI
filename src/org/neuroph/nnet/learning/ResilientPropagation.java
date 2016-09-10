@@ -1,15 +1,12 @@
 package org.neuroph.nnet.learning;
 
 import java.util.List;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.Weight;
+import org.neuroph.core.*;
 
 /**
  * Resilient Propagation learning rule used for Multi Layer Perceptron neural networks. Its one of the most efficent learning rules for this type of networks, and it does not require setting of
  * learning rule parameter.
- * 
+ *
  * @author Borislav Markov
  * @author Zoran Sevarac
  */
@@ -55,7 +52,7 @@ public class ResilientPropagation extends BackPropagation {
 
 	/**
 	 * Calculate and sum gradients for each neuron's weight, the actual weight update is done in batch mode
-	 * 
+	 *
 	 * @see ResilientPropagation#resillientWeightUpdate(org.neuroph.core.Weight)
 	 */
 	@Override
@@ -97,7 +94,7 @@ public class ResilientPropagation extends BackPropagation {
 
 	/**
 	 * Weight update by done by ResilientPropagation learning rule Executed at the end of epoch (in batch mode)
-	 * 
+	 *
 	 * @param weight
 	 */
 	protected void resillientWeightUpdate(Weight weight) {

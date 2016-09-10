@@ -1,7 +1,7 @@
 package matej.rf;
 
-import java.io.*;
 import java.util.*;
+import java.io.*;
 import core.ArcadeMachine;
 import core.game.StateObservation;
 import matej.*;
@@ -73,18 +73,19 @@ public class RFHandler extends ClassificationHandler {
 			writer.write(headers);
 			writer.newLine();
 
-			int bound = (errors || balanced) ? N_SAMPLES : 1;
+			int bound = errors || balanced ? N_SAMPLES : 1;
 			for (int k = 0; k < bound; k++) {
-				for (int i = 0; i < Agent.games.length; i++) {
-					String game = gamesPath + Agent.games[i] + ".txt";
-					currentGame = Agent.games[i];
+				for (String gameName : Agent.games) {
+					String game = gamesPath + gameName + ".txt";
+					currentGame = gameName;
 
-					if (levels) for (int j = 0; j <= 4; j++) {
-						String level = gamesPath + Agent.games[i] + "_lvl" + j + ".txt";
-						ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
-					}
+					if (levels)
+						for (int j = 0; j <= 4; j++) {
+							String level = gamesPath + gameName + "_lvl" + j + ".txt";
+							ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+						}
 					else {
-						String level = gamesPath + Agent.games[i] + "_lvl" + rnd.nextInt(5) + ".txt";
+						String level = gamesPath + gameName + "_lvl" + rnd.nextInt(5) + ".txt";
 						ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
 					}
 				}
@@ -100,10 +101,11 @@ public class RFHandler extends ClassificationHandler {
 				String game = gamesPath + allGames[i] + ".txt";
 				currentGame = allGames[i];
 
-				if (levels || (errors && !balanced)) for (int j = 0; j <= 4; j++) {
-					String level = gamesPath + allGames[i] + "_lvl" + j + ".txt";
-					ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
-				}
+				if (levels || errors && !balanced)
+					for (int j = 0; j <= 4; j++) {
+						String level = gamesPath + allGames[i] + "_lvl" + j + ".txt";
+						ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+					}
 				else {
 					String level = gamesPath + allGames[i] + "_lvl" + rnd.nextInt(5) + ".txt";
 					ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
@@ -123,27 +125,28 @@ public class RFHandler extends ClassificationHandler {
 				writer.newLine();
 
 				for (int k = 0; k < N_SAMPLES; k++) {
-					for (int i = 0; i < Agent.games.length; i++) {
-						String game = gamesPath + Agent.games[i] + ".txt";
-						currentGame = Agent.games[i];
+					for (String gameName : Agent.games) {
+						String game = gamesPath + gameName + ".txt";
+						currentGame = gameName;
 
-						if (levels) for (int j = 0; j <= 4; j++) {
-							String level = gamesPath + Agent.games[i] + "_lvl" + j + ".txt";
-							ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
-						}
+						if (levels)
+							for (int j = 0; j <= 4; j++) {
+								String level = gamesPath + gameName + "_lvl" + j + ".txt";
+								ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+							}
 						else {
-							String level = gamesPath + Agent.games[i] + "_lvl" + rnd.nextInt(5) + ".txt";
+							String level = gamesPath + gameName + "_lvl" + rnd.nextInt(5) + ".txt";
 							ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
 						}
 					}
 				}
 
-				for (int i = 0; i < allGames.length; i++) {
-					if (selectedGames.contains(allGames[i])) continue;
-					String game = gamesPath + allGames[i] + ".txt";
-					currentGame = allGames[i];
+				for (String gameName : allGames) {
+					if (selectedGames.contains(gameName)) continue;
+					String game = gamesPath + gameName + ".txt";
+					currentGame = gameName;
 
-					String level = gamesPath + allGames[i] + "_lvl" + rnd.nextInt(5) + ".txt";
+					String level = gamesPath + gameName + "_lvl" + rnd.nextInt(5) + ".txt";
 					ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
 				}
 			}

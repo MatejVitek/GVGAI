@@ -9,7 +9,7 @@ public class KeyInput extends KeyHandler {
 
 	/**
 	 * Manages KeyPressed events
-	 * 
+	 *
 	 * @param e the event.
 	 */
 	@Override
@@ -20,7 +20,7 @@ public class KeyInput extends KeyHandler {
 
 	/**
 	 * Manages keyReleased events
-	 * 
+	 *
 	 * @param e the event.
 	 */
 	@Override

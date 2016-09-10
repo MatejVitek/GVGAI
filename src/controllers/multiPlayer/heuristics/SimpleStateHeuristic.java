@@ -1,13 +1,9 @@
 package controllers.multiPlayer.heuristics;
 
-import controllers.multiPlayer.heuristics.StateHeuristicMulti;
-import core.game.Observation;
-import core.game.StateObservation;
-import core.game.StateObservationMulti;
+import java.util.*;
+import core.game.*;
 import ontology.Types;
 import tools.Vector2d;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created with IntelliJ IDEA. User: ssamot Date: 11/02/14 Time: 15:44 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -20,6 +16,7 @@ public class SimpleStateHeuristic extends StateHeuristicMulti {
 
 	}
 
+	@Override
 	public double evaluateState(StateObservationMulti stateObs, int playerID) {
 		Vector2d avatarPosition = stateObs.getAvatarPosition(playerID);
 		ArrayList<Observation>[] npcPositions = stateObs.getNPCPositions(avatarPosition);
@@ -32,12 +29,13 @@ public class SimpleStateHeuristic extends StateHeuristicMulti {
 		int oppID = (playerID + 1) % stateObs.getNoPlayers();
 		Types.WINNER[] winners = stateObs.getMultiGameWinner();
 
-		boolean bothWin = (winners[playerID] == Types.WINNER.PLAYER_WINS) && (winners[oppID] == Types.WINNER.PLAYER_WINS);
-		boolean meWins = (winners[playerID] == Types.WINNER.PLAYER_WINS) && (winners[oppID] == Types.WINNER.PLAYER_LOSES);
-		boolean meLoses = (winners[playerID] == Types.WINNER.PLAYER_LOSES) && (winners[oppID] == Types.WINNER.PLAYER_WINS);
-		boolean bothLose = (winners[playerID] == Types.WINNER.PLAYER_LOSES) && (winners[oppID] == Types.WINNER.PLAYER_LOSES);
+		boolean bothWin = winners[playerID] == Types.WINNER.PLAYER_WINS && winners[oppID] == Types.WINNER.PLAYER_WINS;
+		boolean meWins = winners[playerID] == Types.WINNER.PLAYER_WINS && winners[oppID] == Types.WINNER.PLAYER_LOSES;
+		boolean meLoses = winners[playerID] == Types.WINNER.PLAYER_LOSES && winners[oppID] == Types.WINNER.PLAYER_WINS;
+		boolean bothLose = winners[playerID] == Types.WINNER.PLAYER_LOSES && winners[oppID] == Types.WINNER.PLAYER_LOSES;
 
-		if (meWins || bothWin) won = 1000000000;
+		if (meWins || bothWin)
+			won = 1000000000;
 		else if (meLoses) return -999999999;
 
 		// if (winners[playerID] == Types.WINNER.PLAYER_WINS) {
@@ -71,7 +69,7 @@ public class SimpleStateHeuristic extends StateHeuristicMulti {
 				score = stateObs.getGameScore(playerID) + won * 100000000;
 			}
 			else {
-				score = -minDistance / 100.0 + (-npcCounter) * 100.0 + stateObs.getGameScore(playerID) + won * 100000000;
+				score = -minDistance / 100.0 + -npcCounter * 100.0 + stateObs.getGameScore(playerID) + won * 100000000;
 			}
 
 			return score;

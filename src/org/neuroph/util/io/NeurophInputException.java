@@ -10,7 +10,7 @@ import org.neuroph.core.exceptions.NeurophException;
 
 /**
  * This exception is thrown when error occurs when reading input using some InputAdapter
- * 
+ *
  * @see InputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
@@ -27,7 +27,7 @@ public class NeurophInputException extends NeurophException {
 
 	/**
 	 * Constructs an NeurophInputException with the specified detail message.
-	 * 
+	 *
 	 * @param message the detail message.
 	 */
 	public NeurophInputException(String message) {
@@ -36,7 +36,7 @@ public class NeurophInputException extends NeurophException {
 
 	/**
 	 * Constructs a NeurophInputException with the specified detail message and specified cause.
-	 * 
+	 *
 	 * @param message the detail message.
 	 * @param cause the cause for exception
 	 */
@@ -46,7 +46,7 @@ public class NeurophInputException extends NeurophException {
 
 	/**
 	 * Constructs a new runtime exception with the specified cause
-	 * 
+	 *
 	 * @param cause the cause for exception
 	 */
 	public NeurophInputException(Throwable cause) {

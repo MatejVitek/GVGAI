@@ -6,8 +6,7 @@ import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
 import ontology.avatar.MovingAvatar;
-import tools.Direction;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 22/10/13 Time: 18:10 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -27,6 +26,7 @@ public class OrientedAvatar extends MovingAvatar {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		orientation = Types.DRIGHT.copy();
@@ -37,9 +37,10 @@ public class OrientedAvatar extends MovingAvatar {
 
 	/**
 	 * This update call is for the game tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 */
+	@Override
 	public void update(Game game) {
 		super.update(game);
 
@@ -55,10 +56,11 @@ public class OrientedAvatar extends MovingAvatar {
 
 	/**
 	 * This move call is for the Forward Model tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 * @param actionMask action to apply.
 	 */
+	@Override
 	public void move(Game game, boolean[] actionMask) {
 		super.move(game, actionMask);
 
@@ -72,12 +74,14 @@ public class OrientedAvatar extends MovingAvatar {
 		// Otherwise, orientation is already updated, no need to change anything.
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		OrientedAvatar newSprite = new OrientedAvatar();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		OrientedAvatar targetSprite = (OrientedAvatar) target;
 		super.copyTo(targetSprite);

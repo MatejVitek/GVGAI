@@ -6,16 +6,14 @@
 
 package org.neuroph.nnet.comp.layer;
 
-import org.neuroph.nnet.comp.neuron.InputNeuron;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 import org.neuroph.core.transfer.Linear;
-import org.neuroph.util.NeuronFactory;
-import org.neuroph.util.NeuronProperties;
+import org.neuroph.nnet.comp.neuron.InputNeuron;
+import org.neuroph.util.*;
 
 /**
  * Represents a layer of input neurons - a typical neural network input layer
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  * @see InputNeuron
  */
@@ -23,7 +21,7 @@ public class InputLayer extends Layer {
 
 	/**
 	 * Creates a new instance of InputLayer with specified number of input neurons
-	 * 
+	 *
 	 * @param neuronsCount input neurons count for this layer
 	 */
 	public InputLayer(int neuronsCount) {

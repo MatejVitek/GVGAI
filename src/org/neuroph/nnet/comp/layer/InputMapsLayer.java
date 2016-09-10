@@ -13,7 +13,7 @@ import org.neuroph.util.NeuronProperties;
 
 /**
  * Input layer for convolutional networks
- * 
+ *
  * @author Boris Fulurija
  * @author Zoran Sevarac
  */
@@ -33,7 +33,7 @@ public class InputMapsLayer extends FeatureMapsLayer {
 
 	/**
 	 * Create InputMapsLayer with specified number of maps with specified dimensions
-	 * 
+	 *
 	 * @param mapDimension dimensions of a single feature map
 	 * @param mapCount number of feature maps
 	 */

@@ -2,7 +2,7 @@ package org.neuroph.core.exceptions;
 
 /**
  * Base exception type for Neuroph.
- * 
+ *
  * @author jheaton
  */
 public class NeurophException extends RuntimeException {
@@ -21,7 +21,7 @@ public class NeurophException extends RuntimeException {
 
 	/**
 	 * Construct a message exception.
-	 * 
+	 *
 	 * @param msg The exception message.
 	 */
 	public NeurophException(final String msg) {
@@ -30,7 +30,7 @@ public class NeurophException extends RuntimeException {
 
 	/**
 	 * Construct an exception that holds another exception.
-	 * 
+	 *
 	 * @param t The other exception.
 	 */
 	public NeurophException(final Throwable t) {
@@ -39,7 +39,7 @@ public class NeurophException extends RuntimeException {
 
 	/**
 	 * Construct an exception that holds another exception.
-	 * 
+	 *
 	 * @param msg A message.
 	 * @param t The other exception.
 	 */

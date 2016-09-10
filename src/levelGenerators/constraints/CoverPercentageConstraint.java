@@ -17,7 +17,7 @@ public class CoverPercentageConstraint extends AbstractConstraint {
 
 	/**
 	 * Check if the percentage of objects in the play field is between minCoverPercentage and maxCoverPercentage
-	 * 
+	 *
 	 * @return return 1 if the the covered area in the level between minCoverPercentage and maxCoverPercentage or value that indicates how near it is to the correct region
 	 */
 	@Override

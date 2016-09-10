@@ -8,7 +8,7 @@ package org.neuroph.util.benchmark;
 
 /**
  * This class is an abstract base class for specific microbenchmarking tasks
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 abstract public class BenchmarkTask {
@@ -19,7 +19,7 @@ abstract public class BenchmarkTask {
 
 	/**
 	 * Creates a new instance of BenchmarkTask with specified name
-	 * 
+	 *
 	 * @param name benchmark task name
 	 */
 	public BenchmarkTask(String name) {
@@ -28,7 +28,7 @@ abstract public class BenchmarkTask {
 
 	/**
 	 * Gets task name
-	 * 
+	 *
 	 * @return task name
 	 */
 	public String getName() {
@@ -37,7 +37,7 @@ abstract public class BenchmarkTask {
 
 	/**
 	 * Sets task name
-	 * 
+	 *
 	 * @param name task name
 	 */
 	public void setName(String name) {
@@ -46,7 +46,7 @@ abstract public class BenchmarkTask {
 
 	/**
 	 * Gets number of test (benchmarking) iterations
-	 * 
+	 *
 	 * @return number of test iterations
 	 */
 	public int getTestIterations() {
@@ -55,7 +55,7 @@ abstract public class BenchmarkTask {
 
 	/**
 	 * Sets number of test (benchmarking) iterations
-	 * 
+	 *
 	 * @param testIterations number of test iterations
 	 */
 	public void setTestIterations(int testIterations) {
@@ -64,7 +64,7 @@ abstract public class BenchmarkTask {
 
 	/**
 	 * Gets number of warmup iterations. Warmup iterations are used to run test for some time to stabilize JVM (compiling, optimizations, gc)
-	 * 
+	 *
 	 * @return number of warmup iterations
 	 */
 	public int getWarmupIterations() {
@@ -73,7 +73,7 @@ abstract public class BenchmarkTask {
 
 	/**
 	 * Sets the number of warmup iterations
-	 * 
+	 *
 	 * @param warmupIterations number of warmup iterations Warmup iterations are used to run test for some time to stabilize JVM (compiling, optimizations, gc)
 	 */
 	public void setWarmupIterations(int warmupIterations) {

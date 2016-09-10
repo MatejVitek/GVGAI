@@ -6,14 +6,13 @@
 
 package org.neuroph.nnet.comp.layer;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.neuron.CompetitiveNeuron;
 import org.neuroph.util.NeuronProperties;
 
 /**
  * Represents layer of competitive neurons, and provides methods for competition. TODO: competitive learning 3. training dw=n(i-w)
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class CompetitiveLayer extends Layer {
@@ -35,7 +34,7 @@ public class CompetitiveLayer extends Layer {
 
 	/**
 	 * Create an instance of CompetitiveLayer with the specified number of neurons with neuron properties
-	 * 
+	 *
 	 * @param neuronNum neuron number in this layer
 	 * @param neuronProperties properties for the nurons in this layer
 	 */
@@ -84,7 +83,7 @@ public class CompetitiveLayer extends Layer {
 
 	/**
 	 * Returns the winning neuron for this layer
-	 * 
+	 *
 	 * @return winning neuron for this layer
 	 */
 	public CompetitiveNeuron getWinner() {
@@ -93,7 +92,7 @@ public class CompetitiveLayer extends Layer {
 
 	/**
 	 * Returns the maxIterations setting for this layer
-	 * 
+	 *
 	 * @return maxIterations setting for this layer
 	 */
 	public int getMaxIterations() {
@@ -102,7 +101,7 @@ public class CompetitiveLayer extends Layer {
 
 	/**
 	 * Sets max iterations for neurons to compete in this layer
-	 * 
+	 *
 	 * @param maxIterations max iterations for neurons to compete in this layer
 	 */
 	public void setMaxIterations(int maxIterations) {

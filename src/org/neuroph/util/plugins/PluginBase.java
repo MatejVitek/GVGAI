@@ -11,7 +11,7 @@ import org.neuroph.core.NeuralNetwork;
 
 /**
  * Base class for all neural network plugins.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class PluginBase implements Serializable {
@@ -42,7 +42,7 @@ public class PluginBase implements Serializable {
 
 	/**
 	 * Returns the name of this plugin
-	 * 
+	 *
 	 * @return name of this plugin
 	 */
 	public String getName() {
@@ -51,7 +51,7 @@ public class PluginBase implements Serializable {
 
 	/**
 	 * Returns the parent network for this plugin
-	 * 
+	 *
 	 * @return parent network for this plugin
 	 */
 	public NeuralNetwork<?> getParentNetwork() {
@@ -60,7 +60,7 @@ public class PluginBase implements Serializable {
 
 	/**
 	 * Sets the parent network for this plugin
-	 * 
+	 *
 	 * @param parentNetwork parent network for this plugin
 	 */
 	public void setParentNetwork(NeuralNetwork parentNetwork) {

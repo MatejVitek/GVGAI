@@ -5,12 +5,12 @@
  */
 package org.neuroph.core;
 
-import java.io.Serializable;
 import java.util.Objects;
+import java.io.Serializable;
 
 /**
  * Weighted connection to another neuron.
- * 
+ *
  * @see Weight
  * @see Neuron
  * @author Zoran Sevarac <sevarac@gmail.com>
@@ -103,7 +103,7 @@ public class Connection implements Serializable {
 
 	/**
 	 * Set the weight of the connection.
-	 * 
+	 *
 	 * @param weight The new weight of the connection.
 	 */
 	public void setWeight(Weight weight) {
@@ -135,7 +135,7 @@ public class Connection implements Serializable {
 
 	/**
 	 * Gets from neuron for this connection
-	 * 
+	 *
 	 * @return from neuron for this connection
 	 */
 	public Neuron getFromNeuron() {
@@ -144,7 +144,7 @@ public class Connection implements Serializable {
 
 	/**
 	 * Gets to neuron for this connection
-	 * 
+	 *
 	 * @return neuron to set as to neuron
 	 */
 	public Neuron getToNeuron() {

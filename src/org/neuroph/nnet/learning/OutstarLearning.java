@@ -6,12 +6,11 @@
 
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * Hebbian-like learning rule for Outstar network.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class OutstarLearning extends UnsupervisedHebbianLearning {
@@ -31,7 +30,7 @@ public class OutstarLearning extends UnsupervisedHebbianLearning {
 
 	/**
 	 * This method implements weights update procedure for the single neuron
-	 * 
+	 *
 	 * @param neuron neuron to update weights for
 	 */
 	@Override

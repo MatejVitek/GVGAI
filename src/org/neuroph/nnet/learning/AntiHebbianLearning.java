@@ -6,19 +6,18 @@
 
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * A variant of Hebbian learning called Anti-Hebbian learning. The only difference is that it subbstracts weight change (Hebbian learning adds)
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class AntiHebbianLearning extends UnsupervisedHebbianLearning {
 
 	/**
 	 * This method implements weights update procedure for the single neuron
-	 * 
+	 *
 	 * @param neuron neuron to update weights
 	 */
 	@Override

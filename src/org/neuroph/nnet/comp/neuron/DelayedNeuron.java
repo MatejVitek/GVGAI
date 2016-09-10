@@ -6,16 +6,15 @@
 
 package org.neuroph.nnet.comp.neuron;
 
+import java.util.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.neuroph.core.Neuron;
 import org.neuroph.core.input.InputFunction;
 import org.neuroph.core.transfer.TransferFunction;
 
 /**
  * Provides behaviour for neurons with delayed output.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class DelayedNeuron extends Neuron {
@@ -32,7 +31,7 @@ public class DelayedNeuron extends Neuron {
 
 	/**
 	 * Creates an instance of neuron which can delay output
-	 * 
+	 *
 	 * @param inputFunction neuron input function
 	 * @param transferFunction neuron transfer function
 	 */
@@ -51,7 +50,7 @@ public class DelayedNeuron extends Neuron {
 
 	/**
 	 * Returns neuron output with the specified delay
-	 * 
+	 *
 	 * @param delay output delay
 	 * @return neuron output at (t-delay) moment
 	 */

@@ -1,15 +1,9 @@
 package core;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
+import java.awt.*;
 import javax.swing.JComponent;
 import core.game.Game;
-import core.player.AbstractPlayer;
 import core.player.Player;
 import ontology.Types;
 
@@ -40,7 +34,7 @@ public class VGDLViewer extends JComponent {
 
 	/**
 	 * Creates the viewer for the game.
-	 * 
+	 *
 	 * @param game game to be displayed
 	 */
 	public VGDLViewer(Game game, Player player) {
@@ -51,9 +45,10 @@ public class VGDLViewer extends JComponent {
 
 	/**
 	 * Main method to paint the game
-	 * 
+	 *
 	 * @param gx Graphics object.
 	 */
+	@Override
 	public void paintComponent(Graphics gx) {
 		Graphics2D g = (Graphics2D) gx;
 
@@ -89,7 +84,7 @@ public class VGDLViewer extends JComponent {
 
 	/**
 	 * Paints the sprites.
-	 * 
+	 *
 	 * @param spriteGroupsGame sprites to paint.
 	 */
 	public void paint(SpriteGroup[] spriteGroupsGame) {
@@ -105,9 +100,10 @@ public class VGDLViewer extends JComponent {
 
 	/**
 	 * Gets the dimensions of the window.
-	 * 
+	 *
 	 * @return the dimensions of the window.
 	 */
+	@Override
 	public Dimension getPreferredSize() {
 		return size;
 	}

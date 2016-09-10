@@ -1,15 +1,11 @@
 package ontology.avatar.oriented;
 
-import core.VGDLFactory;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.awt.Dimension;
+import core.*;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
-import java.awt.*;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 17:35 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -32,12 +28,14 @@ public class OngoingTurningAvatar extends OrientedAvatar {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		speed = 1;
 		is_oriented = true;
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 		if (spawnBehind != null) spawnId = VGDLRegistry.GetInstance().getRegisteredSpriteValue(spawnBehind);
@@ -45,9 +43,10 @@ public class OngoingTurningAvatar extends OrientedAvatar {
 
 	/**
 	 * This update call is for the game tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 */
+	@Override
 	public void update(Game game) {
 		lastMovementType = Types.MOVEMENT.MOVE;
 
@@ -59,7 +58,7 @@ public class OngoingTurningAvatar extends OrientedAvatar {
 
 		// Update the orientation for this cycle's movement,
 		// but only if the movement is perpendicular to the current orientation.
-		if ((action2D != Types.DNONE) && (Direction.orthogonal(action2D, this.orientation))) {
+		if (action2D != Types.DNONE && Direction.orthogonal(action2D, this.orientation)) {
 			this._updateOrientation(action2D);
 		}
 
@@ -72,10 +71,11 @@ public class OngoingTurningAvatar extends OrientedAvatar {
 
 	/**
 	 * This move call is for the Forward Model tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 * @param actionMask action to apply.
 	 */
+	@Override
 	public void move(Game game, boolean[] actionMask) {
 		lastMovementType = Types.MOVEMENT.MOVE;
 
@@ -90,12 +90,14 @@ public class OngoingTurningAvatar extends OrientedAvatar {
 		super.updatePassive();
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		OngoingTurningAvatar newSprite = new OngoingTurningAvatar();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		OngoingTurningAvatar targetSprite = (OngoingTurningAvatar) target;
 		super.copyTo(targetSprite);

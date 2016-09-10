@@ -1,14 +1,9 @@
 package levelGenerators.geneticLevelGenerator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 import core.game.GameDescription;
 import core.generator.AbstractLevelGenerator;
-import tools.ElapsedCpuTimer;
-import tools.GameAnalyzer;
-import tools.LevelMapping;
+import tools.*;
 
 public class LevelGenerator extends AbstractLevelGenerator {
 
@@ -31,7 +26,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Initializing the level generator
-	 * 
+	 *
 	 * @param game game description object
 	 * @param elapsedTimer amount of time for intiailization
 	 */
@@ -48,7 +43,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Get the next population based on the current feasible infeasible population
-	 * 
+	 *
 	 * @param fPopulation array of the current feasible chromosomes
 	 * @param iPopulation array of the current infeasible chromosomes
 	 * @return array of the new chromosomes at the new population
@@ -154,7 +149,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Roullete wheel selection for the infeasible population
-	 * 
+	 *
 	 * @param population array of chromosomes surviving in this population
 	 * @return the picked chromosome based on its constraint fitness
 	 */
@@ -183,7 +178,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Get the fitness for any population
-	 * 
+	 *
 	 * @param population array of chromosomes surviving in this population
 	 * @return the picked chromosome based on its fitness
 	 */
@@ -217,7 +212,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Generate a level using GA in a fixed amount of time and return the level in form of a string
-	 * 
+	 *
 	 * @param game the current game description object
 	 * @param elapsedTimer the amount of time allowed for generation
 	 * @return string for the generated level
@@ -326,7 +321,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * get the current used level mapping to create the level string
-	 * 
+	 *
 	 * @return the level mapping used to create the level string
 	 */
 	@Override

@@ -6,15 +6,12 @@
 package org.neuroph.util;
 
 import java.util.List;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * A CODEC encodes and decodes neural networks, much like the more standard definition of a CODEC encodes and decodes audio/video. This CODEC can encode a neural network to an array of doubles. It can
  * also decode this array of doubles back into a neural network. This is very useful for both simulated annealing and genetic algorithms.
- * 
+ *
  * @author Jeff Heaton (http://www.heatonresearch.com)
  */
 public class NeuralNetworkCODEC {
@@ -28,7 +25,7 @@ public class NeuralNetworkCODEC {
 
 	/**
 	 * Encode a network to an array.
-	 * 
+	 *
 	 * @param network The network to encode.
 	 */
 	public static void network2array(NeuralNetwork network, double[] array) {
@@ -46,7 +43,7 @@ public class NeuralNetworkCODEC {
 
 	/**
 	 * Decode a network from an array.
-	 * 
+	 *
 	 * @param array The array used to decode.
 	 * @param network The network to decode into.
 	 */
@@ -66,7 +63,7 @@ public class NeuralNetworkCODEC {
 
 	/**
 	 * Determine the array size for the given neural network.
-	 * 
+	 *
 	 * @param network The neural network to determine for.
 	 * @return The size of the array necessary to hold that network.
 	 */

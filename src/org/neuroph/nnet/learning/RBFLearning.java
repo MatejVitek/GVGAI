@@ -1,19 +1,14 @@
 package org.neuroph.nnet.learning;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
+import java.util.*;
+import org.neuroph.core.*;
 import org.neuroph.core.transfer.Gaussian;
-import org.neuroph.nnet.learning.kmeans.Cluster;
-import org.neuroph.nnet.learning.kmeans.KMeansClustering;
-import org.neuroph.nnet.learning.kmeans.KVector;
+import org.neuroph.nnet.learning.kmeans.*;
 import org.neuroph.nnet.learning.knn.KNearestNeighbour;
 
 /**
  * Learning rule for Radial Basis Function networks. Use K-Means to determine centroids for hidden units, K-NearestNeighbour to set widths, and LMS to tweak output neurons.
- * 
+ *
  * @author Zoran Sevarac sevarac@gmail.com
  */
 public class RBFLearning extends LMS {
@@ -75,7 +70,7 @@ public class RBFLearning extends LMS {
 
 	/**
 	 * Calculates and returns width of a gaussian function
-	 * 
+	 *
 	 * @param centroid
 	 * @param nearestNeighbours
 	 * @return
@@ -87,7 +82,7 @@ public class RBFLearning extends LMS {
 			sigma += Math.pow(centroid.distanceFrom(nn), 2);
 		}
 
-		sigma = Math.sqrt(1 / ((double) nearestNeighbours.length) * sigma);
+		sigma = Math.sqrt(1 / (double) nearestNeighbours.length * sigma);
 
 		return sigma;
 	}

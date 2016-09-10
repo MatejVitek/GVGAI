@@ -1,7 +1,6 @@
 package tools;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 public class WindowInput extends WindowAdapter {
 

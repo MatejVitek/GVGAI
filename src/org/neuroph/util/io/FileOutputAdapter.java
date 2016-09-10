@@ -6,15 +6,11 @@
 
 package org.neuroph.util.io;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Implementation of OutputAdapter interface for writing neural network outputs to files.
- * 
+ *
  * @see OutputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
@@ -22,7 +18,7 @@ public class FileOutputAdapter extends OutputStreamAdapter {
 
 	/**
 	 * Creates a new FileOutputAdapter by opening a connection to an actual file, specified by the file param
-	 * 
+	 *
 	 * @param file File object in the file system
 	 * @throws FileNotFoundException if specified file was not found
 	 * @throws IOException
@@ -33,7 +29,7 @@ public class FileOutputAdapter extends OutputStreamAdapter {
 
 	/**
 	 * Creates a new FileOutputAdapter by opening a connection to an actual file, specified by the fileName param
-	 * 
+	 *
 	 * @param fileName name of the file in file system
 	 * @throws FileNotFoundException if specified file was not found
 	 * @throws IOException

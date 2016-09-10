@@ -1,13 +1,11 @@
 package ontology.sprites.npc;
 
+import java.awt.Dimension;
 import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
-import java.awt.*;
+import tools.*;
 
 /**
  * Created by Diego on 24/02/14.
@@ -29,15 +27,18 @@ public class RandomPathAltChaser extends PathAltChaser {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		epsilon = 0.0;
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 	}
 
+	@Override
 	public void update(Game game) {
 		double roll = game.getRandomGenerator().nextDouble();
 		if (roll < epsilon) {
@@ -51,12 +52,14 @@ public class RandomPathAltChaser extends PathAltChaser {
 		}
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		RandomPathAltChaser newSprite = new RandomPathAltChaser();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		RandomPathAltChaser targetSprite = (RandomPathAltChaser) target;
 		targetSprite.epsilon = this.epsilon;

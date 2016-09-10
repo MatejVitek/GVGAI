@@ -6,14 +6,8 @@
 
 package org.neuroph.nnet.comp.layer;
 
-import org.neuroph.nnet.comp.Kernel;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ForkJoinPool;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
+import java.util.*;
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.Dimension2D;
 import org.neuroph.util.NeuronProperties;
 
@@ -96,7 +90,7 @@ public abstract class FeatureMapsLayer extends Layer {
 
 	/**
 	 * Adds a feature map (2d layer) to this feature map layer
-	 * 
+	 *
 	 * @param featureMap feature map to add
 	 */
 	public void addFeatureMap(FeatureMapLayer featureMap) {
@@ -105,7 +99,7 @@ public abstract class FeatureMapsLayer extends Layer {
 		}
 
 		featureMaps.add(featureMap);
-		neurons.addAll((featureMap.getNeurons()));
+		neurons.addAll(featureMap.getNeurons());
 
 	}
 

@@ -6,17 +6,13 @@
 
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
+import org.neuroph.core.data.*;
 import org.neuroph.core.learning.LearningRule;
-import org.neuroph.core.data.DataSetRow;
-import org.neuroph.core.data.DataSet;
 
 /**
  * Learning algorithm for the Hopfield neural network.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class HopfieldLearning extends LearningRule {
@@ -35,9 +31,10 @@ public class HopfieldLearning extends LearningRule {
 
 	/**
 	 * Calculates weights for the hopfield net to learn the specified training set
-	 * 
+	 *
 	 * @param trainingSet training set to learn
 	 */
+	@Override
 	public void learn(DataSet trainingSet) {
 		int M = trainingSet.size();
 		int N = neuralNetwork.getLayerAt(0).getNeuronsCount();

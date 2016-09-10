@@ -1,7 +1,6 @@
 package core.content;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 18/10/13 Time: 07:01 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -35,7 +34,7 @@ public class InteractionContent extends Content {
 
 	/**
 	 * Simple constructor that receives an identifier and a reference class
-	 * 
+	 *
 	 * @param id1 identifier of the first object in the interaction.
 	 * @param id2List list of identifiers of the second part in the interaction.
 	 */
@@ -49,7 +48,7 @@ public class InteractionContent extends Content {
 
 	/**
 	 * Constructor that extracts the contents from a String line
-	 * 
+	 *
 	 * @param line String with the contents in VGDL format, to be mapped to the data structures of this class.
 	 */
 	public InteractionContent(String line) {

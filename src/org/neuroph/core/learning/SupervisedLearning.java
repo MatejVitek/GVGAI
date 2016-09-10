@@ -5,19 +5,12 @@
  */
 package org.neuroph.core.learning;
 
+import java.util.*;
 import java.io.Serializable;
-import java.util.Iterator;
-import java.util.List;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.Weight;
-import org.neuroph.core.data.DataSet;
-import org.neuroph.core.data.DataSetRow;
-import org.neuroph.core.learning.error.ErrorFunction;
-import org.neuroph.core.learning.error.MeanSquaredError;
+import org.neuroph.core.*;
+import org.neuroph.core.data.*;
+import org.neuroph.core.learning.error.*;
 import org.neuroph.core.learning.stop.MaxErrorStop;
-import org.neuroph.core.learning.stop.StopCondition;
 
 // TODO: random pattern order
 
@@ -206,7 +199,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 
 	/**
 	 * Returns true if absolute error change is sufficently small (<=minErrorChange) for minErrorChangeStopIterations number of iterations
-	 * 
+	 *
 	 * @return true if absolute error change is stalled (error is sufficently small for some number of iterations)
 	 */
 	// protected boolean errorChangeStalled() {

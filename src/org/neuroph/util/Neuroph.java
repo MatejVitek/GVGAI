@@ -1,21 +1,15 @@
 package org.neuroph.util;
 
+import java.util.*;
+import java.util.jar.*;
+import java.util.logging.*;
 // import org.encog.engine.EncogEngine;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.net.*;
 
 /**
  * This singleton holds global settings for the whole framework
- * 
+ *
  * @author Jeff Heaton
  */
 public class Neuroph {
@@ -38,7 +32,7 @@ public class Neuroph {
 
 	/**
 	 * Get setting for flatten network (from Encog engine)
-	 * 
+	 *
 	 * @return the flattenNetworks
 	 */
 	public boolean shouldFlattenNetworks() {
@@ -47,7 +41,7 @@ public class Neuroph {
 
 	/**
 	 * Turn on/off flat networ support from Encog
-	 * 
+	 *
 	 * @param flattenNetworks the flattenNetworks to set
 	 */
 	public void setFlattenNetworks(boolean flattenNetworks) {

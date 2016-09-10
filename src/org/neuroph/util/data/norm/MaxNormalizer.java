@@ -6,12 +6,11 @@
 
 package org.neuroph.util.data.norm;
 
-import org.neuroph.core.data.DataSet;
-import org.neuroph.core.data.DataSetRow;
+import org.neuroph.core.data.*;
 
 /**
  * Max normalization method, which normalize data in regard to max element in training set (by columns) Normalization is done according to formula: normalizedVector[i] = vector[i] / abs(max[i])
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class MaxNormalizer implements Normalizer {
@@ -37,7 +36,7 @@ public class MaxNormalizer implements Normalizer {
 
 	/**
 	 * Finds max values for columns in input and output vector for given data set
-	 * 
+	 *
 	 * @param dataSet
 	 */
 	private void findMaxVectors(DataSet dataSet) {

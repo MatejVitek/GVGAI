@@ -1,8 +1,7 @@
 package ontology.effects.binary;
 
 import java.util.Collection;
-import core.VGDLFactory;
-import core.VGDLSprite;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
 import ontology.effects.Effect;

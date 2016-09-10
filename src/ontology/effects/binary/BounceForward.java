@@ -4,9 +4,7 @@ import core.VGDLSprite;
 import core.content.InteractionContent;
 import core.game.Game;
 import ontology.effects.Effect;
-import tools.Direction;
-import tools.Vector2d;
-import java.awt.*;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 04/11/13 Time: 15:56 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl

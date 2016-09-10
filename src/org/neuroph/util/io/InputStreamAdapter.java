@@ -6,15 +6,12 @@
 
 package org.neuroph.util.io;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import org.neuroph.util.VectorParser;
 
 /**
  * Implementation of InputAdapter interface for reading neural network inputs from input stream.
- * 
+ *
  * @see InputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
  */

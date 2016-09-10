@@ -44,7 +44,7 @@ public class Event implements Comparable<Event> {
 
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param gameStep when the event happened.
 	 * @param fromAvatar did the avatar trigger the event (false), or something created by him (true)?
 	 * @param activeTypeId type of the sprite (avatar or from avatar).
@@ -65,7 +65,7 @@ public class Event implements Comparable<Event> {
 
 	/**
 	 * Creates a copy of this event.
-	 * 
+	 *
 	 * @return the copy.
 	 */
 	public Event copy() {

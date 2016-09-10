@@ -1,7 +1,6 @@
 package core.content;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import core.VGDLRegistry;
 
 /**
@@ -34,7 +33,7 @@ public class SpriteContent extends Content {
 
 	/**
 	 * Simple constructor that receives and identifier and a reference class
-	 * 
+	 *
 	 * @param id object identifier.
 	 * @param refClass class this object is mapped to.
 	 */
@@ -49,7 +48,7 @@ public class SpriteContent extends Content {
 
 	/**
 	 * Constructor that extracts the contents from a String line
-	 * 
+	 *
 	 * @param line String with the contents in VGDL format, to be mapped to the data structures of this class.
 	 */
 	public SpriteContent(String line) {
@@ -96,7 +95,7 @@ public class SpriteContent extends Content {
 
 	/**
 	 * Returns the original line of the content.
-	 * 
+	 *
 	 * @return original line, in VGDL format.
 	 */
 	@Override

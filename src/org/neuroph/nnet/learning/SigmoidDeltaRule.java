@@ -32,7 +32,7 @@ public class SigmoidDeltaRule extends LMS {
 
 	/**
 	 * This method implements weight update procedure for the whole network for this learning rule
-	 * 
+	 *
 	 * @param outputError output error vector
 	 */
 	@Override

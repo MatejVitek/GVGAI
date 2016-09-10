@@ -1,14 +1,13 @@
 package controllers.singlePlayer.olets;
 
+import java.util.Random;
 import core.game.StateObservation;
 import ontology.Types;
-import tools.ElapsedCpuTimer;
-import java.util.Random;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Code written by Adrien Couetoux, acouetoux@ulg.ac.be. Date: 15/12/2015
- * 
+ *
  * @author Adrien Couëtoux
  */
 
@@ -143,7 +142,7 @@ public class SingleMCTSPlayer {
 			selected.backUp(selected, delta); // TODO : I should probably make the backup method cleaner
 
 			numIters++;
-			acumTimeTaken += (elapsedTimerIteration.elapsedMillis());
+			acumTimeTaken += elapsedTimerIteration.elapsedMillis();
 
 			avgTimeTaken = acumTimeTaken / numIters;
 			remaining = elapsedTimer.remainingTimeMillis();
@@ -152,7 +151,7 @@ public class SingleMCTSPlayer {
 
 	/**
 	 * The policy that navigates through the tree.
-	 * 
+	 *
 	 * @param currentObservation the initial state observation, used as the root node
 	 * @return the tree node where the tree navigation has ended (it can be a final node/state, or just the node where the policy exited the tree.
 	 */
@@ -163,7 +162,7 @@ public class SingleMCTSPlayer {
 		int i;
 		boolean stateFound;
 
-		while (!(currentObservation.isGameOver())) {
+		while (!currentObservation.isGameOver()) {
 			if (currentNode.notFullyExpanded()) {
 				return expand(currentNode, currentObservation);
 			}
@@ -176,7 +175,7 @@ public class SingleMCTSPlayer {
 					_tabooBias = 0.0;
 					i = 0;
 					stateFound = false;
-					while ((!stateFound) && (i < memoryLength) && (this.pastAvatarPositions[i] != null)) {
+					while (!stateFound && i < memoryLength && this.pastAvatarPositions[i] != null) {
 						if (this.pastAvatarPositions[i].equals(currentObservation.getAvatarPosition())) {
 							_tabooBias += 0.5;
 							stateFound = true;
@@ -196,7 +195,7 @@ public class SingleMCTSPlayer {
 
 	/**
 	 * Expands the tree, from a given node, and given a certain state observation
-	 * 
+	 *
 	 * @param fatherNode the node from which we are expanding the tree
 	 * @param currentObservation the state observation that we are currently in (for *this* particular simulation)
 	 * @return the new tree node that resulted from the expansion
@@ -217,7 +216,7 @@ public class SingleMCTSPlayer {
 		double _tabooBias = 0.0;
 		int i = 0;
 		boolean stateFound = false;
-		while ((!stateFound) && (i < SingleMCTSPlayer.memoryLength) && (this.pastAvatarPositions[i] != null)) {
+		while (!stateFound && i < SingleMCTSPlayer.memoryLength && this.pastAvatarPositions[i] != null) {
 			if (this.pastAvatarPositions[i].equals(currentObservation.getAvatarPosition())) {
 				// if(this.midLevelManager.pastAvatarOrientations[i].equals(nextState.getAvatarOrientation())) {
 				_tabooBias += 0.5;
@@ -234,7 +233,7 @@ public class SingleMCTSPlayer {
 
 	/**
 	 * Computes the value associated with a state observation and a tree depth
-	 * 
+	 *
 	 * @param a_gameState the state observation that is evaluated
 	 * @param treeDepth the depth in the tree where this evaluation is made
 	 * @return the value of the state
@@ -246,10 +245,10 @@ public class SingleMCTSPlayer {
 		double rawScore = a_gameState.getGameScore();
 
 		if (gameOver && win == Types.WINNER.PLAYER_LOSES) {
-			return (rawScore - (2000.0 / Math.pow(1.0 + treeDepth, 2)) * (1.0 + Math.abs(rawScore)));
+			return rawScore - 2000.0 / Math.pow(1.0 + treeDepth, 2) * (1.0 + Math.abs(rawScore));
 		}
 
-		if (gameOver && win == Types.WINNER.PLAYER_WINS) return (rawScore + 100.0 * (1.0 + Math.abs(rawScore)));
+		if (gameOver && win == Types.WINNER.PLAYER_WINS) return rawScore + 100.0 * (1.0 + Math.abs(rawScore));
 
 		return rawScore;
 	}
@@ -273,7 +272,7 @@ public class SingleMCTSPlayer {
 
 	/**
 	 * Checks if a rollout should end or not
-	 * 
+	 *
 	 * @param rollerState the current state observation
 	 * @param depth the current depth of the rollout
 	 * @return the value in the last reached state

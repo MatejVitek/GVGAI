@@ -49,7 +49,7 @@ public class Pair<T, U> implements Map.Entry<T, U>, Comparable {
 
 	@Override
 	public boolean equals(Object obj) {
-		return (compareTo(obj) == 0);
+		return compareTo(obj) == 0;
 	}
 
 	public Pair copy() {

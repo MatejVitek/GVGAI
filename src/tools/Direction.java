@@ -31,7 +31,7 @@ public class Direction {
 
 	/**
 	 * Returns a representative String of this vector.
-	 * 
+	 *
 	 * @return a representative String of this vector.
 	 */
 	@Override
@@ -41,7 +41,7 @@ public class Direction {
 
 	/**
 	 * Returns true if both directions are orthogonal
-	 * 
+	 *
 	 * @param a one direction
 	 * @param b another direction
 	 * @return true, if orthogonal, false otherwise.
@@ -55,7 +55,7 @@ public class Direction {
 
 	/**
 	 * Checks if a direction and this are the same.
-	 * 
+	 *
 	 * @param d the other direction to check
 	 * @return true if their coordinates are the same.
 	 */

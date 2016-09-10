@@ -1,27 +1,12 @@
 package core;
 
-import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import core.content.GameContent;
-import core.content.InteractionContent;
-import core.content.MappingContent;
-import core.content.SpriteContent;
-import core.content.TerminationContent;
+import java.util.*;
+import core.content.*;
 import core.game.Game;
-import core.game.GameDescription;
-import core.game.GameDescription.InteractionData;
-import core.game.GameDescription.SpriteData;
-import core.game.GameDescription.TerminationData;
 import core.termination.Termination;
 import ontology.Types;
-import ontology.effects.Effect;
-import ontology.effects.TimeEffect;
-import tools.IO;
-import tools.Pair;
-import tools.Vector2d;
+import ontology.effects.*;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 04/10/13 Time: 16:52 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -70,7 +55,7 @@ public class VGDLParser {
 
 	/**
 	 * Parses a game passed whose file is passed by parameter.
-	 * 
+	 *
 	 * @param gamedesc_file filename of the file containing the game
 	 * @return the game created
 	 */
@@ -105,7 +90,7 @@ public class VGDLParser {
 
 	/**
 	 * Builds the tree structure that defines the game.
-	 * 
+	 *
 	 * @param lines array with the lines read from the game description file.
 	 * @return the root of the final game tree
 	 */
@@ -140,7 +125,7 @@ public class VGDLParser {
 
 	/**
 	 * Updates the set we are in (game-def, spriteset, interactionset, levelmapping, terminationset)
-	 * 
+	 *
 	 * @param line line to read
 	 */
 	private void updateSet(String line) {
@@ -152,7 +137,7 @@ public class VGDLParser {
 
 	/**
 	 * Parses the sprite set, and then initializes the game structures for the sprites.
-	 * 
+	 *
 	 * @param elements children of the root node of the game description sprite set.
 	 */
 	private void parseSpriteSet(ArrayList<Node> elements) {
@@ -168,7 +153,7 @@ public class VGDLParser {
 
 	/**
 	 * Recursive method to parse the tree of sprites.
-	 * 
+	 *
 	 * @param elements set of sibling nodes
 	 * @param parentclass String that identifies the class of the parent node. If null, no class defined yet.
 	 * @param parentargs Map with the arguments of the parent, that are inherited to all its children.
@@ -256,7 +241,7 @@ public class VGDLParser {
 
 	/**
 	 * Parses the interaction set.
-	 * 
+	 *
 	 * @param elements all interactions defined for the game.
 	 */
 	private void parseInteractionSet(ArrayList<Node> elements) {
@@ -326,7 +311,7 @@ public class VGDLParser {
 
 	/**
 	 * Parses the level mapping.
-	 * 
+	 *
 	 * @param elements all mapping units.
 	 */
 	private void parseLevelMapping(ArrayList<Node> elements) {
@@ -339,7 +324,7 @@ public class VGDLParser {
 
 	/**
 	 * Parses the termination set.
-	 * 
+	 *
 	 * @param elements all terminations defined for the game.
 	 */
 	private void parseTerminationSet(ArrayList<Node> elements) {

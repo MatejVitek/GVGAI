@@ -9,10 +9,10 @@ package org.neuroph.core.transfer;
 /**
  * <pre>
  * Sin neuron transfer function.
- * 
+ *
  * output = sin(input)
  * </pre>
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Sin extends TransferFunction {

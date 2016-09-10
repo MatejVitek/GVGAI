@@ -2,7 +2,7 @@ package controllers.singlePlayer.olets;
 
 /**
  * Code written by Adrien Couetoux, acouetoux@ulg.ac.be. Date: 15/12/2015
- * 
+ *
  * @author Adrien Couëtoux
  */
 
@@ -88,7 +88,7 @@ public class SingleTreeNode {
 
 	/**
 	 * Public constructor for nodes with a parent node
-	 * 
+	 *
 	 * @param parent the parent node
 	 * @param depth the tree depth at which the node is added
 	 * @param actionIndex the index of the action that was chosen immediately before creating this node
@@ -115,15 +115,15 @@ public class SingleTreeNode {
 	}
 
 	public int getNodeDepth() {
-		return (this.nodeDepth);
+		return this.nodeDepth;
 	}
 
 	public int getActionIndex() {
-		return (this.actionIndex);
+		return this.actionIndex;
 	}
 
 	public int getNbGenerated() {
-		return (this.nbGenerated);
+		return this.nbGenerated;
 	}
 
 	public void setTabooBias(double tabooBias) {
@@ -252,16 +252,16 @@ public class SingleTreeNode {
 
 	/**
 	 * Computes the weighted expectimax of a node, minus a location bias to increase the value of nodes in locations that have not been visited often in the past
-	 * 
+	 *
 	 * @return the weighted expectimax with location bias
 	 */
 	private double getAdjustedEmaxScore() {
-		return (adjEmax + Agent.K * Math.sqrt(Math.log(parent.nVisits + 1) / (nVisits + SingleMCTSPlayer.epsilon)) - tabooBias);
+		return adjEmax + Agent.K * Math.sqrt(Math.log(parent.nVisits + 1) / (nVisits + SingleMCTSPlayer.epsilon)) - tabooBias;
 	}
 
 	/**
 	 * Backtracks along the visited branch of the tree, to update the stored data, including the expectimax values
-	 * 
+	 *
 	 * @param node the initial node of the backup (usually a tree leaf)
 	 * @param result the value measured before back tracking (eg. the score when the simulation ended)
 	 */
@@ -275,26 +275,26 @@ public class SingleTreeNode {
 			if (backUpDepth > 0) {
 				double bestExpectimax = HUGE_NEGATIVE;
 				double bestAdjustedExpectimax = HUGE_NEGATIVE;
-				for (int i = 0; i < n.children.length; i++) {
-					if (n.children[i] != null) {
-						if (n.children[i].expectimax > bestExpectimax) {
-							bestExpectimax = n.children[i].expectimax;
+				for (SingleTreeNode element : n.children) {
+					if (element != null) {
+						if (element.expectimax > bestExpectimax) {
+							bestExpectimax = element.expectimax;
 						}
-						if (n.children[i].adjEmax > bestAdjustedExpectimax) {
-							bestAdjustedExpectimax = n.children[i].adjEmax;
+						if (element.adjEmax > bestAdjustedExpectimax) {
+							bestAdjustedExpectimax = element.adjEmax;
 						}
 					}
 				}
 
 				n.expectimax = bestExpectimax;
 				n.childrenMaxAdjEmax = bestAdjustedExpectimax;
-				n.adjEmax = (((float) n.nbExitsHere) / n.nVisits) * (n.totalValueOnExit / n.nbExitsHere) + (1.0 - (((float) n.nbExitsHere) / n.nVisits)) * n.childrenMaxAdjEmax;
+				n.adjEmax = (float) n.nbExitsHere / n.nVisits * (n.totalValueOnExit / n.nbExitsHere) + (1.0 - (float) n.nbExitsHere / n.nVisits) * n.childrenMaxAdjEmax;
 			}
 			else {
 				n.nbExitsHere += 1;
 				n.totalValueOnExit += result;
 
-				n.adjEmax = (((float) n.nbExitsHere) / n.nVisits) * (n.totalValueOnExit / n.nbExitsHere) + (1.0 - (((float) n.nbExitsHere) / n.nVisits)) * n.childrenMaxAdjEmax;
+				n.adjEmax = (float) n.nbExitsHere / n.nVisits * (n.totalValueOnExit / n.nbExitsHere) + (1.0 - (float) n.nbExitsHere / n.nVisits) * n.childrenMaxAdjEmax;
 				n.expectimax = n.totValue / n.nVisits;
 			}
 
@@ -305,7 +305,7 @@ public class SingleTreeNode {
 
 	/**
 	 * Selects a child node, from the current node. It currently selects based on an epsilon-greedy, the greedy part being made according to adjusted expectimax values
-	 * 
+	 *
 	 * @return the selected child node
 	 */
 	public SingleTreeNode selectChild() {
@@ -341,7 +341,7 @@ public class SingleTreeNode {
 
 	/**
 	 * Finds the action that was selected the most times
-	 * 
+	 *
 	 * @return the most selected action from the current node
 	 */
 	public int mostVisitedAction() {
@@ -352,7 +352,8 @@ public class SingleTreeNode {
 
 		for (int i = 0; i < children.length; i++) {
 			if (children[i] != null) {
-				if (first == -1) first = children[i].nVisits;
+				if (first == -1)
+					first = children[i].nVisits;
 				else if (first != children[i].nVisits) {
 					allEqual = false;
 				}
@@ -377,7 +378,7 @@ public class SingleTreeNode {
 
 	/**
 	 * Finds the action with the highest cumulative value. Used in case of a tie when comparing the number of simulations
-	 * 
+	 *
 	 * @return the action with the highest cumulative value.
 	 */
 	private int bestAction() {
@@ -415,7 +416,7 @@ public class SingleTreeNode {
 
 	/**
 	 * Checks if the current node is fully expanded, i.e. if all actions have been selected at least once.
-	 * 
+	 *
 	 * @return true if there is an action that has not been tried yet, false otherwise.
 	 */
 	public boolean notFullyExpanded() {

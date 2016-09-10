@@ -6,19 +6,13 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.learning.SupervisedHebbianLearning;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Hebbian neural network with supervised Hebbian learning algorithm. In order to work this network needs aditional bias neuron in input layer which is allways 1 in training set!
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class SupervisedHebbianNetwork extends NeuralNetwork {
@@ -30,7 +24,7 @@ public class SupervisedHebbianNetwork extends NeuralNetwork {
 
 	/**
 	 * Creates an instance of Supervised Hebbian Network net with specified number neurons in input and output layer
-	 * 
+	 *
 	 * @param inputNeuronsNum number of neurons in input layer
 	 * @param outputNeuronsNum number of neurons in output layer
 	 */
@@ -40,7 +34,7 @@ public class SupervisedHebbianNetwork extends NeuralNetwork {
 
 	/**
 	 * Creates an instance of Supervised Hebbian Network with specified number of neurons in input layer and output layer, and transfer function
-	 * 
+	 *
 	 * @param inputNeuronsNum number of neurons in input layer
 	 * @param outputNeuronsNum number of neurons in output layer
 	 * @param transferFunctionType transfer function type id
@@ -51,7 +45,7 @@ public class SupervisedHebbianNetwork extends NeuralNetwork {
 
 	/**
 	 * Creates an instance of Supervised Hebbian Network with specified number of neurons in input layer, output layer and transfer function
-	 * 
+	 *
 	 * @param inputNeuronsNum number of neurons in input layer
 	 * @param outputNeuronsNum number of neurons in output layer
 	 * @param transferFunctionType transfer function type

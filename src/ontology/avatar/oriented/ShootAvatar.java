@@ -1,15 +1,12 @@
 package ontology.avatar.oriented;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.awt.Dimension;
+import core.*;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 22/10/13 Time: 18:10 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -37,6 +34,7 @@ public class ShootAvatar extends OrientedAvatar {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		ammo = null;
@@ -47,9 +45,10 @@ public class ShootAvatar extends OrientedAvatar {
 
 	/**
 	 * This update call is for the game tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 */
+	@Override
 	public void update(Game game) {
 		super.update(game);
 		if (lastMovementType == Types.MOVEMENT.STILL) updateUse(game);
@@ -57,15 +56,17 @@ public class ShootAvatar extends OrientedAvatar {
 
 	/**
 	 * This move call is for the Forward Model tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 * @param actionMask action to apply.
 	 */
+	@Override
 	public void move(Game game, boolean[] actionMask) {
 		super.move(game, actionMask);
 		updateUse(game);
 	}
 
+	@Override
 	public void updateUse(Game game) {
 		if (Utils.processUseKey(getKeyHandler().getMask(), getPlayerID()) && hasAmmo()) // use primary set of keys
 		{
@@ -102,6 +103,7 @@ public class ShootAvatar extends OrientedAvatar {
 		}
 	}
 
+	@Override
 	public void postProcess() {
 		// Define actions here first.
 		if (actions.size() == 0) {
@@ -118,12 +120,14 @@ public class ShootAvatar extends OrientedAvatar {
 		if (ammo != null) ammoId = VGDLRegistry.GetInstance().getRegisteredSpriteValue(ammo);
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		ShootAvatar newSprite = new ShootAvatar();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		ShootAvatar targetSprite = (ShootAvatar) target;
 		targetSprite.stype = this.stype;

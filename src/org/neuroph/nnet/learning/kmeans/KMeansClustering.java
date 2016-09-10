@@ -1,10 +1,7 @@
 package org.neuroph.nnet.learning.kmeans;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import org.neuroph.core.data.DataSet;
-import org.neuroph.core.data.DataSetRow;
+import java.util.*;
+import org.neuroph.core.data.*;
 
 /**
  * 1. Pick an initial set of K centroids (this can be random or any other means) 2. For each data point, assign it to the member of the closest centroid according to the given distance function 3.
@@ -92,7 +89,7 @@ public class KMeansClustering {
 
 	/**
 	 * Find and return the nearest cluster for the specified vector
-	 * 
+	 *
 	 * @param vector
 	 * @return
 	 */

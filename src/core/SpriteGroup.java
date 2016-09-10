@@ -1,9 +1,6 @@
 package core;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.*;
 
 /**
  * Created by Diego on 18/03/14. This class encapsulates a SpriteGroup: a collection of VGDLSprite objects identified with an unique id. All sprites in the SpriteGroup are of the same type.
@@ -23,7 +20,7 @@ public class SpriteGroup {
 
 	/**
 	 * Creates a new SpriteGroup, specifying the type of sprites this will hold.
-	 * 
+	 *
 	 * @param itype type of sprite for the SpriteGroup.
 	 */
 	public SpriteGroup(int itype) {
@@ -33,7 +30,7 @@ public class SpriteGroup {
 
 	/**
 	 * Adds an sprite to the collection.
-	 * 
+	 *
 	 * @param spriteId Unique ID of the sprite to add
 	 * @param sprite Sprite to add.
 	 */
@@ -43,7 +40,7 @@ public class SpriteGroup {
 
 	/**
 	 * Adds a collection of sprites to this collection.
-	 * 
+	 *
 	 * @param spritesToAdd Sprites to add.
 	 */
 	public void addAllSprites(Collection<VGDLSprite> spritesToAdd) {
@@ -53,7 +50,7 @@ public class SpriteGroup {
 
 	/**
 	 * Adds a collection of sprites to this collection. Each sprite added is a copy of the original sprite in the array received.
-	 * 
+	 *
 	 * @param spritesToCopy Sprites to copy.
 	 */
 	public void copyAllSprites(Collection<VGDLSprite> spritesToCopy) {
@@ -63,7 +60,7 @@ public class SpriteGroup {
 
 	/**
 	 * Gets the collection of sprites, as a ConcurrentHashMap [KEY => VALUE].
-	 * 
+	 *
 	 * @return the TreeMap with the Sprites.
 	 */
 	public ArrayList<VGDLSprite> getSprites() {
@@ -72,7 +69,7 @@ public class SpriteGroup {
 
 	/**
 	 * Gets the set of KEYs in an array. It will return null if the collection of sprites is empty.
-	 * 
+	 *
 	 * @return the list of the sprite keys in this collection in an array.
 	 */
 	// public Integer[] getKeys()
@@ -86,7 +83,7 @@ public class SpriteGroup {
 
 	/**
 	 * Gets an ordered iterator through all sprites. It will return null if the collection of sprites is empty.
-	 * 
+	 *
 	 * @return the list of the sprites in this collection in an iterator.
 	 */
 	public Iterator<VGDLSprite> getSpriteIterator() {
@@ -96,7 +93,7 @@ public class SpriteGroup {
 
 	/**
 	 * Removes an sprite.
-	 * 
+	 *
 	 * @param sprite the sprite to remove.
 	 */
 	public void removeSprite(VGDLSprite sprite) {
@@ -105,7 +102,7 @@ public class SpriteGroup {
 
 	/**
 	 * Gets the type of this SpriteGroup.
-	 * 
+	 *
 	 * @return the type of this sprite group
 	 */
 	public int getItype() {
@@ -114,7 +111,7 @@ public class SpriteGroup {
 
 	/**
 	 * Retrieves a sprite given its unique ID. It'll return null if the sprite is not in the collection.
-	 * 
+	 *
 	 * @param spriteId ID of the sprite to retrieve.
 	 * @return the desired sprite.
 	 */
@@ -124,7 +121,7 @@ public class SpriteGroup {
 
 	/**
 	 * Retrieves a sprite given its position in the sprite list. Returns null sprite is not in the collection.
-	 * 
+	 *
 	 * @param idx index of the sprite.
 	 * @return the desired sprite.
 	 */
@@ -143,7 +140,7 @@ public class SpriteGroup {
 
 	/**
 	 * Gets the number of sprites in the collection.
-	 * 
+	 *
 	 * @return number of sprites in this collection.
 	 */
 	public int numSprites() {
@@ -152,7 +149,7 @@ public class SpriteGroup {
 
 	/**
 	 * Returns the number of disabled sprites
-	 * 
+	 *
 	 * @return the number of disabled sprites
 	 */
 	public int numDisabledSprites() {
@@ -165,7 +162,7 @@ public class SpriteGroup {
 
 	/**
 	 * Gets the first sprite of this collection, or null if it is empty
-	 * 
+	 *
 	 * @return the first sprite in this collection.
 	 */
 	public VGDLSprite getFirstSprite() {

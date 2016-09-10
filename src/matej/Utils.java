@@ -1,7 +1,6 @@
 package matej;
 
 import java.util.*;
-import matej.rf.DecisionTree;
 
 public class Utils {
 
@@ -33,8 +32,8 @@ public class Utils {
 
 	public static double max(double[] arr) {
 		double max = Double.NEGATIVE_INFINITY;
-		for (int i = 0; i < arr.length; i++)
-			if (arr[i] > max) max = arr[i];
+		for (double element : arr)
+			if (element > max) max = element;
 		return max;
 	}
 
@@ -76,7 +75,8 @@ public class Utils {
 		HashMap<String, Integer> counter = new HashMap<String, Integer>();
 		for (Instance inst : instances) {
 			String cls = inst.output;
-			if (counter.containsKey(cls)) counter.put(cls, counter.get(cls) + 1);
+			if (counter.containsKey(cls))
+				counter.put(cls, counter.get(cls) + 1);
 			else counter.put(cls, 1);
 		}
 

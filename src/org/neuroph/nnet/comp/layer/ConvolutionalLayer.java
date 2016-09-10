@@ -5,17 +5,12 @@
  */
 package org.neuroph.nnet.comp.layer;
 
-import org.neuroph.core.transfer.RectifiedLinear;
-import org.neuroph.nnet.comp.Kernel;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.Weight;
+import org.neuroph.core.*;
 import org.neuroph.core.input.WeightedSum;
-import org.neuroph.core.transfer.Tanh;
-import org.neuroph.core.transfer.TransferFunction;
-import org.neuroph.nnet.comp.Dimension2D;
+import org.neuroph.core.transfer.*;
+import org.neuroph.nnet.comp.*;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.NeuronProperties;
+import org.neuroph.util.*;
 
 /**
  * Convolutional layer is a special type of layer, used in convolutional neural networks. It contains a collection of feature maps, default neuron settings for convolutional layers, and method for

@@ -1,7 +1,6 @@
 package levelGenerators.constructiveLevelGenerator;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.Map.Entry;
 
 public class LevelData {
@@ -17,7 +16,7 @@ public class LevelData {
 
 	/**
 	 * construct data for a level
-	 * 
+	 *
 	 * @param width level width
 	 * @param length level height
 	 */
@@ -28,7 +27,7 @@ public class LevelData {
 
 	/**
 	 * get the 2D level in form of string
-	 * 
+	 *
 	 * @return string describe the level
 	 */
 	public String getLevel() {
@@ -57,7 +56,7 @@ public class LevelData {
 
 	/**
 	 * set a position in the map to a certain type
-	 * 
+	 *
 	 * @param x x position on the map
 	 * @param y y position on the map
 	 * @param stype the sprite to added
@@ -68,7 +67,7 @@ public class LevelData {
 
 	/**
 	 * get the sprite at a certain position
-	 * 
+	 *
 	 * @param x x position on the map
 	 * @param y y position on the map
 	 * @return sprite at a certain position on the map
@@ -79,7 +78,7 @@ public class LevelData {
 
 	/**
 	 * get the width of the level
-	 * 
+	 *
 	 * @return return the width of the level
 	 */
 	public int getWidth() {
@@ -88,7 +87,7 @@ public class LevelData {
 
 	/**
 	 * get the height of the level
-	 * 
+	 *
 	 * @return return the height of the level
 	 */
 	public int getHeight() {
@@ -97,7 +96,7 @@ public class LevelData {
 
 	/**
 	 * check if the two positions are connected
-	 * 
+	 *
 	 * @param x1 x position of the first point
 	 * @param y1 y position of the first point
 	 * @param x2 x position of the second point
@@ -117,8 +116,8 @@ public class LevelData {
 			if (current.x == x2 && current.y == y2) {
 				return true;
 			}
-			for (int i = 0; i < directions.length; i++) {
-				Point newPoint = new Point(current.x + directions[i].x, current.y + directions[i].y);
+			for (Point direction : directions) {
+				Point newPoint = new Point(current.x + direction.x, current.y + direction.y);
 				if (!checkInLevel(newPoint.x, newPoint.y)) {
 					continue;
 				}
@@ -133,7 +132,7 @@ public class LevelData {
 
 	/**
 	 * check if this wall will case the world not to be connected any more
-	 * 
+	 *
 	 * @param x x position for the point
 	 * @param y y position for the point
 	 * @return true if the wall didn't split the world into two halves and false otherwise
@@ -153,18 +152,18 @@ public class LevelData {
 
 	/**
 	 * check if the point is inside the borders of the level
-	 * 
+	 *
 	 * @param x x position for the point
 	 * @param y y position for the point
 	 * @return true if the point in the level and false otherwise
 	 */
 	public boolean checkInLevel(int x, int y) {
-		return (x >= 0 && y >= 0 && x < getWidth() && y < getHeight());
+		return x >= 0 && y >= 0 && x < getWidth() && y < getHeight();
 	}
 
 	/**
 	 * get all empty locations in the level
-	 * 
+	 *
 	 * @return array of points contains all empty locations
 	 */
 	public ArrayList<Point> getAllFreeSpots() {
@@ -182,7 +181,7 @@ public class LevelData {
 
 	/**
 	 * get the level mapping hashmap
-	 * 
+	 *
 	 * @return the used hashmap for constructing the level
 	 */
 	public HashMap<Character, ArrayList<String>> getLevelMapping() {
@@ -197,7 +196,7 @@ public class LevelData {
 
 	/**
 	 * Special point class that is used to get neighbors and handle other useful functions
-	 * 
+	 *
 	 * @author AhmedKhalifa
 	 */
 	public static class Point {
@@ -217,7 +216,7 @@ public class LevelData {
 
 		/**
 		 * get a list of all 4 neighbor points
-		 * 
+		 *
 		 * @return array of the 4 neighboring points
 		 */
 		public ArrayList<Point> getSurroundingPoints() {
@@ -232,7 +231,7 @@ public class LevelData {
 
 		/**
 		 * get distance between this point and the input point
-		 * 
+		 *
 		 * @param p an input point
 		 * @return distance between this point and the input point
 		 */

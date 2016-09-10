@@ -5,9 +5,7 @@ import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 18:26 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -27,6 +25,7 @@ public class RandomBomber extends SpawnPoint {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		color = Types.ORANGE;
@@ -38,18 +37,21 @@ public class RandomBomber extends SpawnPoint {
 		speed = 1.0;
 	}
 
+	@Override
 	public void update(Game game) {
 		Direction act = (Direction) Utils.choice(Types.DBASEDIRS, game.getRandomGenerator());
 		this.physics.activeMovement(this, act, this.speed);
 		super.update(game);
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		RandomBomber newSprite = new RandomBomber();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		RandomBomber targetSprite = (RandomBomber) target;
 		super.copyTo(targetSprite);

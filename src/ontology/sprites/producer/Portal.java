@@ -1,9 +1,8 @@
 package ontology.sprites.producer;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.awt.Dimension;
+import core.*;
 import core.content.SpriteContent;
 import ontology.Types;
 import tools.Vector2d;
@@ -29,6 +28,7 @@ public class Portal extends SpriteProducer {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		is_static = true;
@@ -36,17 +36,20 @@ public class Portal extends SpriteProducer {
 		color = Types.BLUE;
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 		itype = VGDLRegistry.GetInstance().getRegisteredSpriteValue(stype);
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Portal newSprite = new Portal();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Portal targetSprite = (Portal) target;
 		targetSprite.stype = this.stype;

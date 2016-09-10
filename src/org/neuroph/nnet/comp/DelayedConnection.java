@@ -6,13 +6,12 @@
 
 package org.neuroph.nnet.comp;
 
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.neuron.DelayedNeuron;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
 
 /**
  * Represents the connection between neurons which can delay signal.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class DelayedConnection extends Connection {
@@ -29,7 +28,7 @@ public class DelayedConnection extends Connection {
 
 	/**
 	 * Creates an instance of delayed connection to cpecified neuron and with specified weight
-	 * 
+	 *
 	 * @param fromNeuron neuron to connect (source neuron)
 	 * @param toNeuron neuron to connect to (destination neuron)
 	 * @param weightVal weight value for the connection
@@ -42,7 +41,7 @@ public class DelayedConnection extends Connection {
 
 	/**
 	 * Returns delay value for this connection
-	 * 
+	 *
 	 * @return delay value for this connection
 	 */
 	public int getDelay() {
@@ -51,7 +50,7 @@ public class DelayedConnection extends Connection {
 
 	/**
 	 * Sets delay value for this connection
-	 * 
+	 *
 	 * @param delay value for this connection
 	 */
 	public void setDelay(int delay) {
@@ -60,12 +59,13 @@ public class DelayedConnection extends Connection {
 
 	/**
 	 * Gets delayed input through this connection
-	 * 
+	 *
 	 * @return delayed output from connected neuron
 	 */
 	@Override
 	public double getInput() {
-		if (this.fromNeuron instanceof DelayedNeuron) return ((DelayedNeuron) this.fromNeuron).getOutput(delay);
+		if (this.fromNeuron instanceof DelayedNeuron)
+			return ((DelayedNeuron) this.fromNeuron).getOutput(delay);
 		else return this.fromNeuron.getOutput();
 	}
 

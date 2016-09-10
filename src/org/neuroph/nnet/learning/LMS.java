@@ -5,16 +5,14 @@
  */
 package org.neuroph.nnet.learning;
 
-import java.io.Serializable;
 import java.util.List;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.Weight;
+import java.io.Serializable;
+import org.neuroph.core.*;
 import org.neuroph.core.learning.SupervisedLearning;
 
 /**
  * LMS learning rule for neural networks.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class LMS extends SupervisedLearning implements Serializable {
@@ -34,7 +32,7 @@ public class LMS extends SupervisedLearning implements Serializable {
 
 	/**
 	 * This method implements the weights update procedure for the whole network for the given output error vector.
-	 * 
+	 *
 	 * @param outputError output error vector for some network input- the difference between desired and actual output
 	 * @see SupervisedLearning#learnPattern(org.neuroph.core.data.DataSetRow) learnPattern
 	 */
@@ -54,7 +52,7 @@ public class LMS extends SupervisedLearning implements Serializable {
 	 * This method implements weights update procedure for the single neuron It iterates through all neuron's input connections, and calculates/set weight change for each weight using formula
 	 * deltaWeight = learningRate * neuronError * input where neuronError is difference between desired and actual output for specific neuron neuronError = desiredOutput[i] - actualOutput[i] (see
 	 * method SuprevisedLearning.calculateOutputError)
-	 * 
+	 *
 	 * @param neuron neuron to update weights
 	 * @see LMS#updateNetworkWeights(double[])
 	 */

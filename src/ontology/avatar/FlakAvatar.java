@@ -1,14 +1,12 @@
 package ontology.avatar;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.awt.Dimension;
+import core.*;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Utils;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 22/10/13 Time: 18:08 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -38,6 +36,7 @@ public class FlakAvatar extends HorizontalAvatar {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		ammo = null;
@@ -47,6 +46,7 @@ public class FlakAvatar extends HorizontalAvatar {
 		color = Types.GREEN;
 	}
 
+	@Override
 	public void postProcess() {
 		// Define actions here first.
 		if (actions.size() == 0) {
@@ -63,9 +63,10 @@ public class FlakAvatar extends HorizontalAvatar {
 
 	/**
 	 * This update call is for the game tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 */
+	@Override
 	public void update(Game game) {
 		super.update(game);
 		if (lastMovementType == Types.MOVEMENT.STILL) updateUse(game);
@@ -73,15 +74,17 @@ public class FlakAvatar extends HorizontalAvatar {
 
 	/**
 	 * This move call is for the Forward Model tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 * @param actionMask action to apply.
 	 */
+	@Override
 	public void move(Game game, boolean[] actionMask) {
 		super.move(game, actionMask);
 		updateUse(game);
 	}
 
+	@Override
 	public void updateUse(Game game) {
 		if (Utils.processUseKey(getKeyHandler().getMask(), getPlayerID()) && hasAmmo()) // use primary set of keys, idx = 0
 		{
@@ -97,7 +100,8 @@ public class FlakAvatar extends HorizontalAvatar {
 		if (ammo == null) return true; // no ammo defined, I can shoot.
 
 		// If I have ammo, I must have enough resource of ammo type to be able to shoot.
-		if (resources.containsKey(ammoId)) if (minAmmo > -1) return resources.get(ammoId) > minAmmo;
+		if (resources.containsKey(ammoId)) if (minAmmo > -1)
+			return resources.get(ammoId) > minAmmo;
 		else return resources.get(ammoId) > 0;
 
 		return false;
@@ -109,12 +113,14 @@ public class FlakAvatar extends HorizontalAvatar {
 		}
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		FlakAvatar newSprite = new FlakAvatar();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		FlakAvatar targetSprite = (FlakAvatar) target;
 		targetSprite.stype = this.stype;

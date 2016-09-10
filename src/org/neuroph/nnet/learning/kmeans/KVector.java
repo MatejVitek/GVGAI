@@ -2,7 +2,7 @@ package org.neuroph.nnet.learning.kmeans;
 
 /**
  * Represents feature vector used in k-means clustering algorithm
- * 
+ *
  * @author Zoran Sevarac
  * @author Uros Stojkic
  */
@@ -61,7 +61,7 @@ public class KVector {
 
 	/**
 	 * Calculates and returns intensity of this vector
-	 * 
+	 *
 	 * @return intensity of this vector
 	 */
 	public double getIntensity() {
@@ -78,7 +78,7 @@ public class KVector {
 
 	/**
 	 * Calculates and returns euclidean distance of this vector from the given cluster
-	 * 
+	 *
 	 * @param cluster
 	 * @return euclidean distance of this vector from given cluster
 	 */

@@ -6,10 +6,7 @@
 
 package org.neuroph.util;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.Weight;
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.DelayedConnection;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
 
@@ -20,7 +17,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates connection between two specified neurons
-	 * 
+	 *
 	 * @param fromNeuron output neuron
 	 * @param toNeuron input neuron
 	 */
@@ -31,7 +28,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates connection between two specified neurons
-	 * 
+	 *
 	 * @param fromNeuron neuron to connect (connection source)
 	 * @param toNeuron neuron to connect to (connection target)
 	 * @param weightVal connection weight value
@@ -48,7 +45,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates connection between two specified neurons
-	 * 
+	 *
 	 * @param fromNeuron neuron to connect (connection source)
 	 * @param toNeuron neuron to connect to (connection target)
 	 * @param weight connection weight
@@ -60,7 +57,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates connectivity between specified neuron and all neurons in specified layer
-	 * 
+	 *
 	 * @param fromNeuron neuron to connect
 	 * @param toLayer layer to connect to
 	 */
@@ -72,7 +69,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates full connectivity between the two specified layers
-	 * 
+	 *
 	 * @param fromLayer layer to connect
 	 * @param toLayer layer to connect to
 	 */
@@ -86,7 +83,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates full connectivity between the two specified layers
-	 * 
+	 *
 	 * @param fromLayer layer to connect
 	 * @param toLayer layer to connect to
 	 */
@@ -103,7 +100,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates full connectivity between two specified layers with specified weight for all connections
-	 * 
+	 *
 	 * @param fromLayer output layer
 	 * @param toLayer input layer
 	 * @param weightVal connection weight value
@@ -163,7 +160,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates forward connectivity pattern between the specified layers
-	 * 
+	 *
 	 * @param fromLayer layer to connect
 	 * @param toLayer layer to connect to
 	 */
@@ -177,7 +174,7 @@ public class ConnectionFactory {
 
 	/**
 	 * Creates forward connection pattern between specified layers
-	 * 
+	 *
 	 * @param fromLayer layer to connect
 	 * @param toLayer layer to connect to
 	 */

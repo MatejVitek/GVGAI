@@ -17,6 +17,7 @@ public class WinScoreHeuristic extends StateHeuristicMulti {
 
 	}
 
+	@Override
 	public double evaluateState(StateObservationMulti stateObs, int playerID) {
 		boolean gameOver = stateObs.isGameOver();
 		Types.WINNER win = stateObs.getMultiGameWinner()[playerID];

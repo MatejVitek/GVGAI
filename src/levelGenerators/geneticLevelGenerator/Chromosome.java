@@ -1,20 +1,14 @@
 package levelGenerators.geneticLevelGenerator;
 
+import java.util.*;
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import core.game.Event;
-import core.game.GameDescription.SpriteData;
-import core.game.GameDescription.TerminationData;
-import core.game.StateObservation;
+import core.game.*;
+import core.game.GameDescription.*;
 import core.player.AbstractPlayer;
 import levelGenerators.constraints.CombinedConstraints;
 import ontology.Types;
 import ontology.Types.WINNER;
-import tools.ElapsedCpuTimer;
-import tools.LevelMapping;
-import tools.StepController;
+import tools.*;
 
 public class Chromosome implements Comparable<Chromosome> {
 
@@ -53,7 +47,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * initialize the chromosome with a certain length and width
-	 * 
+	 *
 	 * @param width
 	 * @param height
 	 */
@@ -72,6 +66,7 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * clone the chromosome data
 	 */
+	@Override
 	public Chromosome clone() {
 		Chromosome c = new Chromosome(level[0].length, level.length);
 
@@ -149,7 +144,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * crossover the current chromosome with the input chromosome
-	 * 
+	 *
 	 * @param c the other chromosome to crossover with
 	 * @return the current children from the crossover process
 	 */
@@ -236,7 +231,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * get the free positions in the current level (that doesnt contain solid or object from the input list)
-	 * 
+	 *
 	 * @param sprites list of sprites names to test them
 	 * @return list of all free position points
 	 */
@@ -263,7 +258,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * get all the positions of all the sprites found in the input list
-	 * 
+	 *
 	 * @param sprites list of sprites
 	 * @return list of points that contains the sprites in the list
 	 */
@@ -330,17 +325,17 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * get the current used level mapping to parse the level string
-	 * 
+	 *
 	 * @return Level mapping object that can help to construct the level string and parse the level string
 	 */
 	public LevelMapping getLevelMapping() {
 		LevelMapping levelMapping = new LevelMapping(SharedData.gameDescription);
 		levelMapping.clearLevelMapping();
 		char c = 'a';
-		for (int y = 0; y < level.length; y++) {
-			for (int x = 0; x < level[y].length; x++) {
-				if (levelMapping.getCharacter(level[y][x]) == null) {
-					levelMapping.addCharacterMapping(c, level[y][x]);
+		for (ArrayList<String>[] element : level) {
+			for (int x = 0; x < element.length; x++) {
+				if (levelMapping.getCharacter(element[x]) == null) {
+					levelMapping.addCharacterMapping(c, element[x]);
 					c += 1;
 				}
 			}
@@ -351,15 +346,15 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * get the current level string
-	 * 
+	 *
 	 * @param levelMapping level mapping object to help constructing the string
 	 * @return string of letters defined in the level mapping that represent the level
 	 */
 	public String getLevelString(LevelMapping levelMapping) {
 		String levelString = "";
-		for (int y = 0; y < level.length; y++) {
-			for (int x = 0; x < level[y].length; x++) {
-				levelString += levelMapping.getCharacter(level[y][x]);
+		for (ArrayList<String>[] element : level) {
+			for (int x = 0; x < element.length; x++) {
+				levelString += levelMapping.getCharacter(element[x]);
 			}
 			levelString += "\n";
 		}
@@ -371,7 +366,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * get the percentage of the level covered by objects excluding the borders
-	 * 
+	 *
 	 * @return percentage with respect to the size of the level
 	 */
 	private double getCoverPercentage() {
@@ -391,7 +386,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * get game state observation for the current level
-	 * 
+	 *
 	 * @return StateObservation for the current level
 	 */
 	private StateObservation getStateObservation() {
@@ -407,7 +402,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * calculate the number of objects in the level by sprite names
-	 * 
+	 *
 	 * @return a hashmap of the number of each object based on its name
 	 */
 	private HashMap<String, Integer> calculateNumberOfObjects() {
@@ -420,9 +415,9 @@ public class Chromosome implements Comparable<Chromosome> {
 		}
 
 		// modify the hashmap to reflect the number of objects found in this level
-		for (int y = 0; y < level.length; y++) {
-			for (int x = 0; x < level[y].length; x++) {
-				ArrayList<String> sprites = level[y][x];
+		for (ArrayList<String>[] element : level) {
+			for (int x = 0; x < element.length; x++) {
+				ArrayList<String> sprites = element[x];
 				for (String stype : sprites) {
 					if (objects.containsKey(stype)) {
 						objects.put(stype, objects.get(stype) + 1);
@@ -439,7 +434,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * Get fitness value for the current score difference between the best player and the naive player
-	 * 
+	 *
 	 * @param scoreDiff difference between the best player score and the naive player score
 	 * @param maxScore maximum score required to approach it
 	 * @return value between 0 to 1 which is almost 1 near the maxScore.
@@ -451,13 +446,13 @@ public class Chromosome implements Comparable<Chromosome> {
 		if (scoreDiff <= 0) {
 			return 0;
 		}
-		double result = (3 * scoreDiff / maxScore);
+		double result = 3 * scoreDiff / maxScore;
 		return 2 / (1 + Math.exp(-result)) - 1;
 	}
 
 	/**
 	 * check if the player death terminates the game player ID used is 0, default for single player games.
-	 * 
+	 *
 	 * @return true if the player death terminates the game and false otherwise
 	 */
 	private boolean isPlayerCauseDeath() {
@@ -479,7 +474,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * get a fitness value for the number of unique rules satisfied during playing the game
-	 * 
+	 *
 	 * @param gameState the current level after playing using the best player
 	 * @param minUniqueRule minimum amount of rules needed to reach 1
 	 * @return near 1 when its near to minUniqueRule
@@ -507,7 +502,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * Play the current level using the naive player
-	 * 
+	 *
 	 * @param stateObs the current stateObservation object that represent the level
 	 * @param steps the maximum amount of steps that it shouldn't exceed it
 	 * @param agent current agent to play the level
@@ -528,7 +523,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * Calculate the current fitness of the chromosome
-	 * 
+	 *
 	 * @param time amount of time to evaluate the chromosome
 	 * @return current fitness of the chromosome
 	 */
@@ -619,7 +614,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * Get the current chromosome fitness
-	 * 
+	 *
 	 * @return array contains all fitness values
 	 */
 	public ArrayList<Double> getFitness() {
@@ -628,7 +623,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * Get the average value of the fitness
-	 * 
+	 *
 	 * @return average value of the fitness array
 	 */
 	public double getCombinedFitness() {
@@ -641,7 +636,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * Get constraint fitness for infeasible chromosome
-	 * 
+	 *
 	 * @return 1 if its feasible and less than 1 if not
 	 */
 	public double getConstrainFitness() {
@@ -650,7 +645,7 @@ public class Chromosome implements Comparable<Chromosome> {
 
 	/**
 	 * helpful data structure to hold information about certain points in the level
-	 * 
+	 *
 	 * @author AhmedKhalifa
 	 */
 	public class SpritePointData {

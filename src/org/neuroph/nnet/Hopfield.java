@@ -6,20 +6,14 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.neuron.InputOutputNeuron;
 import org.neuroph.nnet.learning.BinaryHebbianLearning;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Hopfield neural network. Notes: try to use [1, -1] activation levels, sgn as transfer function, or real numbers for activation
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 
@@ -32,7 +26,7 @@ public class Hopfield extends NeuralNetwork {
 
 	/**
 	 * Creates new Hopfield network with specified neuron number
-	 * 
+	 *
 	 * @param neuronsCount neurons number in Hopfied network
 	 */
 	public Hopfield(int neuronsCount) {
@@ -50,7 +44,7 @@ public class Hopfield extends NeuralNetwork {
 
 	/**
 	 * Creates new Hopfield network with specified neuron number and neuron properties
-	 * 
+	 *
 	 * @param neuronsCount neurons number in Hopfied network
 	 * @param neuronProperties neuron properties
 	 */
@@ -60,7 +54,7 @@ public class Hopfield extends NeuralNetwork {
 
 	/**
 	 * Creates Hopfield network architecture
-	 * 
+	 *
 	 * @param neuronsCount neurons number in Hopfied network
 	 * @param neuronProperties neuron properties
 	 */

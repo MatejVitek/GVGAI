@@ -1,19 +1,13 @@
 package core.game;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Random;
+import java.util.*;
 import core.VGDLRegistry;
-import core.termination.Termination;
 import ontology.Types;
 import ontology.avatar.MovingAvatar;
-import ontology.effects.Effect;
 
 /**
  * This is an abstract class encapsulating all the data required for generating and testing game levels.
- * 
+ *
  * @author Ahmed A Khalifa
  */
 public class GameDescription {
@@ -69,13 +63,13 @@ public class GameDescription {
 	private ArrayList<TerminationData> terminationData;
 
 	/**
-	 * 
+	 *
 	 */
 	private HashMap<Character, ArrayList<String>> charMapping;
 
 	/**
 	 * Constructor to the Game Description. It initialize all the data using the passed game object.
-	 * 
+	 *
 	 * @param currentGame The current running game object.
 	 */
 	public GameDescription(Game currentGame) {
@@ -107,7 +101,7 @@ public class GameDescription {
 
 	/**
 	 * Reset the game description object and assign new game object
-	 * 
+	 *
 	 * @param currentGame new game object assigned
 	 */
 	public void reset(Game currentGame) {
@@ -157,7 +151,7 @@ public class GameDescription {
 
 	/**
 	 * Build the generated level to be tested using an agent using the original Level Mapping.
-	 * 
+	 *
 	 * @param level a string of characters that are supplied in the character mapping
 	 * @return StateObservation object that can be used to simulate the game.
 	 */
@@ -167,7 +161,7 @@ public class GameDescription {
 
 	/**
 	 * Build the generated level to be tested using an agent. You should call this version if you are using your own character mapping
-	 * 
+	 *
 	 * @param level a string of characters that are supplied in the character mapping
 	 * @return StateObservation object that can be used to simulate the game.
 	 */
@@ -185,7 +179,7 @@ public class GameDescription {
 
 	/**
 	 * Get player supported actions
-	 * 
+	 *
 	 * @param includeNIL boolean to identify if the NIL action should exists in the supported actions
 	 * @return list of all player supported actions
 	 */
@@ -199,7 +193,7 @@ public class GameDescription {
 
 	/**
 	 * Get avatar sprite data information
-	 * 
+	 *
 	 * @return avatar's sprite data
 	 */
 	public ArrayList<SpriteData> getAvatar() {
@@ -208,7 +202,7 @@ public class GameDescription {
 
 	/**
 	 * Get NPCs sprite data information
-	 * 
+	 *
 	 * @return array of sprite data
 	 */
 	public ArrayList<SpriteData> getNPC() {
@@ -217,7 +211,7 @@ public class GameDescription {
 
 	/**
 	 * Get Statics sprite data information
-	 * 
+	 *
 	 * @return array of sprite data
 	 */
 	public ArrayList<SpriteData> getStatic() {
@@ -226,7 +220,7 @@ public class GameDescription {
 
 	/**
 	 * Get Resources sprite data information
-	 * 
+	 *
 	 * @return array of sprite data
 	 */
 	public ArrayList<SpriteData> getResource() {
@@ -235,7 +229,7 @@ public class GameDescription {
 
 	/**
 	 * Get Portals sprite data information
-	 * 
+	 *
 	 * @return array of sprite data
 	 */
 	public ArrayList<SpriteData> getPortal() {
@@ -244,7 +238,7 @@ public class GameDescription {
 
 	/**
 	 * Get all movable sprites
-	 * 
+	 *
 	 * @return arary of sprite data
 	 */
 	public ArrayList<SpriteData> getMoving() {
@@ -253,7 +247,7 @@ public class GameDescription {
 
 	/**
 	 * Get all defined game sprites
-	 * 
+	 *
 	 * @return an array of sprite data
 	 */
 	public ArrayList<SpriteData> getAllSpriteData() {
@@ -270,7 +264,7 @@ public class GameDescription {
 
 	/**
 	 * Get a list of all effects happening to the first sprite
-	 * 
+	 *
 	 * @param stype1 the sprite name of the first sprite in the collision
 	 * @param stype2 the sprite name of the second sprite in the collision
 	 * @return an array of all possible effects. If there is no effects, an empty array is returned
@@ -284,7 +278,7 @@ public class GameDescription {
 
 	/**
 	 * Get a list of all termination conditions for the current game
-	 * 
+	 *
 	 * @return an array of termination data objects
 	 */
 	public ArrayList<GameDescription.TerminationData> getTerminationConditions() {
@@ -293,7 +287,7 @@ public class GameDescription {
 
 	/**
 	 * Get default character mapping
-	 * 
+	 *
 	 * @return hashmap of level characters and their corresponding sprites
 	 */
 	public HashMap<Character, ArrayList<String>> getLevelMapping() {
@@ -367,7 +361,7 @@ public class GameDescription {
 
 		/**
 		 * Player ID for win state used is 0, default for single player games.
-		 * 
+		 *
 		 * @return
 		 */
 		@Override

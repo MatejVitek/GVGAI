@@ -1,11 +1,9 @@
 package controllers.singlePlayer.repeatOLETS;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
-import ontology.Types.ACTIONS;
-import ontology.Types.WINNER;
+import ontology.Types.*;
 import tools.ElapsedCpuTimer;
 
 public class Agent extends AbstractPlayer {
@@ -61,7 +59,7 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * Initialize the parameters and construct the automated player
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 */
@@ -92,7 +90,7 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * get CDF distribution of the distribution sent
-	 * 
+	 *
 	 * @param dist an array of probabilities
 	 * @return return CDF array
 	 */
@@ -108,7 +106,7 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * get a random number for the input distribution
-	 * 
+	 *
 	 * @param dist an array of probabilities
 	 * @return return a number that is sampled from this dist
 	 */
@@ -125,7 +123,7 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * decide the next action to be done (either repeating same action or nil or deciding new action)
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return the most suitable action
@@ -162,7 +160,7 @@ public class Agent extends AbstractPlayer {
 			case DECIDE_ACTION:
 				int temp = getNextEmpericalDist(nilDist);
 
-				if (pastAction == ACTIONS.ACTION_NIL || (pastAction != ACTIONS.ACTION_NIL && temp == 0)) {
+				if (pastAction == ACTIONS.ACTION_NIL || pastAction != ACTIONS.ACTION_NIL && temp == 0) {
 					currentAction = automatedPlayer.act(stateObs, elapsedTimer);
 					moves = getNextEmpericalDist(actDist);
 					if (moves > 1) {

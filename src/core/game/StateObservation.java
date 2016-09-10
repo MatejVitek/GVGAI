@@ -1,14 +1,9 @@
 package core.game;
 
+import java.util.*;
 import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
 import ontology.Types;
-import tools.KeyHandler;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 13/11/13 Time: 15:37 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -62,7 +57,7 @@ public class StateObservation {
 
 	/**
 	 * Returns the actions that are available in this game for the avatar.
-	 * 
+	 *
 	 * @return the available actions.
 	 */
 	public ArrayList<Types.ACTIONS> getAvailableActions() {
@@ -72,7 +67,7 @@ public class StateObservation {
 	/**
 	 * Returns the actions that are available in this game for the avatar. If the parameter 'includeNIL' is true, the array contains the (always available) NIL action. If it is false, this is
 	 * equivalent to calling getAvailableActions().
-	 * 
+	 *
 	 * @param includeNIL true to include Types.ACTIONS.ACTION_NIL in the array of actions.
 	 * @return the available actions.
 	 */
@@ -89,7 +84,7 @@ public class StateObservation {
 
 	/**
 	 * Gets the score of the game at this observation.
-	 * 
+	 *
 	 * @return score of the game.
 	 */
 	public double getGameScore() {
@@ -98,7 +93,7 @@ public class StateObservation {
 
 	/**
 	 * Returns the game tick of this particular observation.
-	 * 
+	 *
 	 * @return the game tick.
 	 */
 	public int getGameTick() {
@@ -107,7 +102,7 @@ public class StateObservation {
 
 	/**
 	 * Indicates if there is a game winner in the current observation. Possible values are Types.WINNER.PLAYER_WINS, Types.WINNER.PLAYER_LOSES and Types.WINNER.NO_WINNER.
-	 * 
+	 *
 	 * @return the winner of the game.
 	 */
 	public Types.WINNER getGameWinner() {
@@ -116,7 +111,7 @@ public class StateObservation {
 
 	/**
 	 * Indicates if the game is over or if it hasn't finished yet.
-	 * 
+	 *
 	 * @return true if the game is over.
 	 */
 	public boolean isGameOver() {
@@ -125,7 +120,7 @@ public class StateObservation {
 
 	/**
 	 * Returns the world dimensions, in pixels.
-	 * 
+	 *
 	 * @return the world dimensions, in pixels.
 	 */
 	public Dimension getWorldDimension() {
@@ -134,7 +129,7 @@ public class StateObservation {
 
 	/**
 	 * Indicates how many pixels form a block in the game.
-	 * 
+	 *
 	 * @return how many pixels form a block in the game.
 	 */
 	public int getBlockSize() {
@@ -146,7 +141,7 @@ public class StateObservation {
 	/**
 	 * Returns the position of the avatar. If the game is finished, we cannot guarantee that this position reflects the real position of the avatar (the avatar itself could be destroyed). If game
 	 * finished, this returns Types.NIL.
-	 * 
+	 *
 	 * @return position of the avatar, or Types.NIL if game is over.
 	 */
 	public Vector2d getAvatarPosition() {
@@ -156,7 +151,7 @@ public class StateObservation {
 	/**
 	 * Returns the speed of the avatar. If the game is finished, we cannot guarantee that this speed reflects the real speed of the avatar (the avatar itself could be destroyed). If game finished,
 	 * this returns 0.
-	 * 
+	 *
 	 * @return orientation of the avatar, or 0 if game is over.
 	 */
 	public double getAvatarSpeed() {
@@ -166,7 +161,7 @@ public class StateObservation {
 	/**
 	 * Returns the orientation of the avatar. If the game is finished, we cannot guarantee that this orientation reflects the real orientation of the avatar (the avatar itself could be destroyed). If
 	 * game finished, this returns Types.NIL.
-	 * 
+	 *
 	 * @return orientation of the avatar, or Types.NIL if game is over.
 	 */
 	public Vector2d getAvatarOrientation() {
@@ -177,7 +172,7 @@ public class StateObservation {
 	 * Returns the resources in the avatar's possession. As there can be resources of different nature, each entry is a key-value pair where the key is the resource ID, and the value is the amount of
 	 * that resource type owned. It should be assumed that there might be other resources available in the game, but the avatar could have none of them. If the avatar has no resources, an empty
 	 * HashMap is returned.
-	 * 
+	 *
 	 * @return resources owned by the avatar.
 	 */
 	public HashMap<Integer, Integer> getAvatarResources() {
@@ -187,7 +182,7 @@ public class StateObservation {
 	/**
 	 * Returns the avatar's last move. At the first game cycle, it returns ACTION_NIL. Note that this may NOT be the same as the last action given by the agent, as it may have overspent in the last
 	 * game cycle.
-	 * 
+	 *
 	 * @return the action that was executed in the real game in the last cycle. ACTION_NIL is returned in the very first game step.
 	 */
 	public Types.ACTIONS getAvatarLastAction() {
@@ -196,7 +191,7 @@ public class StateObservation {
 
 	/**
 	 * Returns the avatar's type. In case it has multiple types, it returns the most specific one.
-	 * 
+	 *
 	 * @return the itype of the avatar.
 	 */
 	public int getAvatarType() {
@@ -205,7 +200,7 @@ public class StateObservation {
 
 	/**
 	 * Returns the health points of the avatar. A value of 0 doesn't necessarily mean that the avatar is dead (could be that no health points are in use in that game).
-	 * 
+	 *
 	 * @return a numeric value, the amount of remaining health points.
 	 */
 	public int getAvatarHealthPoints() {
@@ -214,7 +209,7 @@ public class StateObservation {
 
 	/**
 	 * Returns the maximum amount of health points.
-	 * 
+	 *
 	 * @return the maximum amount of health points the avatar ever had.
 	 */
 	public int getAvatarMaxHealthPoints() {
@@ -223,7 +218,7 @@ public class StateObservation {
 
 	/**
 	 * Returns the limit of health points this avatar can have.
-	 * 
+	 *
 	 * @return the limit of health points the avatar can have.
 	 */
 	public int getAvatarLimitHealthPoints() {
@@ -232,7 +227,7 @@ public class StateObservation {
 
 	/**
 	 * returns true if the avatar is alive.
-	 * 
+	 *
 	 * @return true if the avatar is alive.
 	 */
 	public boolean isAvatarAlive() {
@@ -244,7 +239,7 @@ public class StateObservation {
 	/**
 	 * Returns a grid with all observations in the level, accessible by the x,y coordinates of the grid. Each grid cell has a width and height of getBlockSize() pixels. Each cell contains a list with
 	 * all observations in that position. Note that the same observation may occupy more than one grid cell.
-	 * 
+	 *
 	 * @return the grid of observations
 	 */
 	public ArrayList<Observation>[][] getObservationGrid() {
@@ -391,7 +386,7 @@ public class StateObservation {
 
 	/**
 	 * Returns key handler available to the player.
-	 * 
+	 *
 	 * @param playerID ID of the player to query.
 	 * @return KeyHandler object.
 	 */
@@ -401,7 +396,7 @@ public class StateObservation {
 
 	/**
 	 * Compares if this and the received StateObservation state are equivalent. DEBUG ONLY METHOD.
-	 * 
+	 *
 	 * @param o Object to compare this to.
 	 * @return true if o has the same components as this.
 	 */

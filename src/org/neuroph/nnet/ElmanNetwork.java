@@ -1,18 +1,14 @@
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.layer.InputLayer;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
 import org.neuroph.nnet.learning.BackPropagation;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Under development: Learning rule BackProp Through Time required
- * 
+ *
  * @author zoran
  */
 public class ElmanNetwork extends NeuralNetwork {

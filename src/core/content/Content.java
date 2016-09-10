@@ -29,9 +29,10 @@ public abstract class Content {
 
 	/**
 	 * Returns the original line of the content.
-	 * 
+	 *
 	 * @return original line, in VGDL format.
 	 */
+	@Override
 	public String toString() {
 		return line;
 	}

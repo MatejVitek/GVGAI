@@ -6,8 +6,8 @@
 
 package org.neuroph.util.data.sample;
 
-import org.neuroph.core.data.DataSet;
 import java.util.List;
+import org.neuroph.core.data.DataSet;
 
 /**
  * Interface for data set sampling methods.

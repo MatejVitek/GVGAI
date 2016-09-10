@@ -5,15 +5,10 @@
  */
 package org.neuroph.core.data;
 
+import java.util.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import org.neuroph.core.exceptions.NeurophException;
-import org.neuroph.core.exceptions.VectorSizeMismatchException;
-import org.neuroph.util.data.sample.Sampling;
-import org.neuroph.util.data.sample.SubSampling;
+import org.neuroph.core.exceptions.*;
+import org.neuroph.util.data.sample.*;
 
 /**
  * This class represents a collection of data rows (DataSetRow instances) used for training and testing neural network.
@@ -100,11 +95,11 @@ public class DataSet implements Serializable {
 		}
 
 		// check input vector size if it is predefined
-		if ((this.inputSize != 0) && (row.getInput().length != this.inputSize)) {
+		if (this.inputSize != 0 && row.getInput().length != this.inputSize) {
 			throw new VectorSizeMismatchException("Input vector size does not match data set input size!");
 		}
 
-		if ((this.outputSize != 0) && (row.getDesiredOutput().length != this.outputSize)) {
+		if (this.outputSize != 0 && row.getDesiredOutput().length != this.outputSize) {
 			throw new VectorSizeMismatchException("Output vector size does not match data set output size!");
 		}
 
@@ -294,7 +289,7 @@ public class DataSet implements Serializable {
 	public String toCSV() {
 		StringBuilder sb = new StringBuilder();
 
-		if ((columnNames != null) && (columnNames.length > 0)) {
+		if (columnNames != null && columnNames.length > 0) {
 			for (String columnName : columnNames) {
 				sb.append(columnName).append(", ");
 			}
@@ -352,14 +347,14 @@ public class DataSet implements Serializable {
 		if (filePath == null) throw new IllegalArgumentException("File path is null!");
 
 		// default delimiter is space if other is not specified
-		if ((delimiter == null) || delimiter.equals("")) {
+		if (delimiter == null || delimiter.equals("")) {
 			delimiter = " ";
 		}
 
 		try (PrintWriter out = new PrintWriter(new FileWriter(new File(filePath)))) {
 
 			int columnCount = inputSize + outputSize;
-			if ((columnNames != null) && (columnNames.length > 0)) {
+			if (columnNames != null && columnNames.length > 0) {
 				for (int i = 0; i < columnNames.length; i++) {
 					out.print(columnNames[i]);
 					if (i < columnCount - 1) out.print(delimiter);
@@ -447,7 +442,7 @@ public class DataSet implements Serializable {
 		if (filePath == null) throw new IllegalArgumentException("File name cannot be null!");
 		if (inputsCount <= 0) throw new IllegalArgumentException("Number of inputs cannot be <= 0 : " + inputsCount);
 		if (outputsCount < 0) throw new IllegalArgumentException("Number of outputs cannot be < 0 : " + outputsCount);
-		if ((delimiter == null) || delimiter.isEmpty()) throw new IllegalArgumentException("Delimiter cannot be null or empty!");
+		if (delimiter == null || delimiter.isEmpty()) throw new IllegalArgumentException("Delimiter cannot be null or empty!");
 
 		try {
 			DataSet dataSet = new DataSet(inputsCount, outputsCount);
@@ -535,7 +530,7 @@ public class DataSet implements Serializable {
 
 	/**
 	 * Returns training and test subsets in the specified percent ratio
-	 * 
+	 *
 	 * @param trainSetPercent
 	 * @param testSetPercent
 	 * @return

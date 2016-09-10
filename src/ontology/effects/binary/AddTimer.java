@@ -1,11 +1,9 @@
 package ontology.effects.binary;
 
-import core.VGDLFactory;
-import core.VGDLSprite;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
-import ontology.effects.Effect;
-import ontology.effects.TimeEffect;
+import ontology.effects.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 04/11/13 Time: 15:56 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -43,12 +41,14 @@ public class AddTimer extends TimeEffect {
 		game.addTimeEffect(tef);
 	}
 
+	@Override
 	public TimeEffect copy() {
 		AddTimer newTimer = new AddTimer();
 		this.copyTo(newTimer);
 		return newTimer;
 	}
 
+	@Override
 	public void copyTo(TimeEffect adT) {
 		AddTimer timer = (AddTimer) adT;
 		timer.delegate = this.delegate;

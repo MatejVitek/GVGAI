@@ -1,11 +1,10 @@
 package org.neuroph.util.data.norm;
 
-import org.neuroph.core.data.DataSet;
-import org.neuroph.core.data.DataSetRow;
+import org.neuroph.core.data.*;
 
 /**
  * This class does normalization of a data set to specified range
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class RangeNormalizer implements Normalizer {
@@ -40,7 +39,7 @@ public class RangeNormalizer implements Normalizer {
 		double[] normalizedVector = new double[vector.length];
 
 		for (int i = 0; i < vector.length; i++) {
-			normalizedVector[i] = ((vector[i] - min[i]) / (max[i] - min[i])) * (highLimit - lowLimit) + lowLimit;
+			normalizedVector[i] = (vector[i] - min[i]) / (max[i] - min[i]) * (highLimit - lowLimit) + lowLimit;
 		}
 
 		return normalizedVector;

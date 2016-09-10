@@ -5,15 +5,11 @@
  */
 package org.neuroph.nnet.comp.layer;
 
-import org.neuroph.nnet.comp.Kernel;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.Weight;
+import org.neuroph.core.*;
 import org.neuroph.core.input.Max;
-import org.neuroph.core.transfer.Ramp;
 import org.neuroph.core.transfer.Tanh;
-import org.neuroph.nnet.comp.Dimension2D;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.NeuronProperties;
+import org.neuroph.nnet.comp.*;
+import org.neuroph.util.*;
 
 /**
  * Pooling layer is a special type of feature maps layer (FeatureMapsLayer) which is used in convolutional networks. It contains neurons with max input function and method for creating pooling layer

@@ -6,42 +6,22 @@
 
 package org.neuroph.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
-import org.neuroph.nnet.Adaline;
-import org.neuroph.nnet.BAM;
-import org.neuroph.nnet.CompetitiveNetwork;
-import org.neuroph.nnet.Hopfield;
-import org.neuroph.nnet.Instar;
-import org.neuroph.nnet.Kohonen;
-import org.neuroph.nnet.MaxNet;
-import org.neuroph.nnet.MultiLayerPerceptron;
-import org.neuroph.nnet.Outstar;
-import org.neuroph.nnet.Perceptron;
-import org.neuroph.nnet.RBFNetwork;
-import org.neuroph.nnet.SupervisedHebbianNetwork;
-import org.neuroph.nnet.UnsupervisedHebbianNetwork;
+import java.util.*;
+import org.neuroph.core.*;
+import org.neuroph.nnet.*;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
-import org.neuroph.nnet.learning.BackPropagation;
-import org.neuroph.nnet.learning.BinaryDeltaRule;
-import org.neuroph.nnet.learning.DynamicBackPropagation;
-import org.neuroph.nnet.learning.MomentumBackpropagation;
-import org.neuroph.nnet.learning.PerceptronLearning;
-import org.neuroph.nnet.learning.ResilientPropagation;
+import org.neuroph.nnet.learning.*;
 
 /**
  * Provides methods to create various neural networks.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Adaline network
-	 * 
+	 *
 	 * @param inputsCount number of inputs of Adaline network
 	 * @return instance of Adaline network
 	 */
@@ -52,7 +32,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Perceptron network
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 * @param transferFunctionType type of transfer function to use
@@ -65,7 +45,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Perceptron network
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 * @param transferFunctionType type of transfer function to use
@@ -87,7 +67,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Multi Layer Perceptron
-	 * 
+	 *
 	 * @param layersStr space separated number of neurons in layers
 	 * @param transferFunctionType transfer function type for neurons
 	 * @return instance of Multi Layer Perceptron
@@ -100,7 +80,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Multi Layer Perceptron
-	 * 
+	 *
 	 * @param layersStr space separated number of neurons in layers
 	 * @param transferFunctionType transfer function type for neurons
 	 * @return instance of Multi Layer Perceptron
@@ -134,7 +114,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Hopfield network
-	 * 
+	 *
 	 * @param neuronsCount number of neurons in Hopfield network
 	 * @return instance of Hopfield network
 	 */
@@ -145,7 +125,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of BAM network
-	 * 
+	 *
 	 * @param inputNeuronsCount number of input neurons
 	 * @param outputNeuronsCount number of output neurons
 	 * @return instance of BAM network
@@ -157,7 +137,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Kohonen network
-	 * 
+	 *
 	 * @param inputNeuronsCount number of input neurons
 	 * @param outputNeuronsCount number of output neurons
 	 * @return instance of Kohonen network
@@ -169,7 +149,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Hebbian network
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 * @param transferFunctionType neuron's transfer function type
@@ -182,7 +162,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Unsupervised Hebbian Network
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 * @param transferFunctionType neuron's transfer function type
@@ -195,7 +175,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Max Net network
-	 * 
+	 *
 	 * @param neuronsCount number of neurons (same num in input and output layer)
 	 * @return instance of Max Net network
 	 */
@@ -206,7 +186,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Instar network
-	 * 
+	 *
 	 * @param inputNeuronsCount umber of input neurons
 	 * @return instance of Instar network
 	 */
@@ -217,7 +197,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of Outstar network
-	 * 
+	 *
 	 * @param outputNeuronsCount number of output neurons
 	 * @return instance of Outstar network
 	 */
@@ -228,7 +208,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of competitive network
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 * @return instance of CompetitiveNetwork
@@ -240,7 +220,7 @@ public class NeuralNetworkFactory {
 
 	/**
 	 * Creates and returns a new instance of RBF network
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param rbfNeuronsCount number of neurons in RBF layer
 	 * @param outputNeuronsCount number of neurons in output layer
@@ -263,7 +243,7 @@ public class NeuralNetworkFactory {
 			}
 		}
 
-		List<Neuron> outputNeurons = ((Layer) nnet.getLayerAt(nnet.getLayersCount() - 1)).getNeurons();
+		List<Neuron> outputNeurons = nnet.getLayerAt(nnet.getLayersCount() - 1).getNeurons();
 
 		nnet.setInputNeurons(inputNeuronsList);
 		nnet.setOutputNeurons(outputNeurons);

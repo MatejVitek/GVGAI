@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  * Abstract base class for all neuron tranfer functions.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  * @see org.neuroph.core.Neuron
  */
@@ -28,14 +28,14 @@ abstract public class TransferFunction implements Serializable {
 
 	/**
 	 * Returns the ouput of this function.
-	 * 
+	 *
 	 * @param totalInput total input
 	 */
 	abstract public double getOutput(double totalInput);
 
 	/**
 	 * Returns the first derivative of this function. Note: should this method should be abstract?
-	 * 
+	 *
 	 * @param totalInput total input
 	 */
 	public double getDerivative(double totalInput) {

@@ -6,14 +6,12 @@
 
 package org.neuroph.util.data.sample;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import org.neuroph.core.data.DataSet;
 
 /**
  * This class provides subsampling of a data set, and creates a specified number of subsets of a specified number of samples form given data set.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class SubSampling implements Sampling {
@@ -35,7 +33,7 @@ public class SubSampling implements Sampling {
 
 	/**
 	 * Sampling will produce a specified number of subsets of equal sizes Handy for K Fold subsampling
-	 * 
+	 *
 	 * @param subSetCount number of subsets to produce
 	 */
 	public SubSampling(int subSetCount) { // without repetition
@@ -45,7 +43,7 @@ public class SubSampling implements Sampling {
 
 	/**
 	 * Sampling will produce subsets of specified sizes (in percents)
-	 * 
+	 *
 	 * @param subSetSizes size of subsets in percents
 	 */
 	public SubSampling(int... subSetSizes) { // without repetition
@@ -72,13 +70,13 @@ public class SubSampling implements Sampling {
 		int outputSize = dataSet.getOutputSize();
 
 		int idxCounter = 0;
-		for (int s = 0; s < subSetSizes.length; s++) {
+		for (int subSetSize : subSetSizes) {
 			// create new sample subset
 			DataSet newSubSet = new DataSet(inputSize, outputSize);
 			// fill subset with rows
 
 			if (!allowRepetition) {
-				int itemCount = (int) ((double) subSetSizes[s] / 100 * dataSet.size());
+				int itemCount = (int) ((double) subSetSize / 100 * dataSet.size());
 				for (int i = 0; i < itemCount; i++) {
 					newSubSet.addRow(dataSet.getRowAt(idxCounter));
 					idxCounter++;
@@ -87,7 +85,7 @@ public class SubSampling implements Sampling {
 			else {
 				int randomIdx;
 				Random rand = new Random();
-				for (int i = 0; i < subSetSizes[s] / 100 * dataSet.size(); i++) {
+				for (int i = 0; i < subSetSize / 100 * dataSet.size(); i++) {
 					randomIdx = rand.nextInt(dataSet.size());
 					newSubSet.addRow(dataSet.getRowAt(randomIdx));
 					idxCounter++;
@@ -102,7 +100,7 @@ public class SubSampling implements Sampling {
 
 	/**
 	 * Get flag which indicates if sample repetition is allowed in subsets
-	 * 
+	 *
 	 * @return
 	 */
 	public boolean getAllowRepetition() {
@@ -111,7 +109,7 @@ public class SubSampling implements Sampling {
 
 	/**
 	 * Set flag to allow repetition of samples in subsets
-	 * 
+	 *
 	 * @param allowRepetition
 	 */
 	public void setAllowRepetition(boolean allowRepetition) {

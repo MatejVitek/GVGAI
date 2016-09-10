@@ -7,13 +7,12 @@
 package org.neuroph.util;
 
 import java.util.List;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 import org.neuroph.core.transfer.TransferFunction;
 
 /**
  * Provides methods to create instance of a Layer with various setting (number of neurons and neuron's properties, etc.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class LayerFactory {
@@ -25,7 +24,7 @@ public class LayerFactory {
 
 	/**
 	 * Creates and returns instance of Layer with specified number of neurons with specified properties
-	 * 
+	 *
 	 * @param neuronsCount
 	 * @param neuronProperties
 	 * @return

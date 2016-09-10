@@ -6,19 +6,13 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.learning.UnsupervisedHebbianLearning;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Hebbian neural network with unsupervised Hebbian learning algorithm.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class UnsupervisedHebbianNetwork extends NeuralNetwork {
@@ -30,7 +24,7 @@ public class UnsupervisedHebbianNetwork extends NeuralNetwork {
 
 	/**
 	 * Creates an instance of Unsuervised Hebian net with specified number of neurons in input and output layer
-	 * 
+	 *
 	 * @param inputNeuronsNum number of neurons in input layer
 	 * @param outputNeuronsNum number of neurons in output layer
 	 */
@@ -41,7 +35,7 @@ public class UnsupervisedHebbianNetwork extends NeuralNetwork {
 
 	/**
 	 * Creates an instance of Unsuervised Hebian net with specified number of neurons in input layer and output layer, and transfer function
-	 * 
+	 *
 	 * @param inputNeuronsNum number of neurons in input layer
 	 * @param outputNeuronsNum number of neurons in output layer
 	 * @param transferFunctionType transfer function type id
@@ -52,7 +46,7 @@ public class UnsupervisedHebbianNetwork extends NeuralNetwork {
 
 	/**
 	 * Creates an instance of Unsuervised Hebian net with specified number of neurons in input layer and output layer, and transfer function
-	 * 
+	 *
 	 * @param inputNeuronsNum number of neurons in input layer
 	 * @param outputNeuronsNum number of neurons in output layer
 	 * @param transferFunctionType transfer function type

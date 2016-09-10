@@ -1,8 +1,7 @@
 package tools;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
+import java.io.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 04/10/13 Time: 16:56 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -16,7 +15,7 @@ public class IO {
 
 	/**
 	 * Reads a file and returns its content as a String[]
-	 * 
+	 *
 	 * @param filename file to read
 	 * @return file content as String[], one line per element
 	 */

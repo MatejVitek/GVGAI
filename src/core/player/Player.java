@@ -1,16 +1,11 @@
 package core.player;
 
-import core.game.Game;
-import core.game.StateObservation;
-import core.game.StateObservationMulti;
+import java.util.ArrayList;
+import java.io.*;
+import java.awt.Graphics2D;
+import core.game.*;
 import ontology.Types;
 import tools.ElapsedCpuTimer;
-import java.awt.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by Raluca on 07-Apr-16.
@@ -60,7 +55,7 @@ public abstract class Player {
 	/**
 	 * Picks an action. This function is called every game step to request an action from the player. The action returned must be contained in the actions accessible from
 	 * stateObs.getAvailableActions(), or no action will be applied. Single Player method.
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
@@ -70,7 +65,7 @@ public abstract class Player {
 	/**
 	 * Picks an action. This function is called every game step to request an action from the player. The action returned must be contained in the actions accessible from
 	 * stateObs.getAvailableActions(), or no action will be applied. Multi player method.
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
@@ -79,7 +74,7 @@ public abstract class Player {
 
 	/**
 	 * Function called when the game is over. This method must finish before CompetitionParameters.TEAR_DOWN_TIME, or the agent will be DISQUALIFIED
-	 * 
+	 *
 	 * @param stateObs the game state at the end of the game
 	 * @param elapsedCpuTimer timer when this method is meant to finish.
 	 */
@@ -89,7 +84,7 @@ public abstract class Player {
 
 	/**
 	 * This function sets up the controller to save the actions executed in a given game.
-	 * 
+	 *
 	 * @param actionFile file to save the actions to.
 	 * @param randomSeed Seed for the sampleRandom generator of the game to be played.
 	 * @param isHuman Indicates if the player is a human or not.
@@ -109,7 +104,7 @@ public abstract class Player {
 	 */
 	final public void teardown(Game played) {
 		try {
-			if ((this.actionFile != null && !actionFile.equals("")) && SHOULD_LOG) {
+			if (this.actionFile != null && !actionFile.equals("") && SHOULD_LOG) {
 				writer = new BufferedWriter(new FileWriter(new File(this.actionFile)));
 				writer.write(randomSeed + " " + (played.getWinner() == Types.WINNER.PLAYER_WINS ? 1 : 0) + " " + played.getScore() + " " + played.getGameTick() + "\n");
 
@@ -126,7 +121,7 @@ public abstract class Player {
 
 	/**
 	 * Logs a single action
-	 * 
+	 *
 	 * @param action the action to log.
 	 */
 	final public void logAction(Types.ACTIONS action) {
@@ -140,7 +135,7 @@ public abstract class Player {
 
 	/**
 	 * Gets the last action executed by this controller.
-	 * 
+	 *
 	 * @return the last action
 	 */
 	public Types.ACTIONS getLastAction() {
@@ -149,7 +144,7 @@ public abstract class Player {
 
 	/**
 	 * Indicates if this player is human controlled.
-	 * 
+	 *
 	 * @return true if the player is human.
 	 */
 	public boolean isHuman() {
@@ -165,7 +160,7 @@ public abstract class Player {
 
 	/**
 	 * Set the ID of this player.
-	 * 
+	 *
 	 * @param id - the player's ID
 	 */
 	public void setPlayerID(int id) {
@@ -174,7 +169,7 @@ public abstract class Player {
 
 	/**
 	 * Get the history of actions of this player.
-	 * 
+	 *
 	 * @return arrayList of all actions
 	 */
 	public ArrayList<Types.ACTIONS> getAllActions() {
@@ -183,7 +178,7 @@ public abstract class Player {
 
 	/**
 	 * Gets the player the control to draw something on the screen. It can be used for debug purposes.
-	 * 
+	 *
 	 * @param g Graphics device to draw to.
 	 */
 	public void draw(Graphics2D g) {

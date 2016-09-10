@@ -5,10 +5,7 @@
  */
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.Weight;
+import org.neuroph.core.*;
 
 /**
  * Backpropagation learning rule with momentum.

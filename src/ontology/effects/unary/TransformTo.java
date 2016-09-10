@@ -1,11 +1,8 @@
 package ontology.effects.unary;
 
+import java.util.*;
 import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
 import core.player.Player;

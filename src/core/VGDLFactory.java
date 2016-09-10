@@ -1,33 +1,19 @@
 package core;
 
-import java.awt.Dimension;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.util.HashMap;
-import core.content.Content;
-import core.content.GameContent;
-import core.content.InteractionContent;
-import core.content.SpriteContent;
-import core.content.TerminationContent;
-import core.game.BasicGame;
-import core.game.Game;
+import java.awt.Dimension;
+import java.lang.reflect.*;
+import core.content.*;
+import core.game.*;
 import core.termination.*;
 import ontology.Types;
-import ontology.avatar.FlakAvatar;
-import ontology.avatar.HorizontalAvatar;
-import ontology.avatar.VerticalAvatar;
-import ontology.avatar.MovingAvatar;
+import ontology.avatar.*;
 import ontology.avatar.oriented.*;
-import ontology.effects.Effect;
-import ontology.effects.TimeEffect;
+import ontology.effects.*;
 import ontology.effects.binary.*;
 import ontology.effects.unary.*;
 import ontology.sprites.*;
-import ontology.sprites.missile.ErraticMissile;
-import ontology.sprites.missile.Missile;
-import ontology.sprites.missile.RandomMissile;
-import ontology.sprites.missile.Walker;
-import ontology.sprites.missile.WalkerJumper;
+import ontology.sprites.missile.*;
 import ontology.sprites.npc.*;
 import ontology.sprites.producer.*;
 import tools.Vector2d;
@@ -138,7 +124,7 @@ public class VGDLFactory {
 
 	/**
 	 * Returns the unique instance of this class.
-	 * 
+	 *
 	 * @return the factory that creates the game and the sprite objects.
 	 */
 	public static VGDLFactory GetInstance() {
@@ -148,7 +134,7 @@ public class VGDLFactory {
 
 	/**
 	 * Creates a game, receiving a GameContent object
-	 * 
+	 *
 	 * @param content potential parameters for the class.
 	 * @return The game just created.
 	 */
@@ -173,7 +159,7 @@ public class VGDLFactory {
 
 	/**
 	 * Creates a new sprite with a given dimension in a certain position. Parameters are passed as SpriteContent.
-	 * 
+	 *
 	 * @param content parameters for the sprite, including its class.
 	 * @param position position of the object.
 	 * @param dim dimensions of the sprite on the world.
@@ -200,7 +186,7 @@ public class VGDLFactory {
 
 	/**
 	 * Creates a new effect, with parameters passed as InteractionContent.
-	 * 
+	 *
 	 * @param content parameters for the effect, including its class.
 	 * @return the new effect, created and initialized, ready to be triggered!
 	 */
@@ -229,7 +215,7 @@ public class VGDLFactory {
 
 	/**
 	 * Creates a new termination, with parameters passed as TerminationContent.
-	 * 
+	 *
 	 * @param content parameters for the termination condition, including its class.
 	 * @return the new termination, created and initialized, ready to be checked!
 	 */
@@ -255,7 +241,7 @@ public class VGDLFactory {
 
 	/**
 	 * Parses the parameters from content, assigns them to variables in obj.
-	 * 
+	 *
 	 * @param content contains the parameters to read.
 	 * @param obj object with the variables to assign.
 	 */
@@ -283,7 +269,8 @@ public class VGDLFactory {
 				}
 				catch (Exception e) {
 					try {
-						if (!parameter.equalsIgnoreCase("scoreChange")) objVal = Integer.parseInt(value);
+						if (!parameter.equalsIgnoreCase("scoreChange"))
+							objVal = Integer.parseInt(value);
 						else objVal = value;
 					}
 					catch (NumberFormatException e1) {
@@ -292,7 +279,8 @@ public class VGDLFactory {
 						}
 						catch (NumberFormatException e2) {
 							try {
-								if ((value.equalsIgnoreCase("true") || value.equalsIgnoreCase("false")) && !parameter.equalsIgnoreCase("win")) objVal = Boolean.parseBoolean(value);
+								if ((value.equalsIgnoreCase("true") || value.equalsIgnoreCase("false")) && !parameter.equalsIgnoreCase("win"))
+									objVal = Boolean.parseBoolean(value);
 								else objVal = value;
 							}
 							catch (NumberFormatException e3) {
@@ -314,10 +302,10 @@ public class VGDLFactory {
 			else {
 				// Ignore unknown fields in dependent Effects (TimeEffect).
 				boolean warn = true;
-				boolean isInteraction = (content instanceof InteractionContent);
+				boolean isInteraction = content instanceof InteractionContent;
 				if (isInteraction) {
 					boolean isTimeEffect = ((InteractionContent) content).object2[0].equalsIgnoreCase("TIME") || ((InteractionContent) content).object1.equalsIgnoreCase("TIME")
-							|| (((InteractionContent) content).line.contains("addTimer"));
+							|| ((InteractionContent) content).line.contains("addTimer");
 					if (isTimeEffect) warn = false;
 				}
 
@@ -329,7 +317,7 @@ public class VGDLFactory {
 
 	/**
 	 * Returns the value of an int field in the object specified
-	 * 
+	 *
 	 * @param obj object that holds the field.
 	 * @param fieldName name of the field to retrieve.
 	 * @return the value, or -1 if the parameter does not exist or it is not an int.

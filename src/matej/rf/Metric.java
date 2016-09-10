@@ -49,7 +49,8 @@ public abstract class Metric {
 	public Split split(Feature feature) {
 		List<Instance> l1 = new ArrayList<>(), l2 = new ArrayList<>();
 		for (Instance inst : instances)
-			if (inst.features.get(feature.name).test(feature.value)) l1.add(inst);
+			if (inst.features.get(feature.name).test(feature.value))
+				l1.add(inst);
 			else l2.add(inst);
 		return new Split(l1, l2);
 	}
@@ -60,8 +61,8 @@ public abstract class Metric {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((features == null) ? 0 : features.hashCode());
-		result = prime * result + ((instances == null) ? 0 : instances.hashCode());
+		result = prime * result + (features == null ? 0 : features.hashCode());
+		result = prime * result + (instances == null ? 0 : instances.hashCode());
 		return result;
 	}
 

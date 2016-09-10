@@ -1,8 +1,7 @@
 package tools;
 
+import java.awt.event.*;
 import ontology.Types;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 /**
  * Created by dperez on 25/10/15.
@@ -41,16 +40,18 @@ public abstract class KeyHandler extends KeyAdapter {
 
 	/**
 	 * Manages KeyPressed events
-	 * 
+	 *
 	 * @param e the event.
 	 */
+	@Override
 	public abstract void keyPressed(KeyEvent e);
 
 	/**
 	 * Manages keyReleased events
-	 * 
+	 *
 	 * @param e the event.
 	 */
+	@Override
 	public abstract void keyReleased(KeyEvent e);
 
 }

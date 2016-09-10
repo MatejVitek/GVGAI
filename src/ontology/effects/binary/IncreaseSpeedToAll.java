@@ -1,16 +1,10 @@
 package ontology.effects.binary;
 
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.util.*;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
-import ontology.Types;
 import ontology.effects.Effect;
-import ontology.sprites.producer.SpawnPoint;
-import tools.Direction;
-import tools.Utils;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 03/12/13 Time: 16:17 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl

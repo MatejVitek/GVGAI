@@ -1,7 +1,6 @@
 package core.content;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 18/10/13 Time: 07:01 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -25,7 +24,7 @@ public class MappingContent extends Content {
 
 	/**
 	 * Constructor that extracts the contents from a String line
-	 * 
+	 *
 	 * @param line String with the contents in VGDL format, to be mapped to the data structures of this class.
 	 */
 	public MappingContent(String line) {

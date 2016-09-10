@@ -12,7 +12,7 @@ import org.neuroph.core.transfer.TransferFunction;
 
 /**
  * Provides behaviour specific for neurons which act as input and the output neurons within the same layer. For example in Hopfield network and BAM.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class InputOutputNeuron extends Neuron {
@@ -41,7 +41,7 @@ public class InputOutputNeuron extends Neuron {
 
 	/**
 	 * Creates an instance of neuron for Hopfield network with specified input and transfer functions
-	 * 
+	 *
 	 * @param inFunc neuron input function
 	 * @param transFunc neuron transfer function
 	 */
@@ -51,7 +51,7 @@ public class InputOutputNeuron extends Neuron {
 
 	/**
 	 * Sets total net input for this cell
-	 * 
+	 *
 	 * @param input input value
 	 */
 	@Override
@@ -62,7 +62,7 @@ public class InputOutputNeuron extends Neuron {
 
 	/**
 	 * Returns bias value for this neuron
-	 * 
+	 *
 	 * @return bias value for this neuron
 	 */
 	public double getBias() {
@@ -71,7 +71,7 @@ public class InputOutputNeuron extends Neuron {
 
 	/**
 	 * Sets bias value for this neuron
-	 * 
+	 *
 	 * @param bias bias value for this neuron
 	 */
 	public void setBias(double bias) {

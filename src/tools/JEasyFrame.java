@@ -1,7 +1,6 @@
 package tools;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
+import java.awt.*;
 import javax.swing.JFrame;
 import core.competition.CompetitionParameters;
 
@@ -17,7 +16,7 @@ public class JEasyFrame extends JFrame {
 
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param comp Main component of the frame.
 	 * @param title Title of the window.
 	 */

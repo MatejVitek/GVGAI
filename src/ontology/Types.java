@@ -3,8 +3,7 @@ package ontology;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
-import tools.Direction;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 17/10/13 Time: 11:05 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -85,32 +84,46 @@ public class Types {
 		}
 
 		public static ACTIONS fromString(String strKey) {
-			if (strKey.equalsIgnoreCase("ACTION_UP")) return ACTION_UP;
-			else if (strKey.equalsIgnoreCase("ACTION_LEFT")) return ACTION_LEFT;
-			else if (strKey.equalsIgnoreCase("ACTION_DOWN")) return ACTION_DOWN;
-			else if (strKey.equalsIgnoreCase("ACTION_RIGHT")) return ACTION_RIGHT;
-			else if (strKey.equalsIgnoreCase("ACTION_USE")) return ACTION_USE;
-			else if (strKey.equalsIgnoreCase("ACTION_ESCAPE")) return ACTION_ESCAPE;
+			if (strKey.equalsIgnoreCase("ACTION_UP"))
+				return ACTION_UP;
+			else if (strKey.equalsIgnoreCase("ACTION_LEFT"))
+				return ACTION_LEFT;
+			else if (strKey.equalsIgnoreCase("ACTION_DOWN"))
+				return ACTION_DOWN;
+			else if (strKey.equalsIgnoreCase("ACTION_RIGHT"))
+				return ACTION_RIGHT;
+			else if (strKey.equalsIgnoreCase("ACTION_USE"))
+				return ACTION_USE;
+			else if (strKey.equalsIgnoreCase("ACTION_ESCAPE"))
+				return ACTION_ESCAPE;
 			else return ACTION_NIL;
 		}
 
 		public static ACTIONS fromVector(Vector2d move) {
 			// Probably better to use .equals() instead of == to test for equality,
 			// but not necessary for the current call hierarchy of this method
-			if (move.equals(UP)) return ACTION_UP;
-			else if (move.equals(DOWN)) return ACTION_DOWN;
-			else if (move.equals(LEFT)) return ACTION_LEFT;
-			else if (move.equals(RIGHT)) return ACTION_RIGHT;
+			if (move.equals(UP))
+				return ACTION_UP;
+			else if (move.equals(DOWN))
+				return ACTION_DOWN;
+			else if (move.equals(LEFT))
+				return ACTION_LEFT;
+			else if (move.equals(RIGHT))
+				return ACTION_RIGHT;
 			else return ACTION_NIL;
 		}
 
 		public static ACTIONS fromVector(Direction move) {
 			// Probably better to use .equals() instead of == to test for equality,
 			// but not necessary for the current call hierarchy of this method
-			if (move.equals(DUP)) return ACTION_UP;
-			else if (move.equals(DDOWN)) return ACTION_DOWN;
-			else if (move.equals(DLEFT)) return ACTION_LEFT;
-			else if (move.equals(DRIGHT)) return ACTION_RIGHT;
+			if (move.equals(DUP))
+				return ACTION_UP;
+			else if (move.equals(DDOWN))
+				return ACTION_DOWN;
+			else if (move.equals(DLEFT))
+				return ACTION_LEFT;
+			else if (move.equals(DRIGHT))
+				return ACTION_RIGHT;
 			else return ACTION_NIL;
 		}
 

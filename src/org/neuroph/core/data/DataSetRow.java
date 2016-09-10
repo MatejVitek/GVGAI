@@ -5,8 +5,8 @@
  */
 package org.neuroph.core.data;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.io.Serializable;
 import org.neuroph.util.VectorParser;
 
 /**
@@ -68,7 +68,7 @@ public class DataSetRow implements Serializable {
 
 	/**
 	 * Creates new training element with specified input and desired output vectors
-	 * 
+	 *
 	 * @param input input vector
 	 * @param desiredOutput desired output vector
 	 */
@@ -126,7 +126,7 @@ public class DataSetRow implements Serializable {
 	}
 
 	public boolean isSupervised() {
-		return (desiredOutput != null);
+		return desiredOutput != null;
 	}
 
 	@Override

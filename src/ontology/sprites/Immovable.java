@@ -24,22 +24,26 @@ public class Immovable extends VGDLSprite {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		color = Types.GRAY;
 		is_static = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Immovable newSprite = new Immovable();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Immovable targetSprite = (Immovable) target;
 		super.copyTo(targetSprite);

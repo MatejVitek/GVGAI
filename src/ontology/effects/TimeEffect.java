@@ -1,12 +1,8 @@
 package ontology.effects;
 
-import core.VGDLFactory;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
-import java.sql.Time;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 23/10/13 Time: 15:20 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -70,6 +66,7 @@ public class TimeEffect extends Effect implements Comparable<TimeEffect> {
 	 * @param sprite2 second sprite of the collision
 	 * @param game reference to the game object with the current state.
 	 */
+	@Override
 	public void execute(VGDLSprite sprite1, VGDLSprite sprite2, Game game) {
 		// If the time effect is not native, we cannot guarantee that the sprite will be there.
 		delegate.execute(sprite1, sprite2, game);

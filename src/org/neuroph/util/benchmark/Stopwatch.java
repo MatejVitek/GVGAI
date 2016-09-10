@@ -8,7 +8,7 @@ package org.neuroph.util.benchmark;
 
 /**
  * A class to help benchmark code, it simulates a real stop watch.
- * 
+ *
  * @see <a href="http://java.sun.com/docs/books/performance/1st_edition/html/JPMeasurement.fm.html#17818">http://java.sun.com/docs/books/performance/1st_edition/html/JPMeasurement.fm.html#17818</a>
  */
 public class Stopwatch {

@@ -1,7 +1,6 @@
 package controllers.multiPlayer.sampleOLMCTS;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 import core.game.StateObservationMulti;
 import core.player.AbstractMultiPlayer;
 import ontology.Types;
@@ -24,7 +23,7 @@ public class Agent extends AbstractMultiPlayer {
 
 	/**
 	 * Public constructor with state observation and time due.
-	 * 
+	 *
 	 * @param so state observation of the current game.
 	 * @param elapsedTimer Timer for the controller creation.
 	 */
@@ -61,11 +60,12 @@ public class Agent extends AbstractMultiPlayer {
 
 	/**
 	 * Picks an action. This function is called every game step to request an action from the player.
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
+	@Override
 	public Types.ACTIONS act(StateObservationMulti stateObs, ElapsedCpuTimer elapsedTimer) {
 
 		// Set the state observation object as the new root of the tree.

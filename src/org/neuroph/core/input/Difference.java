@@ -6,15 +6,13 @@
 
 package org.neuroph.core.input;
 
-import java.io.Serializable;
 import java.util.List;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.Weight;
+import java.io.Serializable;
+import org.neuroph.core.*;
 
 /**
  * Performs the vector difference operation on input and weight vector.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Difference extends InputFunction implements Serializable {

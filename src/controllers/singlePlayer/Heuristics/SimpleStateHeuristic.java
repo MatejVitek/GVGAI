@@ -1,9 +1,7 @@
 package controllers.singlePlayer.Heuristics;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import core.game.Observation;
-import core.game.StateObservation;
+import java.util.*;
+import core.game.*;
 import ontology.Types;
 import tools.Vector2d;
 
@@ -18,6 +16,7 @@ public class SimpleStateHeuristic extends StateHeuristic {
 
 	}
 
+	@Override
 	public double evaluateState(StateObservation stateObs) {
 		Vector2d avatarPosition = stateObs.getAvatarPosition();
 		ArrayList<Observation>[] npcPositions = stateObs.getNPCPositions(avatarPosition);
@@ -60,7 +59,7 @@ public class SimpleStateHeuristic extends StateHeuristic {
 				score = stateObs.getGameScore() + won * 100000000;
 			}
 			else {
-				score = -minDistance / 100.0 + (-npcCounter) * 100.0 + stateObs.getGameScore() + won * 100000000;
+				score = -minDistance / 100.0 + -npcCounter * 100.0 + stateObs.getGameScore() + won * 100000000;
 			}
 
 			return score;

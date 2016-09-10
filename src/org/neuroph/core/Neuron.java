@@ -6,13 +6,10 @@
 
 package org.neuroph.core;
 
+import java.util.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import org.neuroph.core.input.InputFunction;
-import org.neuroph.core.input.WeightedSum;
-import org.neuroph.core.transfer.Step;
-import org.neuroph.core.transfer.TransferFunction;
+import org.neuroph.core.input.*;
+import org.neuroph.core.transfer.*;
 
 /**
  * <pre>
@@ -167,7 +164,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	 * @return true if there is input connection, false otherwise
 	 */
 	public boolean hasInputConnections() {
-		return (this.inputConnections.size() > 0);
+		return this.inputConnections.size() > 0;
 	}
 
 	public boolean hasOutputConnectionTo(Neuron neuron) {

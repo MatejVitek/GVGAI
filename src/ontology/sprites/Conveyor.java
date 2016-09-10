@@ -24,6 +24,7 @@ public class Conveyor extends VGDLSprite {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		is_static = true;
@@ -33,12 +34,14 @@ public class Conveyor extends VGDLSprite {
 		is_oriented = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Conveyor newSprite = new Conveyor();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Conveyor targetSprite = (Conveyor) target;
 		super.copyTo(targetSprite);

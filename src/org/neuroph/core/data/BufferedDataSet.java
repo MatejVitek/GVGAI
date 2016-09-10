@@ -5,16 +5,9 @@
  */
 package org.neuroph.core.data;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
-import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
+import java.util.logging.*;
+import java.io.*;
 
 /**
  * This class can be used for large training sets, which are partialy read from file during the training. It loads bufferSize rows from file into DataSet, and when it iterates all of them, it takes
@@ -81,7 +74,7 @@ public class BufferedDataSet extends DataSet implements Iterator<DataSetRow> {
 	/**
 	 * Creates new buffered data set with specified file, input and output size. Data set file is assumed to be txt value with data set rows in a single line, with input and output vector values
 	 * delimited by delimiter.
-	 * 
+	 *
 	 * @param file datas et file
 	 * @param inputSize size of input vector
 	 * @param outputSize size of outut vector
@@ -103,7 +96,7 @@ public class BufferedDataSet extends DataSet implements Iterator<DataSetRow> {
 
 	/**
 	 * Counts and returns number of lines in a file
-	 * 
+	 *
 	 * @return number of lines in a file
 	 * @throws FileNotFoundException
 	 */
@@ -122,7 +115,7 @@ public class BufferedDataSet extends DataSet implements Iterator<DataSetRow> {
 
 	/**
 	 * Returns iterator for buffered data set
-	 * 
+	 *
 	 * @return
 	 */
 	@Override
@@ -132,7 +125,7 @@ public class BufferedDataSet extends DataSet implements Iterator<DataSetRow> {
 
 	/**
 	 * Returns true if there are more rows, false otherwise
-	 * 
+	 *
 	 * @return true if there are more rows, false otherwise
 	 */
 	@Override
@@ -146,7 +139,7 @@ public class BufferedDataSet extends DataSet implements Iterator<DataSetRow> {
 
 	/**
 	 * Returns next data set row. Note that if there are no more buffered rows, this mthod will load next bufferSize rows into buffer.
-	 * 
+	 *
 	 * @return next data set row
 	 */
 	@Override

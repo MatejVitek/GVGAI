@@ -1,12 +1,10 @@
 package org.neuroph.nnet.learning.kmeans;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * This class represents a single cluster, with corresponding centroid and assigned vectors
- * 
+ *
  * @author Zoran Sevarac
  */
 public class Cluster {
@@ -43,7 +41,7 @@ public class Cluster {
 
 	/**
 	 * Calculate and return avg sum vector for all vectors
-	 * 
+	 *
 	 * @return avg sum vector
 	 */
 	public double[] getAvgSum() {
@@ -64,7 +62,7 @@ public class Cluster {
 
 	/**
 	 * Returns true if two clusters have same centroid
-	 * 
+	 *
 	 * @param obj
 	 * @return
 	 */
@@ -98,7 +96,7 @@ public class Cluster {
 
 	/**
 	 * Assignes vector to this cluster.
-	 * 
+	 *
 	 * @param vector vector to assign
 	 */
 	public void assignVector(KVector vector) {
@@ -111,7 +109,7 @@ public class Cluster {
 
 	/**
 	 * Returns number of vectors assigned to this cluster.
-	 * 
+	 *
 	 * @return number of vectors assigned to this cluster
 	 */
 	public int size() {

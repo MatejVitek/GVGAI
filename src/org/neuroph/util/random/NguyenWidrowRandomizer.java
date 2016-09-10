@@ -7,15 +7,12 @@
 package org.neuroph.util.random;
 
 import java.util.List;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * This class provides NguyenWidrow randmization technique, which gives very good results for Multi Layer Perceptrons trained with back propagation family of learning rules. Based on
  * NguyenWidrowRandomizer from Encog
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class NguyenWidrowRandomizer extends RangeRandomizer {

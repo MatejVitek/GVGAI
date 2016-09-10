@@ -19,7 +19,7 @@ public class GameContent extends Content {
 
 	/**
 	 * Constructor that extracts the contents from a String line
-	 * 
+	 *
 	 * @param line String with the contents in VGDL format, to be mapped to the data structures of this class.
 	 */
 	public GameContent(String line) {

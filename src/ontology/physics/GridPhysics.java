@@ -1,11 +1,9 @@
 package ontology.physics;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
+import java.awt.*;
 import core.VGDLSprite;
 import ontology.Types;
 import tools.Direction;
-import tools.Vector2d;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 17/10/13 Time: 11:21 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -26,7 +24,7 @@ public class GridPhysics implements Physics {
 
 	/**
 	 * Constructor of the physics, specifying the gridsize
-	 * 
+	 *
 	 * @param gridsize Size of the grid.
 	 */
 	public GridPhysics(Dimension gridsize) {
@@ -41,7 +39,8 @@ public class GridPhysics implements Physics {
 		}
 
 		double speed;
-		if (sprite.speed == -1) speed = 1;
+		if (sprite.speed == -1)
+			speed = 1;
 		else speed = sprite.speed;
 
 		if (speed != 0 && sprite.is_oriented) {
@@ -53,11 +52,12 @@ public class GridPhysics implements Physics {
 	@Override
 	public Types.MOVEMENT activeMovement(VGDLSprite sprite, Direction action, double speed) {
 		if (speed == 0) {
-			if (sprite.speed == 0) speed = 1;
+			if (sprite.speed == 0)
+				speed = 1;
 			else speed = sprite.speed;
 		}
 
-		if (speed != 0 && action != null && !(action.equals(Types.DNONE))) {
+		if (speed != 0 && action != null && !action.equals(Types.DNONE)) {
 			if (sprite.rotateInPlace) {
 				boolean change = sprite._updateOrientation(action);
 				if (change) return Types.MOVEMENT.ROTATE;
@@ -70,11 +70,12 @@ public class GridPhysics implements Physics {
 
 	/**
 	 * Hamming distance between two rectangles.
-	 * 
+	 *
 	 * @param r1 rectangle 1
 	 * @param r2 rectangle 2
 	 * @return Hamming distance between the top-left corner of the rectangles.
 	 */
+	@Override
 	public double distance(Rectangle r1, Rectangle r2) {
 		return Math.abs(r1.getMinY() - r2.getMinY()) + Math.abs(r1.getMinX() - r2.getMinX());
 	}

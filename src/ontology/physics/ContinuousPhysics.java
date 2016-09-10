@@ -3,8 +3,7 @@ package ontology.physics;
 import java.awt.Rectangle;
 import core.VGDLSprite;
 import ontology.Types;
-import tools.Direction;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 17/10/13 Time: 11:37 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -40,7 +39,7 @@ public class ContinuousPhysics extends GridPhysics {
 				this.activeMovement(sprite, gravityAction, 0);
 			}
 			else return Types.MOVEMENT.STILL;
-			sprite.speed *= (1 - this.friction);
+			sprite.speed *= 1 - this.friction;
 
 			return Types.MOVEMENT.MOVE;
 		}
@@ -55,8 +54,8 @@ public class ContinuousPhysics extends GridPhysics {
 
 		if (speed == 0) return Types.MOVEMENT.STILL;
 
-		double v1 = (action.x() / (float) sprite.mass) + (sprite.orientation.x() * speed);
-		double v2 = (action.y() / (float) sprite.mass) + (sprite.orientation.y() * speed);
+		double v1 = action.x() / (float) sprite.mass + sprite.orientation.x() * speed;
+		double v2 = action.y() / (float) sprite.mass + sprite.orientation.y() * speed;
 
 		Vector2d dir = new Vector2d(v1, v2);
 		double speedD = dir.mag();
@@ -75,11 +74,12 @@ public class ContinuousPhysics extends GridPhysics {
 
 	/**
 	 * Euclidean distance between two rectangles.
-	 * 
+	 *
 	 * @param r1 rectangle 1
 	 * @param r2 rectangle 2
 	 * @return Euclidean distance between the top-left corner of the rectangles.
 	 */
+	@Override
 	public double distance(Rectangle r1, Rectangle r2) {
 		double topDiff = r1.getMinY() - r2.getMinY();
 		double leftDiff = r1.getMinX() - r2.getMinX();

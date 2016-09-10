@@ -1,9 +1,7 @@
 package tools.pathfinder;
 
 import ontology.Types;
-import tools.Direction;
-import tools.Vector2d;
-import java.util.ArrayList;
+import tools.*;
 
 /**
  * Created by dperez on 13/01/16.
@@ -22,7 +20,7 @@ public class Node implements Comparable<Node> {
 		totalCost = 1.0f;
 		parent = null;
 		position = pos;
-		id = ((int) (position.x) * 100 + (int) (position.y));
+		id = (int) position.x * 100 + (int) position.y;
 	}
 
 	@Override

@@ -1,12 +1,11 @@
 package controllers.singlePlayer.sampleonesteplookahead;
 
+import java.util.Random;
 import controllers.singlePlayer.Heuristics.SimpleStateHeuristic;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import ontology.Types;
-import tools.ElapsedCpuTimer;
-import tools.Utils;
-import java.util.Random;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: ssamot Date: 14/11/13 Time: 21:45 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -29,6 +28,7 @@ public class Agent extends AbstractPlayer {
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
+	@Override
 	public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
 
 		Types.ACTIONS bestAction = null;
@@ -39,7 +39,7 @@ public class Agent extends AbstractPlayer {
 			StateObservation stCopy = stateObs.copy();
 			stCopy.advance(action);
 			double Q = heuristic.evaluateState(stCopy);
-			Q = Utils.noise(Q, this.epsilon, this.m_rnd.nextDouble());
+			Q = Utils.noise(Q, Agent.epsilon, Agent.m_rnd.nextDouble());
 
 			// System.out.println("Action:" + action + " score:" + Q);
 			if (Q > maxQ) {

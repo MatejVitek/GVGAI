@@ -29,6 +29,7 @@ public class Flicker extends VGDLSprite {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		limit = 1;
@@ -36,6 +37,7 @@ public class Flicker extends VGDLSprite {
 		color = Types.RED;
 	}
 
+	@Override
 	public void update(Game game) {
 		super.update(game);
 
@@ -46,12 +48,14 @@ public class Flicker extends VGDLSprite {
 
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Flicker newSprite = new Flicker();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Flicker targetSprite = (Flicker) target;
 		targetSprite.limit = this.limit;

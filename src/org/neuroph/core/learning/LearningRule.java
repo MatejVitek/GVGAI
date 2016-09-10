@@ -6,14 +6,11 @@
 
 package org.neuroph.core.learning;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.io.*;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.data.DataSet;
-import org.neuroph.core.events.LearningEvent;
-import org.neuroph.core.events.LearningEventListener;
+import org.neuroph.core.events.*;
 
 /**
  * Base class for all neural network learning algorithms. It provides the general principles for training neural network.

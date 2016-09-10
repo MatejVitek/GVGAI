@@ -25,6 +25,7 @@ public class HorizontalAvatar extends MovingAvatar {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	public void postProcess() {
 		// Define actions here first.
 		if (actions.size() == 0) {
@@ -35,35 +36,40 @@ public class HorizontalAvatar extends MovingAvatar {
 		super.postProcess();
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 	}
 
 	/**
 	 * This update call is for the game tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 */
+	@Override
 	public void update(Game game) {
 		super.update(game);
 	}
 
 	/**
 	 * This move call is for the Forward Model tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 * @param actionMask action to apply.
 	 */
+	@Override
 	public void move(Game game, boolean[] actionMask) {
 		super.move(game, actionMask);
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		HorizontalAvatar newSprite = new HorizontalAvatar();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		HorizontalAvatar targetSprite = (HorizontalAvatar) target;
 		super.copyTo(targetSprite);

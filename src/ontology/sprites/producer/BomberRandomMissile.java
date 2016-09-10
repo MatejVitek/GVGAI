@@ -1,13 +1,12 @@
 package ontology.sprites.producer;
 
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.util.ArrayList;
+import java.awt.Dimension;
+import core.*;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
 import tools.Vector2d;
-import java.awt.*;
-import java.util.ArrayList;
 
 public class BomberRandomMissile extends SpawnPoint {
 
@@ -32,6 +31,7 @@ public class BomberRandomMissile extends SpawnPoint {
 			itypesMissile.add(it);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		color = Types.ORANGE;
@@ -41,6 +41,7 @@ public class BomberRandomMissile extends SpawnPoint {
 		is_npc = true;
 	}
 
+	@Override
 	public void update(Game game) {
 		int type = game.getRandomGenerator().nextInt(itypesMissile.size());
 		itype = itypesMissile.get(type);
@@ -50,10 +51,11 @@ public class BomberRandomMissile extends SpawnPoint {
 
 	/**
 	 * Updates missile itype with newitype
-	 * 
+	 *
 	 * @param itype - current type of missile
 	 * @param newitype - new type of missile to replace the first
 	 */
+	@Override
 	public void updateItype(int itype, int newitype) {
 		int idx = itypesMissile.indexOf(itype);
 		try {
@@ -64,12 +66,14 @@ public class BomberRandomMissile extends SpawnPoint {
 		}
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		BomberRandomMissile newSprite = new BomberRandomMissile();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		BomberRandomMissile targetSprite = (BomberRandomMissile) target;
 

@@ -1,15 +1,13 @@
 package ontology.sprites.npc;
 
+import java.util.ArrayList;
+import java.awt.Dimension;
 import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
+import tools.*;
 import tools.pathfinder.Node;
-import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 18:14 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -35,6 +33,7 @@ public class PathAltChaser extends AlternateChaser {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		fleeing = false;
@@ -44,12 +43,14 @@ public class PathAltChaser extends AlternateChaser {
 		lastKnownTargetPosition = null;
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 
 		if (randomTarget) is_stochastic = true;
 	}
 
+	@Override
 	public void update(Game game) {
 		actions.clear();
 
@@ -57,7 +58,7 @@ public class PathAltChaser extends AlternateChaser {
 		super.updatePassive();
 
 		// Get the closest targets
-		if ((lastTarget == null) || (lastTarget != null && this.rect.contains(lastTarget.rect))) {
+		if (lastTarget == null || lastTarget != null && this.rect.contains(lastTarget.rect)) {
 			closestTargets(game, randomTarget);
 		}
 		else {
@@ -108,12 +109,14 @@ public class PathAltChaser extends AlternateChaser {
 		this.physics.activeMovement(this, act, this.speed);
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		PathAltChaser newSprite = new PathAltChaser();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		PathAltChaser targetSprite = (PathAltChaser) target;
 		targetSprite.fleeing = this.fleeing;

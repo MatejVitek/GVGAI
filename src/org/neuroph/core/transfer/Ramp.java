@@ -11,7 +11,7 @@ import org.neuroph.util.Properties;
 
 /**
  * Ramp neuron transfer function.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Ramp extends TransferFunction implements Serializable {
@@ -83,14 +83,16 @@ public class Ramp extends TransferFunction implements Serializable {
 
 	@Override
 	public double getOutput(double net) {
-		if (net < this.xLow) return this.yLow;
-		else if (net > this.xHigh) return this.yHigh;
-		else return (double) (slope * net);
+		if (net < this.xLow)
+			return this.yLow;
+		else if (net > this.xHigh)
+			return this.yHigh;
+		else return slope * net;
 	}
 
 	/**
 	 * Returns threshold value for the low output level
-	 * 
+	 *
 	 * @return threshold value for the low output level
 	 */
 	public double getXLow() {
@@ -99,7 +101,7 @@ public class Ramp extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets threshold for the low output level
-	 * 
+	 *
 	 * @param x threshold value for the low output level
 	 */
 	public void setXLow(double x) {
@@ -108,7 +110,7 @@ public class Ramp extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns threshold value for the high output level
-	 * 
+	 *
 	 * @return threshold value for the high output level
 	 */
 	public double getXHigh() {
@@ -117,7 +119,7 @@ public class Ramp extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets threshold for the high output level
-	 * 
+	 *
 	 * @param x threshold value for the high output level
 	 */
 	public void setXHigh(double x) {
@@ -126,7 +128,7 @@ public class Ramp extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns output value for low output level
-	 * 
+	 *
 	 * @return output value for low output level
 	 */
 	public double getYLow() {
@@ -135,7 +137,7 @@ public class Ramp extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets output value for the low output level
-	 * 
+	 *
 	 * @param y value for the low output level
 	 */
 	public void setYLow(double y) {
@@ -144,7 +146,7 @@ public class Ramp extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns output value for high output level
-	 * 
+	 *
 	 * @return output value for high output level
 	 */
 	public double getYHigh() {
@@ -153,7 +155,7 @@ public class Ramp extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets output value for the high output level
-	 * 
+	 *
 	 * @param y value for the high output level
 	 */
 	public void setYHigh(double y) {

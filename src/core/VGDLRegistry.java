@@ -1,8 +1,6 @@
 package core;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 27/10/13 Time: 12:22 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -33,7 +31,7 @@ public class VGDLRegistry {
 
 	/**
 	 * Returns the unique instance of this class.
-	 * 
+	 *
 	 * @return the unique instance of this class.
 	 */
 	public static VGDLRegistry GetInstance() {
@@ -46,7 +44,7 @@ public class VGDLRegistry {
 
 	/**
 	 * Register a new sprite string.
-	 * 
+	 *
 	 * @param key key in the hashmap.
 	 * @return Returns its new index, or a new one if it was already registered.
 	 */
@@ -62,7 +60,7 @@ public class VGDLRegistry {
 
 	/**
 	 * Returns the index (value in map) of a given key, for sprites.
-	 * 
+	 *
 	 * @param key key to check
 	 * @return the value in map, -1 if it does not exist.
 	 */
@@ -73,7 +71,7 @@ public class VGDLRegistry {
 
 	/**
 	 * Returns an array of indexes (value in map) of a set of keys, for sprites.
-	 * 
+	 *
 	 * @param keys list of keys, separated by commas.
 	 * @return array with values in the map, -1 if it does not exist.
 	 */
@@ -90,7 +88,7 @@ public class VGDLRegistry {
 
 	/**
 	 * Returns the String associated with the first (and in theory, unique) sprite value passed. This method is for <b>debug purposes only</b>, should not be used for game execution.
-	 * 
+	 *
 	 * @param value value whose key is returned.
 	 * @return the String associated with the value passed.
 	 */
@@ -108,7 +106,7 @@ public class VGDLRegistry {
 
 	/**
 	 * Returns the -number of elements in the sprite_mapping array.
-	 * 
+	 *
 	 * @return number of elements in the sprite_mapping array.
 	 */
 	public int numSpriteTypes() {

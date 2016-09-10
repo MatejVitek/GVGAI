@@ -1,9 +1,9 @@
 package core.termination;
 
+import java.util.ArrayList;
 import core.VGDLRegistry;
 import core.content.TerminationContent;
 import core.game.Game;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 22/10/13 Time: 18:54 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl

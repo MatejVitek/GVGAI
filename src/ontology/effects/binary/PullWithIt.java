@@ -1,16 +1,14 @@
 package ontology.effects.binary;
 
-import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.awt.Rectangle;
 import core.VGDLSprite;
 import core.content.InteractionContent;
 import core.game.Game;
 import ontology.Types;
 import ontology.effects.Effect;
-import ontology.physics.ContinuousPhysics;
-import ontology.physics.GridPhysics;
-import tools.Direction;
-import tools.Vector2d;
+import ontology.physics.*;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 04/11/13 Time: 15:56 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -51,11 +49,11 @@ public class PullWithIt extends Effect {
 
 		int gridsize = 1;
 		if (sprite1.physicstype_id == Types.PHYSICS_GRID) {
-			GridPhysics gp = (GridPhysics) (sprite1.physics);
+			GridPhysics gp = (GridPhysics) sprite1.physics;
 			gridsize = gp.gridsize.width;
 		}
 		else if (sprite1.physicstype_id == Types.PHYSICS_CONT) {
-			GridPhysics gp = (ContinuousPhysics) (sprite1.physics);
+			GridPhysics gp = (ContinuousPhysics) sprite1.physics;
 			gridsize = gp.gridsize.width;
 		}
 

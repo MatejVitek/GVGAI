@@ -6,14 +6,13 @@
 
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 import org.neuroph.core.data.DataSet;
 import org.neuroph.core.learning.UnsupervisedLearning;
 
 /**
  * Unsupervised hebbian learning rule.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class UnsupervisedHebbianLearning extends UnsupervisedLearning {
@@ -33,7 +32,7 @@ public class UnsupervisedHebbianLearning extends UnsupervisedLearning {
 
 	/**
 	 * This method does one learning epoch for the unsupervised learning rules. It iterates through the training set and trains network weights for each element. Stops learning after one epoch.
-	 * 
+	 *
 	 * @param trainingSet training set for training network
 	 */
 	@Override
@@ -54,7 +53,7 @@ public class UnsupervisedHebbianLearning extends UnsupervisedLearning {
 
 	/**
 	 * This method implements weights update procedure for the single neuron
-	 * 
+	 *
 	 * @param neuron neuron to update weights
 	 */
 	protected void updateNeuronWeights(Neuron neuron) {

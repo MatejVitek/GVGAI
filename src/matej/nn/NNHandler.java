@@ -1,12 +1,11 @@
 package matej.nn;
 
+import static ontology.Types.ACTIONS.*;
 import java.util.ArrayList;
 import org.neuroph.core.NeuralNetwork;
 import core.game.StateObservation;
-import matej.ClassificationHandler;
-import matej.Prediction;
+import matej.*;
 import ontology.Types;
-import static ontology.Types.ACTIONS.*;
 
 public class NNHandler extends ClassificationHandler {
 
@@ -19,9 +18,10 @@ public class NNHandler extends ClassificationHandler {
 
 	/**
 	 * Predicts which game is most likely currently being played.
-	 * 
+	 *
 	 * @return Name of predicted game
 	 */
+	@Override
 	public Prediction getPrediction(long timeInMilliseconds) {
 		double[] features = getFeatures(so);
 		double[] predictions = new double[games.length];
@@ -43,7 +43,7 @@ public class NNHandler extends ClassificationHandler {
 
 	/**
 	 * Extracts features from initial state observation.
-	 * 
+	 *
 	 * @param stateObs Observation of the initial state
 	 * @return A vector of features in the correct order for input to NN
 	 */
@@ -60,7 +60,7 @@ public class NNHandler extends ClassificationHandler {
 
 		// initial and max HP (normalized for NN)
 		features[3] = (double) so.getAvatarHealthPoints() / (double) so.getAvatarLimitHealthPoints();
-		features[4] = (double) so.getAvatarLimitHealthPoints() / 1000.0;
+		features[4] = so.getAvatarLimitHealthPoints() / 1000.0;
 
 		// speed, orientation (already normalized)
 		features[5] = so.getAvatarSpeed();

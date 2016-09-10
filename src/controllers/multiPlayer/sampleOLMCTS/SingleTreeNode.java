@@ -3,8 +3,7 @@ package controllers.multiPlayer.sampleOLMCTS;
 import java.util.Random;
 import core.game.StateObservationMulti;
 import ontology.Types;
-import tools.ElapsedCpuTimer;
-import tools.Utils;
+import tools.*;
 
 public class SingleTreeNode {
 
@@ -29,10 +28,11 @@ public class SingleTreeNode {
 
 	public SingleTreeNode(SingleTreeNode parent, int childIdx, Random rnd) {
 		this.parent = parent;
-		this.m_rnd = rnd;
+		SingleTreeNode.m_rnd = rnd;
 		totValue = 0.0;
 		this.childIdx = childIdx;
-		if (parent != null) m_depth = parent.m_depth + 1;
+		if (parent != null)
+			m_depth = parent.m_depth + 1;
 		else m_depth = 0;
 		children = new SingleTreeNode[Agent.NUM_ACTIONS[Agent.id]];
 	}
@@ -56,7 +56,7 @@ public class SingleTreeNode {
 			backUp(selected, delta);
 
 			numIters++;
-			acumTimeTaken += (elapsedTimerIteration.elapsedMillis());
+			acumTimeTaken += elapsedTimerIteration.elapsedMillis();
 			// System.out.println(elapsedTimerIteration.elapsedMillis() + " --> " + acumTimeTaken + " (" + remaining + ")");
 			avgTimeTaken = acumTimeTaken / numIters;
 			remaining = elapsedTimer.remainingTimeMillis();
@@ -108,7 +108,7 @@ public class SingleTreeNode {
 
 		state.advance(acts);
 
-		SingleTreeNode tn = new SingleTreeNode(this, bestAction, this.m_rnd);
+		SingleTreeNode tn = new SingleTreeNode(this, bestAction, SingleTreeNode.m_rnd);
 		children[bestAction] = tn;
 		return tn;
 	}
@@ -119,14 +119,14 @@ public class SingleTreeNode {
 		double bestValue = -Double.MAX_VALUE;
 		for (SingleTreeNode child : this.children) {
 			double hvVal = child.totValue;
-			double childValue = hvVal / (child.nVisits + this.epsilon);
+			double childValue = hvVal / (child.nVisits + SingleTreeNode.epsilon);
 
 			childValue = Utils.normalise(childValue, bounds[0], bounds[1]);
 			// System.out.println("norm child value: " + childValue);
 
-			double uctValue = childValue + Agent.K * Math.sqrt(Math.log(this.nVisits + 1) / (child.nVisits + this.epsilon));
+			double uctValue = childValue + Agent.K * Math.sqrt(Math.log(this.nVisits + 1) / (child.nVisits + SingleTreeNode.epsilon));
 
-			uctValue = Utils.noise(uctValue, this.epsilon, this.m_rnd.nextDouble()); // break ties randomly
+			uctValue = Utils.noise(uctValue, SingleTreeNode.epsilon, SingleTreeNode.m_rnd.nextDouble()); // break ties randomly
 
 			// small sampleRandom numbers: break ties in unexpanded nodes
 			if (uctValue > bestValue) {
@@ -221,13 +221,14 @@ public class SingleTreeNode {
 		for (int i = 0; i < children.length; i++) {
 
 			if (children[i] != null) {
-				if (first == -1) first = children[i].nVisits;
+				if (first == -1)
+					first = children[i].nVisits;
 				else if (first != children[i].nVisits) {
 					allEqual = false;
 				}
 
 				double childValue = children[i].nVisits;
-				childValue = Utils.noise(childValue, this.epsilon, this.m_rnd.nextDouble()); // break ties randomly
+				childValue = Utils.noise(childValue, SingleTreeNode.epsilon, SingleTreeNode.m_rnd.nextDouble()); // break ties randomly
 				if (childValue > bestValue) {
 					bestValue = childValue;
 					selected = i;
@@ -254,8 +255,8 @@ public class SingleTreeNode {
 
 			if (children[i] != null) {
 				// double tieBreaker = m_rnd.nextDouble() * epsilon;
-				double childValue = children[i].totValue / (children[i].nVisits + this.epsilon);
-				childValue = Utils.noise(childValue, this.epsilon, this.m_rnd.nextDouble()); // break ties randomly
+				double childValue = children[i].totValue / (children[i].nVisits + SingleTreeNode.epsilon);
+				childValue = Utils.noise(childValue, SingleTreeNode.epsilon, SingleTreeNode.m_rnd.nextDouble()); // break ties randomly
 				if (childValue > bestValue) {
 					bestValue = childValue;
 					selected = i;

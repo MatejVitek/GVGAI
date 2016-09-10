@@ -8,7 +8,7 @@ package org.neuroph.util.benchmark;
 
 /**
  * This is an example how to use Neuroph microbenchmarking framework
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class BenchmarkSample {

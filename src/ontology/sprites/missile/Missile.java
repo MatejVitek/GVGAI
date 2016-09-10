@@ -23,18 +23,21 @@ public class Missile extends VGDLSprite {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		speed = 1;
 		is_oriented = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Missile newSprite = new Missile();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Missile targetSprite = (Missile) target;
 		super.copyTo(targetSprite);

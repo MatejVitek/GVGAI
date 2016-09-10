@@ -6,13 +6,11 @@
 
 package org.neuroph.core.events;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * This class holds information about the source and type of some neural network event.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class NeuralNetworkEvent extends java.util.EventObject {

@@ -6,8 +6,7 @@
 
 package org.neuroph.nnet.comp.neuron;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * Neuron with constant high output (1), used as bias

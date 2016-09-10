@@ -1,17 +1,12 @@
 package ontology.sprites.npc;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.Iterator;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.util.*;
+import java.awt.*;
+import core.*;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 18:14 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -39,6 +34,7 @@ public class Chaser extends RandomNPC {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		fleeing = false;
@@ -47,12 +43,14 @@ public class Chaser extends RandomNPC {
 		actions = new ArrayList<Direction>();
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 		// Define actions here.
 		itype = VGDLRegistry.GetInstance().getRegisteredSpriteValue(stype);
 	}
 
+	@Override
 	public void update(Game game) {
 		actions.clear();
 
@@ -103,7 +101,7 @@ public class Chaser extends RandomNPC {
 
 	/**
 	 * Sets a list with the closest targets (sprites with the type 'stype'), by distance
-	 * 
+	 *
 	 * @param game game to access all sprites
 	 */
 	protected void closestTargets(Game game) {
@@ -127,12 +125,14 @@ public class Chaser extends RandomNPC {
 		}
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Chaser newSprite = new Chaser();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Chaser targetSprite = (Chaser) target;
 		targetSprite.fleeing = this.fleeing;

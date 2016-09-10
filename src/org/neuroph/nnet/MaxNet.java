@@ -6,20 +6,14 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.layer.CompetitiveLayer;
 import org.neuroph.nnet.comp.neuron.CompetitiveNeuron;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Max Net neural network with competitive learning rule.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class MaxNet extends NeuralNetwork {
@@ -31,7 +25,7 @@ public class MaxNet extends NeuralNetwork {
 
 	/**
 	 * Creates new Maxnet network with specified neuron number
-	 * 
+	 *
 	 * @param neuronsCount number of neurons in MaxNet network (same number in input and output layer)
 	 */
 	public MaxNet(int neuronsCount) {
@@ -40,7 +34,7 @@ public class MaxNet extends NeuralNetwork {
 
 	/**
 	 * Creates MaxNet network architecture
-	 * 
+	 *
 	 * @param neuronNum neuron number in network
 	 * @param neuronProperties neuron properties
 	 */

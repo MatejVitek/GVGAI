@@ -5,14 +5,10 @@
  */
 package org.neuroph.core;
 
+import java.util.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ForkJoinPool;
 import org.neuroph.core.events.NeuralNetworkEvent;
-import org.neuroph.util.NeuronFactory;
-import org.neuroph.util.NeuronProperties;
+import org.neuroph.util.*;
 
 /**
  * <pre>
@@ -54,7 +50,7 @@ public class Layer implements Serializable {
 
 	/**
 	 * Creates an instance of empty Layer for specified number of neurons
-	 * 
+	 *
 	 * @param neuronsCount number of neurons in this layer
 	 */
 	public Layer(int neuronsCount) {
@@ -127,7 +123,7 @@ public class Layer implements Serializable {
 
 	/**
 	 * Adds specified neuron to this layer,at specified index position Throws IllegalArgumentException if neuron is null, or index is illegal value (index<0 or index>neuronsCount)
-	 * 
+	 *
 	 * @param neuron neuron to add
 	 * @param index index position at which neuron should be added
 	 */

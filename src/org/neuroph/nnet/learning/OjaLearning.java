@@ -6,12 +6,11 @@
 
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * Oja learning rule wich is a modification of unsupervised hebbian learning.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class OjaLearning extends UnsupervisedHebbianLearning {
@@ -30,7 +29,7 @@ public class OjaLearning extends UnsupervisedHebbianLearning {
 
 	/**
 	 * This method implements weights update procedure for the single neuron
-	 * 
+	 *
 	 * @param neuron neuron to update weights
 	 */
 	@Override

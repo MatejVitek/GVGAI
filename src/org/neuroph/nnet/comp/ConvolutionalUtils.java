@@ -6,10 +6,7 @@
 
 package org.neuroph.nnet.comp;
 
-import org.neuroph.nnet.comp.layer.FeatureMapLayer;
-import org.neuroph.nnet.comp.layer.PoolingLayer;
-import org.neuroph.nnet.comp.layer.ConvolutionalLayer;
-import org.neuroph.nnet.comp.layer.FeatureMapsLayer;
+import org.neuroph.nnet.comp.layer.*;
 
 /**
  * Utility functions for convolutional networks

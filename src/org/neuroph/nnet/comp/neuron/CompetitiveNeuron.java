@@ -6,16 +6,14 @@
 
 package org.neuroph.nnet.comp.neuron;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import org.neuroph.core.Connection;
 import org.neuroph.core.input.InputFunction;
 import org.neuroph.core.transfer.TransferFunction;
 
 /**
  * Provides neuron behaviour specific for competitive neurons which are used in competitive layers, and networks with competitive learning.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class CompetitiveNeuron extends DelayedNeuron {
@@ -42,7 +40,7 @@ public class CompetitiveNeuron extends DelayedNeuron {
 
 	/**
 	 * Creates an instance of CompetitiveNeuron with specified input and transfer functions
-	 * 
+	 *
 	 * @param inputFunction neuron input function
 	 * @param transferFunction neuron ransfer function
 	 */
@@ -71,7 +69,7 @@ public class CompetitiveNeuron extends DelayedNeuron {
 
 	/**
 	 * Adds input connection for this competitive neuron
-	 * 
+	 *
 	 * @param connection input connection
 	 */
 	@Override
@@ -91,7 +89,7 @@ public class CompetitiveNeuron extends DelayedNeuron {
 
 	/**
 	 * Returns collection of connections from other layers
-	 * 
+	 *
 	 * @return collection of connections from other layers
 	 */
 	public List<Connection> getConnectionsFromOtherLayers() {
@@ -109,7 +107,7 @@ public class CompetitiveNeuron extends DelayedNeuron {
 
 	/**
 	 * Retruns true if this neuron is in competing mode, false otherwise
-	 * 
+	 *
 	 * @return true if this neuron is in competing mode, false otherwise
 	 */
 	public boolean isCompeting() {
@@ -118,7 +116,7 @@ public class CompetitiveNeuron extends DelayedNeuron {
 
 	/**
 	 * Sets the flag to indicate that this neuron is in competing mode
-	 * 
+	 *
 	 * @param isCompeting value for the isCompeting flag
 	 */
 	public void setIsCompeting(boolean isCompeting) {

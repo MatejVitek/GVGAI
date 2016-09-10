@@ -1,14 +1,11 @@
 package ontology.effects.unary;
 
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.util.*;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
 import ontology.effects.Effect;
-import ontology.sprites.producer.BomberRandomMissile;
 import ontology.sprites.producer.SpawnPoint;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class UpdateSpawnType extends Effect {
 

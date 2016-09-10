@@ -1,10 +1,8 @@
 package controllers.singlePlayer.sampleRandom;
 
+import java.util.*;
 import java.awt.Graphics2D;
-import java.util.ArrayList;
-import java.util.Random;
-import core.game.Observation;
-import core.game.StateObservation;
+import core.game.*;
 import core.player.AbstractPlayer;
 import ontology.Types;
 import tools.ElapsedCpuTimer;
@@ -31,7 +29,7 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * Public constructor with state observation and time due.
-	 * 
+	 *
 	 * @param so state observation of the current game.
 	 * @param elapsedTimer Timer for the controller creation.
 	 */
@@ -43,11 +41,12 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * Picks an action. This function is called every game step to request an action from the player.
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
+	@Override
 	public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
 
 		ArrayList<Observation>[] npcPositions = stateObs.getNPCPositions();
@@ -83,7 +82,7 @@ public class Agent extends AbstractPlayer {
 			}
 
 			numIters++;
-			acumTimeTaken += (elapsedTimerIteration.elapsedMillis());
+			acumTimeTaken += elapsedTimerIteration.elapsedMillis();
 			// System.out.println(elapsedTimerIteration.elapsedMillis() + " --> " + acumTimeTaken + " (" + remaining + ")");
 			avgTimeTaken = acumTimeTaken / numIters;
 			remaining = elapsedTimer.remainingTimeMillis();
@@ -94,15 +93,15 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * Prints the number of different types of sprites available in the "positions" array. Between brackets, the number of observations of each type.
-	 * 
+	 *
 	 * @param positions array with observations.
 	 * @param str identifier to print
 	 */
 	private void printDebug(ArrayList<Observation>[] positions, String str) {
 		if (positions != null) {
 			System.out.print(str + ":" + positions.length + "(");
-			for (int i = 0; i < positions.length; i++) {
-				System.out.print(positions[i].size() + ",");
+			for (ArrayList<Observation> position : positions) {
+				System.out.print(position.size() + ",");
 			}
 			System.out.print("); ");
 		}
@@ -111,9 +110,10 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * Gets the player the control to draw something on the screen. It can be used for debug purposes.
-	 * 
+	 *
 	 * @param g Graphics device to draw to.
 	 */
+	@Override
 	public void draw(Graphics2D g) {
 		int half_block = (int) (block_size * 0.5);
 		for (int j = 0; j < grid[0].length; ++j) {

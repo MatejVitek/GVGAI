@@ -1,14 +1,11 @@
 package levelGenerators.randomLevelGenerator;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Random;
 import core.game.GameDescription;
 import core.game.GameDescription.SpriteData;
 import core.generator.AbstractLevelGenerator;
-import tools.ElapsedCpuTimer;
-import tools.GameAnalyzer;
+import tools.*;
 
 public class LevelGenerator extends AbstractLevelGenerator {
 
@@ -39,7 +36,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Constructor for the RandomLevelGenerator where it initialize the random object used.
-	 * 
+	 *
 	 * @param game Abstract game description object. This object contains all needed information about the current game.
 	 * @param elapsedTimer Timer to define the maximum amount of time for the constructor.
 	 */
@@ -53,7 +50,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Get the first solid character that is described in the level mapping
-	 * 
+	 *
 	 * @param gameDescription game description object to get all data
 	 * @return character of the first solid object found or null otherwise
 	 */
@@ -77,7 +74,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Surround the level with solid border
-	 * 
+	 *
 	 * @param gameDescription game description that describe all aspects of games
 	 * @param points array of the unique points to be added
 	 * @param width width of the level
@@ -108,7 +105,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Check if the input x and y are found in the ArrayList
-	 * 
+	 *
 	 * @param points list of points required to check
 	 * @param x the x value to be checked
 	 * @param y the y value to be checked
@@ -126,7 +123,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Add random unique x and y value that is not found in the list of points associated with a certain character c
-	 * 
+	 *
 	 * @param points list of points to check uniqueness with
 	 * @param width the maximum x value
 	 * @param length the maximum y value
@@ -150,7 +147,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Generate a level string randomly contains only one avatar, 80% free space, and 20% of random sprites
-	 * 
+	 *
 	 * @param game Abstract game description object. This object contains all needed information about the current game.
 	 * @param elapsedTimer Timer to define the maximum amount of time for the level generation.
 	 */
@@ -164,8 +161,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 		// and it should be in between maxSize and minSize
 		int width = (int) Math.max(minSize, sprites.size() * (1 + 0.25 * random.nextDouble()));
 		int length = (int) Math.max(minSize, sprites.size() * (1 + 0.25 * random.nextDouble()));
-		width = (int) Math.min(width, maxSize);
-		length = (int) Math.min(length, maxSize);
+		width = Math.min(width, maxSize);
+		length = Math.min(length, maxSize);
 
 		ArrayList<Character> avatar = new ArrayList<Character>();
 		ArrayList<Character> choices = new ArrayList<Character>();
@@ -235,7 +232,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Helper class to store some data points with a character associated with it
-	 * 
+	 *
 	 * @author AhmedKhalifa
 	 */
 	private class DataPoint {

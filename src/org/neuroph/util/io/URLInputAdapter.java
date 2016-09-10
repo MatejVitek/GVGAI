@@ -6,15 +6,12 @@
 
 package org.neuroph.util.io;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.*;
+import java.net.*;
 
 /**
  * Implementation of InputAdapter interface for reading neural network inputs from URL.
- * 
+ *
  * @see InputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
@@ -22,7 +19,7 @@ public class URLInputAdapter extends InputStreamAdapter {
 
 	/**
 	 * Creates a new URLInputAdapter by opening a connection to URL specified by the input param
-	 * 
+	 *
 	 * @param url URL object to connect to.
 	 * @throws IOException if connection
 	 */
@@ -32,7 +29,7 @@ public class URLInputAdapter extends InputStreamAdapter {
 
 	/**
 	 * Creates a new URLInputAdapter by opening a connection to URL specified by the input param
-	 * 
+	 *
 	 * @param url URL to connect to as string.
 	 * @throws IOException if connection
 	 */

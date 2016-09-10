@@ -16,7 +16,7 @@ public class AvatarNumberConstraint extends AbstractConstraint {
 
 	/**
 	 * Check if there is only 1 avatar in the level
-	 * 
+	 *
 	 * @return 1 if constraint is staisfied and 0 otherwise
 	 */
 	@Override

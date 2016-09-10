@@ -1,8 +1,7 @@
 package ontology.avatar;
 
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.awt.Dimension;
 import core.VGDLSprite;
 import core.competition.CompetitionParameters;
 import core.content.SpriteContent;
@@ -47,6 +46,7 @@ public class MovingAvatar extends VGDLSprite {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		actions = new ArrayList<Types.ACTIONS>();
@@ -59,6 +59,7 @@ public class MovingAvatar extends VGDLSprite {
 		is_disqualified = false;
 	}
 
+	@Override
 	public void postProcess() {
 
 		// Define actions here first.
@@ -80,9 +81,10 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * This update call is for the game tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 */
+	@Override
 	public void update(Game game) {
 		lastMovementType = Types.MOVEMENT.STILL;
 
@@ -101,7 +103,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * This move call is for the Forward Model tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 * @param actionMask action to apply.
 	 */
@@ -118,7 +120,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Requests the controller's input, setting the game.ki.action mask with the processed data.
-	 * 
+	 *
 	 * @param game
 	 */
 	protected void requestPlayerInput(Game game) {
@@ -139,11 +141,11 @@ public class MovingAvatar extends VGDLSprite {
 
 			if (ect.elapsedMillis() > CompetitionParameters.ACTION_TIME_DISQ) {
 				// The agent took too long to replay. The game is over and the agent is disqualified
-				System.out.println("Too long: " + playerID + "(exceeding " + (exceeded) + "ms): controller disqualified.");
+				System.out.println("Too long: " + playerID + "(exceeding " + exceeded + "ms): controller disqualified.");
 				game.disqualify(playerID);
 			}
 			else {
-				System.out.println("Overspent: " + playerID + "(exceeding " + (exceeded) + "ms): applying ACTION_NIL.");
+				System.out.println("Overspent: " + playerID + "(exceeding " + exceeded + "ms): applying ACTION_NIL.");
 			}
 
 			action = Types.ACTIONS.ACTION_NIL;
@@ -163,7 +165,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Gets the key handler of this avatar.
-	 * 
+	 *
 	 * @return - KeyHandler object.
 	 */
 	public KeyHandler getKeyHandler() {
@@ -172,17 +174,18 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Sets the key handler of this avatar.
-	 * 
+	 *
 	 * @param k - new KeyHandler object.
 	 */
 	public void setKeyHandler(KeyHandler k) {
-		if (k instanceof KeyInput) ki = new KeyInput();
+		if (k instanceof KeyInput)
+			ki = new KeyInput();
 		else ki = k;
 	}
 
 	/**
 	 * Checks whether this player is disqualified.
-	 * 
+	 *
 	 * @return true if disqualified, false otherwise.
 	 */
 	public boolean is_disqualified() {
@@ -198,7 +201,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Gets the score of this player.
-	 * 
+	 *
 	 * @return score.
 	 */
 	public double getScore() {
@@ -207,7 +210,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Sets the score of this player to a new value.
-	 * 
+	 *
 	 * @param s - new score.
 	 */
 	public void setScore(double s) {
@@ -216,7 +219,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Adds a value to the current score of this player.
-	 * 
+	 *
 	 * @param s - value to add to the score.
 	 */
 	public void addScore(double s) {
@@ -225,7 +228,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Gets the win state of this player.
-	 * 
+	 *
 	 * @return - win state, value of Types.WINNER
 	 */
 	public Types.WINNER getWinState() {
@@ -234,7 +237,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Sets the win state of this player.
-	 * 
+	 *
 	 * @param w - new win state.
 	 */
 	public void setWinState(Types.WINNER w) {
@@ -243,7 +246,7 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Get this player's ID.
-	 * 
+	 *
 	 * @return player ID.
 	 */
 	public int getPlayerID() {
@@ -252,13 +255,14 @@ public class MovingAvatar extends VGDLSprite {
 
 	/**
 	 * Set this player's ID to a new value.
-	 * 
+	 *
 	 * @param id - new player ID.
 	 */
 	public void setPlayerID(int id) {
 		playerID = id;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		MovingAvatar newSprite = new MovingAvatar();
 		this.copyTo(newSprite);
@@ -274,6 +278,7 @@ public class MovingAvatar extends VGDLSprite {
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		MovingAvatar targetSprite = (MovingAvatar) target;
 		targetSprite.alternate_keys = this.alternate_keys;

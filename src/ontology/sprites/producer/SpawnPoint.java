@@ -1,14 +1,12 @@
 package ontology.sprites.producer;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.awt.Dimension;
+import core.*;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 18:24 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -37,6 +35,7 @@ public class SpawnPoint extends SpriteProducer {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		prob = 1.0;
@@ -49,25 +48,28 @@ public class SpawnPoint extends SpriteProducer {
 		itype = -1;
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
-		is_stochastic = (prob > 0 && prob < 1);
+		is_stochastic = prob > 0 && prob < 1;
 		counter = 0;
 		if (stype != null) // Could be, if we're using different stype variants in subclasses.
 			itype = VGDLRegistry.GetInstance().getRegisteredSpriteValue(stype);
 	}
 
+	@Override
 	public void update(Game game) {
 		if (start == -1) start = game.getGameTick();
 
 		float rollDie = game.getRandomGenerator().nextFloat();
-		if (((start + game.getGameTick()) % cooldown == 0) && rollDie < prob) {
+		if ((start + game.getGameTick()) % cooldown == 0 && rollDie < prob) {
 			VGDLSprite newSprite = game.addSprite(itype, this.getPosition());
 			if (newSprite != null) {
 				counter++;
 
 				// We set the orientation given by default it this was passed.
-				if (!(spawnorientation.equals(Types.DNONE))) newSprite.orientation = spawnorientation.copy();
+				if (!spawnorientation.equals(Types.DNONE))
+					newSprite.orientation = spawnorientation.copy();
 				// If no orientation given, we set the one from the spawner.
 				else if (newSprite.orientation.equals(Types.DNONE)) newSprite.orientation = this.orientation.copy();
 			}
@@ -83,7 +85,7 @@ public class SpawnPoint extends SpriteProducer {
 
 	/**
 	 * Updates spawn itype with newitype
-	 * 
+	 *
 	 * @param itype - current spawn type
 	 * @param newitype - new spawn type to replace the first
 	 */
@@ -91,12 +93,14 @@ public class SpawnPoint extends SpriteProducer {
 		this.itype = newitype;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		SpawnPoint newSprite = new SpawnPoint();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		SpawnPoint targetSprite = (SpawnPoint) target;
 		targetSprite.prob = this.prob;

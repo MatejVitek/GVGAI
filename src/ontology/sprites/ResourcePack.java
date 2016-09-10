@@ -23,11 +23,13 @@ public class ResourcePack extends Resource {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		is_static = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		ResourcePack newSprite = new ResourcePack();
 		super.copyTo(newSprite);

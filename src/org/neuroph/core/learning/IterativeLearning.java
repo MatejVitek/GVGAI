@@ -5,13 +5,11 @@
  */
 package org.neuroph.core.learning;
 
+import java.util.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import org.neuroph.core.data.DataSet;
 import org.neuroph.core.events.LearningEvent;
-import org.neuroph.core.learning.stop.MaxIterationsStop;
-import org.neuroph.core.learning.stop.StopCondition;
+import org.neuroph.core.learning.stop.*;
 
 /**
  * Base class for all iterative learning algorithms. It provides the iterative learning procedure for all of its subclasses.
@@ -168,7 +166,7 @@ abstract public class IterativeLearning extends LearningRule implements Serializ
 			if (hasReachedStopCondition()) {
 				stopLearning();
 			}
-			else if (!iterationsLimited && (currentIteration == Integer.MAX_VALUE)) {
+			else if (!iterationsLimited && currentIteration == Integer.MAX_VALUE) {
 				// if counter has reached max value and iteration number is not limited restart iteration counter
 				this.currentIteration = 1;
 			}

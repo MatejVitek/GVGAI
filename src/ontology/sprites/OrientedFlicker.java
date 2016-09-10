@@ -24,6 +24,7 @@ public class OrientedFlicker extends Flicker {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		draw_arrow = true;
@@ -31,16 +32,19 @@ public class OrientedFlicker extends Flicker {
 		is_oriented = true;
 	}
 
+	@Override
 	public void update(Game game) {
 		super.update(game);
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		OrientedFlicker newSprite = new OrientedFlicker();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		OrientedFlicker targetSprite = (OrientedFlicker) target;
 		super.copyTo(targetSprite);

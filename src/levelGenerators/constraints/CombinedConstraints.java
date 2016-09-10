@@ -1,8 +1,7 @@
 package levelGenerators.constraints;
 
+import java.util.*;
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class CombinedConstraints extends AbstractConstraint {
 
@@ -12,7 +11,7 @@ public class CombinedConstraints extends AbstractConstraint {
 	private ArrayList<AbstractConstraint> constraints;
 
 	/**
-	 * 
+	 *
 	 */
 	public CombinedConstraints() {
 		constraints = new ArrayList<AbstractConstraint>();
@@ -20,7 +19,7 @@ public class CombinedConstraints extends AbstractConstraint {
 
 	/**
 	 * Add multiple constraints to the combined constraints class
-	 * 
+	 *
 	 * @param conStrings array of name of the constraint classes needed
 	 */
 	public void addConstraints(String[] conStrings) {
@@ -39,7 +38,7 @@ public class CombinedConstraints extends AbstractConstraint {
 
 	/**
 	 * Set the parameters of all the constraints added
-	 * 
+	 *
 	 * @param parameters a hashmap contains all the objects needed for all constraints
 	 */
 	@Override
@@ -51,7 +50,7 @@ public class CombinedConstraints extends AbstractConstraint {
 
 	/**
 	 * Check if all constraints are satisfied
-	 * 
+	 *
 	 * @return return a percentage of how many constraints are satisfied
 	 */
 	@Override

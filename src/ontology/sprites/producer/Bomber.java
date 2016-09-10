@@ -24,6 +24,7 @@ public class Bomber extends SpawnPoint {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		color = Types.ORANGE;
@@ -33,12 +34,14 @@ public class Bomber extends SpawnPoint {
 		is_npc = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Bomber newSprite = new Bomber();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Bomber targetSprite = (Bomber) target;
 		super.copyTo(targetSprite);

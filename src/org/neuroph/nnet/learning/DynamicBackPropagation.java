@@ -6,12 +6,11 @@
 
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.data.DataSet;
 
 /**
  * Backpropagation learning rule with dynamic learning rate and momentum
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class DynamicBackPropagation extends MomentumBackpropagation {
@@ -48,7 +47,7 @@ public class DynamicBackPropagation extends MomentumBackpropagation {
 		// the amount of earning rate change is proportional to error change - by using errorChange
 
 		double errorChange = this.previousEpochError - getErrorFunction().getTotalError();
-		this.learningRate = this.learningRate + (errorChange * learningRateChange);
+		this.learningRate = this.learningRate + errorChange * learningRateChange;
 
 		if (this.learningRate > this.maxLearningRate) this.learningRate = this.maxLearningRate;
 
@@ -95,7 +94,7 @@ public class DynamicBackPropagation extends MomentumBackpropagation {
 
 	protected void adjustMomentum() {
 		double errorChange = this.previousEpochError - getErrorFunction().getTotalError();
-		this.momentum = this.momentum + (errorChange * momentumChange);
+		this.momentum = this.momentum + errorChange * momentumChange;
 
 		if (this.momentum > this.maxMomentum) this.momentum = this.maxMomentum;
 

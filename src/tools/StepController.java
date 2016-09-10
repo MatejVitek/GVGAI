@@ -27,7 +27,7 @@ public class StepController {
 
 	/**
 	 * Initialize the Step Agent
-	 * 
+	 *
 	 * @param agent agent used to play the game
 	 * @param stepTime amount of time spend for each step
 	 */
@@ -38,7 +38,7 @@ public class StepController {
 
 	/**
 	 * play the current game for a specific amount of time using the initialized player
-	 * 
+	 *
 	 * @param stateObs starting observation object
 	 * @param elapsedTimer amount of time that can be spent in this function
 	 */
@@ -57,7 +57,7 @@ public class StepController {
 
 	/**
 	 * get list of action used during playing the game
-	 * 
+	 *
 	 * @return list of actions used during playing
 	 */
 	public ArrayList<ACTIONS> getSolution() {
@@ -66,7 +66,7 @@ public class StepController {
 
 	/**
 	 * called after playing a game and return the final game state reached
-	 * 
+	 *
 	 * @return game state after playing the game
 	 */
 	public StateObservation getFinalState() {

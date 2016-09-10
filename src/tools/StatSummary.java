@@ -74,7 +74,7 @@ public class StatSummary {
 	}
 
 	public double winPercent() {
-		return (wins * 100) / (n * 1.0);
+		return wins * 100 / (n * 1.0);
 	}
 
 	// returns the sum of the squares of the differences
@@ -86,7 +86,7 @@ public class StatSummary {
 	private void computeStats() {
 		if (!valid) {
 			mean = sum / n;
-			double num = sumsq - (n * mean * mean);
+			double num = sumsq - n * mean * mean;
 			if (num < 0) {
 				// avoids tiny negative numbers possible through imprecision
 				num = 0;
@@ -154,7 +154,7 @@ public class StatSummary {
 
 	@Override
 	public String toString() {
-		String s = (name == null) ? "" : name;
+		String s = name == null ? "" : name;
 		s += " min = " + min() + "\n" + " max = " + max() + "\n" + " ave = " + mean() + "\n" + " sd  = " + sd() + "\n" + " se  = " + stdErr() + "\n" + " sum  = " + sum + "\n" + " sumsq  = " + sumsq
 				+ "\n" + " wins = " + wins + "\n" + " wins% = " + winPercent() + "\n" + " n   = " + n;
 		return s;

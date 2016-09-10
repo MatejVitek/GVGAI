@@ -8,7 +8,7 @@ package org.neuroph.util.benchmark;
 
 /**
  * This class holds benchmarking results, elapsed times for all iterations and various statistics min, max, avg times and standard deviation
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class BenchmarkTaskResults {
@@ -83,6 +83,7 @@ public class BenchmarkTaskResults {
 		this.standardDeviation = Math.sqrt(sqrSum / (double) timesCounter);
 	}
 
+	@Override
 	public String toString() {
 		String results = "Test iterations: " + testIterations + "\n" + "Min time: " + minTestTime + " ms\n" + "Max time: " + maxTestTime + " ms\n" + "Average time: " + averageTestTime + " ms\n"
 				+ "Std. deviation: " + standardDeviation + "\n";
@@ -90,7 +91,7 @@ public class BenchmarkTaskResults {
 		results += "Test times:\n";
 
 		for (int i = 0; i < timesCounter; i++)
-			results += (i + 1) + ". iteration: " + elapsedTimes[i] + "ms\n";
+			results += i + 1 + ". iteration: " + elapsedTimes[i] + "ms\n";
 
 		return results;
 	}

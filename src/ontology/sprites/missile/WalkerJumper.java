@@ -25,18 +25,21 @@ public class WalkerJumper extends Walker {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		probability = 0.1;
 		strength = 10;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		WalkerJumper newSprite = new WalkerJumper();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		WalkerJumper targetSprite = (WalkerJumper) target;
 		targetSprite.probability = this.probability;

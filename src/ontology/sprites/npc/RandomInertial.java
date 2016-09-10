@@ -24,18 +24,21 @@ public class RandomInertial extends RandomNPC {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		physicstype_id = Types.PHYSICS_CONT;
 		is_oriented = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		RandomInertial newSprite = new RandomInertial();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		RandomInertial targetSprite = (RandomInertial) target;
 		super.copyTo(targetSprite);

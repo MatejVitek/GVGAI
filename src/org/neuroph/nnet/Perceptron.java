@@ -6,16 +6,10 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.nnet.comp.neuron.ThresholdNeuron;
 import org.neuroph.nnet.learning.BinaryDeltaRule;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Perceptron neural network with some LMS based learning algorithm.
@@ -34,7 +28,7 @@ public class Perceptron extends NeuralNetwork {
 
 	/**
 	 * Creates new Perceptron with specified number of neurons in input and output layer, with Step trqansfer function
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 */
@@ -44,7 +38,7 @@ public class Perceptron extends NeuralNetwork {
 
 	/**
 	 * Creates new Perceptron with specified number of neurons in input and output layer, and specified transfer function
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 * @param transferFunctionType transfer function type
@@ -55,7 +49,7 @@ public class Perceptron extends NeuralNetwork {
 
 	/**
 	 * Creates perceptron architecture with specified number of neurons in input and output layer, specified transfer function
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 * @param transferFunctionType neuron transfer function type

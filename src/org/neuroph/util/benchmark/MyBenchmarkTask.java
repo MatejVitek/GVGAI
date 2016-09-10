@@ -6,15 +6,14 @@
 
 package org.neuroph.util.benchmark;
 
-import org.neuroph.core.data.DataSetRow;
-import org.neuroph.core.data.DataSet;
+import org.neuroph.core.data.*;
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.MomentumBackpropagation;
 
 /**
  * This class is example of custom benchmarking task for Multi Layer Perceptorn network Note that this benchmark only measures the speed at implementation level - the speed of data flow forward and
  * backward through network
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class MyBenchmarkTask extends BenchmarkTask {

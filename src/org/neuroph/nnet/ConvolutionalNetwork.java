@@ -6,21 +6,15 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
+import org.neuroph.core.*;
+import org.neuroph.core.exceptions.*;
 import org.neuroph.core.input.WeightedSum;
-import org.neuroph.nnet.comp.ConvolutionalUtils;
-import org.neuroph.nnet.comp.layer.*;
-import org.neuroph.nnet.learning.ConvolutionalBackpropagation;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.exceptions.NeurophException;
-import org.neuroph.core.exceptions.VectorSizeMismatchException;
 import org.neuroph.core.transfer.TransferFunction;
-import org.neuroph.nnet.comp.Dimension2D;
+import org.neuroph.nnet.comp.*;
+import org.neuroph.nnet.comp.layer.*;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.nnet.learning.ConvolutionalBackpropagation;
+import org.neuroph.util.*;
 
 /**
  * Convolutional neural network with backpropagation algorithm modified for convolutional networks.

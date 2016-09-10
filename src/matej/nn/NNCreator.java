@@ -1,14 +1,13 @@
 package matej.nn;
 
-import java.io.*;
 import java.util.*;
+import java.io.*;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.data.*;
-import org.neuroph.nnet.*;
-import org.neuroph.core.learning.*;
+import org.neuroph.core.learning.IterativeLearning;
+import org.neuroph.nnet.MultiLayerPerceptron;
 import core.ArcadeMachine;
-import matej.Agent;
-import matej.Utils;
+import matej.*;
 
 public class NNCreator {
 
@@ -41,7 +40,7 @@ public class NNCreator {
 
 	/**
 	 * Runs through all available games and creates a dataset for training.
-	 * 
+	 *
 	 * @throws IOException
 	 */
 	public static void createDataSet() throws IOException {
@@ -52,10 +51,10 @@ public class NNCreator {
 		// simulate errors for extra attributes?
 		errors = true;
 
-		data = new DataSet(NNHandler.FEATURE_NAMES.length, Agent.games.length);
-		data.setColumnNames(Utils.concatenate(NNHandler.FEATURE_NAMES, Agent.games));
+		data = new DataSet(ClassificationHandler.FEATURE_NAMES.length, Agent.games.length);
+		data.setColumnNames(Utils.concatenate(ClassificationHandler.FEATURE_NAMES, Agent.games));
 
-		int bound = (errors || balanced) ? N_SAMPLES : 1;
+		int bound = errors || balanced ? N_SAMPLES : 1;
 		for (int k = 0; k < bound; k++) {
 			for (int i = 0; i < Agent.games.length; i++) {
 				String game = gamesPath + Agent.games[i] + ".txt";
@@ -63,10 +62,11 @@ public class NNCreator {
 				outputVector[i] = 1;
 				currentGame = Agent.games[i];
 
-				if (levels) for (int j = 0; j <= 4; j++) {
-					String level = gamesPath + Agent.games[i] + "_lvl" + j + ".txt";
-					ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
-				}
+				if (levels)
+					for (int j = 0; j <= 4; j++) {
+						String level = gamesPath + Agent.games[i] + "_lvl" + j + ".txt";
+						ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+					}
 				else {
 					String level = gamesPath + Agent.games[i] + "_lvl" + rnd.nextInt(5) + ".txt";
 					ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
@@ -87,10 +87,11 @@ public class NNCreator {
 			String game = gamesPath + allGames[i] + ".txt";
 			currentGame = allGames[i];
 
-			if (levels || errors) for (int j = 0; j <= 4; j++) {
-				String level = gamesPath + allGames[i] + "_lvl" + j + ".txt";
-				ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
-			}
+			if (levels || errors)
+				for (int j = 0; j <= 4; j++) {
+					String level = gamesPath + allGames[i] + "_lvl" + j + ".txt";
+					ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+				}
 			else {
 				String level = gamesPath + allGames[i] + "_lvl" + rnd.nextInt(5) + ".txt";
 				ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
@@ -112,8 +113,8 @@ public class NNCreator {
 
 		// create separate test set
 		if (errors) {
-			data = new DataSet(NNHandler.FEATURE_NAMES.length, Agent.games.length);
-			data.setColumnNames(Utils.concatenate(NNHandler.FEATURE_NAMES, Agent.games));
+			data = new DataSet(ClassificationHandler.FEATURE_NAMES.length, Agent.games.length);
+			data.setColumnNames(Utils.concatenate(ClassificationHandler.FEATURE_NAMES, Agent.games));
 
 			for (int k = 0; k < N_SAMPLES; k++) {
 				for (int i = 0; i < Agent.games.length; i++) {
@@ -122,10 +123,11 @@ public class NNCreator {
 					outputVector[i] = 1;
 					currentGame = Agent.games[i];
 
-					if (levels) for (int j = 0; j <= 4; j++) {
-						String level = gamesPath + Agent.games[i] + "_lvl" + j + ".txt";
-						ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
-					}
+					if (levels)
+						for (int j = 0; j <= 4; j++) {
+							String level = gamesPath + Agent.games[i] + "_lvl" + j + ".txt";
+							ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
+						}
 					else {
 						String level = gamesPath + Agent.games[i] + "_lvl" + rnd.nextInt(5) + ".txt";
 						ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
@@ -135,12 +137,12 @@ public class NNCreator {
 
 			outputVector = new double[Agent.games.length];
 
-			for (int i = 0; i < allGames.length; i++) {
-				if (checkedGames.contains(allGames[i])) continue;
-				String game = gamesPath + allGames[i] + ".txt";
-				currentGame = allGames[i];
+			for (String gameName : allGames) {
+				if (checkedGames.contains(gameName)) continue;
+				String game = gamesPath + gameName + ".txt";
+				currentGame = gameName;
 
-				String level = gamesPath + allGames[i] + "_lvl" + rnd.nextInt(5) + ".txt";
+				String level = gamesPath + gameName + "_lvl" + rnd.nextInt(5) + ".txt";
 				ArcadeMachine.runOneGame(game, level, false, controller, null, rnd.nextInt(), 0);
 			}
 
@@ -160,7 +162,7 @@ public class NNCreator {
 	public static void trainNeuralNetwork() throws IOException {
 		DataSet data = DataSet.load(PATH + NAME);
 
-		NeuralNetwork nn = new MultiLayerPerceptron(NNHandler.FEATURE_NAMES.length, 10, Agent.games.length);
+		NeuralNetwork nn = new MultiLayerPerceptron(ClassificationHandler.FEATURE_NAMES.length, 10, Agent.games.length);
 		IterativeLearning rule = (IterativeLearning) nn.getLearningRule();
 		rule.setMaxIterations(10000);
 		nn.learn(data);

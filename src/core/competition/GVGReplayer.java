@@ -1,11 +1,6 @@
 package core.competition;
 
 import core.ArcadeMachine;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by dperez on 24/05/16.
@@ -28,14 +23,17 @@ public class GVGReplayer {
 	}
 
 	public static void parseParameter(String arg1, String arg2) {
-		if (arg1.equalsIgnoreCase("-g")) game = arg2;
-		else if (arg1.equalsIgnoreCase("-l")) level = arg2;
-		else if (arg1.equalsIgnoreCase("-a")) actionFile = arg2;
+		if (arg1.equalsIgnoreCase("-g"))
+			game = arg2;
+		else if (arg1.equalsIgnoreCase("-l"))
+			level = arg2;
+		else if (arg1.equalsIgnoreCase("-a"))
+			actionFile = arg2;
 		else if (arg1.equalsIgnoreCase("-d")) delay = Integer.parseInt(arg2);
 	}
 
 	public static void main(String args[]) {
-		if (args.length < 6 || (args.length % 2 != 0)) {
+		if (args.length < 6 || args.length % 2 != 0) {
 			printHelp();
 			return;
 		}

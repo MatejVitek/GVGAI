@@ -4,7 +4,6 @@ import java.awt.Rectangle;
 import core.VGDLSprite;
 import ontology.Types;
 import tools.Direction;
-import tools.Vector2d;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 17/10/13 Time: 11:21 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl

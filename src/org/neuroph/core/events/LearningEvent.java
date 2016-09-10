@@ -10,7 +10,7 @@ import org.neuroph.core.learning.LearningRule;
 
 /**
  * This class holds information about the source of some learning event.
- * 
+ *
  * @author Zoran Sevarac
  */
 

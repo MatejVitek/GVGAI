@@ -13,7 +13,7 @@ import org.neuroph.core.transfer.Linear;
 /**
  * Provides input neuron behaviour - neuron with input extranaly set, which just transfer that input to output without change. Its purporse is to distribute its input to all neurons it is connected
  * to. It has no input connections
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class InputNeuron extends Neuron {

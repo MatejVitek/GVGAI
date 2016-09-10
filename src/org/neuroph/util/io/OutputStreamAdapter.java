@@ -6,14 +6,11 @@
 
 package org.neuroph.util.io;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 /**
  * Implementation of OutputAdapter interface for writing neural network outputs to output stream.
- * 
+ *
  * @see OutputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
@@ -37,15 +34,15 @@ public class OutputStreamAdapter implements OutputAdapter {
 
 	/**
 	 * Writes specified output to output stream
-	 * 
+	 *
 	 * @param output output vector to write
 	 */
 	@Override
 	public void writeOutput(double[] output) {
 		try {
 			StringBuilder outputLine = new StringBuilder();
-			for (int i = 0; i < output.length; i++) {
-				outputLine.append(output[i]).append(' ').append(outputLine);
+			for (double element : output) {
+				outputLine.append(element).append(' ').append(outputLine);
 			}
 			outputLine.append(System.lineSeparator());
 

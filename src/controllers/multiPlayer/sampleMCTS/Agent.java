@@ -1,13 +1,10 @@
 package controllers.multiPlayer.sampleMCTS;
 
-import core.game.Observation;
-import core.game.StateObservation;
-import core.game.StateObservationMulti;
+import java.util.*;
+import core.game.*;
 import core.player.AbstractMultiPlayer;
 import ontology.Types;
 import tools.ElapsedCpuTimer;
-import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA. User: ssamot Date: 14/11/13 Time: 21:45 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -28,7 +25,7 @@ public class Agent extends AbstractMultiPlayer {
 
 	/**
 	 * Public constructor with state observation and time due.
-	 * 
+	 *
 	 * @param so state observation of the current game.
 	 * @param elapsedTimer Timer for the controller creation.
 	 * @param playerID ID if this agent
@@ -61,11 +58,12 @@ public class Agent extends AbstractMultiPlayer {
 
 	/**
 	 * Picks an action. This function is called every game step to request an action from the player.
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
+	@Override
 	public Types.ACTIONS act(StateObservationMulti stateObs, ElapsedCpuTimer elapsedTimer) {
 
 		ArrayList<Observation> obs[] = stateObs.getFromAvatarSpritesPositions();
@@ -83,10 +81,11 @@ public class Agent extends AbstractMultiPlayer {
 
 	/**
 	 * Function called when the game is over. This method must finish before CompetitionParameters.TEAR_DOWN_TIME, or the agent will be DISQUALIFIED
-	 * 
+	 *
 	 * @param stateObservation the game state at the end of the game
 	 * @param elapsedCpuTimer timer when this method is meant to finish.
 	 */
+	@Override
 	public void result(StateObservation stateObservation, ElapsedCpuTimer elapsedCpuTimer) {
 		// System.out.println("MCTS avg iters: " + SingleMCTSPlayer.iters / SingleMCTSPlayer.num);
 		// Include your code here to know how it all ended.

@@ -13,7 +13,7 @@ import org.neuroph.core.NeuralNetwork;
  * This class is helper for feeding neural network with data using some InputAdapter
  * and writing network output using OutputAdapter
  * </pre>
- * 
+ *
  * @see InputAdapter
  * @see OutputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
@@ -22,7 +22,7 @@ public class IOHelper {
 
 	/**
 	 * Feeds specified neural network with data from InputAdapter and writes output using OutputAdapter
-	 * 
+	 *
 	 * @param neuralNet neural network
 	 * @param in input data source
 	 * @param out output data target

@@ -31,17 +31,18 @@ public class Test {
 		boolean levels = true;
 
 		String controller = "matej.TestAgent";
-		for (int i = 0; i < games.length; i++) {
-			String game = gamesPath + games[i] + ".txt";
-			if (levels) for (int j = 0; j <= 4; j++) {
-				System.out.println(games[i] + " level " + j + ":");
-				String level = gamesPath + games[i] + "_lvl" + j + ".txt";
-				ArcadeMachine.runOneGame(game, level, false, controller, null, new Random().nextInt(), 0);
-				System.out.println();
-			}
+		for (String game2 : games) {
+			String game = gamesPath + game2 + ".txt";
+			if (levels)
+				for (int j = 0; j <= 4; j++) {
+					System.out.println(game2 + " level " + j + ":");
+					String level = gamesPath + game2 + "_lvl" + j + ".txt";
+					ArcadeMachine.runOneGame(game, level, false, controller, null, new Random().nextInt(), 0);
+					System.out.println();
+				}
 			else {
-				System.out.println(games[i] + ":");
-				String level = gamesPath + games[i] + "_lvl" + 0 + ".txt";
+				System.out.println(game2 + ":");
+				String level = gamesPath + game2 + "_lvl" + 0 + ".txt";
 				ArcadeMachine.runOneGame(game, level, false, controller, null, new Random().nextInt(), 0);
 				System.out.println();
 			}

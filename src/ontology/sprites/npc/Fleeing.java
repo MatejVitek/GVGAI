@@ -23,17 +23,20 @@ public class Fleeing extends Chaser {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		fleeing = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Fleeing newSprite = new Fleeing();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Fleeing targetSprite = (Fleeing) target;
 		super.copyTo(targetSprite);

@@ -6,14 +6,12 @@
 
 package org.neuroph.util.random;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * This class provides distort randomization technique, which distorts existing weight values using specified distortion factor. Weights are distorted using following formula: newWeightValue =
  * currentWeightValue + (distortionFactor - (random * distortionFactor * 2))
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class DistortRandomizer extends WeightsRandomizer {
@@ -25,7 +23,7 @@ public class DistortRandomizer extends WeightsRandomizer {
 
 	/**
 	 * Create a new instance of DistortRandomizer with specified distortion factor
-	 * 
+	 *
 	 * @param distortionFactor amount to distort existing weights
 	 */
 	public DistortRandomizer(double distortionFactor) {
@@ -51,7 +49,7 @@ public class DistortRandomizer extends WeightsRandomizer {
 
 	/**
 	 * Iterate all layers, neurons and connection weight and apply distort randomization
-	 * 
+	 *
 	 * @param neuron
 	 */
 	@Override
@@ -64,12 +62,12 @@ public class DistortRandomizer extends WeightsRandomizer {
 
 	/**
 	 * Returns distorted weight value
-	 * 
+	 *
 	 * @param weight current weight value
 	 * @return distorted weight value
 	 */
 	private double distort(double weight) {
-		return weight + (this.distortionFactor - (randomGenerator.nextDouble() * this.distortionFactor * 2));
+		return weight + (this.distortionFactor - randomGenerator.nextDouble() * this.distortionFactor * 2);
 	}
 
 }

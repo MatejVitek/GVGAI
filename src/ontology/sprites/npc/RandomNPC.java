@@ -5,9 +5,7 @@ import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 18:08 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -34,6 +32,7 @@ public class RandomNPC extends VGDLSprite {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		speed = 1;
@@ -59,18 +58,21 @@ public class RandomNPC extends VGDLSprite {
 		}
 	}
 
+	@Override
 	public void update(Game game) {
 		super.updatePassive();
 		Direction act = getRandomMove(game);
 		this.physics.activeMovement(this, act, this.speed);
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		RandomNPC newSprite = new RandomNPC();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		RandomNPC targetSprite = (RandomNPC) target;
 		targetSprite.cons = this.cons;

@@ -1,10 +1,8 @@
 package tools;
 
-import ontology.Types;
+import java.util.*;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
+import ontology.Types;
 
 /**
  * This class is used to manage the key input. Created by Diego Perez, University of Essex. Date: 20/12/11
@@ -27,6 +25,7 @@ public class KeyPulse extends KeyHandler {
 	}
 
 	// Sets the mask for this cycle. In this KeyHandler, only one action per frame is guaranteed:
+	@Override
 	public void setMask(int playerID) {
 		reset(playerID); // void the mask
 		poll(playerID); // check if there's any pending event on the queue
@@ -34,18 +33,20 @@ public class KeyPulse extends KeyHandler {
 
 	/**
 	 * Manages KeyPressed events
-	 * 
+	 *
 	 * @param e the event.
 	 */
+	@Override
 	public void keyPressed(KeyEvent e) {
 		pulses[e.getKeyCode()] = true;
 	}
 
 	/**
 	 * Manages keyReleased events
-	 * 
+	 *
 	 * @param e the event.
 	 */
+	@Override
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 		int registered = getRegisteredID(key);

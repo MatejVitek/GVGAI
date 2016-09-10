@@ -23,21 +23,25 @@ public class Door extends Immovable {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		portal = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Door newSprite = new Door();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Door targetSprite = (Door) target;
 		super.copyTo(targetSprite);

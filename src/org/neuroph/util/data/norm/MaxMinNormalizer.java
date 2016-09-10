@@ -6,13 +6,12 @@
 
 package org.neuroph.util.data.norm;
 
-import org.neuroph.core.data.DataSet;
-import org.neuroph.core.data.DataSetRow;
+import org.neuroph.core.data.*;
 
 /**
  * MaxMin normalization method, which normalize data in regard to min and max elements in training set (by columns) Normalization is done according to formula: normalizedVector[i] = (vector[i] -
  * min[i]) / (max[i] - min[i]) This class works fine if max and min are both positive and we want to normalize to [0,1]
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class MaxMinNormalizer implements Normalizer {

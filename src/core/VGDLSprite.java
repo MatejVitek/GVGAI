@@ -1,33 +1,15 @@
 package core;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Random;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
+import java.io.*;
+import java.awt.*;
 import javax.imageio.ImageIO;
 import core.competition.CompetitionParameters;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import ontology.physics.ContinuousPhysics;
-import ontology.physics.GravityPhysics;
-import ontology.physics.GridPhysics;
-import ontology.physics.NoFrictionPhysics;
-import ontology.physics.Physics;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
+import ontology.physics.*;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 17/10/13 Time: 10:59 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -273,7 +255,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Initializes the sprite, giving its position and dimensions.
-	 * 
+	 *
 	 * @param position position of the sprite
 	 * @param size dimensions of the sprite on the screen.
 	 */
@@ -324,7 +306,7 @@ public abstract class VGDLSprite {
 	public void setRect(Rectangle rectangle) {
 		rect = new Rectangle(rectangle);
 		bucket = rect.y / rect.height;
-		bucketSharp = (rect.y % rect.height) == 0;
+		bucketSharp = rect.y % rect.height == 0;
 	}
 
 	/**
@@ -344,7 +326,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Parses parameters for the sprite, received as a SpriteContent object.
-	 * 
+	 *
 	 * @param content
 	 */
 	public void parseParameters(SpriteContent content) {
@@ -359,7 +341,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Determines the physics type of the game, creating the Physics objects that performs the calculations.
-	 * 
+	 *
 	 * @param physicstype identifier of the physics type.
 	 * @param size dimensions of the sprite.
 	 * @return the phyics object.
@@ -385,20 +367,21 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Updates this sprite, performing the movements and actions for the next step.
-	 * 
+	 *
 	 * @param game the current game that is being played.
 	 */
 	public void update(Game game) {
 		updatePassive();
 		if (timeToLive > -1) {
-			if (timeToLive > 0) timeToLive--;
+			if (timeToLive > 0)
+				timeToLive--;
 			else game.killSprite(this, false);
 		}
 	}
 
 	/**
 	 * Set the disabled flag of this sprite.
-	 * 
+	 *
 	 * @param is_disabled - disabled state
 	 */
 	public void setDisabled(boolean is_disabled) {
@@ -408,7 +391,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Check if this sprite is disabled.
-	 * 
+	 *
 	 * @return true if disabled, false otherwise.
 	 */
 	public boolean is_disabled() {
@@ -442,7 +425,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Updates the orientation of the avatar to match the orientation parameter.
-	 * 
+	 *
 	 * @param orientation final orientation the avatar must have.
 	 * @return true if orientation could be changed. This returns false in two circumstances: the avatar is not oriented (is_oriented == false) or the previous orientation is the same as the one
 	 *         received by parameter.
@@ -456,7 +439,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Updates the position of the sprite, giving its orientation and speed.
-	 * 
+	 *
 	 * @param orientation the orientation of the sprite.
 	 * @param speed the speed of the sprite.
 	 * @return true if the position changed.
@@ -467,7 +450,7 @@ public abstract class VGDLSprite {
 			if (speed == 0) return false;
 		}
 
-		if (cooldown <= lastmove && (Math.abs(orientation.x()) + Math.abs(orientation.y()) != 0)) {
+		if (cooldown <= lastmove && Math.abs(orientation.x()) + Math.abs(orientation.y()) != 0) {
 			rect.translate((int) orientation.x() * speed, (int) orientation.y() * speed);
 			updateBucket();
 			lastmove = 0;
@@ -478,12 +461,12 @@ public abstract class VGDLSprite {
 
 	public void updateBucket() {
 		bucket = rect.y / rect.height;
-		bucketSharp = (rect.y % rect.height) == 0;
+		bucketSharp = rect.y % rect.height == 0;
 	}
 
 	/**
 	 * Returns the velocity of the sprite, in a Vector2d object.
-	 * 
+	 *
 	 * @return the velocity of the sprite
 	 */
 	public Vector2d _velocity() {
@@ -497,7 +480,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Returns the last direction this sprite is following.
-	 * 
+	 *
 	 * @return the direction.
 	 */
 	public Vector2d lastDirection() {
@@ -506,7 +489,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Gets the position of this sprite.
-	 * 
+	 *
 	 * @return the position as a Vector2d.
 	 */
 	public Vector2d getPosition() {
@@ -515,7 +498,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Gets the last position of this sprite. Returns null if same as current position.
-	 * 
+	 *
 	 * @return the position as a Vector2d.
 	 */
 	public Vector2d getLastPosition() {
@@ -527,7 +510,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Modifies the amount of resource by a given quantity.
-	 * 
+	 *
 	 * @param resourceId id of the resource whose quantity must be changed.
 	 * @param amount_delta amount of units the resource has to be modified by.
 	 */
@@ -539,7 +522,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Removes all resources collected of the specified type.
-	 * 
+	 *
 	 * @param resourceId - id of the resource whose quantity must be changed.
 	 */
 	public void removeResource(int resourceId) {
@@ -548,7 +531,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Returns the amount of resource of a given type this sprite has.
-	 * 
+	 *
 	 * @param resourceId id of the resource to check.
 	 * @return how much of this resource this sprite has.
 	 */
@@ -561,7 +544,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Draws this sprite (both the not oriented and, if appropriate, the oriented part)
-	 * 
+	 *
 	 * @param gphx graphics object to draw in.
 	 * @param game reference to the game that is being played now.
 	 */
@@ -570,7 +553,8 @@ public abstract class VGDLSprite {
 		if (!invisible && !disabled) {
 			Rectangle r = new Rectangle(rect);
 
-			if (image != null) _drawImage(gphx, game, r);
+			if (image != null)
+				_drawImage(gphx, game, r);
 			else _draw(gphx, game, r);
 
 			if (resources.size() > 0) {
@@ -587,7 +571,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * In case this sprite is oriented and has an arrow to draw, it draws it.
-	 * 
+	 *
 	 * @param g graphics device to draw in.
 	 */
 	public void _drawOriented(Graphics2D g, Rectangle r) {
@@ -603,7 +587,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Draws the not-oriented part of the sprite
-	 * 
+	 *
 	 * @param gphx graphics object to draw in.
 	 * @param game reference to the game that is being played now.
 	 */
@@ -632,7 +616,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Draws the not-oriented part of the sprite, as an image. this.image must be not null.
-	 * 
+	 *
 	 * @param gphx graphics object to draw in.
 	 * @param game reference to the game that is being played now.
 	 */
@@ -659,7 +643,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Draws the resources hold by this sprite, as an horizontal bar on top of the sprite.
-	 * 
+	 *
 	 * @param gphx graphics to draw in.
 	 * @param game game being played at the moment.
 	 */
@@ -675,7 +659,7 @@ public abstract class VGDLSprite {
 
 			if (resType > -1) {
 				double wiggle = r.width / 10.0f;
-				double prop = Math.max(0, Math.min(1, resValue / (double) (game.getResourceLimit(resType))));
+				double prop = Math.max(0, Math.min(1, resValue / (double) game.getResourceLimit(resType)));
 
 				Rectangle filled = new Rectangle((int) (r.x + wiggle / 2), (int) offset, (int) (prop * (r.width - wiggle)), (int) barheight);
 				Rectangle rest = new Rectangle((int) (r.x + wiggle / 2 + prop * (r.width - wiggle)), (int) offset, (int) ((1 - prop) * (r.width - wiggle)), (int) barheight);
@@ -692,7 +676,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Draws the health bar, as a vertical bar on top (and left) of the sprite.
-	 * 
+	 *
 	 * @param gphx graphics to draw in.
 	 * @param game game being played at the moment.
 	 * @param r rectangle of this sprite.
@@ -724,7 +708,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Gets the unique and precise type of this sprite
-	 * 
+	 *
 	 * @return the type
 	 */
 	public int getType() {
@@ -737,7 +721,7 @@ public abstract class VGDLSprite {
 	public void postProcess() {
 		loadImage(img);
 
-		if (!(this.orientation.equals(Types.DNONE))) {
+		if (!this.orientation.equals(Types.DNONE)) {
 			// Any sprite that receives an orientation, is oriented.
 			this.is_oriented = true;
 		}
@@ -747,7 +731,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Loads the image that represents this sprite, using its string name as reference.
-	 * 
+	 *
 	 * @param str name of the image to load.
 	 */
 	public void loadImage(String str) {
@@ -761,7 +745,7 @@ public abstract class VGDLSprite {
 					int i = 0;
 					do {
 						String currentFile = imagePath + i + ".png";
-						if ((new File(currentFile).exists())) {
+						if (new File(currentFile).exists()) {
 							allImages.put(i, ImageIO.read(new File(currentFile)));
 						}
 						else {
@@ -774,9 +758,9 @@ public abstract class VGDLSprite {
 					image = allImages.get(0);
 				}
 				else {
-					if (!(str.contains(".png"))) str = str + ".png";
+					if (!str.contains(".png")) str = str + ".png";
 					String image_file = CompetitionParameters.IMG_PATH + str;
-					if ((new File(image_file).exists())) {
+					if (new File(image_file).exists()) {
 						image = ImageIO.read(new File(image_file));
 					}
 					else {
@@ -799,7 +783,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Used to indicate if this sprite was created by the avatar.
-	 * 
+	 *
 	 * @param fromAvatar true if the avatar created this sprite.
 	 */
 	public void setFromAvatar(boolean fromAvatar) {
@@ -808,23 +792,24 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Returns a string representation of this string, including its name and position.
-	 * 
+	 *
 	 * @return the string representation of this sprite.
 	 */
+	@Override
 	public String toString() {
 		return name + " at (" + rect.getMinX() + "," + rect.getMinY() + ")";
 	}
 
 	/**
 	 * Creates a copy of this sprite. To be overwritten in each subclass.
-	 * 
+	 *
 	 * @return a copy of this sprite.
 	 */
 	public abstract VGDLSprite copy();
 
 	/**
 	 * Copies the attributes of this object to the one passed as parameter.
-	 * 
+	 *
 	 * @param toSprite the sprite to copy to.
 	 */
 	public void copyTo(VGDLSprite toSprite) {
@@ -936,7 +921,7 @@ public abstract class VGDLSprite {
 
 	/**
 	 * Get all sprites that affect or being affected by the current sprite
-	 * 
+	 *
 	 * @return a list of all dependent sprites
 	 */
 	public ArrayList<String> getDependentSprites() {

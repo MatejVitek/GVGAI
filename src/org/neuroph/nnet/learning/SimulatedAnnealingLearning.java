@@ -2,8 +2,7 @@ package org.neuroph.nnet.learning;
 
 import java.util.Iterator;
 import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.data.DataSet;
-import org.neuroph.core.data.DataSetRow;
+import org.neuroph.core.data.*;
 import org.neuroph.core.learning.SupervisedLearning;
 import org.neuroph.util.NeuralNetworkCODEC;
 
@@ -95,14 +94,14 @@ public class SimulatedAnnealingLearning extends SupervisedLearning {
 	/**
 	 * Randomize the weights and thresholds. This function does most of the work of the class. Each call to this class will randomize the data according to the current temperature. The higher the
 	 * temperature the more randomness.
-	 * 
+	 *
 	 * @param randomChance
 	 */
 	public void randomize(double randomChance) {
 
 		for (int i = 0; i < this.weights.length; i++)
 			if (Math.random() < randomChance) {
-				double add = 0.5 - (Math.random());
+				double add = 0.5 - Math.random();
 				add /= this.startTemperature;
 				add *= this.temperature;
 				this.weights[i] = this.weights[i] + add;
@@ -132,7 +131,7 @@ public class SimulatedAnnealingLearning extends SupervisedLearning {
 			double[] patternError = getErrorFunction().calculatePatternError(desiredOutput, output);
 			double sqrErrorSum = 0;
 			for (double error : patternError) {
-				sqrErrorSum += (error * error);
+				sqrErrorSum += error * error;
 			}
 			result += sqrErrorSum / (2 * patternError.length);
 

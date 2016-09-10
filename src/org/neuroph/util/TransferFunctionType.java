@@ -6,16 +6,7 @@
 
 package org.neuroph.util;
 
-import org.neuroph.core.transfer.Gaussian;
-import org.neuroph.core.transfer.Linear;
-import org.neuroph.core.transfer.Log;
-import org.neuroph.core.transfer.Ramp;
-import org.neuroph.core.transfer.Sgn;
-import org.neuroph.core.transfer.Sigmoid;
-import org.neuroph.core.transfer.Sin;
-import org.neuroph.core.transfer.Step;
-import org.neuroph.core.transfer.Tanh;
-import org.neuroph.core.transfer.Trapezoid;
+import org.neuroph.core.transfer.*;
 
 /**
  * Contains transfer functions types and labels.

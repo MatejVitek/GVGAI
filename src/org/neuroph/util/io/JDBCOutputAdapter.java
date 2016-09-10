@@ -6,16 +6,12 @@
 
 package org.neuroph.util.io;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
+import java.sql.*;
 
 /**
  * Implementation of OutputAdapter interface for writing neural network outputs to database.
- * 
+ *
  * @see OutputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
@@ -26,7 +22,7 @@ public class JDBCOutputAdapter implements OutputAdapter {
 
 	/**
 	 * Creates new JDBCOutputAdapter with specifed database connection and table
-	 * 
+	 *
 	 * @param connection database connection
 	 * @param tableName table to put data into
 	 */
@@ -37,7 +33,7 @@ public class JDBCOutputAdapter implements OutputAdapter {
 
 	/**
 	 * Writes specified output to table in database
-	 * 
+	 *
 	 * @param output
 	 */
 	@Override
@@ -46,7 +42,7 @@ public class JDBCOutputAdapter implements OutputAdapter {
 			String sql = "INSERT " + tableName + " VALUES(";
 			for (int i = 0; i < output.length; i++) {
 				sql += "?";
-				if (i < (output.length - 1)) { // add coma if not last
+				if (i < output.length - 1) { // add coma if not last
 					sql = ", ";
 				}
 			}

@@ -8,7 +8,7 @@ package org.neuroph.util.random;
 
 /**
  * This class provides Gaussian randomization technique using Box Muller method. Based on GaussianRandomizer from Encog
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class GaussianRandomizer extends WeightsRandomizer {
@@ -33,7 +33,7 @@ public class GaussianRandomizer extends WeightsRandomizer {
 
 	/**
 	 * Compute a Gaussian random number.
-	 * 
+	 *
 	 * @param mean The mean.
 	 * @param std The standard deviation.
 	 * @return The random number.
@@ -53,13 +53,13 @@ public class GaussianRandomizer extends WeightsRandomizer {
 				w = x1 * x1 + x2 * x2;
 			} while (w >= 1.0);
 
-			w = Math.sqrt((-2.0 * Math.log(w)) / w);
+			w = Math.sqrt(-2.0 * Math.log(w) / w);
 			y1 = x1 * w;
 			this.y2 = x2 * w;
 			this.useLast = true;
 		}
 
-		return (mean + y1 * std);
+		return mean + y1 * std;
 	}
 
 	@Override

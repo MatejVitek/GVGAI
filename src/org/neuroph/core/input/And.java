@@ -6,13 +6,13 @@
 
 package org.neuroph.core.input;
 
-import java.io.Serializable;
 import java.util.List;
+import java.io.Serializable;
 import org.neuroph.core.Connection;
 
 /**
  * Performs logic AND operation on input vector.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class And extends InputFunction implements Serializable {
@@ -25,6 +25,7 @@ public class And extends InputFunction implements Serializable {
 	/**
 	 * @param inputVector Input values >= 0.5d are considered true, otherwise false.
 	 */
+	@Override
 	public double getOutput(List<Connection> inputConnections) {
 
 		if (inputConnections.size() == 0) return 0d;
@@ -32,7 +33,7 @@ public class And extends InputFunction implements Serializable {
 		boolean output = true;
 
 		for (Connection connection : inputConnections) {
-			output = output && (connection.getInput() >= 0.5d);
+			output = output && connection.getInput() >= 0.5d;
 		}
 
 		return output ? 1d : 0d;

@@ -6,9 +6,7 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 import org.neuroph.core.input.Difference;
 import org.neuroph.core.transfer.Linear;
 import org.neuroph.nnet.learning.KohonenLearning;
@@ -16,7 +14,7 @@ import org.neuroph.util.*;
 
 /**
  * Kohonen neural network.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Kohonen extends NeuralNetwork {
@@ -28,7 +26,7 @@ public class Kohonen extends NeuralNetwork {
 
 	/**
 	 * Creates new Kohonen network with specified number of neurons in input and map layer
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 */
@@ -38,7 +36,7 @@ public class Kohonen extends NeuralNetwork {
 
 	/**
 	 * Creates Kohonen network architecture with specified number of neurons in input and map layer
-	 * 
+	 *
 	 * @param inputNeuronsCount number of neurons in input layer
 	 * @param outputNeuronsCount number of neurons in output layer
 	 */

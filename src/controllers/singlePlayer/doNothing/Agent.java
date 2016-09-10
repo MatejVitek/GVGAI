@@ -10,7 +10,7 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * initialize all variables for the agent
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 */
@@ -18,7 +18,7 @@ public class Agent extends AbstractPlayer {
 
 	/**
 	 * return ACTION_NIL on every call to simulate doNothing player
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return ACTION_NIL all the time

@@ -11,7 +11,7 @@ import org.neuroph.util.Properties;
 
 /**
  * Fuzzy trapezoid neuron tranfer function.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Trapezoid extends TransferFunction implements Serializable {
@@ -64,13 +64,13 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	@Override
 	public double getOutput(double net) {
-		if ((net >= leftHigh) && (net <= rightHigh)) {
+		if (net >= leftHigh && net <= rightHigh) {
 			return 1d;
 		}
-		else if ((net > leftLow) && (net < leftHigh)) {
+		else if (net > leftLow && net < leftHigh) {
 			return (net - leftLow) / (leftHigh - leftLow);
 		}
-		else if ((net > rightHigh) && (net < rightLow)) {
+		else if (net > rightHigh && net < rightLow) {
 			return (rightLow - net) / (rightLow - rightHigh);
 		}
 
@@ -79,7 +79,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets left low point of trapezoid function
-	 * 
+	 *
 	 * @param leftLow left low point of trapezoid function
 	 */
 	public void setLeftLow(double leftLow) {
@@ -88,7 +88,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets left high point of trapezoid function
-	 * 
+	 *
 	 * @param leftHigh left high point of trapezoid function
 	 */
 	public void setLeftHigh(double leftHigh) {
@@ -97,7 +97,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets right low point of trapezoid function
-	 * 
+	 *
 	 * @param rightLow right low point of trapezoid function
 	 */
 	public void setRightLow(double rightLow) {
@@ -106,7 +106,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets right high point of trapezoid function
-	 * 
+	 *
 	 * @param rightHigh right high point of trapezoid function
 	 */
 	public void setRightHigh(double rightHigh) {
@@ -115,7 +115,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns left low point of trapezoid function
-	 * 
+	 *
 	 * @return left low point of trapezoid function
 	 */
 	public double getLeftLow() {
@@ -124,7 +124,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns left high point of trapezoid function
-	 * 
+	 *
 	 * @return left high point of trapezoid function
 	 */
 	public double getLeftHigh() {
@@ -133,7 +133,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns right low point of trapezoid function
-	 * 
+	 *
 	 * @return right low point of trapezoid function
 	 */
 	public double getRightLow() {
@@ -142,7 +142,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns right high point of trapezoid function
-	 * 
+	 *
 	 * @return right high point of trapezoid function
 	 */
 	public double getRightHigh() {

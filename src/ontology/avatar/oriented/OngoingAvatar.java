@@ -5,9 +5,7 @@ import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
-import tools.Direction;
-import tools.Utils;
-import tools.Vector2d;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 21/10/13 Time: 17:35 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -27,6 +25,7 @@ public class OngoingAvatar extends OrientedAvatar {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		speed = 1;
@@ -35,9 +34,10 @@ public class OngoingAvatar extends OrientedAvatar {
 
 	/**
 	 * This update call is for the game tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 */
+	@Override
 	public void update(Game game) {
 		lastMovementType = Types.MOVEMENT.MOVE;
 
@@ -49,7 +49,7 @@ public class OngoingAvatar extends OrientedAvatar {
 
 		// Update the orientation for this cycle's movement,
 		// but only if there was a direction indicated.
-		if (!(action2D.equals(Types.DNONE))) this._updateOrientation(action2D);
+		if (!action2D.equals(Types.DNONE)) this._updateOrientation(action2D);
 
 		// Update movement.
 		super.updatePassive();
@@ -57,10 +57,11 @@ public class OngoingAvatar extends OrientedAvatar {
 
 	/**
 	 * This move call is for the Forward Model tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 * @param actionMask action to apply.
 	 */
+	@Override
 	public void move(Game game, boolean[] actionMask) {
 		lastMovementType = Types.MOVEMENT.MOVE;
 
@@ -69,18 +70,20 @@ public class OngoingAvatar extends OrientedAvatar {
 
 		// Update the orientation for this cycle's movement,
 		// but only if there was a direction indicated.
-		if (!(action2D.equals(Types.DNONE))) this._updateOrientation(action2D);
+		if (!action2D.equals(Types.DNONE)) this._updateOrientation(action2D);
 
 		// Update movement.
 		super.updatePassive();
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		OngoingAvatar newSprite = new OngoingAvatar();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		OngoingAvatar targetSprite = (OngoingAvatar) target;
 		super.copyTo(targetSprite);

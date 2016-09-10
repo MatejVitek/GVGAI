@@ -8,6 +8,7 @@ public class RectifiedLinear extends TransferFunction {
 		return Math.max(0, net);
 	}
 
+	@Override
 	public double getDerivative(double net) {
 		if (net > Double.MIN_VALUE) return 1;
 		return 0;

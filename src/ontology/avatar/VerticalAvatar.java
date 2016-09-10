@@ -1,11 +1,11 @@
 package ontology.avatar;
 
+import java.awt.Dimension;
 import core.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
 import ontology.Types;
 import tools.Vector2d;
-import java.awt.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 22/10/13 Time: 18:07 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -25,6 +25,7 @@ public class VerticalAvatar extends MovingAvatar {
 		this.parseParameters(cnt);
 	}
 
+	@Override
 	public void postProcess() {
 		// Define actions here first.
 		if (actions.size() == 0) {
@@ -35,35 +36,40 @@ public class VerticalAvatar extends MovingAvatar {
 		super.postProcess();
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 	}
 
 	/**
 	 * This update call is for the game tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 */
+	@Override
 	public void update(Game game) {
 		super.update(game);
 	}
 
 	/**
 	 * This move call is for the Forward Model tick() loop.
-	 * 
+	 *
 	 * @param game current state of the game.
 	 * @param actionMask action to apply.
 	 */
+	@Override
 	public void move(Game game, boolean[] actionMask) {
 		super.move(game, actionMask);
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		VerticalAvatar newSprite = new VerticalAvatar();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		VerticalAvatar targetSprite = (VerticalAvatar) target;
 		super.copyTo(targetSprite);

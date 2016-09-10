@@ -5,7 +5,7 @@ import org.neuroph.nnet.learning.kmeans.KVector;
 
 /**
  * for given vector calculate distances to all vectors from list and find minimum vector or sort vectors by distance and seelct
- * 
+ *
  * @author zoran
  */
 public class KNearestNeighbour {
@@ -14,7 +14,7 @@ public class KNearestNeighbour {
 
 	/**
 	 * http://en.wikipedia.org/wiki/Selection_algorithm
-	 * 
+	 *
 	 * @param vector
 	 * @param k
 	 * @return

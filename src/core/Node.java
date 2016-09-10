@@ -1,12 +1,7 @@
 package core;
 
 import java.util.ArrayList;
-import core.content.Content;
-import core.content.GameContent;
-import core.content.InteractionContent;
-import core.content.MappingContent;
-import core.content.SpriteContent;
-import core.content.TerminationContent;
+import core.content.*;
 import ontology.Types;
 import tools.Utils;
 
@@ -37,7 +32,7 @@ public class Node {
 
 	/**
 	 * Constructor of the node.
-	 * 
+	 *
 	 * @param contentLine string with the node information
 	 * @param indent indent level of this node, to determine its place on the tree.
 	 * @param parent indicates the parent of the new node, if any.
@@ -46,13 +41,14 @@ public class Node {
 		children = new ArrayList<Node>();
 		this.content = createContent(contentLine, set);
 		this.indent = indent;
-		if (parent == null) this.parent = null;
+		if (parent == null)
+			this.parent = null;
 		else parent.insert(this);
 	}
 
 	/**
 	 * Creates a content for later creation of objects
-	 * 
+	 *
 	 * @param line line in VGDL format.
 	 * @param set indicates the set the line belongs to (see Types.java).
 	 * @return the line parsed in a content object.
@@ -80,7 +76,7 @@ public class Node {
 
 	/**
 	 * Inserts a new node in the tree structure. Navigates from this node up towards the root, inserting the new node at the correct indent.
-	 * 
+	 *
 	 * @param node new node to add.
 	 */
 	public void insert(Node node) {
@@ -100,9 +96,10 @@ public class Node {
 
 	/**
 	 * Parses the node and children to a String for debug and printing.
-	 * 
+	 *
 	 * @return representative String
 	 */
+	@Override
 	public String toString() {
 		String allStr = content.toString();
 		if (this.children.size() == 0) return allStr;
@@ -116,11 +113,12 @@ public class Node {
 
 	/**
 	 * Returns the root of the tree structure
-	 * 
+	 *
 	 * @return the root
 	 */
 	public Node getRoot() {
-		if (this.parent != null) return this.parent.getRoot();
+		if (this.parent != null)
+			return this.parent.getRoot();
 		else return this;
 	}
 

@@ -6,14 +6,11 @@
 
 package org.neuroph.util.io;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 
 /**
  * Implementation of InputAdapter interface for reading neural network inputs from files.
- * 
+ *
  * @see InputAdapter
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
@@ -21,7 +18,7 @@ public class FileInputAdapter extends InputStreamAdapter {
 
 	/**
 	 * Creates a new FileInputAdapter by opening a connection to an actual file, specified by the file param
-	 * 
+	 *
 	 * @param file File object in the file system
 	 * @throws FileNotFoundException if specified file was not found
 	 */
@@ -31,7 +28,7 @@ public class FileInputAdapter extends InputStreamAdapter {
 
 	/**
 	 * Creates a new FileInputAdapter by opening a connection to an actual file, specified by the fileName param
-	 * 
+	 *
 	 * @param fileName name of the file in file system
 	 * @throws FileNotFoundException if specified file was not found
 	 */

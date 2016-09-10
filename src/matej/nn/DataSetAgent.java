@@ -4,7 +4,6 @@ import java.util.*;
 import org.neuroph.core.data.DataSetRow;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
-import matej.rf.RFHandler;
 import ontology.Types.ACTIONS;
 import tools.ElapsedCpuTimer;
 
@@ -28,7 +27,8 @@ public class DataSetAgent extends AbstractPlayer {
 
 	private static void simulateErrors(double[] features) {
 		for (int i = 0; i < features.length; i++)
-			if (features[i] == 1 && rnd.nextDouble() > recall[i]) features[i] = 0;
+			if (features[i] == 1 && rnd.nextDouble() > recall[i])
+				features[i] = 0;
 			else if (features[i] == 0 && rnd.nextDouble() > npv[i]) features[i] = 1;
 	}
 

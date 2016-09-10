@@ -1,12 +1,8 @@
 package tools;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 import core.game.GameDescription;
-import core.game.GameDescription.InteractionData;
-import core.game.GameDescription.SpriteData;
-import core.game.GameDescription.TerminationData;
+import core.game.GameDescription.*;
 
 public class GameAnalyzer {
 
@@ -87,7 +83,7 @@ public class GameAnalyzer {
 
 	/**
 	 * Checks if the object is created by other object
-	 * 
+	 *
 	 * @param stype current sprite name to test
 	 * @param game game description object that describe the current game
 	 * @param allSprites list of all sprites to test
@@ -114,7 +110,7 @@ public class GameAnalyzer {
 
 	/**
 	 * Calculate the minimum number for each sprite
-	 * 
+	 *
 	 * @param game the current game description object
 	 */
 	private void calculateMinRequiredNumber(GameDescription game) {
@@ -138,7 +134,7 @@ public class GameAnalyzer {
 
 	/**
 	 * calculate the priority values for all game sprites and save it in hashmap
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	private void calculatePriorityValues(GameDescription game) {
@@ -152,7 +148,7 @@ public class GameAnalyzer {
 
 	/**
 	 * search for all solid sprites that blocks the avatar from moving
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	private void findSolidObjects(GameDescription game) {
@@ -187,7 +183,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get a list of all interactions for a certain game sprite
-	 * 
+	 *
 	 * @param stype sprite required to be checked
 	 * @param type type of checked interaction (if the sprite is always on left or right or don't care)
 	 * @param game game description object for the current game
@@ -211,7 +207,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get a list of all avatar sprites in the game
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	private void findAvatarObjects(GameDescription game) {
@@ -226,7 +222,7 @@ public class GameAnalyzer {
 
 	/**
 	 * find all sprites listed in the termination set
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	private void findGoalSprites(GameDescription game) {
@@ -243,7 +239,7 @@ public class GameAnalyzer {
 
 	/**
 	 * find all sprites that can kill the avatar
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	private void findHarmfulSprites(GameDescription game) {
@@ -276,7 +272,7 @@ public class GameAnalyzer {
 
 	/**
 	 * find all sprites that can be collected by the avatar
-	 * 
+	 *
 	 * @param game game description object of the current game
 	 */
 	private void findCollectableSprites(GameDescription game) {
@@ -299,7 +295,7 @@ public class GameAnalyzer {
 
 	/**
 	 * analyze the game description object and list all other sprites
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	private void findOtherSprites(GameDescription game) {
@@ -322,7 +318,7 @@ public class GameAnalyzer {
 
 	/**
 	 * calculate the min and max score change in the instruction set
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	private void calculateMinMaxScoreUnit(GameDescription game) {
@@ -353,7 +349,7 @@ public class GameAnalyzer {
 
 	/**
 	 * Remove all sprites that are not appearing in the level mapping
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	private void removeUselessObjects(GameDescription game) {
@@ -422,7 +418,7 @@ public class GameAnalyzer {
 
 	/**
 	 * Initialize GameAnalyzer
-	 * 
+	 *
 	 * @param game game description object for the current game
 	 */
 	public GameAnalyzer(GameDescription game) {
@@ -452,7 +448,7 @@ public class GameAnalyzer {
 
 	/**
 	 * Checks if the object is spawned by other object
-	 * 
+	 *
 	 * @param stype sprite name to be checked
 	 * @return return 1 if not spawned by other object and 0 otherwise
 	 */
@@ -462,7 +458,7 @@ public class GameAnalyzer {
 
 	/**
 	 * Get the priority value for a specific sprite
-	 * 
+	 *
 	 * @param stype sprite name to be checked
 	 * @return number of occurence of the sprite in the InteractionSet
 	 */
@@ -476,7 +472,7 @@ public class GameAnalyzer {
 
 	/**
 	 * Get array of solid sprite names
-	 * 
+	 *
 	 * @return array contains all solid sprites
 	 */
 	public ArrayList<String> getSolidSprites() {
@@ -485,7 +481,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get array of avatar sprite names
-	 * 
+	 *
 	 * @return array of all sprite names marked as avatar
 	 */
 	public ArrayList<String> getAvatarSprites() {
@@ -494,7 +490,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get array of all sprites that can kill the avatar
-	 * 
+	 *
 	 * @return array of all harmful sprite names
 	 */
 	public ArrayList<String> getHarmfulSprites() {
@@ -503,7 +499,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get array for all objects that can be collected using player
-	 * 
+	 *
 	 * @return array list contains collectible sprites
 	 */
 	public ArrayList<String> getCollectableSprites() {
@@ -512,7 +508,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get an array contains all sprites found in the termination set
-	 * 
+	 *
 	 * @return array list contains all goal sprites
 	 */
 	public ArrayList<String> getGoalSprites() {
@@ -521,7 +517,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get an array list of all other sprites that are not listed in the previous lists
-	 * 
+	 *
 	 * @return array list of all other sprites
 	 */
 	public ArrayList<String> getOtherSprites() {
@@ -530,7 +526,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get maximum +ve score change listed in the instruction set
-	 * 
+	 *
 	 * @return maximum +ve score change value
 	 */
 	public double getMaxScoreUnit() {
@@ -539,7 +535,7 @@ public class GameAnalyzer {
 
 	/**
 	 * get minimum +ve score change listed in the instruction set
-	 * 
+	 *
 	 * @return minimum +ve score change value
 	 */
 	public double getMinScoreUnit() {

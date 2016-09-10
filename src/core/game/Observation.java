@@ -39,7 +39,7 @@ public class Observation implements Comparable<Observation> {
 
 	/**
 	 * New observation. It is the observation of a sprite, recording its ID and position.
-	 * 
+	 *
 	 * @param itype type of the sprite of this observation
 	 * @param id ID of the observation.
 	 * @param pos position of the sprite.
@@ -57,7 +57,7 @@ public class Observation implements Comparable<Observation> {
 
 	/**
 	 * Updates this observation
-	 * 
+	 *
 	 * @param itype type of the sprite of this observation
 	 * @param id ID of the observation.
 	 * @param pos position of the sprite.
@@ -75,24 +75,26 @@ public class Observation implements Comparable<Observation> {
 
 	/**
 	 * Compares this observation to others, using distances to the reference position.
-	 * 
+	 *
 	 * @param o other observation.
 	 * @return -1 if this precedes o, 1 if same distance or o is closer to reference.
 	 */
 	@Override
 	public int compareTo(Observation o) {
 		double oSqDist = o.position.sqDist(reference);
-		if (sqDist < oSqDist) return -1;
+		if (sqDist < oSqDist)
+			return -1;
 		else if (sqDist > oSqDist) return 1;
 		return 0;
 	}
 
 	/**
 	 * Compares two Observations to check if they are equal. The reference attribute is NOT compared in this object.
-	 * 
+	 *
 	 * @param other the other observation.
 	 * @return true if both objects are the same Observation.
 	 */
+	@Override
 	public boolean equals(Object other) {
 		if (other == null || !(other instanceof Observation)) return false;
 

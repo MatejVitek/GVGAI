@@ -1,15 +1,10 @@
 package core.game;
 
+import java.util.*;
 import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.Random;
-import core.VGDLFactory;
-import core.VGDLRegistry;
-import core.VGDLSprite;
-import core.competition.CompetitionParameters;
+import core.*;
 import core.content.GameContent;
-import tools.IO;
-import tools.Vector2d;
+import tools.*;
 import tools.pathfinder.PathFinder;
 
 /**
@@ -32,7 +27,7 @@ public class BasicGame extends Game {
 
 	/**
 	 * Default constructor for a basic game.
-	 * 
+	 *
 	 * @param content Contains parameters for the game.
 	 */
 	public BasicGame(GameContent content) {
@@ -55,9 +50,10 @@ public class BasicGame extends Game {
 
 	/**
 	 * Builds a level, receiving a file name.
-	 * 
+	 *
 	 * @param gamelvl file name containing the level.
 	 */
+	@Override
 	public void buildLevel(String gamelvl, int randomSeed) {
 		String[] lines = new IO().readFile(gamelvl);
 
@@ -82,7 +78,7 @@ public class BasicGame extends Game {
 	@Override
 	/**
 	 * Builds a level from this game, reading it from file.
-	 * 
+	 *
 	 * @param gamelvl filename of the level to load.
 	 */
 	public void buildStringLevel(String[] lines, int randomSeed) {
@@ -123,7 +119,7 @@ public class BasicGame extends Game {
 						int similarTiles = 0;
 						for (int x = -1; x <= 1; x++) {
 							for (int y = -1; y <= 1; y++) {
-								if (Math.abs(x) != Math.abs(y) && (j + x >= 0 && j + x < size.width && i + y >= 0 && i + y < size.height)) {
+								if (Math.abs(x) != Math.abs(y) && j + x >= 0 && j + x < size.width && i + y >= 0 && i + y < size.height) {
 									if (charMapping.containsKey(desc_lines[i + y].charAt(j + x))) {
 										ArrayList<String> neighborTiles = charMapping.get(desc_lines[i + y].charAt(j + x));
 										if (neighborTiles.contains(obj)) {
@@ -161,9 +157,10 @@ public class BasicGame extends Game {
 
 	/**
 	 * Reads the parameters of a game type.
-	 * 
+	 *
 	 * @param content list of parameter-value pairs.
 	 */
+	@Override
 	protected void parseParameters(GameContent content) {
 		super.parseParameters(content);
 
@@ -185,7 +182,7 @@ public class BasicGame extends Game {
 
 	/**
 	 * Adds one sprites in the position indicated.
-	 * 
+	 *
 	 * @param key sprite type to add.
 	 * @param position position where the sprite will be placed
 	 */
@@ -196,7 +193,7 @@ public class BasicGame extends Game {
 
 	/**
 	 * Adds all sprites that 'c' represents in the position indicated.
-	 * 
+	 *
 	 * @param keys List of sprite types to add.
 	 * @param position position where all these sprites will be placed.
 	 */
@@ -209,7 +206,7 @@ public class BasicGame extends Game {
 
 	/**
 	 * Takes a line and concats filler as many times as specified.
-	 * 
+	 *
 	 * @param base initial string.
 	 * @param occurrences how many times filler is appended
 	 * @param filler string to append occurrences times to base.

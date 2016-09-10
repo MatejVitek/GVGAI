@@ -1,16 +1,13 @@
 package controllers.singlePlayer.sampleGA;
 
-import java.awt.Graphics2D;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeoutException;
-import controllers.singlePlayer.Heuristics.StateHeuristic;
-import controllers.singlePlayer.Heuristics.WinScoreHeuristic;
+import java.awt.Graphics2D;
+import controllers.singlePlayer.Heuristics.*;
 import core.game.StateObservation;
 import core.player.AbstractPlayer;
 import ontology.Types;
-import tools.ElapsedCpuTimer;
-import tools.Utils;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: ssamot Date: 26/02/14 Time: 15:17 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -23,7 +20,7 @@ public class Agent extends AbstractPlayer {
 	private static int POPULATION_SIZE = 5;
 
 	private static double RECPROB = 0.1;
-	private double MUT = (1.0 / SIMULATION_DEPTH);
+	private double MUT = 1.0 / SIMULATION_DEPTH;
 	private final int N_ACTIONS;
 
 	private ElapsedCpuTimer timer;
@@ -180,6 +177,7 @@ public class Agent extends AbstractPlayer {
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
+	@Override
 	public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
 
 		this.timer = elapsedTimer;

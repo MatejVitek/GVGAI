@@ -8,7 +8,7 @@ package org.neuroph.util.random;
 
 /**
  * This class provides ranged weights randomizer, which randomize weights in specified [min, max] range.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class RangeRandomizer extends WeightsRandomizer {
@@ -25,7 +25,7 @@ public class RangeRandomizer extends WeightsRandomizer {
 
 	/**
 	 * Creates a new instance of RangeRandomizer within specified . The random values are generated according to formula: newValue = min + random * (max - min)
-	 * 
+	 *
 	 * @param min min weight value
 	 * @param max max weight value
 	 */
@@ -36,7 +36,7 @@ public class RangeRandomizer extends WeightsRandomizer {
 
 	/**
 	 * Generates next random value within [min, max] range determined by the settings in this randomizer
-	 * 
+	 *
 	 * @return next weight random value
 	 */
 	@Override

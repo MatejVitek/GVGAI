@@ -1,8 +1,7 @@
 package ontology.effects;
 
 import java.util.ArrayList;
-import core.VGDLFactory;
-import core.VGDLSprite;
+import core.*;
 import core.content.InteractionContent;
 import core.game.Game;
 
@@ -57,7 +56,7 @@ public abstract class Effect {
 
 	/**
 	 * Determine score change for specific player
-	 * 
+	 *
 	 * @param playerID - player affected
 	 * @return - score change
 	 */

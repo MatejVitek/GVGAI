@@ -1,25 +1,15 @@
 package core;
 
-import java.io.*;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Random;
+import java.io.*;
+import java.lang.reflect.*;
 import core.competition.CompetitionParameters;
-import core.game.Game;
-import core.game.GameDescription;
-import core.game.StateObservation;
-import core.game.StateObservationMulti;
+import core.game.*;
 import core.generator.AbstractLevelGenerator;
-import core.player.AbstractMultiPlayer;
-import core.player.AbstractPlayer;
-import core.player.Player;
+import core.player.*;
 import ontology.Types;
-import tools.ElapsedCpuTimer;
-import tools.IO;
-import tools.StatSummary;
+import tools.*;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 06/11/13 Time: 11:24 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -30,7 +20,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Reads and launches a game for a human to be played. Graphics always on.
-	 * 
+	 *
 	 * @param game_file game description file.
 	 * @param level_file file with the level to be played.
 	 */
@@ -42,7 +32,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Reads and launches a game for a human to be played. Graphics always on.
-	 * 
+	 *
 	 * @param game_file game description file.
 	 * @param level_file file with the level to be played.
 	 * @param actionFile to save the actions of the game.
@@ -56,7 +46,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Reads game description then generate level using the supplied generator. It also launches the game for a human to be played. Graphics always on.
-	 * 
+	 *
 	 * @param gameFile the game description file
 	 * @param actionFile the action file name
 	 * @param levelFile a file to save the generated level
@@ -69,7 +59,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Reads and launches a game for a bot to be played. Graphics can be on or off.
-	 * 
+	 *
 	 * @param game_file game description file.
 	 * @param level_file file with the level to be played.
 	 * @param visuals true to show the graphics, false otherwise.
@@ -150,7 +140,8 @@ public class ArcadeMachine {
 
 		// Then, play the game.
 		double[] score;
-		if (visuals) score = toPlay.playGame(players, randomSeed, anyHuman, playerID);
+		if (visuals)
+			score = toPlay.playGame(players, randomSeed, anyHuman, playerID);
 		else score = toPlay.runGame(players, randomSeed);
 
 		// Finally, when the game is over, we need to tear the players down.
@@ -165,7 +156,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Generate a level for a certain described game and test it against a supplied agent
-	 * 
+	 *
 	 * @param gameFile game description file.
 	 * @param levelGenerator level generator class path.
 	 * @param levelFile file to save the generated level in it
@@ -218,7 +209,7 @@ public class ArcadeMachine {
 
 	/**
 	 * A player (human or bot) plays a generated level, which is passed by parameter, in a determined game.
-	 * 
+	 *
 	 * @param gameFile game description file.
 	 * @param visuals true to show the graphics, false otherwise.
 	 * @param agentName name (inc. package) where the controller is otherwise.
@@ -268,7 +259,8 @@ public class ArcadeMachine {
 		AbstractPlayer[] p = new AbstractPlayer[1];
 		p[0] = player;
 
-		if (visuals) score = toPlay.playGame(p, randomSeed, isHuman, 0)[0];
+		if (visuals)
+			score = toPlay.playGame(p, randomSeed, isHuman, 0)[0];
 		else score = toPlay.runGame(p, randomSeed)[0];
 
 		// Finally, when the game is over, we need to tear the player down.
@@ -281,7 +273,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Runs a replay given a game, level and file with the actions to execute.
-	 * 
+	 *
 	 * @param game_file game description file.
 	 * @param level_file file with the level to be played.
 	 * @param visuals true to show the graphics, false otherwise.
@@ -394,7 +386,8 @@ public class ArcadeMachine {
 				String secondLine = br.readLine();
 				String[] scores = secondLine.split(" ");
 				for (int i = 0; i < no_players; i++) {
-					if (scores.length > i) loggedScore[i] = Double.parseDouble(scores[i]);
+					if (scores.length > i)
+						loggedScore[i] = Double.parseDouble(scores[i]);
 					else loggedScore[i] = 0;
 				}
 
@@ -402,7 +395,8 @@ public class ArcadeMachine {
 				String thirdLine = br.readLine();
 				String[] wins = thirdLine.split(" ");
 				for (int i = 0; i < no_players; i++) {
-					if (wins.length > i) win[i] = Integer.parseInt(wins[i]);
+					if (wins.length > i)
+						win[i] = Integer.parseInt(wins[i]);
 					else win[i] = 0;
 				}
 
@@ -440,14 +434,15 @@ public class ArcadeMachine {
 
 		// Then, (re-)play the game.
 		double[] score;
-		if (visuals) score = toPlay.playGame(players, seed, false, 0);
+		if (visuals)
+			score = toPlay.playGame(players, seed, false, 0);
 		else score = toPlay.runGame(players, seed);
 
 		// Finally, when the game is over, we need to tear the player down. Actually in this case this might never do anything.
 		ArcadeMachine.tearPlayerDown(toPlay, players, actionFile, seed, false);
 
 		for (int i = 0; i < toPlay.getNoPlayers(); i++) {
-			int actualWinner = (toPlay.getWinner(i) == Types.WINNER.PLAYER_WINS ? 1 : 0);
+			int actualWinner = toPlay.getWinner(i) == Types.WINNER.PLAYER_WINS ? 1 : 0;
 			if (actualWinner != win[i] || score[i] != loggedScore[i] || timesteps != toPlay.getGameTick()) throw new RuntimeException("ERROR: Game Replay Failed.");
 		}
 
@@ -458,7 +453,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Reads and launches a game for a bot to be played. It specifies which levels to play and how many times. Filenames for saving actions can be specified. Graphics always off.
-	 * 
+	 *
 	 * @param game_file game description file.
 	 * @param level_files array of level file names to play.
 	 * @param level_times how many times each level has to be played.
@@ -542,7 +537,7 @@ public class ArcadeMachine {
 
 				// Play the game if at least 2 players in multiplayer games or at least 1 in single player.
 				// Get array of scores back.
-				if ((no_players - disqCount) >= toPlay.no_players) {
+				if (no_players - disqCount >= toPlay.no_players) {
 					score = toPlay.runGame(players, randomSeed);
 					// score = toPlay.playGame(players, randomSeed, false, 0);
 					toPlay.printResult();
@@ -589,7 +584,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Generate multiple levels for a certain game
-	 * 
+	 *
 	 * @param gameFile The game description file path
 	 * @param levelGenerator The current used level generator
 	 * @param levelFile array of level files to save the generated levels
@@ -642,7 +637,7 @@ public class ArcadeMachine {
 
 	/**
 	 * play a couple of generated levels for a certain game
-	 * 
+	 *
 	 * @param gameFile The game description file path
 	 * @param actionFile array of files to save the actions in
 	 * @param levelFile array of level files to save the generated levels
@@ -725,7 +720,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Creates a player given its name with package. This class calls the constructor of the agent and initializes the action recording procedure. PlayerID used is 0, default for single player games.
-	 * 
+	 *
 	 * @param playerName name of the agent to create. It must be of the type "<agentPackage>.Agent".
 	 * @param actionFile filename of the file where the actions of this player, for this game, should be recorded.
 	 * @param so Initial state of the game to be played by the agent.
@@ -757,7 +752,7 @@ public class ArcadeMachine {
 	/**
 	 * Creates a player given its name with package for multiplayer. This class calls the constructor of the agent and initializes the action recording procedure. PlayerID used is 0, default for
 	 * single player games.
-	 * 
+	 *
 	 * @param playerName name of the agent to create. It must be of the type "<agentPackage>.Agent".
 	 * @param actionFile filename of the file where the actions of this player, for this game, should be recorded.
 	 * @param so Initial state of the game to be played by the agent.
@@ -787,7 +782,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Creates and initializes a new controller with the given name. Takes into account the initialization time, calling the appropriate constructor with the state observation and time due parameters.
-	 * 
+	 *
 	 * @param playerName Name of the controller to instantiate.
 	 * @param so Initial state of the game to be played by the agent.
 	 * @return the player if it could be created, null otherwise.
@@ -877,7 +872,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Generate AbstractLevelGenerator object to generate levels for the game using the supplied class path.
-	 * 
+	 *
 	 * @param levelGenerator class path for the supplied level generator
 	 * @param gd abstract object describes the game
 	 * @return AbstractLevelGenerator object.
@@ -947,7 +942,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Generate a level for the described game using the supplied level generator.
-	 * 
+	 *
 	 * @param gd Abstract description of game elements
 	 * @param game Current game object.
 	 * @param generator Current level generator.
@@ -964,11 +959,11 @@ public class ArcadeMachine {
 
 			if (ect.elapsedMillis() > CompetitionParameters.LEVEL_ACTION_TIME_DISQ) {
 				// The agent took too long to replay. The game is over and the agent is disqualified
-				System.out.println("Too long: " + "(exceeding " + (exceeded) + "ms): controller disqualified.");
+				System.out.println("Too long: " + "(exceeding " + exceeded + "ms): controller disqualified.");
 				level = "";
 			}
 			else {
-				System.out.println("Overspent: " + "(exceeding " + (exceeded) + "ms): applying Empty Level.");
+				System.out.println("Overspent: " + "(exceeding " + exceeded + "ms): applying Empty Level.");
 				level = " ";
 			}
 		}
@@ -978,7 +973,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Saves a level string to a file
-	 * 
+	 *
 	 * @param level current level to save
 	 * @param levelFile saved file
 	 */
@@ -1009,7 +1004,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Load a generated level file
-	 * 
+	 *
 	 * @param currentGame Current Game object to se the Level Mapping
 	 * @param levelFile The generated level file path
 	 * @return Level String to be loaded
@@ -1056,7 +1051,7 @@ public class ArcadeMachine {
 
 	/**
 	 * This methods takes the game and warms it up. This allows Java to finish the runtime compilation process and optimize the code before the proper game starts.
-	 * 
+	 *
 	 * @param toPlay game to be warmed up.
 	 * @param howLong for how long the warming up process must last (in milliseconds).
 	 */
@@ -1071,7 +1066,7 @@ public class ArcadeMachine {
 		StatSummary ss1 = new StatSummary();
 		StatSummary ss2 = new StatSummary();
 
-		boolean finish = ect.exceededMaxTime() || (copyStats > CompetitionParameters.WARMUP_CP && advStats > CompetitionParameters.WARMUP_ADV);
+		boolean finish = ect.exceededMaxTime() || copyStats > CompetitionParameters.WARMUP_CP && advStats > CompetitionParameters.WARMUP_ADV;
 
 		ArrayList<Types.ACTIONS>[] actions = new ArrayList[no_players];
 		StateObservation stateObs;
@@ -1144,7 +1139,7 @@ public class ArcadeMachine {
 					}
 				}
 
-				finish = ect.exceededMaxTime() || (copyStats > CompetitionParameters.WARMUP_CP && advStats > CompetitionParameters.WARMUP_ADV);
+				finish = ect.exceededMaxTime() || copyStats > CompetitionParameters.WARMUP_CP && advStats > CompetitionParameters.WARMUP_ADV;
 
 				// if(VERBOSE)
 				// System.out.println("[WARM-UP] Remaining time: " + ect.remainingTimeMillis() +
@@ -1164,7 +1159,7 @@ public class ArcadeMachine {
 
 	/**
 	 * Tears the player down. This initiates the saving of actions to file. It should be called when the game played is over.
-	 * 
+	 *
 	 * @param toPlay game played.
 	 * @param players players to be closed.
 	 * @param actionFile file where players' actions should be saved.
@@ -1177,7 +1172,7 @@ public class ArcadeMachine {
 		if (toPlay.no_players > 1) {
 			// multi player, write actions to files.
 			try {
-				if ((actionFile != null && !actionFile.equals("") && record)) {
+				if (actionFile != null && !actionFile.equals("") && record) {
 					BufferedWriter writer = new BufferedWriter(new FileWriter(new File(actionFile)));
 
 					// write random seed and game ticks
@@ -1231,7 +1226,8 @@ public class ArcadeMachine {
 
 			// Inform about the result and the final game state.
 			// Inform about the result and the final game state.
-			if (toPlay.no_players > 1) p.resultMulti(toPlay.getObservationMulti().copy(), ect);
+			if (toPlay.no_players > 1)
+				p.resultMulti(toPlay.getObservationMulti().copy(), ect);
 			else p.result(toPlay.getObservation(), ect);
 
 			// Check if we returned on time, and act in consequence.

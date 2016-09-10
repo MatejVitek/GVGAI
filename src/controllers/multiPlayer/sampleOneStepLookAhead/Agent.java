@@ -1,15 +1,11 @@
 package controllers.multiPlayer.sampleOneStepLookAhead;
 
+import java.util.*;
 import controllers.multiPlayer.heuristics.SimpleStateHeuristic;
 import core.game.StateObservationMulti;
 import core.player.AbstractMultiPlayer;
 import ontology.Types;
-import tools.ElapsedCpuTimer;
-import tools.Utils;
-import javax.swing.plaf.nimbus.State;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Random;
+import tools.*;
 
 /**
  * This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -24,7 +20,7 @@ public class Agent extends AbstractMultiPlayer {
 
 	/**
 	 * initialize all variables for the agent
-	 * 
+	 *
 	 * @param stateObs Observation of the current state.
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @param playerID ID if this agent
@@ -46,6 +42,7 @@ public class Agent extends AbstractMultiPlayer {
 	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
+	@Override
 	public Types.ACTIONS act(StateObservationMulti stateObs, ElapsedCpuTimer elapsedTimer) {
 
 		Types.ACTIONS bestAction = null;
@@ -69,7 +66,7 @@ public class Agent extends AbstractMultiPlayer {
 			stCopy.advance(acts);
 
 			double Q = heuristic.evaluateState(stCopy, id);
-			Q = Utils.noise(Q, this.epsilon, this.m_rnd.nextDouble());
+			Q = Utils.noise(Q, Agent.epsilon, Agent.m_rnd.nextDouble());
 
 			// System.out.println("Action:" + action + " score:" + Q);
 			if (Q > maxQ) {

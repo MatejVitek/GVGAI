@@ -1,18 +1,11 @@
 package levelGenerators.constructiveLevelGenerator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 import core.game.GameDescription;
-import core.game.GameDescription.SpriteData;
-import core.game.GameDescription.TerminationData;
+import core.game.GameDescription.*;
 import core.generator.AbstractLevelGenerator;
 import levelGenerators.constructiveLevelGenerator.LevelData.Point;
-import tools.ElapsedCpuTimer;
-import tools.GameAnalyzer;
-import tools.Utils;
+import tools.*;
 
 public class LevelGenerator extends AbstractLevelGenerator {
 
@@ -60,7 +53,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Initialize all the parameters for the level generator
-	 * 
+	 *
 	 * @param game game description object that define the current game
 	 * @param elpasedTimer the amount of time that the constructor have
 	 */
@@ -82,7 +75,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Calculate the percentage covered from the level and percentages of each data type
-	 * 
+	 *
 	 * @param game game description object provided by the system
 	 * @return level cover data object contain all the calculated information
 	 */
@@ -156,7 +149,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Add a solid to the level space without disconnecting the level
-	 * 
+	 *
 	 * @param level the current level to test
 	 * @param x the x position
 	 * @param y the y position
@@ -173,7 +166,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * build level layout using the solid objects
-	 * 
+	 *
 	 * @param level the current level
 	 * @param coverPercentage the cover percentages
 	 */
@@ -244,7 +237,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Get the area of the level
-	 * 
+	 *
 	 * @param level the current level
 	 * @return the size of the internal level (without the borders if exists)
 	 */
@@ -258,7 +251,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * get all free positions that have the highest and lowest y value
-	 * 
+	 *
 	 * @param freePositions list of all free positions
 	 * @return return list of all these points
 	 */
@@ -286,7 +279,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * add the avatar to the current level
-	 * 
+	 *
 	 * @param level the current level
 	 * @param game the game description object
 	 * @return the added position
@@ -323,7 +316,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * calculate the number of objects in the level
-	 * 
+	 *
 	 * @param game game description object
 	 * @param level the current level
 	 * @return hashmap for all sprite names with the associated numbers
@@ -354,7 +347,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * fix the termination conditions by making sure all of them are unstaisfied
-	 * 
+	 *
 	 * @param game game description object
 	 * @param level current level
 	 * @param coverPercentage the cover percentages
@@ -403,7 +396,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * check if the object is a moving object
-	 * 
+	 *
 	 * @param game game description object
 	 * @param stype current sprite need to be checked
 	 * @return true if stype is moving and false otherwise
@@ -421,7 +414,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * get a free position far from the avatar position
-	 * 
+	 *
 	 * @param freePosition list of the free positions
 	 * @param avatarPosition the avatar position
 	 * @return the index of the possible far position
@@ -453,7 +446,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Add harmful objects to the level
-	 * 
+	 *
 	 * @param game the game description object
 	 * @param level the current level
 	 * @param coverPercentage the cover percentages
@@ -495,7 +488,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Add Collectable objects to the current level
-	 * 
+	 *
 	 * @param game the game description object
 	 * @param level the current level
 	 * @param coverPercentage the current cover percentages
@@ -522,7 +515,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Add other kind of objects to the level
-	 * 
+	 *
 	 * @param game the current game description
 	 * @param level the current game level
 	 * @param coverPercentage the cover percentages
@@ -550,7 +543,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * Generate a level with a fixed width and length
-	 * 
+	 *
 	 * @param game the current level description
 	 * @param elapsedTimer the amount of time allowed for generation
 	 * @param width the width of the level
@@ -574,7 +567,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 
 	/**
 	 * generate a level without specifying the width and the height of the level
-	 * 
+	 *
 	 * @param game the current game description object
 	 * @param elpasedTimer the amount of time allowed for generation
 	 * @return string for the generated level
@@ -586,17 +579,17 @@ public class LevelGenerator extends AbstractLevelGenerator {
 			size = 2;
 		}
 
-		int width = (int) Math.max(minSize + size, game.getAllSpriteData().size() * ((levelSizeMaxPercentage - levelSizeRandomPercentage) + levelSizeRandomPercentage * random.nextDouble()) + size);
-		int length = (int) Math.max(minSize + size, game.getAllSpriteData().size() * ((levelSizeMaxPercentage - levelSizeRandomPercentage) + levelSizeRandomPercentage * random.nextDouble()) + size);
-		width = (int) Math.min(width, maxSize + size);
-		length = (int) Math.min(length, maxSize + size);
+		int width = (int) Math.max(minSize + size, game.getAllSpriteData().size() * (levelSizeMaxPercentage - levelSizeRandomPercentage + levelSizeRandomPercentage * random.nextDouble()) + size);
+		int length = (int) Math.max(minSize + size, game.getAllSpriteData().size() * (levelSizeMaxPercentage - levelSizeRandomPercentage + levelSizeRandomPercentage * random.nextDouble()) + size);
+		width = Math.min(width, maxSize + size);
+		length = Math.min(length, maxSize + size);
 
 		return generateLevel(game, elapsedTimer, width, length);
 	}
 
 	/**
 	 * get the current used level mapping to create the level string
-	 * 
+	 *
 	 * @return the level mapping used to create the level string
 	 */
 	@Override

@@ -6,13 +6,11 @@
 
 package org.neuroph.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * Provides methods to parse strings as Integer or Double vectors.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 // rename to ArrayUtils
@@ -20,7 +18,7 @@ public class VectorParser {
 
 	/**
 	 * This method parses input String and returns Integer vector
-	 * 
+	 *
 	 * @param str input String
 	 * @return Integer vector
 	 */
@@ -36,7 +34,7 @@ public class VectorParser {
 
 	/**
 	 * This method parses input String and returns double array
-	 * 
+	 *
 	 * @param inputStr input String
 	 * @return double array
 	 */

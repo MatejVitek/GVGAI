@@ -17,7 +17,7 @@ public class GoalConstraint extends AbstractConstraint {
 
 	/**
 	 * Check if all terminate conditions are unsatisfiable
-	 * 
+	 *
 	 * @return return 1 if all conditions are unsatisfiable and percentage of unsatisfied conditions otherwise
 	 */
 	@Override

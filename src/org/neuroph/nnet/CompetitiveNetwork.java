@@ -6,22 +6,16 @@
 
 package org.neuroph.nnet;
 
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.*;
 import org.neuroph.core.input.WeightedSum;
 import org.neuroph.nnet.comp.layer.CompetitiveLayer;
 import org.neuroph.nnet.comp.neuron.CompetitiveNeuron;
 import org.neuroph.nnet.learning.CompetitiveLearning;
-import org.neuroph.util.ConnectionFactory;
-import org.neuroph.util.LayerFactory;
-import org.neuroph.util.NeuralNetworkFactory;
-import org.neuroph.util.NeuralNetworkType;
-import org.neuroph.util.NeuronProperties;
-import org.neuroph.util.TransferFunctionType;
+import org.neuroph.util.*;
 
 /**
  * Two layer neural network with competitive learning rule.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class CompetitiveNetwork extends NeuralNetwork {
@@ -33,7 +27,7 @@ public class CompetitiveNetwork extends NeuralNetwork {
 
 	/**
 	 * Creates new competitive network with specified neuron number
-	 * 
+	 *
 	 * @param inputNeuronsCount number of input neurons
 	 * @param outputNeuronsCount number of output neurons
 	 */
@@ -43,7 +37,7 @@ public class CompetitiveNetwork extends NeuralNetwork {
 
 	/**
 	 * Creates Competitive network architecture
-	 * 
+	 *
 	 * @param inputNeuronsCount input neurons number
 	 * @param outputNeuronsCount output neurons number
 	 * @param neuronProperties neuron properties

@@ -15,7 +15,7 @@ import org.neuroph.nnet.comp.neuron.CompetitiveNeuron;
 
 /**
  * Competitive learning rule.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class CompetitiveLearning extends UnsupervisedLearning {
@@ -34,7 +34,7 @@ public class CompetitiveLearning extends UnsupervisedLearning {
 
 	/**
 	 * This method does one learning epoch for the unsupervised learning rules. It iterates through the training set and trains network weights for each element. Stops learning after one epoch.
-	 * 
+	 *
 	 * @param trainingSet training set for training network
 	 */
 	@Override
@@ -46,6 +46,7 @@ public class CompetitiveLearning extends UnsupervisedLearning {
 	/**
 	 * Adjusts weights for the winning neuron
 	 */
+	@Override
 	protected void updateNetworkWeights() {
 		// find active neuron in output layer
 		// TODO : change idx, in general case not 1

@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 /**
  * Represents a general set of properties for neuroph objects
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Properties extends HashMap {
@@ -18,8 +18,8 @@ public class Properties extends HashMap {
 	private static final long serialVersionUID = 1L;
 
 	protected void createKeys(String... keys) {
-		for (int i = 0; i < keys.length; i++)
-			this.put(keys[i], "");
+		for (String key : keys)
+			this.put(key, "");
 	}
 
 	public void setProperty(String key, Object value) {

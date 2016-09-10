@@ -6,19 +6,18 @@
 
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
 
 /**
  * A variant of Hebbian learning called Generalized Hebbian learning. Weight change is calculated using formula deltaWeight = (input - netInput) * output * learningRate
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class GeneralizedHebbianLearning extends UnsupervisedHebbianLearning {
 
 	/**
 	 * This method implements weights update procedure for the single neuron
-	 * 
+	 *
 	 * @param neuron neuron to update weights
 	 */
 	@Override

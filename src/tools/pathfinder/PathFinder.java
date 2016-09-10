@@ -1,10 +1,9 @@
 package tools.pathfinder;
 
-import core.game.Observation;
-import core.game.StateObservation;
+import java.util.ArrayList;
+import core.game.*;
 import ontology.Types;
 import tools.Vector2d;
-import java.util.ArrayList;
 
 /**
  * Created by dperez on 14/01/16.
@@ -99,8 +98,8 @@ public class PathFinder {
 
 	public ArrayList<Node> getNeighbours(Node node) {
 		ArrayList<Node> neighbours = new ArrayList<Node>();
-		int x = (int) (node.position.x);
-		int y = (int) (node.position.y);
+		int x = (int) node.position.x;
+		int y = (int) node.position.y;
 
 		for (int i = 0; i < x_arrNeig.length; ++i) {
 			if (!isObstacle(x + x_arrNeig[i], y + y_arrNeig[i])) {

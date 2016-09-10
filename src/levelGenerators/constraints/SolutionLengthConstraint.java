@@ -13,7 +13,7 @@ public class SolutionLengthConstraint extends AbstractConstraint {
 
 	/**
 	 * check if the solution length is at least equal to minSolutionLength
-	 * 
+	 *
 	 * @return 1 if the solution length is larger than or equal to min solution length and percentage of how near the solution length to min solution length otherwise
 	 */
 	@Override

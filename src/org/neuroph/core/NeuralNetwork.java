@@ -5,19 +5,15 @@
  */
 package org.neuroph.core;
 
+import java.util.*;
+import java.io.*;
 import org.neuroph.core.data.DataSet;
-import org.neuroph.core.events.NeuralNetworkEvent;
-import org.neuroph.core.events.NeuralNetworkEventListener;
-import org.neuroph.core.exceptions.NeurophException;
-import org.neuroph.core.exceptions.VectorSizeMismatchException;
-import org.neuroph.core.learning.IterativeLearning;
-import org.neuroph.core.learning.LearningRule;
+import org.neuroph.core.events.*;
+import org.neuroph.core.exceptions.*;
+import org.neuroph.core.learning.*;
 import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.plugins.PluginBase;
-import org.neuroph.util.random.RangeRandomizer;
-import org.neuroph.util.random.WeightsRandomizer;
-import java.io.*;
-import java.util.*;
+import org.neuroph.util.random.*;
 
 /**
  * <pre>
@@ -566,6 +562,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	 * @return loaded neural network as NeuralNetwork object
 	 * @deprecated Use createFromFile method instead
 	 */
+	@Deprecated
 	public static NeuralNetwork load(String filePath) {
 		ObjectInputStream oistream = null;
 

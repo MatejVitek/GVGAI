@@ -1,9 +1,7 @@
 package ontology.sprites;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import core.VGDLRegistry;
-import core.VGDLSprite;
+import java.awt.*;
+import core.*;
 import core.content.SpriteContent;
 import tools.Vector2d;
 
@@ -34,11 +32,13 @@ public class Resource extends Passive {
 
 	}
 
+	@Override
 	public void postProcess() {
 		super.postProcess();
 		resource_type = VGDLRegistry.GetInstance().getRegisteredSpriteValue(resource_name);
 	}
 
+	@Override
 	protected void loadDefaults() {
 		super.loadDefaults();
 		limit = 2;
@@ -48,12 +48,14 @@ public class Resource extends Passive {
 		is_resource = true;
 	}
 
+	@Override
 	public VGDLSprite copy() {
 		Resource newSprite = new Resource();
 		this.copyTo(newSprite);
 		return newSprite;
 	}
 
+	@Override
 	public void copyTo(VGDLSprite target) {
 		Resource targetSprite = (Resource) target;
 		targetSprite.limit = this.limit;

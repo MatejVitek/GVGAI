@@ -12,7 +12,7 @@ import org.neuroph.nnet.comp.neuron.ThresholdNeuron;
 
 /**
  * Delta rule learning algorithm for perceptrons with step functions. The difference to Perceptronlearning is that Delta Rule calculates error before the non-lnear step transfer function
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class BinaryDeltaRule extends PerceptronLearning {

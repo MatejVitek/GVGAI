@@ -15,7 +15,7 @@ import org.neuroph.util.Properties;
  *             -(x^2) / (2 * sigma^2)
  *  f(x) =    e
  * </pre>
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Gaussian extends TransferFunction implements Serializable {
@@ -37,7 +37,7 @@ public class Gaussian extends TransferFunction implements Serializable {
 
 	/**
 	 * Creates an instance of Gaussian neuron transfer function with the specified properties.
-	 * 
+	 *
 	 * @param properties properties of the Gaussian function
 	 */
 	public Gaussian(Properties properties) {
@@ -68,7 +68,7 @@ public class Gaussian extends TransferFunction implements Serializable {
 
 	/**
 	 * Returns the sigma parametar of this function
-	 * 
+	 *
 	 * @return sigma parametar of this function
 	 */
 	public double getSigma() {
@@ -77,7 +77,7 @@ public class Gaussian extends TransferFunction implements Serializable {
 
 	/**
 	 * Sets the sigma parametar for this function
-	 * 
+	 *
 	 * @param sigma value for the slope parametar
 	 */
 	public void setSigma(double sigma) {

@@ -1,7 +1,6 @@
 package matej;
 
 import java.util.List;
-import matej.Instance;
 import tools.Pair;
 
 public class Split extends Pair<List<Instance>, List<Instance>> {

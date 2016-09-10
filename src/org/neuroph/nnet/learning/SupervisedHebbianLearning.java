@@ -6,13 +6,11 @@
 
 package org.neuroph.nnet.learning;
 
-import org.neuroph.core.Connection;
-import org.neuroph.core.Neuron;
-import org.neuroph.core.data.DataSetRow;
+import org.neuroph.core.*;
 
 /**
  * Supervised hebbian learning rule.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class SupervisedHebbianLearning extends LMS {
@@ -58,7 +56,7 @@ public class SupervisedHebbianLearning extends LMS {
 
 	/**
 	 * This method implements weight update procedure for the whole network for this learning rule
-	 * 
+	 *
 	 * @param desiredOutput desired network output
 	 */
 	@Override
@@ -73,7 +71,7 @@ public class SupervisedHebbianLearning extends LMS {
 
 	/**
 	 * This method implements weights update procedure for the single neuron
-	 * 
+	 *
 	 * @param neuron neuron to update weights desiredOutput desired output of the neuron
 	 */
 	protected void updateNeuronWeights(Neuron neuron, double desiredOutput) {

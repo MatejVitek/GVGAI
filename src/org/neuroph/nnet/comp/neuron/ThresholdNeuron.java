@@ -12,7 +12,7 @@ import org.neuroph.core.transfer.TransferFunction;
 
 /**
  * Provides behaviour for neurons with threshold.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class ThresholdNeuron extends Neuron {
@@ -29,7 +29,7 @@ public class ThresholdNeuron extends Neuron {
 
 	/**
 	 * Creates a neuron with threshold behaviour, and with the specified input and transfer functions.
-	 * 
+	 *
 	 * @param inputFunction input function for this neuron
 	 * @param transferFunction transfer function for this neuron
 	 */
@@ -50,7 +50,7 @@ public class ThresholdNeuron extends Neuron {
 
 	/**
 	 * Returns threshold value for this neuron
-	 * 
+	 *
 	 * @return threshold value for this neuron
 	 */
 	public double getThresh() {
@@ -59,7 +59,7 @@ public class ThresholdNeuron extends Neuron {
 
 	/**
 	 * Sets threshold value for this neuron
-	 * 
+	 *
 	 * @param thresh threshold value for this neuron
 	 */
 	public void setThresh(double thresh) {

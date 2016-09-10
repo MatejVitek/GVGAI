@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import core.VGDLFactory;
 import core.content.TerminationContent;
 import core.game.Game;
-import core.game.GameDescription;
-import ontology.Types;
 
 /**
  * Created with IntelliJ IDEA. User: Diego Date: 22/10/13 Time: 18:47 This is a Java port from Tom Schaul's VGDL - https://github.com/schaul/py-vgdl
@@ -30,7 +28,7 @@ public abstract class Termination {
 
 	/**
 	 * Determine win state of a specific player.
-	 * 
+	 *
 	 * @param playerID - ID of the player to query.
 	 * @return - true if player won, false otherwise.
 	 */
@@ -76,7 +74,7 @@ public abstract class Termination {
 
 	/**
 	 * Get all sprites that are used to check the termination condition
-	 * 
+	 *
 	 * @return all termination condition sprites
 	 */
 	public ArrayList<String> getTerminationSprites() {

@@ -7,18 +7,14 @@
 package org.neuroph.nnet.learning;
 
 import java.util.Iterator;
-import org.neuroph.core.Connection;
-import org.neuroph.core.Layer;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
+import org.neuroph.core.*;
+import org.neuroph.core.data.*;
 import org.neuroph.core.events.LearningEvent;
 import org.neuroph.core.learning.LearningRule;
-import org.neuroph.core.data.DataSetRow;
-import org.neuroph.core.data.DataSet;
 
 /**
  * Learning algorithm for Kohonen network.
- * 
+ *
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class KohonenLearning extends LearningRule {
@@ -94,7 +90,7 @@ public class KohonenLearning extends LearningRule {
 
 	private void adjustCellWeights(Neuron cell, int r) {
 		for (Connection conn : cell.getInputConnections()) {
-			double dWeight = (learningRate / (r + 1)) * (conn.getInput() - conn.getWeight().getValue());
+			double dWeight = learningRate / (r + 1) * (conn.getInput() - conn.getWeight().getValue());
 			conn.getWeight().inc(dWeight);
 		}
 	}
@@ -109,12 +105,12 @@ public class KohonenLearning extends LearningRule {
 		// if (j<(i-n*d-n)||(j>(i+n*d+n))) return false;
 
 		int rt = n; // broj celija ka gore
-		while ((i - rt * d) < 0) {
+		while (i - rt * d < 0) {
 			rt--;
 		}
 
 		int rb = n; // broj celija ka dole
-		while ((i + rb * d) > (d * d - 1)) {
+		while (i + rb * d > d * d - 1) {
 			rb--;
 		}
 
@@ -134,7 +130,7 @@ public class KohonenLearning extends LearningRule {
 				rdMod = (i + rd) % d;
 			}
 
-			if ((j >= (i + g * d - rl)) && (j <= (i + g * d + rd))) return true;
+			if (j >= i + g * d - rl && j <= i + g * d + rd) return true;
 			// else if (j<(i+g*d-rl)) return false;
 		} // for
 		return false;

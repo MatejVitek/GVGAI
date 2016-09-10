@@ -6,13 +6,9 @@
 
 package org.neuroph.nnet.comp.layer;
 
-import java.util.concurrent.Callable;
-import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
-import org.neuroph.nnet.comp.Dimension2D;
-import org.neuroph.nnet.comp.Kernel;
-import org.neuroph.util.NeuronFactory;
-import org.neuroph.util.NeuronProperties;
+import org.neuroph.core.*;
+import org.neuroph.nnet.comp.*;
+import org.neuroph.util.*;
 
 /**
  * FeatureMapLayer Layer provides 2D layout of the neurons in layer. All the neurons are actually stored in one dimensional array in superclass. This type of layer is used as feature map for
@@ -109,7 +105,7 @@ public class FeatureMapLayer extends Layer /* implements Callable<Void> */ {
 	 * @return neuron at specified position in this layer
 	 */
 	public Neuron getNeuronAt(int x, int y) {
-		return getNeuronAt(x + y * (dimensions.getWidth()));
+		return getNeuronAt(x + y * dimensions.getWidth());
 	}
 
 	public Kernel getKernel() {
