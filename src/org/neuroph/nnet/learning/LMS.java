@@ -35,8 +35,7 @@ public class LMS extends SupervisedLearning implements Serializable {
 	/**
 	 * This method implements the weights update procedure for the whole network for the given output error vector.
 	 * 
-	 * @param outputError
-	 *            output error vector for some network input- the difference between desired and actual output
+	 * @param outputError output error vector for some network input- the difference between desired and actual output
 	 * @see SupervisedLearning#learnPattern(org.neuroph.core.data.DataSetRow) learnPattern
 	 */
 	@Override
@@ -56,8 +55,7 @@ public class LMS extends SupervisedLearning implements Serializable {
 	 * deltaWeight = learningRate * neuronError * input where neuronError is difference between desired and actual output for specific neuron neuronError = desiredOutput[i] - actualOutput[i] (see
 	 * method SuprevisedLearning.calculateOutputError)
 	 * 
-	 * @param neuron
-	 *            neuron to update weights
+	 * @param neuron neuron to update weights
 	 * @see LMS#updateNetworkWeights(double[])
 	 */
 	public void updateNeuronWeights(Neuron neuron) {

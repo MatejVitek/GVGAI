@@ -36,8 +36,7 @@ public class MomentumBackpropagation extends BackPropagation {
 	/**
 	 * This method implements weights update procedure for the single neuron for the back propagation with momentum factor
 	 *
-	 * @param neuron
-	 *            neuron to update weights
+	 * @param neuron neuron to update weights
 	 */
 	@Override
 	public void updateNeuronWeights(Neuron neuron) {
@@ -87,8 +86,7 @@ public class MomentumBackpropagation extends BackPropagation {
 	/**
 	 * Sets the momentum factor
 	 *
-	 * @param momentum
-	 *            momentum factor
+	 * @param momentum momentum factor
 	 */
 	public void setMomentum(double momentum) {
 		this.momentum = momentum;

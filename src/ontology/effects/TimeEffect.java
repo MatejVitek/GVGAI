@@ -66,12 +66,9 @@ public class TimeEffect extends Effect implements Comparable<TimeEffect> {
 	/**
 	 * Executes the effect
 	 *
-	 * @param sprite1
-	 *            first sprite of the collision
-	 * @param sprite2
-	 *            second sprite of the collision
-	 * @param game
-	 *            reference to the game object with the current state.
+	 * @param sprite1 first sprite of the collision
+	 * @param sprite2 second sprite of the collision
+	 * @param game reference to the game object with the current state.
 	 */
 	public void execute(VGDLSprite sprite1, VGDLSprite sprite2, Game game) {
 		// If the time effect is not native, we cannot guarantee that the sprite will be there.

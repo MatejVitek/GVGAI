@@ -25,10 +25,8 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * Very simple one step lookahead agent.
 	 *
-	 * @param stateObs
-	 *            Observation of the current state.
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param stateObs Observation of the current state.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
 	public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {

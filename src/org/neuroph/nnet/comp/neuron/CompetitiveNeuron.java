@@ -43,10 +43,8 @@ public class CompetitiveNeuron extends DelayedNeuron {
 	/**
 	 * Creates an instance of CompetitiveNeuron with specified input and transfer functions
 	 * 
-	 * @param inputFunction
-	 *            neuron input function
-	 * @param transferFunction
-	 *            neuron ransfer function
+	 * @param inputFunction neuron input function
+	 * @param transferFunction neuron ransfer function
 	 */
 	public CompetitiveNeuron(InputFunction inputFunction, TransferFunction transferFunction) {
 		super(inputFunction, transferFunction);
@@ -74,8 +72,7 @@ public class CompetitiveNeuron extends DelayedNeuron {
 	/**
 	 * Adds input connection for this competitive neuron
 	 * 
-	 * @param connection
-	 *            input connection
+	 * @param connection input connection
 	 */
 	@Override
 	public void addInputConnection(Connection connection) {
@@ -122,8 +119,7 @@ public class CompetitiveNeuron extends DelayedNeuron {
 	/**
 	 * Sets the flag to indicate that this neuron is in competing mode
 	 * 
-	 * @param isCompeting
-	 *            value for the isCompeting flag
+	 * @param isCompeting value for the isCompeting flag
 	 */
 	public void setIsCompeting(boolean isCompeting) {
 		this.isCompeting = isCompeting;

@@ -55,8 +55,7 @@ abstract public class LearningRule implements Serializable {
 	/**
 	 * Sets training set for this learning rule
 	 *
-	 * @param trainingSet
-	 *            training set for this learning rule
+	 * @param trainingSet training set for this learning rule
 	 */
 	public void setTrainingSet(DataSet trainingSet) {
 		this.trainingSet = trainingSet;
@@ -83,8 +82,7 @@ abstract public class LearningRule implements Serializable {
 	/**
 	 * Sets neural network for this learning rule
 	 *
-	 * @param neuralNetwork
-	 *            neural network for this learning rule
+	 * @param neuralNetwork neural network for this learning rule
 	 */
 	public void setNeuralNetwork(NeuralNetwork neuralNetwork) {
 		this.neuralNetwork = neuralNetwork;
@@ -154,8 +152,7 @@ abstract public class LearningRule implements Serializable {
 	/**
 	 * Override this method to implement specific learning procedures
 	 *
-	 * @param trainingSet
-	 *            training set
+	 * @param trainingSet training set
 	 */
 	abstract public void learn(DataSet trainingSet);
 }

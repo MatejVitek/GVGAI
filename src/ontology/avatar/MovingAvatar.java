@@ -81,8 +81,7 @@ public class MovingAvatar extends VGDLSprite {
 	/**
 	 * This update call is for the game tick() loop.
 	 * 
-	 * @param game
-	 *            current state of the game.
+	 * @param game current state of the game.
 	 */
 	public void update(Game game) {
 		lastMovementType = Types.MOVEMENT.STILL;
@@ -103,10 +102,8 @@ public class MovingAvatar extends VGDLSprite {
 	/**
 	 * This move call is for the Forward Model tick() loop.
 	 * 
-	 * @param game
-	 *            current state of the game.
-	 * @param actionMask
-	 *            action to apply.
+	 * @param game current state of the game.
+	 * @param actionMask action to apply.
 	 */
 	public void move(Game game, boolean[] actionMask) {
 
@@ -176,8 +173,7 @@ public class MovingAvatar extends VGDLSprite {
 	/**
 	 * Sets the key handler of this avatar.
 	 * 
-	 * @param k
-	 *            - new KeyHandler object.
+	 * @param k - new KeyHandler object.
 	 */
 	public void setKeyHandler(KeyHandler k) {
 		if (k instanceof KeyInput) ki = new KeyInput();
@@ -212,8 +208,7 @@ public class MovingAvatar extends VGDLSprite {
 	/**
 	 * Sets the score of this player to a new value.
 	 * 
-	 * @param s
-	 *            - new score.
+	 * @param s - new score.
 	 */
 	public void setScore(double s) {
 		score = s;
@@ -222,8 +217,7 @@ public class MovingAvatar extends VGDLSprite {
 	/**
 	 * Adds a value to the current score of this player.
 	 * 
-	 * @param s
-	 *            - value to add to the score.
+	 * @param s - value to add to the score.
 	 */
 	public void addScore(double s) {
 		score += s;
@@ -241,8 +235,7 @@ public class MovingAvatar extends VGDLSprite {
 	/**
 	 * Sets the win state of this player.
 	 * 
-	 * @param w
-	 *            - new win state.
+	 * @param w - new win state.
 	 */
 	public void setWinState(Types.WINNER w) {
 		winState = w;
@@ -260,8 +253,7 @@ public class MovingAvatar extends VGDLSprite {
 	/**
 	 * Set this player's ID to a new value.
 	 * 
-	 * @param id
-	 *            - new player ID.
+	 * @param id - new player ID.
 	 */
 	public void setPlayerID(int id) {
 		playerID = id;

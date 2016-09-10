@@ -45,20 +45,13 @@ public class Event implements Comparable<Event> {
 	/**
 	 * Constructor
 	 * 
-	 * @param gameStep
-	 *            when the event happened.
-	 * @param fromAvatar
-	 *            did the avatar trigger the event (false), or something created by him (true)?
-	 * @param activeTypeId
-	 *            type of the sprite (avatar or from avatar).
-	 * @param passiveTypeId
-	 *            type of the sprite that collided with activeTypeId.
-	 * @param activeSpriteId
-	 *            sprite ID of the avatar (or something created by the avatar).
-	 * @param passiveSpriteId
-	 *            sprite ID of the other object.
-	 * @param position
-	 *            where did the event take place.
+	 * @param gameStep when the event happened.
+	 * @param fromAvatar did the avatar trigger the event (false), or something created by him (true)?
+	 * @param activeTypeId type of the sprite (avatar or from avatar).
+	 * @param passiveTypeId type of the sprite that collided with activeTypeId.
+	 * @param activeSpriteId sprite ID of the avatar (or something created by the avatar).
+	 * @param passiveSpriteId sprite ID of the other object.
+	 * @param position where did the event take place.
 	 */
 	public Event(int gameStep, boolean fromAvatar, int activeTypeId, int passiveTypeId, int activeSpriteId, int passiveSpriteId, Vector2d position) {
 		this.gameStep = gameStep;

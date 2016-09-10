@@ -82,14 +82,10 @@ public class BufferedDataSet extends DataSet implements Iterator<DataSetRow> {
 	 * Creates new buffered data set with specified file, input and output size. Data set file is assumed to be txt value with data set rows in a single line, with input and output vector values
 	 * delimited by delimiter.
 	 * 
-	 * @param file
-	 *            datas et file
-	 * @param inputSize
-	 *            size of input vector
-	 * @param outputSize
-	 *            size of outut vector
-	 * @param delimiter
-	 *            delimiter for vector values
+	 * @param file datas et file
+	 * @param inputSize size of input vector
+	 * @param outputSize size of outut vector
+	 * @param delimiter delimiter for vector values
 	 * @throws FileNotFoundException
 	 */
 	public BufferedDataSet(File file, int inputSize, int outputSize, String delimiter) throws FileNotFoundException {

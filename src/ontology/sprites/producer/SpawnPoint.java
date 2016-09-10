@@ -84,10 +84,8 @@ public class SpawnPoint extends SpriteProducer {
 	/**
 	 * Updates spawn itype with newitype
 	 * 
-	 * @param itype
-	 *            - current spawn type
-	 * @param newitype
-	 *            - new spawn type to replace the first
+	 * @param itype - current spawn type
+	 * @param newitype - new spawn type to replace the first
 	 */
 	public void updateItype(int itype, int newitype) {
 		this.itype = newitype;

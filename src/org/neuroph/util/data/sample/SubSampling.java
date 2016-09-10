@@ -36,8 +36,7 @@ public class SubSampling implements Sampling {
 	/**
 	 * Sampling will produce a specified number of subsets of equal sizes Handy for K Fold subsampling
 	 * 
-	 * @param subSetCount
-	 *            number of subsets to produce
+	 * @param subSetCount number of subsets to produce
 	 */
 	public SubSampling(int subSetCount) { // without repetition
 		this.subSetCount = subSetCount;
@@ -47,8 +46,7 @@ public class SubSampling implements Sampling {
 	/**
 	 * Sampling will produce subsets of specified sizes (in percents)
 	 * 
-	 * @param subSetSizes
-	 *            size of subsets in percents
+	 * @param subSetSizes size of subsets in percents
 	 */
 	public SubSampling(int... subSetSizes) { // without repetition
 		// sum of these must be 100%???

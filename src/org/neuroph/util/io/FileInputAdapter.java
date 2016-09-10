@@ -22,10 +22,8 @@ public class FileInputAdapter extends InputStreamAdapter {
 	/**
 	 * Creates a new FileInputAdapter by opening a connection to an actual file, specified by the file param
 	 * 
-	 * @param file
-	 *            File object in the file system
-	 * @throws FileNotFoundException
-	 *             if specified file was not found
+	 * @param file File object in the file system
+	 * @throws FileNotFoundException if specified file was not found
 	 */
 	public FileInputAdapter(File file) throws FileNotFoundException {
 		super(new BufferedReader(new FileReader(file)));
@@ -34,10 +32,8 @@ public class FileInputAdapter extends InputStreamAdapter {
 	/**
 	 * Creates a new FileInputAdapter by opening a connection to an actual file, specified by the fileName param
 	 * 
-	 * @param fileName
-	 *            name of the file in file system
-	 * @throws FileNotFoundException
-	 *             if specified file was not found
+	 * @param fileName name of the file in file system
+	 * @throws FileNotFoundException if specified file was not found
 	 */
 	public FileInputAdapter(String fileName) throws FileNotFoundException {
 		this(new File(fileName));

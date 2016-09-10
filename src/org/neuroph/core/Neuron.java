@@ -100,10 +100,8 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Creates an instance of Neuron with the specified input and transfer functions.
 	 *
-	 * @param inputFunction
-	 *            input function for this neuron
-	 * @param transferFunction
-	 *            transfer function for this neuron
+	 * @param inputFunction input function for this neuron
+	 * @param transferFunction transfer function for this neuron
 	 */
 	public Neuron(InputFunction inputFunction, TransferFunction transferFunction) {
 		if (inputFunction == null) {
@@ -139,8 +137,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Sets neuron's input
 	 *
-	 * @param input
-	 *            input value to set
+	 * @param input input value to set
 	 */
 	public void setInput(double input) {
 		this.totalInput = input;
@@ -194,8 +191,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Adds the specified input connection
 	 *
-	 * @param connection
-	 *            input connection to add
+	 * @param connection input connection to add
 	 */
 	public void addInputConnection(Connection connection) {
 		// check whether connection is null
@@ -222,8 +218,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Adds input connection from specified neuron.
 	 *
-	 * @param fromNeuron
-	 *            neuron to connect from
+	 * @param fromNeuron neuron to connect from
 	 */
 	public void addInputConnection(Neuron fromNeuron) {
 		Connection connection = new Connection(fromNeuron, this);
@@ -233,10 +228,8 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Adds input connection with the given weight, from given neuron
 	 *
-	 * @param fromNeuron
-	 *            neuron to connect from
-	 * @param weightVal
-	 *            connection weight value
+	 * @param fromNeuron neuron to connect from
+	 * @param weightVal connection weight value
 	 */
 	public void addInputConnection(Neuron fromNeuron, double weightVal) {
 		Connection connection = new Connection(fromNeuron, this, weightVal);
@@ -246,8 +239,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Adds the specified output connection
 	 *
-	 * @param connection
-	 *            output connection to add
+	 * @param connection output connection to add
 	 */
 	protected void addOutputConnection(Connection connection) {
 		// First do some checks
@@ -299,8 +291,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Removes input connection which is connected to specified neuron
 	 *
-	 * @param fromNeuron
-	 *            neuron which is connected as input
+	 * @param fromNeuron neuron which is connected as input
 	 */
 	public void removeInputConnectionFrom(Neuron fromNeuron) {
 		// run through all input connections
@@ -352,8 +343,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Sets input function
 	 *
-	 * @param inputFunction
-	 *            input function for this neuron
+	 * @param inputFunction input function for this neuron
 	 */
 	public void setInputFunction(InputFunction inputFunction) {
 		this.inputFunction = inputFunction;
@@ -362,8 +352,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Sets transfer function
 	 *
-	 * @param transferFunction
-	 *            transfer function for this neuron
+	 * @param transferFunction transfer function for this neuron
 	 */
 	public void setTransferFunction(TransferFunction transferFunction) {
 		this.transferFunction = transferFunction;
@@ -390,8 +379,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Sets reference to parent layer for this neuron (layer in which the neuron is located)
 	 *
-	 * @param parent
-	 *            reference on layer in which the cell is located
+	 * @param parent reference on layer in which the cell is located
 	 */
 	public void setParentLayer(Layer parent) {
 		this.parentLayer = parent;
@@ -431,8 +419,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Sets error for this neuron. This is used by supervised learing rules.
 	 *
-	 * @param error
-	 *            neuron error
+	 * @param error neuron error
 	 */
 	public void setError(double error) {
 		this.error = error;
@@ -441,8 +428,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Sets this neuron output
 	 *
-	 * @param output
-	 *            value to set
+	 * @param output value to set
 	 */
 	public void setOutput(double output) {
 		this.output = output;
@@ -451,8 +437,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Initialize weights for all input connections to specified value
 	 *
-	 * @param value
-	 *            the weight value
+	 * @param value the weight value
 	 */
 	public void initializeWeights(double value) {
 		for (Connection connection : this.inputConnections) {
@@ -472,8 +457,7 @@ public class Neuron implements Serializable, Cloneable /* , Callable<Void> */ {
 	/**
 	 * Sets the label for this neuron
 	 *
-	 * @param label
-	 *            neuron label to set
+	 * @param label neuron label to set
 	 */
 	public void setLabel(String label) {
 		this.label = label;

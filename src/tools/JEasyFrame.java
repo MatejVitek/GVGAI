@@ -18,10 +18,8 @@ public class JEasyFrame extends JFrame {
 	/**
 	 * Constructor
 	 * 
-	 * @param comp
-	 *            Main component of the frame.
-	 * @param title
-	 *            Title of the window.
+	 * @param comp Main component of the frame.
+	 * @param title Title of the window.
 	 */
 	public JEasyFrame(Component comp, String title) {
 		super(title);

@@ -36,8 +36,7 @@ public class OngoingAvatar extends OrientedAvatar {
 	/**
 	 * This update call is for the game tick() loop.
 	 * 
-	 * @param game
-	 *            current state of the game.
+	 * @param game current state of the game.
 	 */
 	public void update(Game game) {
 		lastMovementType = Types.MOVEMENT.MOVE;
@@ -59,10 +58,8 @@ public class OngoingAvatar extends OrientedAvatar {
 	/**
 	 * This move call is for the Forward Model tick() loop.
 	 * 
-	 * @param game
-	 *            current state of the game.
-	 * @param actionMask
-	 *            action to apply.
+	 * @param game current state of the game.
+	 * @param actionMask action to apply.
 	 */
 	public void move(Game game, boolean[] actionMask) {
 		lastMovementType = Types.MOVEMENT.MOVE;

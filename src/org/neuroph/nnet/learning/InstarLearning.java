@@ -32,8 +32,7 @@ public class InstarLearning extends UnsupervisedHebbianLearning {
 	/**
 	 * This method implements weights update procedure for the single neuron
 	 * 
-	 * @param neuron
-	 *            neuron to update weights for
+	 * @param neuron neuron to update weights for
 	 */
 	@Override
 	protected void updateNeuronWeights(Neuron neuron) {

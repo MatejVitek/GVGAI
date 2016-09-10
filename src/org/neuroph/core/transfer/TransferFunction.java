@@ -29,16 +29,14 @@ abstract public class TransferFunction implements Serializable {
 	/**
 	 * Returns the ouput of this function.
 	 * 
-	 * @param totalInput
-	 *            total input
+	 * @param totalInput total input
 	 */
 	abstract public double getOutput(double totalInput);
 
 	/**
 	 * Returns the first derivative of this function. Note: should this method should be abstract?
 	 * 
-	 * @param totalInput
-	 *            total input
+	 * @param totalInput total input
 	 */
 	public double getDerivative(double totalInput) {
 		return 1d;

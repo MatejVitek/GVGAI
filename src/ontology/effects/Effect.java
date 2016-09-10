@@ -39,12 +39,9 @@ public abstract class Effect {
 	/**
 	 * Executes the effect
 	 *
-	 * @param sprite1
-	 *            first sprite of the collision
-	 * @param sprite2
-	 *            second sprite of the collision
-	 * @param game
-	 *            reference to the game object with the current state.
+	 * @param sprite1 first sprite of the collision
+	 * @param sprite2 second sprite of the collision
+	 * @param game reference to the game object with the current state.
 	 */
 	public abstract void execute(VGDLSprite sprite1, VGDLSprite sprite2, Game game);
 
@@ -61,8 +58,7 @@ public abstract class Effect {
 	/**
 	 * Determine score change for specific player
 	 * 
-	 * @param playerID
-	 *            - player affected
+	 * @param playerID - player affected
 	 * @return - score change
 	 */
 	public int getScoreChange(int playerID) {

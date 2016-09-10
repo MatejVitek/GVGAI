@@ -98,10 +98,8 @@ public class AlternateChaser extends RandomNPC {
 	/**
 	 * Sets a list with the closest targets (sprites with the type 'stype'), by distance
 	 * 
-	 * @param game
-	 *            game to access all sprites
-	 * @param randomTarget
-	 *            if true, a random target is added to 'targets'. Otherwise, only the closest one is.
+	 * @param game game to access all sprites
+	 * @param randomTarget if true, a random target is added to 'targets'. Otherwise, only the closest one is.
 	 */
 	protected void closestTargets(Game game, boolean randomTarget) {
 		targets.clear();

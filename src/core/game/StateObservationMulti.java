@@ -12,8 +12,7 @@ public class StateObservationMulti extends StateObservation {
 	/**
 	 * Constructor for StateObservation in multi player games. Requires a forward model
 	 *
-	 * @param a_model
-	 *            forward model of the game.
+	 * @param a_model forward model of the game.
 	 */
 	public StateObservationMulti(ForwardModel a_model) {
 		super(a_model);
@@ -26,8 +25,7 @@ public class StateObservationMulti extends StateObservation {
 	 * <p/>
 	 * Note: stochastic events will not be necessarily the same as in the real game.
 	 *
-	 * @param actions
-	 *            array of agent actions to execute in the next cycle for all players.
+	 * @param actions array of agent actions to execute in the next cycle for all players.
 	 */
 	public void advance(Types.ACTIONS[] actions) {
 		model.advance(actions);
@@ -36,8 +34,7 @@ public class StateObservationMulti extends StateObservation {
 	/**
 	 * Method overloaded for multi player games. Now passes the playerID. Returns the actions that are available in this game for the avatar.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query
+	 * @param playerID ID of the player to query
 	 * @return the available actions.
 	 */
 	public ArrayList<Types.ACTIONS> getAvailableActions(int playerID) {
@@ -47,8 +44,7 @@ public class StateObservationMulti extends StateObservation {
 	/**
 	 * Method overloaded for multi player games. Now passes the playerID. Gets the score of the game at this observation.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return score of the player with the corresponding playerID.
 	 */
 	public double getGameScore(int playerID) {
@@ -79,8 +75,7 @@ public class StateObservationMulti extends StateObservation {
 	 * Method overloaded for multi player games. Now passes the player ID. Returns the position of the avatar. If the game is finished, we cannot guarantee that this position reflects the real
 	 * position of the avatar (the avatar itself could be destroyed). If game finished, this returns Types.NIL.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return position of the avatar, or Types.NIL if game is over.
 	 */
 	public Vector2d getAvatarPosition(int playerID) {
@@ -91,8 +86,7 @@ public class StateObservationMulti extends StateObservation {
 	 * Method overloaded for multi player games. Now passes the player ID. Returns the speed of the avatar. If the game is finished, we cannot guarantee that this speed reflects the real speed of the
 	 * avatar (the avatar itself could be destroyed). If game finished, this returns 0.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return orientation of the avatar, or 0 if game is over.
 	 */
 	public double getAvatarSpeed(int playerID) {
@@ -103,8 +97,7 @@ public class StateObservationMulti extends StateObservation {
 	 * Method overloaded for multi player games. Now passes the player ID. Returns the orientation of the avatar. If the game is finished, we cannot guarantee that this orientation reflects the real
 	 * orientation of the avatar (the avatar itself could be destroyed). If game finished, this returns Types.NIL.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return orientation of the avatar, or Types.NIL if game is over.
 	 */
 	public Vector2d getAvatarOrientation(int playerID) {
@@ -116,8 +109,7 @@ public class StateObservationMulti extends StateObservation {
 	 * pair where the key is the resource ID, and the value is the amount of that resource type owned. It should be assumed that there might be other resources available in the game, but the avatar
 	 * could have none of them. If the avatar has no resources, an empty HashMap is returned.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return resources owned by the avatar.
 	 */
 	public HashMap<Integer, Integer> getAvatarResources(int playerID) {
@@ -128,8 +120,7 @@ public class StateObservationMulti extends StateObservation {
 	 * Method overloaded for multi player games. Now passes the player ID. Returns the avatar's last move. At the first game cycle, it returns ACTION_NIL. Note that this may NOT be the same as the
 	 * last action given by the agent, as it may have overspent in the last game cycle.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return the action that was executed in the real game in the last cycle. ACTION_NIL is returned in the very first game step.
 	 */
 	public Types.ACTIONS getAvatarLastAction(int playerID) {
@@ -139,8 +130,7 @@ public class StateObservationMulti extends StateObservation {
 	/**
 	 * Method overloaded for multi player games. Now passes the player ID. Returns the avatar's type. In case it has multiple types, it returns the most specific one.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return the itype of the avatar.
 	 */
 	public int getAvatarType(int playerID) {
@@ -151,8 +141,7 @@ public class StateObservationMulti extends StateObservation {
 	 * Method overloaded for multi player games. Now passes the player ID. Returns the health points of the avatar. A value of 0 doesn't necessarily mean that the avatar is dead (could be that no
 	 * health points are in use in that game).
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return a numeric value, the amount of remaining health points.
 	 */
 	public int getAvatarHealthPoints(int playerID) {
@@ -162,8 +151,7 @@ public class StateObservationMulti extends StateObservation {
 	/**
 	 * Method overloaded for multi player games. Now passes the player ID. Returns the maximum amount of health points.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return the maximum amount of health points the avatar ever had.
 	 */
 	public int getAvatarMaxHealthPoints(int playerID) {
@@ -173,8 +161,7 @@ public class StateObservationMulti extends StateObservation {
 	/**
 	 * Method overloaded for multi player games. Now passes the player ID. Returns the limit of health points this avatar can have.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return the limit of health points the avatar can have.
 	 */
 	public int getAvatarLimitHealthPoints(int playerID) {
@@ -198,8 +185,7 @@ public class StateObservationMulti extends StateObservation {
 	/**
 	 * Method overwritten with multi player optimisations.
 	 * 
-	 * @param o
-	 *            Object to compare this to.
+	 * @param o Object to compare this to.
 	 * @return true if o has the same components as this.
 	 */
 	@Override

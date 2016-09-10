@@ -80,8 +80,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 	/**
 	 * Sets left low point of trapezoid function
 	 * 
-	 * @param leftLow
-	 *            left low point of trapezoid function
+	 * @param leftLow left low point of trapezoid function
 	 */
 	public void setLeftLow(double leftLow) {
 		this.leftLow = leftLow;
@@ -90,8 +89,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 	/**
 	 * Sets left high point of trapezoid function
 	 * 
-	 * @param leftHigh
-	 *            left high point of trapezoid function
+	 * @param leftHigh left high point of trapezoid function
 	 */
 	public void setLeftHigh(double leftHigh) {
 		this.leftHigh = leftHigh;
@@ -100,8 +98,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 	/**
 	 * Sets right low point of trapezoid function
 	 * 
-	 * @param rightLow
-	 *            right low point of trapezoid function
+	 * @param rightLow right low point of trapezoid function
 	 */
 	public void setRightLow(double rightLow) {
 		this.rightLow = rightLow;
@@ -110,8 +107,7 @@ public class Trapezoid extends TransferFunction implements Serializable {
 	/**
 	 * Sets right high point of trapezoid function
 	 * 
-	 * @param rightHigh
-	 *            right high point of trapezoid function
+	 * @param rightHigh right high point of trapezoid function
 	 */
 	public void setRightHigh(double rightHigh) {
 		this.rightHigh = rightHigh;

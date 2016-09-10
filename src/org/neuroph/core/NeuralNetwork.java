@@ -96,8 +96,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Adds layer to neural network
 	 *
-	 * @param layer
-	 *            layer to add
+	 * @param layer layer to add
 	 */
 	public void addLayer(Layer layer) {
 
@@ -119,10 +118,8 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Adds layer to specified index position in network
 	 *
-	 * @param index
-	 *            index position to add layer
-	 * @param layer
-	 *            layer to add
+	 * @param index index position to add layer
+	 * @param layer layer to add
 	 */
 	public void addLayer(int index, Layer layer) {
 
@@ -149,8 +146,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Removes specified layer from network
 	 *
-	 * @param layer
-	 *            layer to remove
+	 * @param layer layer to remove
 	 * @throws Exception
 	 */
 	public void removeLayer(Layer layer) {
@@ -166,8 +162,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Removes layer at specified index position from net
 	 *
-	 * @param index
-	 *            int value represents index postion of layer which should be removed
+	 * @param index int value represents index postion of layer which should be removed
 	 */
 	public void removeLayerAt(int index) {
 		Layer layer = layers.get(index);
@@ -189,8 +184,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Returns layer at specified index
 	 *
-	 * @param index
-	 *            layer index position
+	 * @param index layer index position
 	 * @return layer at specified index position
 	 */
 	public Layer getLayerAt(int index) {
@@ -200,8 +194,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Returns index position of the specified layer
 	 *
-	 * @param layer
-	 *            requested Layer object
+	 * @param layer requested Layer object
 	 * @return layer position index
 	 */
 	public int indexOf(Layer layer) {
@@ -220,8 +213,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Sets network input. Input is an array of double values.
 	 *
-	 * @param inputVector
-	 *            network input as double array
+	 * @param inputVector network input as double array
 	 */
 	public void setInput(double... inputVector) throws VectorSizeMismatchException {
 		if (inputVector.length != inputNeurons.size()) {
@@ -299,8 +291,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Learn the specified training set
 	 *
-	 * @param trainingSet
-	 *            set of training elements to learn
+	 * @param trainingSet set of training elements to learn
 	 */
 	public void learn(DataSet trainingSet) {
 		if (trainingSet == null) {
@@ -313,10 +304,8 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Learn the specified training set, using specified learning rule
 	 *
-	 * @param trainingSet
-	 *            set of training elements to learn
-	 * @param learningRule
-	 *            instance of learning rule to use for learning
+	 * @param trainingSet set of training elements to learn
+	 * @param learningRule instance of learning rule to use for learning
 	 */
 	public void learn(DataSet trainingSet, L learningRule) {
 		setLearningRule(learningRule);
@@ -372,8 +361,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Randomizes connection weights for the whole network using specified randomizer
 	 *
-	 * @param randomizer
-	 *            random weight generator to use
+	 * @param randomizer random weight generator to use
 	 */
 	public void randomizeWeights(WeightsRandomizer randomizer) {
 		randomizer.randomize(this);
@@ -391,8 +379,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Sets type for this network
 	 *
-	 * @param type
-	 *            network type
+	 * @param type network type
 	 */
 	public void setNetworkType(NeuralNetworkType type) {
 		this.type = type;
@@ -419,8 +406,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Sets input neurons
 	 *
-	 * @param inputNeurons
-	 *            array of input neurons
+	 * @param inputNeurons array of input neurons
 	 */
 	public void setInputNeurons(List<Neuron> inputNeurons) {
 		for (Neuron neuron : inputNeurons) {
@@ -444,8 +430,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Sets output neurons
 	 *
-	 * @param outputNeurons
-	 *            output neurons collection
+	 * @param outputNeurons output neurons collection
 	 */
 	public void setOutputNeurons(List<Neuron> outputNeurons) {
 		for (Neuron neuron : outputNeurons) {
@@ -457,8 +442,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Sets labels for output neurons
 	 *
-	 * @param labels
-	 *            labels for output neurons
+	 * @param labels labels for output neurons
 	 */
 	public void setOutputLabels(String[] labels) {
 		for (int i = 0; i < outputNeurons.size(); i++) {
@@ -478,8 +462,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Sets learning algorithm for this network
 	 *
-	 * @param learningRule
-	 *            learning algorithm for this network
+	 * @param learningRule learning algorithm for this network
 	 */
 	public void setLearningRule(L learningRule) {
 		if (learningRule == null) {
@@ -511,8 +494,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Sets network weights from the specified double array
 	 *
-	 * @param weights
-	 *            array of weights to set
+	 * @param weights array of weights to set
 	 */
 	public void setWeights(double[] weights) {
 		int i = 0;
@@ -533,12 +515,9 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Creates connection with specified weight value between specified neurons
 	 *
-	 * @param fromNeuron
-	 *            neuron to connect
-	 * @param toNeuron
-	 *            neuron to connect to
-	 * @param weightVal
-	 *            connection weight value
+	 * @param fromNeuron neuron to connect
+	 * @param toNeuron neuron to connect to
+	 * @param weightVal connection weight value
 	 */
 	public void createConnection(Neuron fromNeuron, Neuron toNeuron, double weightVal) {
 		// Connection connection = new Connection(fromNeuron, toNeuron, weightVal);
@@ -557,8 +536,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Saves neural network into the specified file.
 	 *
-	 * @param filePath
-	 *            file path to save network into
+	 * @param filePath file path to save network into
 	 */
 	public void save(String filePath) {
 		ObjectOutputStream out = null;
@@ -584,8 +562,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Loads neural network from the specified file.
 	 *
-	 * @param filePath
-	 *            file path to load network from
+	 * @param filePath file path to load network from
 	 * @return loaded neural network as NeuralNetwork object
 	 * @deprecated Use createFromFile method instead
 	 */
@@ -622,8 +599,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Loads neural network from the specified InputStream.
 	 *
-	 * @param inputStream
-	 *            input stream to load network from
+	 * @param inputStream input stream to load network from
 	 * @return loaded neural network as NeuralNetwork object
 	 */
 	public static NeuralNetwork load(InputStream inputStream) {
@@ -660,8 +636,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Loads and return s neural network instance from specified file
 	 *
-	 * @param file
-	 *            neural network file
+	 * @param file neural network file
 	 * @return neural network instance
 	 */
 	public static NeuralNetwork createFromFile(File file) {
@@ -701,8 +676,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Adds plugin to neural network
 	 *
-	 * @param plugin
-	 *            neural network plugin to add
+	 * @param plugin neural network plugin to add
 	 */
 	public void addPlugin(PluginBase plugin) {
 		plugin.setParentNetwork(this);
@@ -712,8 +686,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Returns the requested plugin
 	 *
-	 * @param pluginClass
-	 *            class of the plugin to get
+	 * @param pluginClass class of the plugin to get
 	 * @return instance of specified plugin class
 	 */
 	public <T extends PluginBase> T getPlugin(Class<T> pluginClass) {
@@ -723,8 +696,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Removes the plugin with specified name
 	 *
-	 * @param pluginClass
-	 *            class of the plugin to remove
+	 * @param pluginClass class of the plugin to remove
 	 */
 	public void removePlugin(Class pluginClass) {
 		this.plugins.remove(pluginClass);
@@ -742,8 +714,7 @@ public class NeuralNetwork<L extends LearningRule> implements Serializable {
 	/**
 	 * Set network label
 	 *
-	 * @param label
-	 *            network label to set
+	 * @param label network label to set
 	 */
 	public void setLabel(String label) {
 		this.label = label;

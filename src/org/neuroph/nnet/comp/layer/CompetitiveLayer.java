@@ -36,10 +36,8 @@ public class CompetitiveLayer extends Layer {
 	/**
 	 * Create an instance of CompetitiveLayer with the specified number of neurons with neuron properties
 	 * 
-	 * @param neuronNum
-	 *            neuron number in this layer
-	 * @param neuronProperties
-	 *            properties for the nurons in this layer
+	 * @param neuronNum neuron number in this layer
+	 * @param neuronProperties properties for the nurons in this layer
 	 */
 	public CompetitiveLayer(int neuronNum, NeuronProperties neuronProperties) {
 		super(neuronNum, neuronProperties);
@@ -105,8 +103,7 @@ public class CompetitiveLayer extends Layer {
 	/**
 	 * Sets max iterations for neurons to compete in this layer
 	 * 
-	 * @param maxIterations
-	 *            max iterations for neurons to compete in this layer
+	 * @param maxIterations max iterations for neurons to compete in this layer
 	 */
 	public void setMaxIterations(int maxIterations) {
 		this.maxIterations = maxIterations;

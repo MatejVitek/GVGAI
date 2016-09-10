@@ -42,10 +42,8 @@ public class InputOutputNeuron extends Neuron {
 	/**
 	 * Creates an instance of neuron for Hopfield network with specified input and transfer functions
 	 * 
-	 * @param inFunc
-	 *            neuron input function
-	 * @param transFunc
-	 *            neuron transfer function
+	 * @param inFunc neuron input function
+	 * @param transFunc neuron transfer function
 	 */
 	public InputOutputNeuron(InputFunction inFunc, TransferFunction transFunc) {
 		super(inFunc, transFunc);
@@ -54,8 +52,7 @@ public class InputOutputNeuron extends Neuron {
 	/**
 	 * Sets total net input for this cell
 	 * 
-	 * @param input
-	 *            input value
+	 * @param input input value
 	 */
 	@Override
 	public void setInput(double input) {
@@ -75,8 +72,7 @@ public class InputOutputNeuron extends Neuron {
 	/**
 	 * Sets bias value for this neuron
 	 * 
-	 * @param bias
-	 *            bias value for this neuron
+	 * @param bias bias value for this neuron
 	 */
 	public void setBias(double bias) {
 		this.bias = bias;

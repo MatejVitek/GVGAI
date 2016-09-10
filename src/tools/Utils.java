@@ -37,10 +37,8 @@ public class Utils {
 	/**
 	 * Returns the Polygon for a triangle in the middle of the provided rect, pointing in the orientation (given as angle from upwards, or orientation vector)
 	 * 
-	 * @param rect
-	 *            rectangle with the location
-	 * @param orientation
-	 *            orientation of the sprite.
+	 * @param rect rectangle with the location
+	 * @param orientation orientation of the sprite.
 	 * @return a polygon (triangle) with the specified orientation.
 	 */
 	public static Polygon triPoints(Rectangle rect, Direction orientation) {
@@ -101,12 +99,9 @@ public class Utils {
 	/**
 	 * Adds a small noise to the input value.
 	 * 
-	 * @param input
-	 *            value to be altered
-	 * @param epsilon
-	 *            relative amount the input will be altered
-	 * @param random
-	 *            random variable in range [0,1]
+	 * @param input value to be altered
+	 * @param epsilon relative amount the input will be altered
+	 * @param random random variable in range [0,1]
 	 * @return epsilon-random-altered input value
 	 */
 	public static double noise(double input, double epsilon, double random) {

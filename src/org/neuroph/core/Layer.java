@@ -55,8 +55,7 @@ public class Layer implements Serializable {
 	/**
 	 * Creates an instance of empty Layer for specified number of neurons
 	 * 
-	 * @param neuronsCount
-	 *            number of neurons in this layer
+	 * @param neuronsCount number of neurons in this layer
 	 */
 	public Layer(int neuronsCount) {
 		neurons = new ArrayList<>(neuronsCount);
@@ -65,10 +64,8 @@ public class Layer implements Serializable {
 	/**
 	 * Creates an instance of Layer with the specified number of neurons with specified neuron properties
 	 *
-	 * @param neuronsCount
-	 *            number of neurons in layer
-	 * @param neuronProperties
-	 *            properties of neurons in layer
+	 * @param neuronsCount number of neurons in layer
+	 * @param neuronProperties properties of neurons in layer
 	 */
 	public Layer(int neuronsCount, NeuronProperties neuronProperties) {
 		this(neuronsCount);
@@ -82,8 +79,7 @@ public class Layer implements Serializable {
 	/**
 	 * Sets reference on parent network
 	 *
-	 * @param parent
-	 *            parent network
+	 * @param parent parent network
 	 */
 	public final void setParentNetwork(NeuralNetwork parent) {
 		this.parentNetwork = parent;
@@ -111,8 +107,7 @@ public class Layer implements Serializable {
 	/**
 	 * Adds specified neuron to this layer
 	 *
-	 * @param neuron
-	 *            neuron to add
+	 * @param neuron neuron to add
 	 */
 	public final void addNeuron(Neuron neuron) {
 		// prevent adding null neurons
@@ -133,10 +128,8 @@ public class Layer implements Serializable {
 	/**
 	 * Adds specified neuron to this layer,at specified index position Throws IllegalArgumentException if neuron is null, or index is illegal value (index<0 or index>neuronsCount)
 	 * 
-	 * @param neuron
-	 *            neuron to add
-	 * @param index
-	 *            index position at which neuron should be added
+	 * @param neuron neuron to add
+	 * @param index index position at which neuron should be added
 	 */
 	public final void addNeuron(int index, Neuron neuron) {
 		// prevent adding null neurons
@@ -157,10 +150,8 @@ public class Layer implements Serializable {
 	/**
 	 * Sets (replace) the neuron at specified position in layer
 	 *
-	 * @param index
-	 *            index position to set/replace
-	 * @param neuron
-	 *            new Neuron object to set
+	 * @param index index position to set/replace
+	 * @param neuron new Neuron object to set
 	 */
 	public final void setNeuron(int index, Neuron neuron) {
 		// make sure that neuron is not null
@@ -182,8 +173,7 @@ public class Layer implements Serializable {
 	/**
 	 * Removes neuron from layer
 	 *
-	 * @param neuron
-	 *            neuron to remove
+	 * @param neuron neuron to remove
 	 */
 	public final void removeNeuron(Neuron neuron) {
 		int index = indexOf(neuron);
@@ -193,8 +183,7 @@ public class Layer implements Serializable {
 	/**
 	 * Removes neuron at specified index position in this layer
 	 *
-	 * @param index
-	 *            index position of neuron to remove
+	 * @param index index position of neuron to remove
 	 */
 	public final void removeNeuronAt(int index) {
 		Neuron neuron = neurons.get(index);
@@ -216,8 +205,7 @@ public class Layer implements Serializable {
 	/**
 	 * Returns neuron at specified index position in this layer
 	 *
-	 * @param index
-	 *            neuron index position
+	 * @param index neuron index position
 	 * @return neuron at specified index position
 	 */
 	public Neuron getNeuronAt(int index) {
@@ -227,8 +215,7 @@ public class Layer implements Serializable {
 	/**
 	 * Returns the index position in layer for the specified neuron
 	 *
-	 * @param neuron
-	 *            neuron object
+	 * @param neuron neuron object
 	 * @return index position of specified neuron
 	 */
 	public int indexOf(Neuron neuron) {
@@ -271,8 +258,7 @@ public class Layer implements Serializable {
 	/**
 	 * Initialize connection weights for the whole layer to to specified value
 	 *
-	 * @param value
-	 *            the weight value
+	 * @param value the weight value
 	 */
 	public void initializeWeights(double value) {
 		for (Neuron neuron : this.neurons) {
@@ -292,8 +278,7 @@ public class Layer implements Serializable {
 	/**
 	 * Set layer label
 	 *
-	 * @param label
-	 *            layer label to set
+	 * @param label layer label to set
 	 */
 	public void setLabel(String label) {
 		this.label = label;

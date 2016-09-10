@@ -23,10 +23,8 @@ public class FileOutputAdapter extends OutputStreamAdapter {
 	/**
 	 * Creates a new FileOutputAdapter by opening a connection to an actual file, specified by the file param
 	 * 
-	 * @param file
-	 *            File object in the file system
-	 * @throws FileNotFoundException
-	 *             if specified file was not found
+	 * @param file File object in the file system
+	 * @throws FileNotFoundException if specified file was not found
 	 * @throws IOException
 	 */
 	public FileOutputAdapter(File file) throws FileNotFoundException, IOException {
@@ -36,10 +34,8 @@ public class FileOutputAdapter extends OutputStreamAdapter {
 	/**
 	 * Creates a new FileOutputAdapter by opening a connection to an actual file, specified by the fileName param
 	 * 
-	 * @param fileName
-	 *            name of the file in file system
-	 * @throws FileNotFoundException
-	 *             if specified file was not found
+	 * @param fileName name of the file in file system
+	 * @throws FileNotFoundException if specified file was not found
 	 * @throws IOException
 	 */
 	public FileOutputAdapter(String fileName) throws FileNotFoundException, IOException {

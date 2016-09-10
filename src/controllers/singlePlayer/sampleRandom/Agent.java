@@ -32,10 +32,8 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * Public constructor with state observation and time due.
 	 * 
-	 * @param so
-	 *            state observation of the current game.
-	 * @param elapsedTimer
-	 *            Timer for the controller creation.
+	 * @param so state observation of the current game.
+	 * @param elapsedTimer Timer for the controller creation.
 	 */
 	public Agent(StateObservation so, ElapsedCpuTimer elapsedTimer) {
 		randomGenerator = new Random();
@@ -46,10 +44,8 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * Picks an action. This function is called every game step to request an action from the player.
 	 * 
-	 * @param stateObs
-	 *            Observation of the current state.
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param stateObs Observation of the current state.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
 	public Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
@@ -99,10 +95,8 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * Prints the number of different types of sprites available in the "positions" array. Between brackets, the number of observations of each type.
 	 * 
-	 * @param positions
-	 *            array with observations.
-	 * @param str
-	 *            identifier to print
+	 * @param positions array with observations.
+	 * @param str identifier to print
 	 */
 	private void printDebug(ArrayList<Observation>[] positions, String str) {
 		if (positions != null) {
@@ -118,8 +112,7 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * Gets the player the control to draw something on the screen. It can be used for debug purposes.
 	 * 
-	 * @param g
-	 *            Graphics device to draw to.
+	 * @param g Graphics device to draw to.
 	 */
 	public void draw(Graphics2D g) {
 		int half_block = (int) (block_size * 0.5);

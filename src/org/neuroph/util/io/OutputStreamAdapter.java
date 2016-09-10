@@ -38,8 +38,7 @@ public class OutputStreamAdapter implements OutputAdapter {
 	/**
 	 * Writes specified output to output stream
 	 * 
-	 * @param output
-	 *            output vector to write
+	 * @param output output vector to write
 	 */
 	@Override
 	public void writeOutput(double[] output) {

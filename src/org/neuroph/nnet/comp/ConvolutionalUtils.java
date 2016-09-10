@@ -22,10 +22,8 @@ public class ConvolutionalUtils {
 	/**
 	 * Creates full connectivity between feature maps in two layers
 	 *
-	 * @param fromLayer
-	 *            from feature maps layer
-	 * @param toLayer
-	 *            to feature maps layer
+	 * @param fromLayer from feature maps layer
+	 * @param toLayer to feature maps layer
 	 */
 	public static void fullConnectMapLayers(FeatureMapsLayer fromLayer, FeatureMapsLayer toLayer) {
 		if (toLayer instanceof ConvolutionalLayer) {
@@ -49,14 +47,10 @@ public class ConvolutionalUtils {
 	/**
 	 * Creates connections between two feature maps - not used???
 	 *
-	 * @param fromLayer
-	 *            parent layer for from feature map
-	 * @param toLayer
-	 *            parent layer for to feature map
-	 * @param fromFeatureMapIndex
-	 *            index of from feature map
-	 * @param toFeatureMapIndex
-	 *            index of to feature map
+	 * @param fromLayer parent layer for from feature map
+	 * @param toLayer parent layer for to feature map
+	 * @param fromFeatureMapIndex index of from feature map
+	 * @param toFeatureMapIndex index of to feature map
 	 */
 	public static void connectFeatureMaps(FeatureMapsLayer fromLayer, FeatureMapsLayer toLayer, int fromFeatureMapIndex, int toFeatureMapIndex) {
 		FeatureMapLayer fromMap = fromLayer.getFeatureMap(fromFeatureMapIndex);

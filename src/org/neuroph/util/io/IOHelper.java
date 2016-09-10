@@ -23,12 +23,9 @@ public class IOHelper {
 	/**
 	 * Feeds specified neural network with data from InputAdapter and writes output using OutputAdapter
 	 * 
-	 * @param neuralNet
-	 *            neural network
-	 * @param in
-	 *            input data source
-	 * @param out
-	 *            output data target
+	 * @param neuralNet neural network
+	 * @param in input data source
+	 * @param out output data target
 	 */
 	public static void process(NeuralNetwork neuralNet, InputAdapter in, OutputAdapter out) {
 

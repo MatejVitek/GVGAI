@@ -32,8 +32,7 @@ public class MaxNet extends NeuralNetwork {
 	/**
 	 * Creates new Maxnet network with specified neuron number
 	 * 
-	 * @param neuronsCount
-	 *            number of neurons in MaxNet network (same number in input and output layer)
+	 * @param neuronsCount number of neurons in MaxNet network (same number in input and output layer)
 	 */
 	public MaxNet(int neuronsCount) {
 		this.createNetwork(neuronsCount);
@@ -42,10 +41,8 @@ public class MaxNet extends NeuralNetwork {
 	/**
 	 * Creates MaxNet network architecture
 	 * 
-	 * @param neuronNum
-	 *            neuron number in network
-	 * @param neuronProperties
-	 *            neuron properties
+	 * @param neuronNum neuron number in network
+	 * @param neuronProperties neuron properties
 	 */
 	private void createNetwork(int neuronsCount) {
 

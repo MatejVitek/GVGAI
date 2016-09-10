@@ -61,10 +61,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Initialize all the parameters for the level generator
 	 * 
-	 * @param game
-	 *            game description object that define the current game
-	 * @param elpasedTimer
-	 *            the amount of time that the constructor have
+	 * @param game game description object that define the current game
+	 * @param elpasedTimer the amount of time that the constructor have
 	 */
 
 	public LevelGenerator(GameDescription game, ElapsedCpuTimer elpasedTimer) {
@@ -85,8 +83,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Calculate the percentage covered from the level and percentages of each data type
 	 * 
-	 * @param game
-	 *            game description object provided by the system
+	 * @param game game description object provided by the system
 	 * @return level cover data object contain all the calculated information
 	 */
 	private LevelCoverData getPercentagesCovered(GameDescription game) {
@@ -160,14 +157,10 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Add a solid to the level space without disconnecting the level
 	 * 
-	 * @param level
-	 *            the current level to test
-	 * @param x
-	 *            the x position
-	 * @param y
-	 *            the y position
-	 * @param solid
-	 *            the name of the solid
+	 * @param level the current level to test
+	 * @param x the x position
+	 * @param y the y position
+	 * @param solid the name of the solid
 	 * @return true if it placed it and false otherwise
 	 */
 	private boolean placeSolid(LevelData level, int x, int y, String solid) {
@@ -181,10 +174,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * build level layout using the solid objects
 	 * 
-	 * @param level
-	 *            the current level
-	 * @param coverPercentage
-	 *            the cover percentages
+	 * @param level the current level
+	 * @param coverPercentage the cover percentages
 	 */
 	private void buildLevelLayout(LevelData level, LevelCoverData coverPercentage) {
 		ArrayList<String> solidSprites = gameAnalyzer.getSolidSprites();
@@ -254,8 +245,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Get the area of the level
 	 * 
-	 * @param level
-	 *            the current level
+	 * @param level the current level
 	 * @return the size of the internal level (without the borders if exists)
 	 */
 	private double getArea(LevelData level) {
@@ -269,8 +259,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * get all free positions that have the highest and lowest y value
 	 * 
-	 * @param freePositions
-	 *            list of all free positions
+	 * @param freePositions list of all free positions
 	 * @return return list of all these points
 	 */
 	private ArrayList<Point> getUpperLowerPoints(ArrayList<Point> freePositions) {
@@ -298,10 +287,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * add the avatar to the current level
 	 * 
-	 * @param level
-	 *            the current level
-	 * @param game
-	 *            the game description object
+	 * @param level the current level
+	 * @param game the game description object
 	 * @return the added position
 	 */
 	private Point addAvatar(LevelData level, GameDescription game) {
@@ -337,10 +324,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * calculate the number of objects in the level
 	 * 
-	 * @param game
-	 *            game description object
-	 * @param level
-	 *            the current level
+	 * @param game game description object
+	 * @param level the current level
 	 * @return hashmap for all sprite names with the associated numbers
 	 */
 	private HashMap<String, Integer> calculateNumberOfObjects(GameDescription game, LevelData level) {
@@ -370,12 +355,9 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * fix the termination conditions by making sure all of them are unstaisfied
 	 * 
-	 * @param game
-	 *            game description object
-	 * @param level
-	 *            current level
-	 * @param coverPercentage
-	 *            the cover percentages
+	 * @param game game description object
+	 * @param level current level
+	 * @param coverPercentage the cover percentages
 	 */
 	private void fixGoals(GameDescription game, LevelData level, LevelCoverData coverPercentage) {
 		// get all the termination conditions
@@ -422,10 +404,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * check if the object is a moving object
 	 * 
-	 * @param game
-	 *            game description object
-	 * @param stype
-	 *            current sprite need to be checked
+	 * @param game game description object
+	 * @param stype current sprite need to be checked
 	 * @return true if stype is moving and false otherwise
 	 */
 	private boolean isMoving(GameDescription game, String stype) {
@@ -442,10 +422,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * get a free position far from the avatar position
 	 * 
-	 * @param freePosition
-	 *            list of the free positions
-	 * @param avatarPosition
-	 *            the avatar position
+	 * @param freePosition list of the free positions
+	 * @param avatarPosition the avatar position
 	 * @return the index of the possible far position
 	 */
 	private int getFarLocation(ArrayList<Point> freePosition, Point avatarPosition) {
@@ -476,14 +454,10 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Add harmful objects to the level
 	 * 
-	 * @param game
-	 *            the game description object
-	 * @param level
-	 *            the current level
-	 * @param coverPercentage
-	 *            the cover percentages
-	 * @param avatarPosition
-	 *            the current avatar position
+	 * @param game the game description object
+	 * @param level the current level
+	 * @param coverPercentage the cover percentages
+	 * @param avatarPosition the current avatar position
 	 */
 	private void addHarmfulObjects(GameDescription game, LevelData level, LevelCoverData coverPercentage, Point avatarPosition) {
 		double numberOfHarmful = coverPercentage.levelPercentage * coverPercentage.harmfulPercentage * getArea(generatedLevel);
@@ -522,12 +496,9 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Add Collectable objects to the current level
 	 * 
-	 * @param game
-	 *            the game description object
-	 * @param level
-	 *            the current level
-	 * @param coverPercentage
-	 *            the current cover percentages
+	 * @param game the game description object
+	 * @param level the current level
+	 * @param coverPercentage the current cover percentages
 	 */
 	private void addCollectableObjects(GameDescription game, LevelData level, LevelCoverData coverPercentage) {
 		double numberOfOther = coverPercentage.levelPercentage * coverPercentage.collectablePercentage * getArea(level);
@@ -552,12 +523,9 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Add other kind of objects to the level
 	 * 
-	 * @param game
-	 *            the current game description
-	 * @param level
-	 *            the current game level
-	 * @param coverPercentage
-	 *            the cover percentages
+	 * @param game the current game description
+	 * @param level the current game level
+	 * @param coverPercentage the cover percentages
 	 */
 	private void addOtherObjects(GameDescription game, LevelData level, LevelCoverData coverPercentage) {
 		double numberOfOther = coverPercentage.levelPercentage * coverPercentage.otherPercentage * getArea(level);
@@ -583,14 +551,10 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Generate a level with a fixed width and length
 	 * 
-	 * @param game
-	 *            the current level description
-	 * @param elapsedTimer
-	 *            the amount of time allowed for generation
-	 * @param width
-	 *            the width of the level
-	 * @param length
-	 *            the length of the level
+	 * @param game the current level description
+	 * @param elapsedTimer the amount of time allowed for generation
+	 * @param width the width of the level
+	 * @param length the length of the level
 	 * @return string for the generated level
 	 */
 	public String generateLevel(GameDescription game, ElapsedCpuTimer elapsedTimer, int width, int length) {
@@ -611,10 +575,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * generate a level without specifying the width and the height of the level
 	 * 
-	 * @param game
-	 *            the current game description object
-	 * @param elpasedTimer
-	 *            the amount of time allowed for generation
+	 * @param game the current game description object
+	 * @param elpasedTimer the amount of time allowed for generation
 	 * @return string for the generated level
 	 */
 	@Override

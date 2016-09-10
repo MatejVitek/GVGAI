@@ -19,8 +19,7 @@ public class GeneralizedHebbianLearning extends UnsupervisedHebbianLearning {
 	/**
 	 * This method implements weights update procedure for the single neuron
 	 * 
-	 * @param neuron
-	 *            neuron to update weights
+	 * @param neuron neuron to update weights
 	 */
 	@Override
 	protected void updateNeuronWeights(Neuron neuron) {

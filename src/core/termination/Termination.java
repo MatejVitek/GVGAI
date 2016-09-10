@@ -31,8 +31,7 @@ public abstract class Termination {
 	/**
 	 * Determine win state of a specific player.
 	 * 
-	 * @param playerID
-	 *            - ID of the player to query.
+	 * @param playerID - ID of the player to query.
 	 * @return - true if player won, false otherwise.
 	 */
 	public boolean win(int playerID) {

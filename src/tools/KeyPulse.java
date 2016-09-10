@@ -35,8 +35,7 @@ public class KeyPulse extends KeyHandler {
 	/**
 	 * Manages KeyPressed events
 	 * 
-	 * @param e
-	 *            the event.
+	 * @param e the event.
 	 */
 	public void keyPressed(KeyEvent e) {
 		pulses[e.getKeyCode()] = true;
@@ -45,8 +44,7 @@ public class KeyPulse extends KeyHandler {
 	/**
 	 * Manages keyReleased events
 	 * 
-	 * @param e
-	 *            the event.
+	 * @param e the event.
 	 */
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();

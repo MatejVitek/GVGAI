@@ -40,10 +40,8 @@ public class Connection implements Serializable {
 	/**
 	 * Creates a new connection between specified neurons with random weight
 	 *
-	 * @param fromNeuron
-	 *            neuron to connect from
-	 * @param toNeuron
-	 *            neuron to connect to
+	 * @param fromNeuron neuron to connect from
+	 * @param toNeuron neuron to connect to
 	 */
 	public Connection(Neuron fromNeuron, Neuron toNeuron) {
 
@@ -67,12 +65,9 @@ public class Connection implements Serializable {
 	/**
 	 * Creates a new connection to specified neuron with specified weight object
 	 *
-	 * @param fromNeuron
-	 *            neuron to connect from
-	 * @param toNeuron
-	 *            neuron to connect to
-	 * @param weight
-	 *            weight for this connection
+	 * @param fromNeuron neuron to connect from
+	 * @param toNeuron neuron to connect to
+	 * @param weight weight for this connection
 	 */
 	public Connection(Neuron fromNeuron, Neuron toNeuron, Weight weight) {
 		this(fromNeuron, toNeuron);
@@ -89,12 +84,9 @@ public class Connection implements Serializable {
 	/**
 	 * Creates a new connection to specified neuron with specified weight value
 	 *
-	 * @param fromNeuron
-	 *            neuron to connect from
-	 * @param toNeuron
-	 *            neuron to connect to
-	 * @param weightVal
-	 *            weight value for this connection
+	 * @param fromNeuron neuron to connect from
+	 * @param toNeuron neuron to connect to
+	 * @param weightVal weight value for this connection
 	 */
 	public Connection(Neuron fromNeuron, Neuron toNeuron, double weightVal) {
 		this(fromNeuron, toNeuron, new Weight(weightVal));
@@ -112,8 +104,7 @@ public class Connection implements Serializable {
 	/**
 	 * Set the weight of the connection.
 	 * 
-	 * @param weight
-	 *            The new weight of the connection.
+	 * @param weight The new weight of the connection.
 	 */
 	public void setWeight(Weight weight) {
 		if (weight == null) {

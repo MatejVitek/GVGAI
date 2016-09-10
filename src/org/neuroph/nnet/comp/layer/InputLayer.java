@@ -24,8 +24,7 @@ public class InputLayer extends Layer {
 	/**
 	 * Creates a new instance of InputLayer with specified number of input neurons
 	 * 
-	 * @param neuronsCount
-	 *            input neurons count for this layer
+	 * @param neuronsCount input neurons count for this layer
 	 */
 	public InputLayer(int neuronsCount) {
 		NeuronProperties inputNeuronProperties = new NeuronProperties(InputNeuron.class, Linear.class);

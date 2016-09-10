@@ -31,10 +31,8 @@ public class UnsupervisedHebbianNetwork extends NeuralNetwork {
 	/**
 	 * Creates an instance of Unsuervised Hebian net with specified number of neurons in input and output layer
 	 * 
-	 * @param inputNeuronsNum
-	 *            number of neurons in input layer
-	 * @param outputNeuronsNum
-	 *            number of neurons in output layer
+	 * @param inputNeuronsNum number of neurons in input layer
+	 * @param outputNeuronsNum number of neurons in output layer
 	 */
 	public UnsupervisedHebbianNetwork(int inputNeuronsNum, int outputNeuronsNum) {
 		this.createNetwork(inputNeuronsNum, outputNeuronsNum, TransferFunctionType.LINEAR);
@@ -44,12 +42,9 @@ public class UnsupervisedHebbianNetwork extends NeuralNetwork {
 	/**
 	 * Creates an instance of Unsuervised Hebian net with specified number of neurons in input layer and output layer, and transfer function
 	 * 
-	 * @param inputNeuronsNum
-	 *            number of neurons in input layer
-	 * @param outputNeuronsNum
-	 *            number of neurons in output layer
-	 * @param transferFunctionType
-	 *            transfer function type id
+	 * @param inputNeuronsNum number of neurons in input layer
+	 * @param outputNeuronsNum number of neurons in output layer
+	 * @param transferFunctionType transfer function type id
 	 */
 	public UnsupervisedHebbianNetwork(int inputNeuronsNum, int outputNeuronsNum, TransferFunctionType transferFunctionType) {
 		this.createNetwork(inputNeuronsNum, outputNeuronsNum, transferFunctionType);
@@ -58,12 +53,9 @@ public class UnsupervisedHebbianNetwork extends NeuralNetwork {
 	/**
 	 * Creates an instance of Unsuervised Hebian net with specified number of neurons in input layer and output layer, and transfer function
 	 * 
-	 * @param inputNeuronsNum
-	 *            number of neurons in input layer
-	 * @param outputNeuronsNum
-	 *            number of neurons in output layer
-	 * @param transferFunctionType
-	 *            transfer function type
+	 * @param inputNeuronsNum number of neurons in input layer
+	 * @param outputNeuronsNum number of neurons in output layer
+	 * @param transferFunctionType transfer function type
 	 */
 	private void createNetwork(int inputNeuronsNum, int outputNeuronsNum, TransferFunctionType transferFunctionType) {
 

@@ -58,8 +58,7 @@ public class SingleMCTSPlayer {
 	/**
 	 * Public constructor with a sampleRandom generator object.
 	 *
-	 * @param randomGenerator
-	 *            sampleRandom generator object.
+	 * @param randomGenerator sampleRandom generator object.
 	 */
 	public SingleMCTSPlayer(Random randomGenerator) {
 		SingleMCTSPlayer.randomGenerator = randomGenerator;
@@ -77,8 +76,7 @@ public class SingleMCTSPlayer {
 	/**
 	 * Initializes the tree with the new observation state in the root.
 	 *
-	 * @param gameState
-	 *            current state of the game.
+	 * @param gameState current state of the game.
 	 */
 	public void init(StateObservation gameState) {
 		rootObservation = gameState;
@@ -103,8 +101,7 @@ public class SingleMCTSPlayer {
 	/**
 	 * Runs MCTS to decide the action to take. It does not reset the tree.
 	 *
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return the action to execute in the game.
 	 */
 	public int run(ElapsedCpuTimer elapsedTimer) {
@@ -120,10 +117,8 @@ public class SingleMCTSPlayer {
 	/**
 	 * Builds the search tree, given a time budget and a state observation
 	 *
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due
-	 * @param rootObservation
-	 *            Initial state observation
+	 * @param elapsedTimer Timer when the action returned is due
+	 * @param rootObservation Initial state observation
 	 */
 	private void mctsSearch(ElapsedCpuTimer elapsedTimer, StateObservation rootObservation) {
 
@@ -158,8 +153,7 @@ public class SingleMCTSPlayer {
 	/**
 	 * The policy that navigates through the tree.
 	 * 
-	 * @param currentObservation
-	 *            the initial state observation, used as the root node
+	 * @param currentObservation the initial state observation, used as the root node
 	 * @return the tree node where the tree navigation has ended (it can be a final node/state, or just the node where the policy exited the tree.
 	 */
 	private SingleTreeNode treePolicy(StateObservation currentObservation) {
@@ -203,10 +197,8 @@ public class SingleMCTSPlayer {
 	/**
 	 * Expands the tree, from a given node, and given a certain state observation
 	 * 
-	 * @param fatherNode
-	 *            the node from which we are expanding the tree
-	 * @param currentObservation
-	 *            the state observation that we are currently in (for *this* particular simulation)
+	 * @param fatherNode the node from which we are expanding the tree
+	 * @param currentObservation the state observation that we are currently in (for *this* particular simulation)
 	 * @return the new tree node that resulted from the expansion
 	 */
 	private SingleTreeNode expand(SingleTreeNode fatherNode, StateObservation currentObservation) {
@@ -243,10 +235,8 @@ public class SingleMCTSPlayer {
 	/**
 	 * Computes the value associated with a state observation and a tree depth
 	 * 
-	 * @param a_gameState
-	 *            the state observation that is evaluated
-	 * @param treeDepth
-	 *            the depth in the tree where this evaluation is made
+	 * @param a_gameState the state observation that is evaluated
+	 * @param treeDepth the depth in the tree where this evaluation is made
 	 * @return the value of the state
 	 */
 	private double value(StateObservation a_gameState, int treeDepth) {
@@ -267,8 +257,7 @@ public class SingleMCTSPlayer {
 	/**
 	 * Plays random moves until the simulation ends (either because we do MCTSRolloutDepth moves, or the game ends)
 	 *
-	 * @param _currentObservation
-	 *            the initial state observation
+	 * @param _currentObservation the initial state observation
 	 * @return the final value after playing the random moves
 	 */
 	public double rollOut(StateObservation _currentObservation) {
@@ -285,10 +274,8 @@ public class SingleMCTSPlayer {
 	/**
 	 * Checks if a rollout should end or not
 	 * 
-	 * @param rollerState
-	 *            the current state observation
-	 * @param depth
-	 *            the current depth of the rollout
+	 * @param rollerState the current state observation
+	 * @param depth the current depth of the rollout
 	 * @return the value in the last reached state
 	 */
 	private boolean finishRollout(StateObservation rollerState, int depth) {

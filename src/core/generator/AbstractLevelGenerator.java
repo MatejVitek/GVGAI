@@ -10,10 +10,8 @@ public abstract class AbstractLevelGenerator {
 	/**
 	 * This function is called by the game engine to get a level description string.
 	 * 
-	 * @param game
-	 *            GameDescription object holding all game information
-	 * @param elapsedTimer
-	 *            count down until level generation is due
+	 * @param game GameDescription object holding all game information
+	 * @param elapsedTimer count down until level generation is due
 	 * @return Level Description String that follows the game LevelMapping
 	 */
 	public abstract String generateLevel(GameDescription game, ElapsedCpuTimer elapsedTimer);

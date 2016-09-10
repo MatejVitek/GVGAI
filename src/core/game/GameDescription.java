@@ -76,8 +76,7 @@ public class GameDescription {
 	/**
 	 * Constructor to the Game Description. It initialize all the data using the passed game object.
 	 * 
-	 * @param currentGame
-	 *            The current running game object.
+	 * @param currentGame The current running game object.
 	 */
 	public GameDescription(Game currentGame) {
 		this.currentGame = currentGame;
@@ -109,8 +108,7 @@ public class GameDescription {
 	/**
 	 * Reset the game description object and assign new game object
 	 * 
-	 * @param currentGame
-	 *            new game object assigned
+	 * @param currentGame new game object assigned
 	 */
 	public void reset(Game currentGame) {
 		this.currentGame = currentGame;
@@ -160,8 +158,7 @@ public class GameDescription {
 	/**
 	 * Build the generated level to be tested using an agent using the original Level Mapping.
 	 * 
-	 * @param level
-	 *            a string of characters that are supplied in the character mapping
+	 * @param level a string of characters that are supplied in the character mapping
 	 * @return StateObservation object that can be used to simulate the game.
 	 */
 	public StateObservation testLevel(String level) {
@@ -171,8 +168,7 @@ public class GameDescription {
 	/**
 	 * Build the generated level to be tested using an agent. You should call this version if you are using your own character mapping
 	 * 
-	 * @param level
-	 *            a string of characters that are supplied in the character mapping
+	 * @param level a string of characters that are supplied in the character mapping
 	 * @return StateObservation object that can be used to simulate the game.
 	 */
 	public StateObservation testLevel(String level, HashMap<Character, ArrayList<String>> charMapping) {
@@ -190,8 +186,7 @@ public class GameDescription {
 	/**
 	 * Get player supported actions
 	 * 
-	 * @param includeNIL
-	 *            boolean to identify if the NIL action should exists in the supported actions
+	 * @param includeNIL boolean to identify if the NIL action should exists in the supported actions
 	 * @return list of all player supported actions
 	 */
 	public ArrayList<Types.ACTIONS> getAvailableActions(boolean includeNIL) {
@@ -276,10 +271,8 @@ public class GameDescription {
 	/**
 	 * Get a list of all effects happening to the first sprite
 	 * 
-	 * @param stype1
-	 *            the sprite name of the first sprite in the collision
-	 * @param stype2
-	 *            the sprite name of the second sprite in the collision
+	 * @param stype1 the sprite name of the first sprite in the collision
+	 * @param stype2 the sprite name of the second sprite in the collision
 	 * @return an array of all possible effects. If there is no effects, an empty array is returned
 	 */
 	public ArrayList<GameDescription.InteractionData> getInteraction(String stype1, String stype2) {

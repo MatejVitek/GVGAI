@@ -89,14 +89,10 @@ public class SingleTreeNode {
 	/**
 	 * Public constructor for nodes with a parent node
 	 * 
-	 * @param parent
-	 *            the parent node
-	 * @param depth
-	 *            the tree depth at which the node is added
-	 * @param actionIndex
-	 *            the index of the action that was chosen immediately before creating this node
-	 * @param tabooBias
-	 *            the location bias of this node, computed based on the avatar location
+	 * @param parent the parent node
+	 * @param depth the tree depth at which the node is added
+	 * @param actionIndex the index of the action that was chosen immediately before creating this node
+	 * @param tabooBias the location bias of this node, computed based on the avatar location
 	 */
 	public SingleTreeNode(SingleTreeNode parent, int depth, int actionIndex, double tabooBias) {
 		this.parent = parent;
@@ -266,10 +262,8 @@ public class SingleTreeNode {
 	/**
 	 * Backtracks along the visited branch of the tree, to update the stored data, including the expectimax values
 	 * 
-	 * @param node
-	 *            the initial node of the backup (usually a tree leaf)
-	 * @param result
-	 *            the value measured before back tracking (eg. the score when the simulation ended)
+	 * @param node the initial node of the backup (usually a tree leaf)
+	 * @param result the value measured before back tracking (eg. the score when the simulation ended)
 	 */
 	public void backUp(SingleTreeNode node, double result) {
 		SingleTreeNode n = node;

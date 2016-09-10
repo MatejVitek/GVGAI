@@ -42,8 +42,7 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Adaline network
 	 * 
-	 * @param inputsCount
-	 *            number of inputs of Adaline network
+	 * @param inputsCount number of inputs of Adaline network
 	 * @return instance of Adaline network
 	 */
 	public static Adaline createAdaline(int inputsCount) {
@@ -54,12 +53,9 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Perceptron network
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
-	 * @param transferFunctionType
-	 *            type of transfer function to use
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
+	 * @param transferFunctionType type of transfer function to use
 	 * @return instance of Perceptron network
 	 */
 	public static Perceptron createPerceptron(int inputNeuronsCount, int outputNeuronsCount, TransferFunctionType transferFunctionType) {
@@ -70,14 +66,10 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Perceptron network
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
-	 * @param transferFunctionType
-	 *            type of transfer function to use
-	 * @param learningRule
-	 *            learning rule class
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
+	 * @param transferFunctionType type of transfer function to use
+	 * @param learningRule learning rule class
 	 * @return instance of Perceptron network
 	 */
 	public static Perceptron createPerceptron(int inputNeuronsCount, int outputNeuronsCount, TransferFunctionType transferFunctionType, Class learningRule) {
@@ -96,10 +88,8 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Multi Layer Perceptron
 	 * 
-	 * @param layersStr
-	 *            space separated number of neurons in layers
-	 * @param transferFunctionType
-	 *            transfer function type for neurons
+	 * @param layersStr space separated number of neurons in layers
+	 * @param transferFunctionType transfer function type for neurons
 	 * @return instance of Multi Layer Perceptron
 	 */
 	public static MultiLayerPerceptron createMLPerceptron(String layersStr, TransferFunctionType transferFunctionType) {
@@ -111,10 +101,8 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Multi Layer Perceptron
 	 * 
-	 * @param layersStr
-	 *            space separated number of neurons in layers
-	 * @param transferFunctionType
-	 *            transfer function type for neurons
+	 * @param layersStr space separated number of neurons in layers
+	 * @param transferFunctionType transfer function type for neurons
 	 * @return instance of Multi Layer Perceptron
 	 */
 	public static MultiLayerPerceptron createMLPerceptron(String layersStr, TransferFunctionType transferFunctionType, Class learningRule, boolean useBias, boolean connectIO) {
@@ -147,8 +135,7 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Hopfield network
 	 * 
-	 * @param neuronsCount
-	 *            number of neurons in Hopfield network
+	 * @param neuronsCount number of neurons in Hopfield network
 	 * @return instance of Hopfield network
 	 */
 	public static Hopfield createHopfield(int neuronsCount) {
@@ -159,10 +146,8 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of BAM network
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of input neurons
-	 * @param outputNeuronsCount
-	 *            number of output neurons
+	 * @param inputNeuronsCount number of input neurons
+	 * @param outputNeuronsCount number of output neurons
 	 * @return instance of BAM network
 	 */
 	public static BAM createBam(int inputNeuronsCount, int outputNeuronsCount) {
@@ -173,10 +158,8 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Kohonen network
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of input neurons
-	 * @param outputNeuronsCount
-	 *            number of output neurons
+	 * @param inputNeuronsCount number of input neurons
+	 * @param outputNeuronsCount number of output neurons
 	 * @return instance of Kohonen network
 	 */
 	public static Kohonen createKohonen(int inputNeuronsCount, int outputNeuronsCount) {
@@ -187,12 +170,9 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Hebbian network
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
-	 * @param transferFunctionType
-	 *            neuron's transfer function type
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
+	 * @param transferFunctionType neuron's transfer function type
 	 * @return instance of Hebbian network
 	 */
 	public static SupervisedHebbianNetwork createSupervisedHebbian(int inputNeuronsCount, int outputNeuronsCount, TransferFunctionType transferFunctionType) {
@@ -203,12 +183,9 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Unsupervised Hebbian Network
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
-	 * @param transferFunctionType
-	 *            neuron's transfer function type
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
+	 * @param transferFunctionType neuron's transfer function type
 	 * @return instance of Unsupervised Hebbian Network
 	 */
 	public static UnsupervisedHebbianNetwork createUnsupervisedHebbian(int inputNeuronsCount, int outputNeuronsCount, TransferFunctionType transferFunctionType) {
@@ -219,8 +196,7 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Max Net network
 	 * 
-	 * @param neuronsCount
-	 *            number of neurons (same num in input and output layer)
+	 * @param neuronsCount number of neurons (same num in input and output layer)
 	 * @return instance of Max Net network
 	 */
 	public static MaxNet createMaxNet(int neuronsCount) {
@@ -231,8 +207,7 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Instar network
 	 * 
-	 * @param inputNeuronsCount
-	 *            umber of input neurons
+	 * @param inputNeuronsCount umber of input neurons
 	 * @return instance of Instar network
 	 */
 	public static Instar createInstar(int inputNeuronsCount) {
@@ -243,8 +218,7 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of Outstar network
 	 * 
-	 * @param outputNeuronsCount
-	 *            number of output neurons
+	 * @param outputNeuronsCount number of output neurons
 	 * @return instance of Outstar network
 	 */
 	public static Outstar createOutstar(int outputNeuronsCount) {
@@ -255,10 +229,8 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of competitive network
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 * @return instance of CompetitiveNetwork
 	 */
 	public static CompetitiveNetwork createCompetitiveNetwork(int inputNeuronsCount, int outputNeuronsCount) {
@@ -269,12 +241,9 @@ public class NeuralNetworkFactory {
 	/**
 	 * Creates and returns a new instance of RBF network
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param rbfNeuronsCount
-	 *            number of neurons in RBF layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param rbfNeuronsCount number of neurons in RBF layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 * @return instance of RBF network
 	 */
 	public static RBFNetwork createRbfNetwork(int inputNeuronsCount, int rbfNeuronsCount, int outputNeuronsCount) {

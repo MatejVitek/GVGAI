@@ -41,8 +41,7 @@ public class VGDLViewer extends JComponent {
 	/**
 	 * Creates the viewer for the game.
 	 * 
-	 * @param game
-	 *            game to be displayed
+	 * @param game game to be displayed
 	 */
 	public VGDLViewer(Game game, Player player) {
 		this.game = game;
@@ -53,8 +52,7 @@ public class VGDLViewer extends JComponent {
 	/**
 	 * Main method to paint the game
 	 * 
-	 * @param gx
-	 *            Graphics object.
+	 * @param gx Graphics object.
 	 */
 	public void paintComponent(Graphics gx) {
 		Graphics2D g = (Graphics2D) gx;
@@ -92,8 +90,7 @@ public class VGDLViewer extends JComponent {
 	/**
 	 * Paints the sprites.
 	 * 
-	 * @param spriteGroupsGame
-	 *            sprites to paint.
+	 * @param spriteGroupsGame sprites to paint.
 	 */
 	public void paint(SpriteGroup[] spriteGroupsGame) {
 		// this.spriteGroups = spriteGroupsGame;

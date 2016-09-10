@@ -150,8 +150,7 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * crossover the current chromosome with the input chromosome
 	 * 
-	 * @param c
-	 *            the other chromosome to crossover with
+	 * @param c the other chromosome to crossover with
 	 * @return the current children from the crossover process
 	 */
 	public ArrayList<Chromosome> crossOver(Chromosome c) {
@@ -238,8 +237,7 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * get the free positions in the current level (that doesnt contain solid or object from the input list)
 	 * 
-	 * @param sprites
-	 *            list of sprites names to test them
+	 * @param sprites list of sprites names to test them
 	 * @return list of all free position points
 	 */
 	private ArrayList<SpritePointData> getFreePositions(ArrayList<String> sprites) {
@@ -266,8 +264,7 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * get all the positions of all the sprites found in the input list
 	 * 
-	 * @param sprites
-	 *            list of sprites
+	 * @param sprites list of sprites
 	 * @return list of points that contains the sprites in the list
 	 */
 	private ArrayList<SpritePointData> getPositions(ArrayList<String> sprites) {
@@ -355,8 +352,7 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * get the current level string
 	 * 
-	 * @param levelMapping
-	 *            level mapping object to help constructing the string
+	 * @param levelMapping level mapping object to help constructing the string
 	 * @return string of letters defined in the level mapping that represent the level
 	 */
 	public String getLevelString(LevelMapping levelMapping) {
@@ -444,10 +440,8 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * Get fitness value for the current score difference between the best player and the naive player
 	 * 
-	 * @param scoreDiff
-	 *            difference between the best player score and the naive player score
-	 * @param maxScore
-	 *            maximum score required to approach it
+	 * @param scoreDiff difference between the best player score and the naive player score
+	 * @param maxScore maximum score required to approach it
 	 * @return value between 0 to 1 which is almost 1 near the maxScore.
 	 */
 	private double getGameScore(double scoreDiff, double maxScore) {
@@ -486,10 +480,8 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * get a fitness value for the number of unique rules satisfied during playing the game
 	 * 
-	 * @param gameState
-	 *            the current level after playing using the best player
-	 * @param minUniqueRule
-	 *            minimum amount of rules needed to reach 1
+	 * @param gameState the current level after playing using the best player
+	 * @param minUniqueRule minimum amount of rules needed to reach 1
 	 * @return near 1 when its near to minUniqueRule
 	 */
 	private double getUniqueRuleScore(StateObservation gameState, double minUniqueRule) {
@@ -516,12 +508,9 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * Play the current level using the naive player
 	 * 
-	 * @param stateObs
-	 *            the current stateObservation object that represent the level
-	 * @param steps
-	 *            the maximum amount of steps that it shouldn't exceed it
-	 * @param agent
-	 *            current agent to play the level
+	 * @param stateObs the current stateObservation object that represent the level
+	 * @param steps the maximum amount of steps that it shouldn't exceed it
+	 * @param agent current agent to play the level
 	 * @return the number of steps that the agent stops playing after (<= steps)
 	 */
 	private int getNaivePlayerResult(StateObservation stateObs, int steps, AbstractPlayer agent) {
@@ -540,8 +529,7 @@ public class Chromosome implements Comparable<Chromosome> {
 	/**
 	 * Calculate the current fitness of the chromosome
 	 * 
-	 * @param time
-	 *            amount of time to evaluate the chromosome
+	 * @param time amount of time to evaluate the chromosome
 	 * @return current fitness of the chromosome
 	 */
 	public ArrayList<Double> calculateFitness(long time) {

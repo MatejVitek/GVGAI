@@ -54,8 +54,7 @@ public abstract class FeatureMapsLayer extends Layer {
 	/**
 	 * Creates a new empty feature maps layer with specified kernel
 	 *
-	 * @param kernel
-	 *            kernel to use for all feature maps
+	 * @param kernel kernel to use for all feature maps
 	 */
 	public FeatureMapsLayer(/* Kernel kernel */) {
 		// this.kernel = kernel;
@@ -65,10 +64,8 @@ public abstract class FeatureMapsLayer extends Layer {
 	/**
 	 * Creates a new empty feature maps layer with specified kernel and feature map dimensions.
 	 *
-	 * @param kernel
-	 *            kernel used for all feature maps in this layer
-	 * @param mapDimensions
-	 *            mapDimensions of feature maps in this layer
+	 * @param kernel kernel used for all feature maps in this layer
+	 * @param mapDimensions mapDimensions of feature maps in this layer
 	 */
 	public FeatureMapsLayer(/* Kernel kernel, */ Dimension2D mapDimensions) {
 		// this.kernel = kernel;
@@ -79,14 +76,10 @@ public abstract class FeatureMapsLayer extends Layer {
 	/**
 	 * Creates new feature maps layer with specified kernel and feature maps. Also creates feature maps and neurons in feature maps;
 	 *
-	 * @param kernel
-	 *            kernel used for all feature maps in this layer
-	 * @param mapDimensions
-	 *            mapDimensions of feature maps in this layer
-	 * @param mapCount
-	 *            number of feature maps
-	 * @param neuronProp
-	 *            properties for neurons in feature maps
+	 * @param kernel kernel used for all feature maps in this layer
+	 * @param mapDimensions mapDimensions of feature maps in this layer
+	 * @param mapCount number of feature maps
+	 * @param neuronProp properties for neurons in feature maps
 	 */
 	public FeatureMapsLayer(Dimension2D kernelDimension, Dimension2D mapDimensions, int mapCount, NeuronProperties neuronProp) {
 		// this.kernel = kernel;
@@ -104,8 +97,7 @@ public abstract class FeatureMapsLayer extends Layer {
 	/**
 	 * Adds a feature map (2d layer) to this feature map layer
 	 * 
-	 * @param featureMap
-	 *            feature map to add
+	 * @param featureMap feature map to add
 	 */
 	public void addFeatureMap(FeatureMapLayer featureMap) {
 		if (featureMap == null) {
@@ -120,12 +112,9 @@ public abstract class FeatureMapsLayer extends Layer {
 	/**
 	 * Creates and adds specified number of feature maps to this layer
 	 *
-	 * @param mapCount
-	 *            number of feature maps to create
-	 * @param dimensions
-	 *            feature map dimensions
-	 * @param neuronProperties
-	 *            properties of neurons in feature maps
+	 * @param mapCount number of feature maps to create
+	 * @param dimensions feature map dimensions
+	 * @param neuronProperties properties of neurons in feature maps
 	 */
 	protected final void createFeatureMaps(int mapCount, Dimension2D mapDimensions, Dimension2D kernelDimension, NeuronProperties neuronProperties) {
 		for (int i = 0; i < mapCount; i++) {
@@ -142,8 +131,7 @@ public abstract class FeatureMapsLayer extends Layer {
 	/**
 	 * Returns feature map (Layer2D) at specified index
 	 *
-	 * @param index
-	 *            index of feature map
+	 * @param index index of feature map
 	 * @return feature map (Layer2D instance) at specified index
 	 */
 	public FeatureMapLayer getFeatureMap(int index) {
@@ -162,12 +150,9 @@ public abstract class FeatureMapsLayer extends Layer {
 	/**
 	 * Returns neuron instance at specified (x, y) position at specified feature map layer
 	 *
-	 * @param x
-	 *            neuron's x position
-	 * @param y
-	 *            neuron's y position
-	 * @param mapIndex
-	 *            feature map index
+	 * @param x neuron's x position
+	 * @param y neuron's y position
+	 * @param mapIndex feature map index
 	 * @return neuron at specified (x, y, map) position
 	 */
 	public Neuron getNeuronAt(int x, int y, int mapIndex) {

@@ -42,16 +42,14 @@ public abstract class KeyHandler extends KeyAdapter {
 	/**
 	 * Manages KeyPressed events
 	 * 
-	 * @param e
-	 *            the event.
+	 * @param e the event.
 	 */
 	public abstract void keyPressed(KeyEvent e);
 
 	/**
 	 * Manages keyReleased events
 	 * 
-	 * @param e
-	 *            the event.
+	 * @param e the event.
 	 */
 	public abstract void keyReleased(KeyEvent e);
 

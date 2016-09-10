@@ -72,10 +72,8 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	/**
 	 * Trains network for the specified training set and maxError
 	 *
-	 * @param trainingSet
-	 *            training set to learn
-	 * @param maxError
-	 *            learning stop condition. If maxError is reached learning stops
+	 * @param trainingSet training set to learn
+	 * @param maxError learning stop condition. If maxError is reached learning stops
 	 */
 	public void learn(DataSet trainingSet, double maxError) {
 		this.maxError = maxError;
@@ -85,12 +83,9 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	/**
 	 * Trains network for the specified training set, maxError and number of iterations
 	 *
-	 * @param trainingSet
-	 *            training set to learn
-	 * @param maxError
-	 *            learning stop condition. if maxError is reached learning stops
-	 * @param maxIterations
-	 *            maximum number of learning iterations
+	 * @param trainingSet training set to learn
+	 * @param maxError learning stop condition. if maxError is reached learning stops
+	 * @param maxIterations maximum number of learning iterations
 	 */
 	public void learn(DataSet trainingSet, double maxError, int maxIterations) {
 		this.maxError = maxError;
@@ -138,8 +133,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	 * This method implements basic logic for one learning epoch for the supervised learning algorithms. Epoch is the one pass through the training set. This method iterates through the training set
 	 * and trains network for each element. It also sets flag if conditions to stop learning has been reached: network error below some allowed value, or maximum iteration count
 	 *
-	 * @param trainingSet
-	 *            training set for training network
+	 * @param trainingSet training set for training network
 	 */
 	@Override
 	public void doLearningEpoch(DataSet trainingSet) {
@@ -165,8 +159,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	/**
 	 * Trains network with the input and desired output pattern from the specified training element
 	 *
-	 * @param trainingElement
-	 *            supervised training element which contains input and desired output
+	 * @param trainingElement supervised training element which contains input and desired output
 	 */
 	protected void learnPattern(DataSetRow trainingElement) {
 		double[] input = trainingElement.getInput();
@@ -248,8 +241,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	/**
 	 * Sets batch mode on/off (true/false)
 	 *
-	 * @param batchMode
-	 *            batch mode setting
+	 * @param batchMode batch mode setting
 	 */
 	public void setBatchMode(boolean batchMode) {
 		this.batchMode = batchMode;
@@ -258,8 +250,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	/**
 	 * Sets allowed network error, which indicates when to stopLearning training
 	 *
-	 * @param maxError
-	 *            network error
+	 * @param maxError network error
 	 */
 	public void setMaxError(double maxError) {
 		this.maxError = maxError;
@@ -295,8 +286,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	/**
 	 * Sets min error change stopping criteria
 	 *
-	 * @param minErrorChange
-	 *            value for min error change stopping criteria
+	 * @param minErrorChange value for min error change stopping criteria
 	 */
 	public void setMinErrorChange(double minErrorChange) {
 		this.minErrorChange = minErrorChange;
@@ -314,8 +304,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	/**
 	 * Sets number of iterations for min error change stopping criteria
 	 *
-	 * @param minErrorChangeIterationsLimit
-	 *            number of iterations for min error change stopping criteria
+	 * @param minErrorChangeIterationsLimit number of iterations for min error change stopping criteria
 	 */
 	public void setMinErrorChangeIterationsLimit(int minErrorChangeIterationsLimit) {
 		this.minErrorChangeIterationsLimit = minErrorChangeIterationsLimit;
@@ -345,8 +334,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements Se
 	/**
 	 * This method should implement the weights update procedure for the whole network for the given output error vector.
 	 *
-	 * @param outputError
-	 *            output error vector for some network input (aka. patternError, network error) usually the difference between desired and actual output
+	 * @param outputError output error vector for some network input (aka. patternError, network error) usually the difference between desired and actual output
 	 */
 	abstract protected void updateNetworkWeights(double[] outputError);
 }

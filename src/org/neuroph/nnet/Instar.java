@@ -31,8 +31,7 @@ public class Instar extends NeuralNetwork {
 	/**
 	 * Creates new Instar with specified number of input neurons.
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
+	 * @param inputNeuronsCount number of neurons in input layer
 	 */
 	public Instar(int inputNeuronsCount) {
 		this.createNetwork(inputNeuronsCount);
@@ -41,8 +40,7 @@ public class Instar extends NeuralNetwork {
 	/**
 	 * Creates Instar architecture with specified number of input neurons
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
+	 * @param inputNeuronsCount number of neurons in input layer
 	 */
 	private void createNetwork(int inputNeuronsCount) {
 

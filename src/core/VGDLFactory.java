@@ -149,8 +149,7 @@ public class VGDLFactory {
 	/**
 	 * Creates a game, receiving a GameContent object
 	 * 
-	 * @param content
-	 *            potential parameters for the class.
+	 * @param content potential parameters for the class.
 	 * @return The game just created.
 	 */
 	public Game createGame(GameContent content) {
@@ -175,12 +174,9 @@ public class VGDLFactory {
 	/**
 	 * Creates a new sprite with a given dimension in a certain position. Parameters are passed as SpriteContent.
 	 * 
-	 * @param content
-	 *            parameters for the sprite, including its class.
-	 * @param position
-	 *            position of the object.
-	 * @param dim
-	 *            dimensions of the sprite on the world.
+	 * @param content parameters for the sprite, including its class.
+	 * @param position position of the object.
+	 * @param dim dimensions of the sprite on the world.
 	 * @return the new sprite, created and initialized, ready for play!
 	 */
 	public VGDLSprite createSprite(SpriteContent content, Vector2d position, Dimension dim) {
@@ -205,8 +201,7 @@ public class VGDLFactory {
 	/**
 	 * Creates a new effect, with parameters passed as InteractionContent.
 	 * 
-	 * @param content
-	 *            parameters for the effect, including its class.
+	 * @param content parameters for the effect, including its class.
 	 * @return the new effect, created and initialized, ready to be triggered!
 	 */
 	public Effect createEffect(InteractionContent content) {
@@ -235,8 +230,7 @@ public class VGDLFactory {
 	/**
 	 * Creates a new termination, with parameters passed as TerminationContent.
 	 * 
-	 * @param content
-	 *            parameters for the termination condition, including its class.
+	 * @param content parameters for the termination condition, including its class.
 	 * @return the new termination, created and initialized, ready to be checked!
 	 */
 	public Termination createTermination(TerminationContent content) {
@@ -262,10 +256,8 @@ public class VGDLFactory {
 	/**
 	 * Parses the parameters from content, assigns them to variables in obj.
 	 * 
-	 * @param content
-	 *            contains the parameters to read.
-	 * @param obj
-	 *            object with the variables to assign.
+	 * @param content contains the parameters to read.
+	 * @param obj object with the variables to assign.
 	 */
 	public void parseParameters(Content content, Object obj) {
 		// Get all fields from the class and store it as key->field
@@ -338,10 +330,8 @@ public class VGDLFactory {
 	/**
 	 * Returns the value of an int field in the object specified
 	 * 
-	 * @param obj
-	 *            object that holds the field.
-	 * @param fieldName
-	 *            name of the field to retrieve.
+	 * @param obj object that holds the field.
+	 * @param fieldName name of the field to retrieve.
 	 * @return the value, or -1 if the parameter does not exist or it is not an int.
 	 */
 	public int requestFieldValueInt(Object obj, String fieldName) {

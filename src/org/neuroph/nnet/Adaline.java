@@ -33,8 +33,7 @@ public class Adaline extends NeuralNetwork {
 	/**
 	 * Creates new Adaline network with specified number of neurons in input layer
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
+	 * @param inputNeuronsCount number of neurons in input layer
 	 */
 	public Adaline(int inputNeuronsCount) {
 		this.createNetwork(inputNeuronsCount);
@@ -43,8 +42,7 @@ public class Adaline extends NeuralNetwork {
 	/**
 	 * Creates adaline network architecture with specified number of input neurons
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
+	 * @param inputNeuronsCount number of neurons in input layer
 	 */
 	private void createNetwork(int inputNeuronsCount) {
 		// set network type code

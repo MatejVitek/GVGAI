@@ -35,10 +35,8 @@ public class SpriteContent extends Content {
 	/**
 	 * Simple constructor that receives and identifier and a reference class
 	 * 
-	 * @param id
-	 *            object identifier.
-	 * @param refClass
-	 *            class this object is mapped to.
+	 * @param id object identifier.
+	 * @param refClass class this object is mapped to.
 	 */
 	public SpriteContent(String id, String refClass) {
 		this.line = null;
@@ -52,8 +50,7 @@ public class SpriteContent extends Content {
 	/**
 	 * Constructor that extracts the contents from a String line
 	 * 
-	 * @param line
-	 *            String with the contents in VGDL format, to be mapped to the data structures of this class.
+	 * @param line String with the contents in VGDL format, to be mapped to the data structures of this class.
 	 */
 	public SpriteContent(String line) {
 		this.referenceClass = null;

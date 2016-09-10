@@ -31,8 +31,7 @@ public class Outstar extends NeuralNetwork {
 	/**
 	 * Creates an instance of Outstar network with specified number of neurons in output layer.
 	 * 
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	public Outstar(int outputNeuronsCount) {
 		this.createNetwork(outputNeuronsCount);
@@ -41,8 +40,7 @@ public class Outstar extends NeuralNetwork {
 	/**
 	 * Creates Outstar architecture with specified number of neurons in output layer
 	 * 
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	private void createNetwork(int outputNeuronsCount) {
 

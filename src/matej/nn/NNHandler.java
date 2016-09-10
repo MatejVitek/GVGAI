@@ -44,8 +44,7 @@ public class NNHandler extends ClassificationHandler {
 	/**
 	 * Extracts features from initial state observation.
 	 * 
-	 * @param stateObs
-	 *            Observation of the initial state
+	 * @param stateObs Observation of the initial state
 	 * @return A vector of features in the correct order for input to NN
 	 */
 	public static double[] getFeatures(StateObservation so) {

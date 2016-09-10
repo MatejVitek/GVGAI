@@ -20,8 +20,7 @@ abstract public class BenchmarkTask {
 	/**
 	 * Creates a new instance of BenchmarkTask with specified name
 	 * 
-	 * @param name
-	 *            benchmark task name
+	 * @param name benchmark task name
 	 */
 	public BenchmarkTask(String name) {
 		this.name = name;
@@ -39,8 +38,7 @@ abstract public class BenchmarkTask {
 	/**
 	 * Sets task name
 	 * 
-	 * @param name
-	 *            task name
+	 * @param name task name
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -58,8 +56,7 @@ abstract public class BenchmarkTask {
 	/**
 	 * Sets number of test (benchmarking) iterations
 	 * 
-	 * @param testIterations
-	 *            number of test iterations
+	 * @param testIterations number of test iterations
 	 */
 	public void setTestIterations(int testIterations) {
 		this.testIterations = testIterations;
@@ -77,8 +74,7 @@ abstract public class BenchmarkTask {
 	/**
 	 * Sets the number of warmup iterations
 	 * 
-	 * @param warmupIterations
-	 *            number of warmup iterations Warmup iterations are used to run test for some time to stabilize JVM (compiling, optimizations, gc)
+	 * @param warmupIterations number of warmup iterations Warmup iterations are used to run test for some time to stabilize JVM (compiling, optimizations, gc)
 	 */
 	public void setWarmupIterations(int warmupIterations) {
 		this.warmupIterations = warmupIterations;

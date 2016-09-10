@@ -9,8 +9,7 @@ public abstract class AbstractConstraint {
 	/**
 	 * Set the parameter of the constrains from a HashMap
 	 * 
-	 * @param parameters
-	 *            hashmap of constraints parameters
+	 * @param parameters hashmap of constraints parameters
 	 */
 	public void setParameters(HashMap<String, Object> parameters) {
 		Field[] fields = this.getClass().getFields();

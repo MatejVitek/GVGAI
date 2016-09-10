@@ -45,10 +45,8 @@ public class PoolingLayer extends FeatureMapsLayer {
 	 * Creates pooling layer with specified kernel, appropriate map dimensions in regard to previous layer (fromLayer param) and specified number of feature maps with default neuron settings for
 	 * pooling layer. Number of maps in pooling layer must be the same as number of maps in previous layer.
 	 *
-	 * @param fromLayer
-	 *            previous layer, which will be connected to this layer
-	 * @param kernel
-	 *            kernel for all feature maps
+	 * @param fromLayer previous layer, which will be connected to this layer
+	 * @param kernel kernel for all feature maps
 	 */
 	public PoolingLayer(FeatureMapsLayer fromLayer, Dimension2D kernelDim) {
 		this.kernel = new Kernel(kernelDim);
@@ -65,14 +63,10 @@ public class PoolingLayer extends FeatureMapsLayer {
 	/**
 	 * Creates pooling layer with specified kernel, appropriate map dimensions in regard to previous layer (fromLayer param) and specified number of feature maps with given neuron properties.
 	 *
-	 * @param fromLayer
-	 *            previous layer, which will be connected to this layer
-	 * @param kernel
-	 *            kernel for all feature maps
-	 * @param numberOfMaps
-	 *            number of feature maps to create in this layer
-	 * @param neuronProp
-	 *            settings for neurons in feature maps
+	 * @param fromLayer previous layer, which will be connected to this layer
+	 * @param kernel kernel for all feature maps
+	 * @param numberOfMaps number of feature maps to create in this layer
+	 * @param neuronProp settings for neurons in feature maps
 	 */
 	public PoolingLayer(FeatureMapsLayer fromLayer, Dimension2D kernelDim, int numberOfMaps, NeuronProperties neuronProp) {
 		this.kernel = kernel;
@@ -90,10 +84,8 @@ public class PoolingLayer extends FeatureMapsLayer {
 	 * <p/>
 	 * In this implementation, there is no overlapping between kernel positions.
 	 *
-	 * @param fromMap
-	 *            source feature map
-	 * @param toMap
-	 *            destination feature map
+	 * @param fromMap source feature map
+	 * @param toMap destination feature map
 	 */
 	@Override
 	public void connectMaps(FeatureMapLayer fromMap, FeatureMapLayer toMap) {

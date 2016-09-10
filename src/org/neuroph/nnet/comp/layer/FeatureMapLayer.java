@@ -38,8 +38,7 @@ public class FeatureMapLayer extends Layer /* implements Callable<Void> */ {
 	/**
 	 * Creates an empty 2D layer with specified dimensions
 	 *
-	 * @param dimensions
-	 *            layer dimensions (width and weight)
+	 * @param dimensions layer dimensions (width and weight)
 	 */
 	public FeatureMapLayer(Dimension2D dimensions, NeuronProperties neuronProperties) {
 		this.dimensions = dimensions;
@@ -53,8 +52,7 @@ public class FeatureMapLayer extends Layer /* implements Callable<Void> */ {
 	/**
 	 * Creates an empty 2D layer with specified dimensions and kernel
 	 *
-	 * @param dimensions
-	 *            layer dimensions (width and weight)
+	 * @param dimensions layer dimensions (width and weight)
 	 */
 	public FeatureMapLayer(Dimension2D dimensions, Dimension2D kernelDimension) {
 		this.dimensions = dimensions;
@@ -64,10 +62,8 @@ public class FeatureMapLayer extends Layer /* implements Callable<Void> */ {
 	/**
 	 * Creates 2D layer with specified dimensions, filled with neurons with specified properties
 	 *
-	 * @param dimensions
-	 *            layer dimensions
-	 * @param neuronProperties
-	 *            neuron properties
+	 * @param dimensions layer dimensions
+	 * @param neuronProperties neuron properties
 	 */
 	public FeatureMapLayer(Dimension2D dimensions, NeuronProperties neuronProperties, Dimension2D kernelDimension) {
 		this(dimensions, kernelDimension);
@@ -108,10 +104,8 @@ public class FeatureMapLayer extends Layer /* implements Callable<Void> */ {
 	/**
 	 * Returns neuron at specified position in this layer
 	 *
-	 * @param x
-	 *            neuron's x position
-	 * @param y
-	 *            neuron's y position
+	 * @param x neuron's x position
+	 * @param y neuron's y position
 	 * @return neuron at specified position in this layer
 	 */
 	public Neuron getNeuronAt(int x, int y) {

@@ -31,8 +31,7 @@ public class PerceptronLearning extends LMS {
 	/**
 	 * This method implements weights update procedure for the single neuron In addition to weights change in LMS it applies change to neuron's threshold
 	 *
-	 * @param neuron
-	 *            neuron to update weights
+	 * @param neuron neuron to update weights
 	 */
 	@Override
 	public void updateNeuronWeights(Neuron neuron) {

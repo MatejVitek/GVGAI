@@ -18,10 +18,8 @@ public class Dimension2D implements Serializable {
 	/**
 	 * Creates new dimensions with specified width and height
 	 *
-	 * @param width
-	 *            total number of columns
-	 * @param height
-	 *            total number of rows
+	 * @param width total number of columns
+	 * @param height total number of rows
 	 */
 	public Dimension2D(int width, int height) {
 		this.width = width;

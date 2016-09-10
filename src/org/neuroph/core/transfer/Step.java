@@ -70,8 +70,7 @@ public class Step extends TransferFunction implements Serializable {
 	/**
 	 * Set output value for the high output level
 	 * 
-	 * @param yHigh
-	 *            value for the high output level
+	 * @param yHigh value for the high output level
 	 */
 	public void setYHigh(double yHigh) {
 		this.yHigh = yHigh;
@@ -89,8 +88,7 @@ public class Step extends TransferFunction implements Serializable {
 	/**
 	 * Set output value for the low output level
 	 * 
-	 * @param yLow
-	 *            value for the low output level
+	 * @param yLow value for the low output level
 	 */
 	public void setYLow(double yLow) {
 		this.yLow = yLow;

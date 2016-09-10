@@ -274,10 +274,8 @@ public abstract class VGDLSprite {
 	/**
 	 * Initializes the sprite, giving its position and dimensions.
 	 * 
-	 * @param position
-	 *            position of the sprite
-	 * @param size
-	 *            dimensions of the sprite on the screen.
+	 * @param position position of the sprite
+	 * @param size dimensions of the sprite on the screen.
 	 */
 	protected void init(Vector2d position, Dimension size) {
 		this.setRect(position, size);
@@ -362,10 +360,8 @@ public abstract class VGDLSprite {
 	/**
 	 * Determines the physics type of the game, creating the Physics objects that performs the calculations.
 	 * 
-	 * @param physicstype
-	 *            identifier of the physics type.
-	 * @param size
-	 *            dimensions of the sprite.
+	 * @param physicstype identifier of the physics type.
+	 * @param size dimensions of the sprite.
 	 * @return the phyics object.
 	 */
 	private Physics determinePhysics(int physicstype, Dimension size) {
@@ -390,8 +386,7 @@ public abstract class VGDLSprite {
 	/**
 	 * Updates this sprite, performing the movements and actions for the next step.
 	 * 
-	 * @param game
-	 *            the current game that is being played.
+	 * @param game the current game that is being played.
 	 */
 	public void update(Game game) {
 		updatePassive();
@@ -404,8 +399,7 @@ public abstract class VGDLSprite {
 	/**
 	 * Set the disabled flag of this sprite.
 	 * 
-	 * @param is_disabled
-	 *            - disabled state
+	 * @param is_disabled - disabled state
 	 */
 	public void setDisabled(boolean is_disabled) {
 		// System.out.println("disabled (real game? " + thinkingTime + ")"); //use for debugging
@@ -449,8 +443,7 @@ public abstract class VGDLSprite {
 	/**
 	 * Updates the orientation of the avatar to match the orientation parameter.
 	 * 
-	 * @param orientation
-	 *            final orientation the avatar must have.
+	 * @param orientation final orientation the avatar must have.
 	 * @return true if orientation could be changed. This returns false in two circumstances: the avatar is not oriented (is_oriented == false) or the previous orientation is the same as the one
 	 *         received by parameter.
 	 */
@@ -464,10 +457,8 @@ public abstract class VGDLSprite {
 	/**
 	 * Updates the position of the sprite, giving its orientation and speed.
 	 * 
-	 * @param orientation
-	 *            the orientation of the sprite.
-	 * @param speed
-	 *            the speed of the sprite.
+	 * @param orientation the orientation of the sprite.
+	 * @param speed the speed of the sprite.
 	 * @return true if the position changed.
 	 */
 	public boolean _updatePos(Direction orientation, int speed) {
@@ -537,10 +528,8 @@ public abstract class VGDLSprite {
 	/**
 	 * Modifies the amount of resource by a given quantity.
 	 * 
-	 * @param resourceId
-	 *            id of the resource whose quantity must be changed.
-	 * @param amount_delta
-	 *            amount of units the resource has to be modified by.
+	 * @param resourceId id of the resource whose quantity must be changed.
+	 * @param amount_delta amount of units the resource has to be modified by.
 	 */
 	public void modifyResource(int resourceId, int amount_delta) {
 		int prev = getAmountResource(resourceId);
@@ -551,8 +540,7 @@ public abstract class VGDLSprite {
 	/**
 	 * Removes all resources collected of the specified type.
 	 * 
-	 * @param resourceId
-	 *            - id of the resource whose quantity must be changed.
+	 * @param resourceId - id of the resource whose quantity must be changed.
 	 */
 	public void removeResource(int resourceId) {
 		resources.put(resourceId, 0);
@@ -561,8 +549,7 @@ public abstract class VGDLSprite {
 	/**
 	 * Returns the amount of resource of a given type this sprite has.
 	 * 
-	 * @param resourceId
-	 *            id of the resource to check.
+	 * @param resourceId id of the resource to check.
 	 * @return how much of this resource this sprite has.
 	 */
 	public int getAmountResource(int resourceId) {
@@ -575,10 +562,8 @@ public abstract class VGDLSprite {
 	/**
 	 * Draws this sprite (both the not oriented and, if appropriate, the oriented part)
 	 * 
-	 * @param gphx
-	 *            graphics object to draw in.
-	 * @param game
-	 *            reference to the game that is being played now.
+	 * @param gphx graphics object to draw in.
+	 * @param game reference to the game that is being played now.
 	 */
 	public void draw(Graphics2D gphx, Game game) {
 
@@ -603,8 +588,7 @@ public abstract class VGDLSprite {
 	/**
 	 * In case this sprite is oriented and has an arrow to draw, it draws it.
 	 * 
-	 * @param g
-	 *            graphics device to draw in.
+	 * @param g graphics device to draw in.
 	 */
 	public void _drawOriented(Graphics2D g, Rectangle r) {
 		if (draw_arrow) {
@@ -620,10 +604,8 @@ public abstract class VGDLSprite {
 	/**
 	 * Draws the not-oriented part of the sprite
 	 * 
-	 * @param gphx
-	 *            graphics object to draw in.
-	 * @param game
-	 *            reference to the game that is being played now.
+	 * @param gphx graphics object to draw in.
+	 * @param game reference to the game that is being played now.
 	 */
 	public void _draw(Graphics2D gphx, Game game, Rectangle r) {
 
@@ -651,10 +633,8 @@ public abstract class VGDLSprite {
 	/**
 	 * Draws the not-oriented part of the sprite, as an image. this.image must be not null.
 	 * 
-	 * @param gphx
-	 *            graphics object to draw in.
-	 * @param game
-	 *            reference to the game that is being played now.
+	 * @param gphx graphics object to draw in.
+	 * @param game reference to the game that is being played now.
 	 */
 	public void _drawImage(Graphics2D gphx, Game game, Rectangle r) {
 		if (shrinkfactor != 1) {
@@ -680,10 +660,8 @@ public abstract class VGDLSprite {
 	/**
 	 * Draws the resources hold by this sprite, as an horizontal bar on top of the sprite.
 	 * 
-	 * @param gphx
-	 *            graphics to draw in.
-	 * @param game
-	 *            game being played at the moment.
+	 * @param gphx graphics to draw in.
+	 * @param game game being played at the moment.
 	 */
 	protected void _drawResources(Graphics2D gphx, Game game, Rectangle r) {
 		int numResources = resources.size();
@@ -715,12 +693,9 @@ public abstract class VGDLSprite {
 	/**
 	 * Draws the health bar, as a vertical bar on top (and left) of the sprite.
 	 * 
-	 * @param gphx
-	 *            graphics to draw in.
-	 * @param game
-	 *            game being played at the moment.
-	 * @param r
-	 *            rectangle of this sprite.
+	 * @param gphx graphics to draw in.
+	 * @param game game being played at the moment.
+	 * @param r rectangle of this sprite.
 	 */
 	protected void _drawHealthBar(Graphics2D gphx, Game game, Rectangle r) {
 		int maxHP = maxHealthPoints;
@@ -773,8 +748,7 @@ public abstract class VGDLSprite {
 	/**
 	 * Loads the image that represents this sprite, using its string name as reference.
 	 * 
-	 * @param str
-	 *            name of the image to load.
+	 * @param str name of the image to load.
 	 */
 	public void loadImage(String str) {
 		if (image == null && str != null) {
@@ -826,8 +800,7 @@ public abstract class VGDLSprite {
 	/**
 	 * Used to indicate if this sprite was created by the avatar.
 	 * 
-	 * @param fromAvatar
-	 *            true if the avatar created this sprite.
+	 * @param fromAvatar true if the avatar created this sprite.
 	 */
 	public void setFromAvatar(boolean fromAvatar) {
 		is_from_avatar = fromAvatar;
@@ -852,8 +825,7 @@ public abstract class VGDLSprite {
 	/**
 	 * Copies the attributes of this object to the one passed as parameter.
 	 * 
-	 * @param toSprite
-	 *            the sprite to copy to.
+	 * @param toSprite the sprite to copy to.
 	 */
 	public void copyTo(VGDLSprite toSprite) {
 		// this.color, this.draw_arrow don't need to be copied.

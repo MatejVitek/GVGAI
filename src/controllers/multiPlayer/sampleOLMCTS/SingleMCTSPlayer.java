@@ -26,8 +26,7 @@ public class SingleMCTSPlayer {
 	/**
 	 * Inits the tree with the new observation state in the root.
 	 * 
-	 * @param a_gameState
-	 *            current state of the game.
+	 * @param a_gameState current state of the game.
 	 */
 	public void init(StateObservationMulti a_gameState) {
 		// Set the game observation to a newly root node.
@@ -39,8 +38,7 @@ public class SingleMCTSPlayer {
 	/**
 	 * Runs MCTS to decide the action to take. It does not reset the tree.
 	 * 
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return the action to execute in the game.
 	 */
 	public int run(ElapsedCpuTimer elapsedTimer) {

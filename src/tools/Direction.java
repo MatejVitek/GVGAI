@@ -42,10 +42,8 @@ public class Direction {
 	/**
 	 * Returns true if both directions are orthogonal
 	 * 
-	 * @param a
-	 *            one direction
-	 * @param b
-	 *            another direction
+	 * @param a one direction
+	 * @param b another direction
 	 * @return true, if orthogonal, false otherwise.
 	 */
 	public static boolean orthogonal(Direction a, Direction b) {
@@ -58,8 +56,7 @@ public class Direction {
 	/**
 	 * Checks if a direction and this are the same.
 	 * 
-	 * @param d
-	 *            the other direction to check
+	 * @param d the other direction to check
 	 * @return true if their coordinates are the same.
 	 */
 	@Override

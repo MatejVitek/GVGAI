@@ -100,8 +100,7 @@ public class Ramp extends TransferFunction implements Serializable {
 	/**
 	 * Sets threshold for the low output level
 	 * 
-	 * @param x
-	 *            threshold value for the low output level
+	 * @param x threshold value for the low output level
 	 */
 	public void setXLow(double x) {
 		this.xLow = x;
@@ -119,8 +118,7 @@ public class Ramp extends TransferFunction implements Serializable {
 	/**
 	 * Sets threshold for the high output level
 	 * 
-	 * @param x
-	 *            threshold value for the high output level
+	 * @param x threshold value for the high output level
 	 */
 	public void setXHigh(double x) {
 		this.xHigh = x;
@@ -138,8 +136,7 @@ public class Ramp extends TransferFunction implements Serializable {
 	/**
 	 * Sets output value for the low output level
 	 * 
-	 * @param y
-	 *            value for the low output level
+	 * @param y value for the low output level
 	 */
 	public void setYLow(double y) {
 		this.yLow = y;
@@ -157,8 +154,7 @@ public class Ramp extends TransferFunction implements Serializable {
 	/**
 	 * Sets output value for the high output level
 	 * 
-	 * @param y
-	 *            value for the high output level
+	 * @param y value for the high output level
 	 */
 	public void setYHigh(double y) {
 		this.yHigh = y;

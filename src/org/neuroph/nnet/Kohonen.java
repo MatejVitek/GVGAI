@@ -29,10 +29,8 @@ public class Kohonen extends NeuralNetwork {
 	/**
 	 * Creates new Kohonen network with specified number of neurons in input and map layer
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	public Kohonen(int inputNeuronsCount, int outputNeuronsCount) {
 		this.createNetwork(inputNeuronsCount, outputNeuronsCount);
@@ -41,10 +39,8 @@ public class Kohonen extends NeuralNetwork {
 	/**
 	 * Creates Kohonen network architecture with specified number of neurons in input and map layer
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	private void createNetwork(int inputNeuronsCount, int outputNeuronsCount) {
 

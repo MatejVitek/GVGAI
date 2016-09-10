@@ -48,8 +48,7 @@ public class Neuroph {
 	/**
 	 * Turn on/off flat networ support from Encog
 	 * 
-	 * @param flattenNetworks
-	 *            the flattenNetworks to set
+	 * @param flattenNetworks the flattenNetworks to set
 	 */
 	public void setFlattenNetworks(boolean flattenNetworks) {
 		this.flattenNetworks = flattenNetworks;

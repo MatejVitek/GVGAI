@@ -37,9 +37,8 @@ public class BinaryDeltaRule extends PerceptronLearning {
 	/**
 	 * This method implements weight update procedure for the whole network for this learning rule
 	 *
-	 * @param patternError
-	 *            single pattern error vector if the output is 0 and required value is 1, increase rthe weights if the output is 1 and required value is 0, decrease the weights otherwice leave weights
-	 *            unchanged
+	 * @param patternError single pattern error vector if the output is 0 and required value is 1, increase rthe weights if the output is 1 and required value is 0, decrease the weights otherwice
+	 *            leave weights unchanged
 	 */
 	@Override
 	protected void updateNetworkWeights(double[] patternError) {
@@ -76,8 +75,7 @@ public class BinaryDeltaRule extends PerceptronLearning {
 	/**
 	 * Sets the errorCorrection parametar
 	 *
-	 * @param errorCorrection
-	 *            the value for errorCorrection parametar
+	 * @param errorCorrection the value for errorCorrection parametar
 	 */
 	public void setErrorCorrection(double errorCorrection) {
 		this.errorCorrection = errorCorrection;

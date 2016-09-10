@@ -26,10 +26,8 @@ public class RangeRandomizer extends WeightsRandomizer {
 	/**
 	 * Creates a new instance of RangeRandomizer within specified . The random values are generated according to formula: newValue = min + random * (max - min)
 	 * 
-	 * @param min
-	 *            min weight value
-	 * @param max
-	 *            max weight value
+	 * @param min min weight value
+	 * @param max max weight value
 	 */
 	public RangeRandomizer(double min, double max) {
 		this.max = max;

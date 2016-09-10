@@ -33,10 +33,8 @@ public class DelayedNeuron extends Neuron {
 	/**
 	 * Creates an instance of neuron which can delay output
 	 * 
-	 * @param inputFunction
-	 *            neuron input function
-	 * @param transferFunction
-	 *            neuron transfer function
+	 * @param inputFunction neuron input function
+	 * @param transferFunction neuron transfer function
 	 */
 	public DelayedNeuron(InputFunction inputFunction, TransferFunction transferFunction) {
 		super(inputFunction, transferFunction);
@@ -54,8 +52,7 @@ public class DelayedNeuron extends Neuron {
 	/**
 	 * Returns neuron output with the specified delay
 	 * 
-	 * @param delay
-	 *            output delay
+	 * @param delay output delay
 	 * @return neuron output at (t-delay) moment
 	 */
 	public double getOutput(int delay) {

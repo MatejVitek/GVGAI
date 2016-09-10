@@ -29,10 +29,8 @@ public class BAM extends NeuralNetwork {
 	/**
 	 * Creates an instance of BAM network with specified number of neurons in input and output layers.
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	public BAM(int inputNeuronsCount, int outputNeuronsCount) {
 
@@ -50,12 +48,9 @@ public class BAM extends NeuralNetwork {
 	/**
 	 * Creates BAM network architecture
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
-	 * @param neuronProperties
-	 *            neuron properties
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
+	 * @param neuronProperties neuron properties
 	 */
 	private void createNetwork(int inputNeuronsCount, int outputNeuronsCount, NeuronProperties neuronProperties) {
 

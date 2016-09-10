@@ -21,10 +21,8 @@ public class ConnectionFactory {
 	/**
 	 * Creates connection between two specified neurons
 	 * 
-	 * @param fromNeuron
-	 *            output neuron
-	 * @param toNeuron
-	 *            input neuron
+	 * @param fromNeuron output neuron
+	 * @param toNeuron input neuron
 	 */
 	public static void createConnection(Neuron fromNeuron, Neuron toNeuron) {
 		Connection connection = new Connection(fromNeuron, toNeuron);
@@ -34,12 +32,9 @@ public class ConnectionFactory {
 	/**
 	 * Creates connection between two specified neurons
 	 * 
-	 * @param fromNeuron
-	 *            neuron to connect (connection source)
-	 * @param toNeuron
-	 *            neuron to connect to (connection target)
-	 * @param weightVal
-	 *            connection weight value
+	 * @param fromNeuron neuron to connect (connection source)
+	 * @param toNeuron neuron to connect to (connection target)
+	 * @param weightVal connection weight value
 	 */
 	public static void createConnection(Neuron fromNeuron, Neuron toNeuron, double weightVal) {
 		Connection connection = new Connection(fromNeuron, toNeuron, weightVal);
@@ -54,12 +49,9 @@ public class ConnectionFactory {
 	/**
 	 * Creates connection between two specified neurons
 	 * 
-	 * @param fromNeuron
-	 *            neuron to connect (connection source)
-	 * @param toNeuron
-	 *            neuron to connect to (connection target)
-	 * @param weight
-	 *            connection weight
+	 * @param fromNeuron neuron to connect (connection source)
+	 * @param toNeuron neuron to connect to (connection target)
+	 * @param weight connection weight
 	 */
 	public static void createConnection(Neuron fromNeuron, Neuron toNeuron, Weight weight) {
 		Connection connection = new Connection(fromNeuron, toNeuron, weight);
@@ -69,10 +61,8 @@ public class ConnectionFactory {
 	/**
 	 * Creates connectivity between specified neuron and all neurons in specified layer
 	 * 
-	 * @param fromNeuron
-	 *            neuron to connect
-	 * @param toLayer
-	 *            layer to connect to
+	 * @param fromNeuron neuron to connect
+	 * @param toLayer layer to connect to
 	 */
 	public static void createConnection(Neuron fromNeuron, Layer toLayer) {
 		for (Neuron toNeuron : toLayer.getNeurons()) {
@@ -83,10 +73,8 @@ public class ConnectionFactory {
 	/**
 	 * Creates full connectivity between the two specified layers
 	 * 
-	 * @param fromLayer
-	 *            layer to connect
-	 * @param toLayer
-	 *            layer to connect to
+	 * @param fromLayer layer to connect
+	 * @param toLayer layer to connect to
 	 */
 	public static void fullConnect(Layer fromLayer, Layer toLayer) {
 		for (Neuron fromNeuron : fromLayer.getNeurons()) {
@@ -99,10 +87,8 @@ public class ConnectionFactory {
 	/**
 	 * Creates full connectivity between the two specified layers
 	 * 
-	 * @param fromLayer
-	 *            layer to connect
-	 * @param toLayer
-	 *            layer to connect to
+	 * @param fromLayer layer to connect
+	 * @param toLayer layer to connect to
 	 */
 	public static void fullConnect(Layer fromLayer, Layer toLayer, boolean connectBiasNeuron) {
 		for (Neuron fromNeuron : fromLayer.getNeurons()) {
@@ -118,12 +104,9 @@ public class ConnectionFactory {
 	/**
 	 * Creates full connectivity between two specified layers with specified weight for all connections
 	 * 
-	 * @param fromLayer
-	 *            output layer
-	 * @param toLayer
-	 *            input layer
-	 * @param weightVal
-	 *            connection weight value
+	 * @param fromLayer output layer
+	 * @param toLayer input layer
+	 * @param weightVal connection weight value
 	 */
 	public static void fullConnect(Layer fromLayer, Layer toLayer, double weightVal) {
 		for (Neuron fromNeuron : fromLayer.getNeurons()) {
@@ -181,10 +164,8 @@ public class ConnectionFactory {
 	/**
 	 * Creates forward connectivity pattern between the specified layers
 	 * 
-	 * @param fromLayer
-	 *            layer to connect
-	 * @param toLayer
-	 *            layer to connect to
+	 * @param fromLayer layer to connect
+	 * @param toLayer layer to connect to
 	 */
 	public static void forwardConnect(Layer fromLayer, Layer toLayer, double weightVal) {
 		for (int i = 0; i < fromLayer.getNeuronsCount(); i++) {
@@ -197,10 +178,8 @@ public class ConnectionFactory {
 	/**
 	 * Creates forward connection pattern between specified layers
 	 * 
-	 * @param fromLayer
-	 *            layer to connect
-	 * @param toLayer
-	 *            layer to connect to
+	 * @param fromLayer layer to connect
+	 * @param toLayer layer to connect to
 	 */
 	public static void forwardConnect(Layer fromLayer, Layer toLayer) {
 		for (int i = 0; i < fromLayer.getNeuronsCount(); i++) {

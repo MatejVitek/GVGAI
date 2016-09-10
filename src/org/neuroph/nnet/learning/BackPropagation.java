@@ -34,8 +34,7 @@ public class BackPropagation extends LMS {
 	/**
 	 * This method implements weight update procedure for the whole network for the specified output error vector
 	 *
-	 * @param outputError
-	 *            output error vector
+	 * @param outputError output error vector
 	 */
 	@Override
 	protected void updateNetworkWeights(double[] outputError) {
@@ -46,8 +45,7 @@ public class BackPropagation extends LMS {
 	/**
 	 * This method implements weights update procedure for the output neurons Calculates delta/error and calls updateNeuronWeights to update neuron's weights for each output neuron
 	 *
-	 * @param outputError
-	 *            error vector for output neurons
+	 * @param outputError error vector for output neurons
 	 */
 	protected void calculateErrorAndUpdateOutputNeurons(double[] outputError) {
 		int i = 0;
@@ -92,8 +90,7 @@ public class BackPropagation extends LMS {
 	/**
 	 * Calculates and returns the neuron's error (neuron's delta) for the given neuron param
 	 *
-	 * @param neuron
-	 *            neuron to calculate error for
+	 * @param neuron neuron to calculate error for
 	 * @return neuron error (delta) for the specified neuron
 	 */
 	protected double calculateHiddenNeuronError(Neuron neuron) {

@@ -27,10 +27,8 @@ public class JDBCOutputAdapter implements OutputAdapter {
 	/**
 	 * Creates new JDBCOutputAdapter with specifed database connection and table
 	 * 
-	 * @param connection
-	 *            database connection
-	 * @param tableName
-	 *            table to put data into
+	 * @param connection database connection
+	 * @param tableName table to put data into
 	 */
 	public JDBCOutputAdapter(Connection connection, String tableName) {
 		this.connection = connection;

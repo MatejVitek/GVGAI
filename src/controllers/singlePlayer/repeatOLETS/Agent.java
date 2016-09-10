@@ -62,10 +62,8 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * Initialize the parameters and construct the automated player
 	 * 
-	 * @param stateObs
-	 *            Observation of the current state.
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param stateObs Observation of the current state.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 */
 	public Agent(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
 		moves = 0;
@@ -95,8 +93,7 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * get CDF distribution of the distribution sent
 	 * 
-	 * @param dist
-	 *            an array of probabilities
+	 * @param dist an array of probabilities
 	 * @return return CDF array
 	 */
 	private ArrayList<Double> getCDF(ArrayList<Double> dist) {
@@ -112,8 +109,7 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * get a random number for the input distribution
 	 * 
-	 * @param dist
-	 *            an array of probabilities
+	 * @param dist an array of probabilities
 	 * @return return a number that is sampled from this dist
 	 */
 	private int getNextEmpericalDist(ArrayList<Double> dist) {
@@ -130,10 +126,8 @@ public class Agent extends AbstractPlayer {
 	/**
 	 * decide the next action to be done (either repeating same action or nil or deciding new action)
 	 * 
-	 * @param stateObs
-	 *            Observation of the current state.
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param stateObs Observation of the current state.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return the most suitable action
 	 */
 	@Override

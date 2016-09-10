@@ -42,10 +42,8 @@ public class ConvolutionalLayer extends FeatureMapsLayer {
 	/**
 	 * Creates convolutional layer with specified kernel, and appropriate map dimensions in regard to previous layer - fromLayer param
 	 *
-	 * @param fromLayer
-	 *            previous layer, which will be connected to this layer
-	 * @param kernel
-	 *            kernel for all feature maps in this layer
+	 * @param fromLayer previous layer, which will be connected to this layer
+	 * @param kernel kernel for all feature maps in this layer
 	 */
 	// public ConvolutionalLayer(FeatureMapsLayer fromLayer, Kernel kernel) {
 	// Dimension2D fromDimension = fromLayer.getMapDimensions();
@@ -60,12 +58,9 @@ public class ConvolutionalLayer extends FeatureMapsLayer {
 	 * Creates convolutional layer with specified kernel, appropriate map dimensions in regard to previous layer (fromLayer param) and specified number of feature maps with default neuron settings for
 	 * convolutional layer.
 	 *
-	 * @param fromLayer
-	 *            previous layer, which will be connected to this layer
-	 * @param kernel
-	 *            kernel for all feature maps
-	 * @param numberOfMaps
-	 *            number of feature maps to create in this layer
+	 * @param fromLayer previous layer, which will be connected to this layer
+	 * @param kernel kernel for all feature maps
+	 * @param numberOfMaps number of feature maps to create in this layer
 	 */
 	public ConvolutionalLayer(FeatureMapsLayer fromLayer, Dimension2D kernelDimension, int numberOfMaps) {
 		Dimension2D fromDimension = fromLayer.getMapDimensions();
@@ -81,14 +76,10 @@ public class ConvolutionalLayer extends FeatureMapsLayer {
 	 * Creates convolutional layer with specified kernel, appropriate map dimensions in regard to previous layer (fromLayer param) and specified number of feature maps with default neuron settings for
 	 * convolutional layer.
 	 *
-	 * @param fromLayer
-	 *            previous layer, which will be connected to this layer
-	 * @param kernel
-	 *            kernel for all feature maps
-	 * @param numberOfMaps
-	 *            number of feature maps to create in this layer
-	 * @param transferFunction
-	 *            neuron's transfer function to use
+	 * @param fromLayer previous layer, which will be connected to this layer
+	 * @param kernel kernel for all feature maps
+	 * @param numberOfMaps number of feature maps to create in this layer
+	 * @param transferFunction neuron's transfer function to use
 	 */
 	public ConvolutionalLayer(FeatureMapsLayer fromLayer, Dimension2D kernelDimension, int numberOfMaps, Class<? extends TransferFunction> transferFunction) {
 		Dimension2D fromDimension = fromLayer.getMapDimensions();
@@ -105,14 +96,10 @@ public class ConvolutionalLayer extends FeatureMapsLayer {
 	/**
 	 * Creates convolutional layer with specified kernel, appropriate map dimensions in regard to previous layer (fromLayer param) and specified number of feature maps with given neuron properties.
 	 *
-	 * @param fromLayer
-	 *            previous layer, which will be connected to this layer
-	 * @param kernel
-	 *            kernel for all feature maps
-	 * @param numberOfMaps
-	 *            number of feature maps to create in this layer
-	 * @param neuronProp
-	 *            settings for neurons in feature maps
+	 * @param fromLayer previous layer, which will be connected to this layer
+	 * @param kernel kernel for all feature maps
+	 * @param numberOfMaps number of feature maps to create in this layer
+	 * @param neuronProp settings for neurons in feature maps
 	 */
 	public ConvolutionalLayer(FeatureMapsLayer fromLayer, Dimension2D kernelDimension, int numberOfMaps, NeuronProperties neuronProp) {
 		Dimension2D fromDimension = fromLayer.getMapDimensions();
@@ -129,10 +116,8 @@ public class ConvolutionalLayer extends FeatureMapsLayer {
 	 * <p/>
 	 * Kernel is used as a sliding window, and kernel positions overlap. Kernel is shifting right by one position at a time. Neurons at the same kernel position share the same weights
 	 *
-	 * @param fromMap
-	 *            source feature map
-	 * @param toMap
-	 *            destination feature map
+	 * @param fromMap source feature map
+	 * @param toMap destination feature map
 	 */
 	@Override
 	public void connectMaps(FeatureMapLayer fromMap, FeatureMapLayer toMap) {

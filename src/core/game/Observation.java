@@ -40,16 +40,11 @@ public class Observation implements Comparable<Observation> {
 	/**
 	 * New observation. It is the observation of a sprite, recording its ID and position.
 	 * 
-	 * @param itype
-	 *            type of the sprite of this observation
-	 * @param id
-	 *            ID of the observation.
-	 * @param pos
-	 *            position of the sprite.
-	 * @param posReference
-	 *            reference to compare this position to others.
-	 * @param category
-	 *            category of this observation (NPC, static, resource, etc.)
+	 * @param itype type of the sprite of this observation
+	 * @param id ID of the observation.
+	 * @param pos position of the sprite.
+	 * @param posReference reference to compare this position to others.
+	 * @param category category of this observation (NPC, static, resource, etc.)
 	 */
 	public Observation(int itype, int id, Vector2d pos, Vector2d posReference, int category) {
 		this.itype = itype;
@@ -63,16 +58,11 @@ public class Observation implements Comparable<Observation> {
 	/**
 	 * Updates this observation
 	 * 
-	 * @param itype
-	 *            type of the sprite of this observation
-	 * @param id
-	 *            ID of the observation.
-	 * @param pos
-	 *            position of the sprite.
-	 * @param posReference
-	 *            reference to compare this position to others.
-	 * @param category
-	 *            category of this observation (NPC, static, resource, etc.)
+	 * @param itype type of the sprite of this observation
+	 * @param id ID of the observation.
+	 * @param pos position of the sprite.
+	 * @param posReference reference to compare this position to others.
+	 * @param category category of this observation (NPC, static, resource, etc.)
 	 */
 	public void update(int itype, int id, Vector2d pos, Vector2d posReference, int category) {
 		this.itype = itype;
@@ -86,8 +76,7 @@ public class Observation implements Comparable<Observation> {
 	/**
 	 * Compares this observation to others, using distances to the reference position.
 	 * 
-	 * @param o
-	 *            other observation.
+	 * @param o other observation.
 	 * @return -1 if this precedes o, 1 if same distance or o is closer to reference.
 	 */
 	@Override
@@ -101,8 +90,7 @@ public class Observation implements Comparable<Observation> {
 	/**
 	 * Compares two Observations to check if they are equal. The reference attribute is NOT compared in this object.
 	 * 
-	 * @param other
-	 *            the other observation.
+	 * @param other the other observation.
 	 * @return true if both objects are the same Observation.
 	 */
 	public boolean equals(Object other) {

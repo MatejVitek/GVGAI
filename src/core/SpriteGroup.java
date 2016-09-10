@@ -24,8 +24,7 @@ public class SpriteGroup {
 	/**
 	 * Creates a new SpriteGroup, specifying the type of sprites this will hold.
 	 * 
-	 * @param itype
-	 *            type of sprite for the SpriteGroup.
+	 * @param itype type of sprite for the SpriteGroup.
 	 */
 	public SpriteGroup(int itype) {
 		this.itype = itype;
@@ -35,10 +34,8 @@ public class SpriteGroup {
 	/**
 	 * Adds an sprite to the collection.
 	 * 
-	 * @param spriteId
-	 *            Unique ID of the sprite to add
-	 * @param sprite
-	 *            Sprite to add.
+	 * @param spriteId Unique ID of the sprite to add
+	 * @param sprite Sprite to add.
 	 */
 	public void addSprite(int spriteId, VGDLSprite sprite) {
 		sprites.add(sprite);
@@ -47,8 +44,7 @@ public class SpriteGroup {
 	/**
 	 * Adds a collection of sprites to this collection.
 	 * 
-	 * @param spritesToAdd
-	 *            Sprites to add.
+	 * @param spritesToAdd Sprites to add.
 	 */
 	public void addAllSprites(Collection<VGDLSprite> spritesToAdd) {
 		for (VGDLSprite sp : spritesToAdd)
@@ -58,8 +54,7 @@ public class SpriteGroup {
 	/**
 	 * Adds a collection of sprites to this collection. Each sprite added is a copy of the original sprite in the array received.
 	 * 
-	 * @param spritesToCopy
-	 *            Sprites to copy.
+	 * @param spritesToCopy Sprites to copy.
 	 */
 	public void copyAllSprites(Collection<VGDLSprite> spritesToCopy) {
 		for (VGDLSprite sp : spritesToCopy)
@@ -102,8 +97,7 @@ public class SpriteGroup {
 	/**
 	 * Removes an sprite.
 	 * 
-	 * @param sprite
-	 *            the sprite to remove.
+	 * @param sprite the sprite to remove.
 	 */
 	public void removeSprite(VGDLSprite sprite) {
 		sprites.remove(sprite);
@@ -121,8 +115,7 @@ public class SpriteGroup {
 	/**
 	 * Retrieves a sprite given its unique ID. It'll return null if the sprite is not in the collection.
 	 * 
-	 * @param spriteId
-	 *            ID of the sprite to retrieve.
+	 * @param spriteId ID of the sprite to retrieve.
 	 * @return the desired sprite.
 	 */
 	public VGDLSprite getSprite(int spriteId) {
@@ -132,8 +125,7 @@ public class SpriteGroup {
 	/**
 	 * Retrieves a sprite given its position in the sprite list. Returns null sprite is not in the collection.
 	 * 
-	 * @param idx
-	 *            index of the sprite.
+	 * @param idx index of the sprite.
 	 * @return the desired sprite.
 	 */
 	public VGDLSprite getSpriteByIdx(int idx) {

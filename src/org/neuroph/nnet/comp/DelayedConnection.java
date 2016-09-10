@@ -30,14 +30,10 @@ public class DelayedConnection extends Connection {
 	/**
 	 * Creates an instance of delayed connection to cpecified neuron and with specified weight
 	 * 
-	 * @param fromNeuron
-	 *            neuron to connect (source neuron)
-	 * @param toNeuron
-	 *            neuron to connect to (destination neuron)
-	 * @param weightVal
-	 *            weight value for the connection
-	 * @param delay
-	 *            delay for the connection
+	 * @param fromNeuron neuron to connect (source neuron)
+	 * @param toNeuron neuron to connect to (destination neuron)
+	 * @param weightVal weight value for the connection
+	 * @param delay delay for the connection
 	 */
 	public DelayedConnection(Neuron fromNeuron, Neuron toNeuron, double weightVal, int delay) {
 		super(fromNeuron, toNeuron, weightVal);
@@ -56,8 +52,7 @@ public class DelayedConnection extends Connection {
 	/**
 	 * Sets delay value for this connection
 	 * 
-	 * @param delay
-	 *            value for this connection
+	 * @param delay value for this connection
 	 */
 	public void setDelay(int delay) {
 		this.delay = delay;

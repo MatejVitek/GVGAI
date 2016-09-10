@@ -22,8 +22,7 @@ public class NeurophException extends RuntimeException {
 	/**
 	 * Construct a message exception.
 	 * 
-	 * @param msg
-	 *            The exception message.
+	 * @param msg The exception message.
 	 */
 	public NeurophException(final String msg) {
 		super(msg);
@@ -32,8 +31,7 @@ public class NeurophException extends RuntimeException {
 	/**
 	 * Construct an exception that holds another exception.
 	 * 
-	 * @param t
-	 *            The other exception.
+	 * @param t The other exception.
 	 */
 	public NeurophException(final Throwable t) {
 		super(t);
@@ -42,10 +40,8 @@ public class NeurophException extends RuntimeException {
 	/**
 	 * Construct an exception that holds another exception.
 	 * 
-	 * @param msg
-	 *            A message.
-	 * @param t
-	 *            The other exception.
+	 * @param msg A message.
+	 * @param t The other exception.
 	 */
 	public NeurophException(final String msg, final Throwable t) {
 		super(msg, t);

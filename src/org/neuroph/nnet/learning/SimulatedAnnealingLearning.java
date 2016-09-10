@@ -60,14 +60,10 @@ public class SimulatedAnnealingLearning extends SupervisedLearning {
 	/**
 	 * Construct a simulated annleaing trainer for a feedforward neural network.
 	 *
-	 * @param network
-	 *            The neural network to be trained.
-	 * @param startTemp
-	 *            The starting temperature.
-	 * @param stopTemp
-	 *            The ending temperature.
-	 * @param cycles
-	 *            The number of cycles in a training iteration.
+	 * @param network The neural network to be trained.
+	 * @param startTemp The starting temperature.
+	 * @param stopTemp The ending temperature.
+	 * @param cycles The number of cycles in a training iteration.
 	 */
 	public SimulatedAnnealingLearning(final NeuralNetwork network, final double startTemp, final double stopTemp, final int cycles) {
 		setNeuralNetwork(network);
@@ -118,8 +114,7 @@ public class SimulatedAnnealingLearning extends SupervisedLearning {
 	/**
 	 * Used internally to calculate the error for a training set.
 	 *
-	 * @param trainingSet
-	 *            The training set to calculate for.
+	 * @param trainingSet The training set to calculate for.
 	 * @return The error value.
 	 */
 	private double determineError(DataSet trainingSet) {

@@ -27,8 +27,7 @@ public class Benchmark {
 	/**
 	 * Adds specified benchmark task
 	 * 
-	 * @param task
-	 *            benchmark task
+	 * @param task benchmark task
 	 */
 	public void addTask(BenchmarkTask task) {
 		tasks.add(task);

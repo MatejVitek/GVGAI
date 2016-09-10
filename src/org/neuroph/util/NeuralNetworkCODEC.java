@@ -29,8 +29,7 @@ public class NeuralNetworkCODEC {
 	/**
 	 * Encode a network to an array.
 	 * 
-	 * @param network
-	 *            The network to encode.
+	 * @param network The network to encode.
 	 */
 	public static void network2array(NeuralNetwork network, double[] array) {
 		int index = 0;
@@ -48,10 +47,8 @@ public class NeuralNetworkCODEC {
 	/**
 	 * Decode a network from an array.
 	 * 
-	 * @param array
-	 *            The array used to decode.
-	 * @param network
-	 *            The network to decode into.
+	 * @param array The array used to decode.
+	 * @param network The network to decode into.
 	 */
 	public static void array2network(double[] array, NeuralNetwork network) {
 		int index = 0;
@@ -70,8 +67,7 @@ public class NeuralNetworkCODEC {
 	/**
 	 * Determine the array size for the given neural network.
 	 * 
-	 * @param network
-	 *            The neural network to determine for.
+	 * @param network The neural network to determine for.
 	 * @return The size of the array necessary to hold that network.
 	 */
 	public static int determineArraySize(NeuralNetwork network) {

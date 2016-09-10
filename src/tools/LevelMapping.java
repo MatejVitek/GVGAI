@@ -33,8 +33,7 @@ public class LevelMapping {
 	/**
 	 * construct level mapping object for the current game
 	 * 
-	 * @param game
-	 *            current game description object
+	 * @param game current game description object
 	 */
 	public LevelMapping(GameDescription game) {
 		ArrayList<SpriteData> allSprites = game.getAllSpriteData();
@@ -54,10 +53,8 @@ public class LevelMapping {
 	/**
 	 * Initialize the level mapping object for the current game using a starting level mapping
 	 * 
-	 * @param game
-	 *            current game description object
-	 * @param charMapping
-	 *            starting level mapping
+	 * @param game current game description object
+	 * @param charMapping starting level mapping
 	 */
 	public LevelMapping(GameDescription game, HashMap<Character, ArrayList<String>> charMapping) {
 		this(game);
@@ -70,8 +67,7 @@ public class LevelMapping {
 	/**
 	 * get the hashvalue for a list of sprites
 	 * 
-	 * @param data
-	 *            list of sprites to get its hashvalue
+	 * @param data list of sprites to get its hashvalue
 	 * @return hashvalue corresponding to list of sprites
 	 */
 	private long hashValueFunction(ArrayList<String> data) {
@@ -87,8 +83,7 @@ public class LevelMapping {
 	/**
 	 * get list of sprite names from its hashvalue
 	 * 
-	 * @param data
-	 *            hashvalue required to be decrypted
+	 * @param data hashvalue required to be decrypted
 	 * @return arraylist for the sprite names from the decryption process
 	 */
 	private ArrayList<String> reverseHash(long data) {
@@ -113,10 +108,8 @@ public class LevelMapping {
 	/**
 	 * add a character for a list of sprite names
 	 * 
-	 * @param c
-	 *            character assigned to the list of sprite names
-	 * @param list
-	 *            list of sprite names to be inserted in the level mapping
+	 * @param c character assigned to the list of sprite names
+	 * @param list list of sprite names to be inserted in the level mapping
 	 */
 	public void addCharacterMapping(Character c, ArrayList<String> list) {
 		long code = hashValueFunction(list);
@@ -128,8 +121,7 @@ public class LevelMapping {
 	/**
 	 * get character corresponding to a certain arraylist of strings
 	 * 
-	 * @param data
-	 *            list of sprite names
+	 * @param data list of sprite names
 	 * @return character corresponding to the list
 	 */
 	public Character getCharacter(ArrayList<String> data) {
@@ -148,8 +140,7 @@ public class LevelMapping {
 	/**
 	 * get arraylist of sprite names that correspond to a certain character
 	 * 
-	 * @param data
-	 *            character required to be checked
+	 * @param data character required to be checked
 	 * @return list of sprite names corresponding to input character
 	 */
 	public ArrayList<String> getArrayList(Character data) {

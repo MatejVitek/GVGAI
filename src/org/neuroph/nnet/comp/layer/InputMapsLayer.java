@@ -34,10 +34,8 @@ public class InputMapsLayer extends FeatureMapsLayer {
 	/**
 	 * Create InputMapsLayer with specified number of maps with specified dimensions
 	 * 
-	 * @param mapDimension
-	 *            dimensions of a single feature map
-	 * @param mapCount
-	 *            number of feature maps
+	 * @param mapDimension dimensions of a single feature map
+	 * @param mapCount number of feature maps
 	 */
 	public InputMapsLayer(Dimension2D mapDimensions, int mapCount) {
 		super(mapDimensions, mapCount, InputMapsLayer.DEFAULT_NEURON_PROP);

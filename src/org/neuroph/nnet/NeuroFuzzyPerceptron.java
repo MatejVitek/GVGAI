@@ -174,12 +174,9 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 	/**
 	 * Creates custom NFR architecture
 	 * 
-	 * @param inputNum
-	 *            number of getInputsIterator
-	 * @param inputSets
-	 *            input fuzzy sets
-	 * @param outNum
-	 *            number of outputs
+	 * @param inputNum number of getInputsIterator
+	 * @param inputSets input fuzzy sets
+	 * @param outNum number of outputs
 	 */
 	private void createNetwork(int inputNum, Vector<Integer> inputSets, int outNum) {
 

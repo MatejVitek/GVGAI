@@ -32,10 +32,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Initializing the level generator
 	 * 
-	 * @param game
-	 *            game description object
-	 * @param elapsedTimer
-	 *            amount of time for intiailization
+	 * @param game game description object
+	 * @param elapsedTimer amount of time for intiailization
 	 */
 	public LevelGenerator(GameDescription game, ElapsedCpuTimer elapsedTimer) {
 		SharedData.random = new Random();
@@ -51,10 +49,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Get the next population based on the current feasible infeasible population
 	 * 
-	 * @param fPopulation
-	 *            array of the current feasible chromosomes
-	 * @param iPopulation
-	 *            array of the current infeasible chromosomes
+	 * @param fPopulation array of the current feasible chromosomes
+	 * @param iPopulation array of the current infeasible chromosomes
 	 * @return array of the new chromosomes at the new population
 	 */
 	private ArrayList<Chromosome> getNextPopulation(ArrayList<Chromosome> fPopulation, ArrayList<Chromosome> iPopulation) {
@@ -159,8 +155,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Roullete wheel selection for the infeasible population
 	 * 
-	 * @param population
-	 *            array of chromosomes surviving in this population
+	 * @param population array of chromosomes surviving in this population
 	 * @return the picked chromosome based on its constraint fitness
 	 */
 	private Chromosome constraintRouletteWheelSelection(ArrayList<Chromosome> population) {
@@ -189,8 +184,7 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Get the fitness for any population
 	 * 
-	 * @param population
-	 *            array of chromosomes surviving in this population
+	 * @param population array of chromosomes surviving in this population
 	 * @return the picked chromosome based on its fitness
 	 */
 	private Chromosome rouletteWheelSelection(ArrayList<Chromosome> population) {
@@ -224,10 +218,8 @@ public class LevelGenerator extends AbstractLevelGenerator {
 	/**
 	 * Generate a level using GA in a fixed amount of time and return the level in form of a string
 	 * 
-	 * @param game
-	 *            the current game description object
-	 * @param elapsedTimer
-	 *            the amount of time allowed for generation
+	 * @param game the current game description object
+	 * @param elapsedTimer the amount of time allowed for generation
 	 * @return string for the generated level
 	 */
 	@Override

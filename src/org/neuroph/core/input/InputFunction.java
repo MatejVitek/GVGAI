@@ -36,8 +36,7 @@ abstract public class InputFunction implements Serializable { // this should be 
 	/**
 	 * Returns ouput value of this input function for the given neuron inputs
 	 * 
-	 * @param inputConnections
-	 *            neuron's input connections
+	 * @param inputConnections neuron's input connections
 	 * @return input total net input
 	 */
 	abstract public double getOutput(List<Connection> inputConnections);

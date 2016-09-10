@@ -48,8 +48,7 @@ public class Weight implements java.io.Serializable, Cloneable {
 	/**
 	 * Creates an instance of connection weight with the specified weight value
 	 *
-	 * @param value
-	 *            weight value
+	 * @param value weight value
 	 */
 	public Weight(double value) {
 		this.value = value;
@@ -58,8 +57,7 @@ public class Weight implements java.io.Serializable, Cloneable {
 	/**
 	 * Increases the weight for the specified amount
 	 *
-	 * @param amount
-	 *            amount to add to current weight value
+	 * @param amount amount to add to current weight value
 	 */
 	public void inc(double amount) {
 		this.value += amount;
@@ -68,8 +66,7 @@ public class Weight implements java.io.Serializable, Cloneable {
 	/**
 	 * Decreases the weight for specified amount
 	 *
-	 * @param amount
-	 *            amount to subtract from the current weight value
+	 * @param amount amount to subtract from the current weight value
 	 */
 	public void dec(double amount) {
 		this.value -= amount;
@@ -78,8 +75,7 @@ public class Weight implements java.io.Serializable, Cloneable {
 	/**
 	 * Sets the weight value
 	 *
-	 * @param value
-	 *            weight value to set
+	 * @param value weight value to set
 	 */
 	public void setValue(double value) {
 		this.value = value;

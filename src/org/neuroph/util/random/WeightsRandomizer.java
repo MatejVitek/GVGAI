@@ -38,8 +38,7 @@ public class WeightsRandomizer {
 	/**
 	 * Create a new instance of WeightsRandomizer with specified random generator If you use the same random generators, you'll get the same random sequences
 	 *
-	 * @param randomGenerator
-	 *            random geneartor to use for randomizing weights
+	 * @param randomGenerator random geneartor to use for randomizing weights
 	 */
 	public WeightsRandomizer(Random randomGenerator) {
 		this.randomGenerator = randomGenerator;
@@ -61,8 +60,7 @@ public class WeightsRandomizer {
 	/**
 	 * Iterates and randomizes all layers in specified network
 	 *
-	 * @param neuralNetwork
-	 *            neural network to randomize
+	 * @param neuralNetwork neural network to randomize
 	 */
 	public void randomize(NeuralNetwork<?> neuralNetwork) {
 		// List<Layer> layers = neuralNetwork.getLayers();
@@ -74,8 +72,7 @@ public class WeightsRandomizer {
 	/**
 	 * Iterate and randomizes all neurons in specified layer
 	 *
-	 * @param layer
-	 *            layer to randomize
+	 * @param layer layer to randomize
 	 */
 	public void randomize(Layer layer) {
 		for (Neuron neuron : layer.getNeurons()) {
@@ -86,8 +83,7 @@ public class WeightsRandomizer {
 	/**
 	 * Iterates and randomizes all connection weights in specified neuron
 	 *
-	 * @param neuron
-	 *            neuron to randomize
+	 * @param neuron neuron to randomize
 	 */
 	public void randomize(Neuron neuron) {
 		int numberOfInputConnections = neuron.getInputConnections().size();

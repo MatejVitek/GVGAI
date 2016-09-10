@@ -26,8 +26,7 @@ public class VectorSizeMismatchException extends NeurophException {
 	/**
 	 * Constructs an VectorSizeMismatchException with the specified detail message.
 	 * 
-	 * @param message
-	 *            the detail message.
+	 * @param message the detail message.
 	 */
 	public VectorSizeMismatchException(String message) {
 		super(message);
@@ -36,10 +35,8 @@ public class VectorSizeMismatchException extends NeurophException {
 	/**
 	 * Constructs a VectorSizeMismatchException with the specified detail message and specified cause.
 	 * 
-	 * @param message
-	 *            the detail message.
-	 * @param cause
-	 *            the cause for exception
+	 * @param message the detail message.
+	 * @param cause the cause for exception
 	 */
 	public VectorSizeMismatchException(String message, Throwable cause) {
 		super(message, cause);
@@ -48,8 +45,7 @@ public class VectorSizeMismatchException extends NeurophException {
 	/**
 	 * Constructs a new runtime exception with the specified cause
 	 * 
-	 * @param cause
-	 *            the cause for exception
+	 * @param cause the cause for exception
 	 */
 	public VectorSizeMismatchException(Throwable cause) {
 		super(cause);

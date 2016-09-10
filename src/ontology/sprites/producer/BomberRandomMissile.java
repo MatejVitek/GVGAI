@@ -51,10 +51,8 @@ public class BomberRandomMissile extends SpawnPoint {
 	/**
 	 * Updates missile itype with newitype
 	 * 
-	 * @param itype
-	 *            - current type of missile
-	 * @param newitype
-	 *            - new type of missile to replace the first
+	 * @param itype - current type of missile
+	 * @param newitype - new type of missile to replace the first
 	 */
 	public void updateItype(int itype, int newitype) {
 		int idx = itypesMissile.indexOf(itype);

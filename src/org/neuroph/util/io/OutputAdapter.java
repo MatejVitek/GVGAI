@@ -16,8 +16,7 @@ public interface OutputAdapter {
 	/**
 	 * Write neural network output to some destination.
 	 * 
-	 * @param output
-	 *            neural network output to be written
+	 * @param output neural network output to be written
 	 */
 	public void writeOutput(double[] output);
 

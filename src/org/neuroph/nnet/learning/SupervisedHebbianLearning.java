@@ -59,8 +59,7 @@ public class SupervisedHebbianLearning extends LMS {
 	/**
 	 * This method implements weight update procedure for the whole network for this learning rule
 	 * 
-	 * @param desiredOutput
-	 *            desired network output
+	 * @param desiredOutput desired network output
 	 */
 	@Override
 	protected void updateNetworkWeights(double[] desiredOutput) {
@@ -75,8 +74,7 @@ public class SupervisedHebbianLearning extends LMS {
 	/**
 	 * This method implements weights update procedure for the single neuron
 	 * 
-	 * @param neuron
-	 *            neuron to update weights desiredOutput desired output of the neuron
+	 * @param neuron neuron to update weights desiredOutput desired output of the neuron
 	 */
 	protected void updateNeuronWeights(Neuron neuron, double desiredOutput) {
 		for (Connection connection : neuron.getInputConnections()) {

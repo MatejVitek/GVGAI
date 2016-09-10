@@ -77,10 +77,8 @@ public class DataSet implements Serializable {
 	/**
 	 * Creates an instance of new empty training set
 	 *
-	 * @param inputSize
-	 *            Length of the input vector
-	 * @param outputSize
-	 *            Length of the output vector
+	 * @param inputSize Length of the input vector
+	 * @param outputSize Length of the output vector
 	 */
 	public DataSet(int inputSize, int outputSize) {
 		this.rows = new ArrayList();
@@ -93,8 +91,7 @@ public class DataSet implements Serializable {
 	/**
 	 * Adds new row row to this data set
 	 *
-	 * @param row
-	 *            data set row to add
+	 * @param row data set row to add
 	 */
 	public void addRow(DataSetRow row) throws VectorSizeMismatchException {
 
@@ -143,8 +140,7 @@ public class DataSet implements Serializable {
 	/**
 	 * Removes training row at specified index position
 	 *
-	 * @param idx
-	 *            position of row to remove
+	 * @param idx position of row to remove
 	 */
 	public void removeRowAt(int idx) {
 		this.rows.remove(idx);
@@ -171,8 +167,7 @@ public class DataSet implements Serializable {
 	/**
 	 * Returns training row at specified index position
 	 *
-	 * @param idx
-	 *            index position of training row to return
+	 * @param idx index position of training row to return
 	 * @return training row at specified index position
 	 */
 	public DataSetRow getRowAt(int idx) {
@@ -225,8 +220,7 @@ public class DataSet implements Serializable {
 	/**
 	 * Sets label for this training set
 	 *
-	 * @param label
-	 *            label for this training set
+	 * @param label label for this training set
 	 */
 	public void setLabel(String label) {
 		this.label = label;
@@ -401,8 +395,7 @@ public class DataSet implements Serializable {
 	/**
 	 * Loads training set from the specified file
 	 *
-	 * @param filePath
-	 *            training set file
+	 * @param filePath training set file
 	 * @return loded training set
 	 */
 	public static DataSet load(String filePath) {
@@ -441,16 +434,11 @@ public class DataSet implements Serializable {
 	/**
 	 * Creates and returns data set from specified csv file
 	 *
-	 * @param filePath
-	 *            path to csv dataset file to import
-	 * @param inputsCount
-	 *            number of inputs
-	 * @param outputsCount
-	 *            number of outputs
-	 * @param delimiter
-	 *            delimiter of values
-	 * @param loadColumnNames
-	 *            true if csv file contains column names in first line, false otherwise
+	 * @param filePath path to csv dataset file to import
+	 * @param inputsCount number of inputs
+	 * @param outputsCount number of outputs
+	 * @param delimiter delimiter of values
+	 * @param loadColumnNames true if csv file contains column names in first line, false otherwise
 	 * @return instance of dataset with values from specified file TODO: try with resources, provide information on exact line of error if format is not good in NumberFormatException
 	 */
 	public static DataSet createFromFile(String filePath, int inputsCount, int outputsCount, String delimiter, boolean loadColumnNames) {
@@ -533,14 +521,10 @@ public class DataSet implements Serializable {
 	/**
 	 * Creates and returns data set from specified csv file
 	 *
-	 * @param filePath
-	 *            path to csv dataset file to import
-	 * @param inputsCount
-	 *            number of inputs
-	 * @param outputsCount
-	 *            number of outputs
-	 * @param delimiter
-	 *            delimiter of values
+	 * @param filePath path to csv dataset file to import
+	 * @param inputsCount number of inputs
+	 * @param outputsCount number of outputs
+	 * @param delimiter delimiter of values
 	 * @return instance of dataset with values from specified file
 	 */
 	public static DataSet createFromFile(String filePath, int inputsCount, int outputsCount, String delimiter) {

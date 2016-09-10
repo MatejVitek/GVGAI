@@ -71,8 +71,7 @@ public class VGDLParser {
 	/**
 	 * Parses a game passed whose file is passed by parameter.
 	 * 
-	 * @param gamedesc_file
-	 *            filename of the file containing the game
+	 * @param gamedesc_file filename of the file containing the game
 	 * @return the game created
 	 */
 	public Game parseGame(String gamedesc_file) {
@@ -107,8 +106,7 @@ public class VGDLParser {
 	/**
 	 * Builds the tree structure that defines the game.
 	 * 
-	 * @param lines
-	 *            array with the lines read from the game description file.
+	 * @param lines array with the lines read from the game description file.
 	 * @return the root of the final game tree
 	 */
 	private Node indentTreeParser(String[] lines) {
@@ -143,8 +141,7 @@ public class VGDLParser {
 	/**
 	 * Updates the set we are in (game-def, spriteset, interactionset, levelmapping, terminationset)
 	 * 
-	 * @param line
-	 *            line to read
+	 * @param line line to read
 	 */
 	private void updateSet(String line) {
 		if (line.equalsIgnoreCase("SpriteSet")) currentSet = Types.VGDL_SPRITE_SET;
@@ -156,8 +153,7 @@ public class VGDLParser {
 	/**
 	 * Parses the sprite set, and then initializes the game structures for the sprites.
 	 * 
-	 * @param elements
-	 *            children of the root node of the game description sprite set.
+	 * @param elements children of the root node of the game description sprite set.
 	 */
 	private void parseSpriteSet(ArrayList<Node> elements) {
 		// We need these 2 here:
@@ -173,14 +169,10 @@ public class VGDLParser {
 	/**
 	 * Recursive method to parse the tree of sprites.
 	 * 
-	 * @param elements
-	 *            set of sibling nodes
-	 * @param parentclass
-	 *            String that identifies the class of the parent node. If null, no class defined yet.
-	 * @param parentargs
-	 *            Map with the arguments of the parent, that are inherited to all its children.
-	 * @param parenttypes
-	 *            List of types the parent of elements belong to.
+	 * @param elements set of sibling nodes
+	 * @param parentclass String that identifies the class of the parent node. If null, no class defined yet.
+	 * @param parentargs Map with the arguments of the parent, that are inherited to all its children.
+	 * @param parenttypes List of types the parent of elements belong to.
 	 */
 	private void _parseSprites(ArrayList<Node> elements, String parentclass, HashMap<String, String> parentargs, ArrayList<String> parenttypes) {
 		HashMap<String, String> args = (HashMap<String, String>) parentargs.clone();
@@ -265,8 +257,7 @@ public class VGDLParser {
 	/**
 	 * Parses the interaction set.
 	 * 
-	 * @param elements
-	 *            all interactions defined for the game.
+	 * @param elements all interactions defined for the game.
 	 */
 	private void parseInteractionSet(ArrayList<Node> elements) {
 		for (Node n : elements) {
@@ -336,8 +327,7 @@ public class VGDLParser {
 	/**
 	 * Parses the level mapping.
 	 * 
-	 * @param elements
-	 *            all mapping units.
+	 * @param elements all mapping units.
 	 */
 	private void parseLevelMapping(ArrayList<Node> elements) {
 		for (Node n : elements) {
@@ -350,8 +340,7 @@ public class VGDLParser {
 	/**
 	 * Parses the termination set.
 	 * 
-	 * @param elements
-	 *            all terminations defined for the game.
+	 * @param elements all terminations defined for the game.
 	 */
 	private void parseTerminationSet(ArrayList<Node> elements) {
 		for (Node n : elements) {

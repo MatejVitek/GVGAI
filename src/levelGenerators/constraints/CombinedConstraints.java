@@ -21,8 +21,7 @@ public class CombinedConstraints extends AbstractConstraint {
 	/**
 	 * Add multiple constraints to the combined constraints class
 	 * 
-	 * @param conStrings
-	 *            array of name of the constraint classes needed
+	 * @param conStrings array of name of the constraint classes needed
 	 */
 	public void addConstraints(String[] conStrings) {
 		for (String c : conStrings) {
@@ -41,8 +40,7 @@ public class CombinedConstraints extends AbstractConstraint {
 	/**
 	 * Set the parameters of all the constraints added
 	 * 
-	 * @param parameters
-	 *            a hashmap contains all the objects needed for all constraints
+	 * @param parameters a hashmap contains all the objects needed for all constraints
 	 */
 	@Override
 	public void setParameters(HashMap<String, Object> parameters) {

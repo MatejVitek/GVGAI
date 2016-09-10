@@ -48,8 +48,7 @@ public class ShootAvatar extends OrientedAvatar {
 	/**
 	 * This update call is for the game tick() loop.
 	 * 
-	 * @param game
-	 *            current state of the game.
+	 * @param game current state of the game.
 	 */
 	public void update(Game game) {
 		super.update(game);
@@ -59,10 +58,8 @@ public class ShootAvatar extends OrientedAvatar {
 	/**
 	 * This move call is for the Forward Model tick() loop.
 	 * 
-	 * @param game
-	 *            current state of the game.
-	 * @param actionMask
-	 *            action to apply.
+	 * @param game current state of the game.
+	 * @param actionMask action to apply.
 	 */
 	public void move(Game game, boolean[] actionMask) {
 		super.move(game, actionMask);

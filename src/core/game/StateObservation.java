@@ -23,8 +23,7 @@ public class StateObservation {
 	/**
 	 * Constructor for StateObservation. Requires a forward model
 	 *
-	 * @param a_model
-	 *            forward model of the game.
+	 * @param a_model forward model of the game.
 	 */
 	public StateObservation(ForwardModel a_model) {
 		model = a_model;
@@ -46,8 +45,7 @@ public class StateObservation {
 	 * <p/>
 	 * Note: stochastic events will not be necessarily the same as in the real game.
 	 *
-	 * @param action
-	 *            agent action to execute in the next cycle.
+	 * @param action agent action to execute in the next cycle.
 	 */
 	public void advance(Types.ACTIONS action) {
 		model.advance(action);
@@ -56,8 +54,7 @@ public class StateObservation {
 	/**
 	 * Sets a new seed for the forward model's random generator (creates a new object)
 	 *
-	 * @param seed
-	 *            the new seed.
+	 * @param seed the new seed.
 	 */
 	public void setNewSeed(int seed) {
 		model.setNewSeed(seed);
@@ -76,8 +73,7 @@ public class StateObservation {
 	 * Returns the actions that are available in this game for the avatar. If the parameter 'includeNIL' is true, the array contains the (always available) NIL action. If it is false, this is
 	 * equivalent to calling getAvailableActions().
 	 * 
-	 * @param includeNIL
-	 *            true to include Types.ACTIONS.ACTION_NIL in the array of actions.
+	 * @param includeNIL true to include Types.ACTIONS.ACTION_NIL in the array of actions.
 	 * @return the available actions.
 	 */
 	public ArrayList<Types.ACTIONS> getAvailableActions(boolean includeNIL) {
@@ -279,8 +275,7 @@ public class StateObservation {
 	 * Returns a list of observations of NPC in the game. As there can be NPCs of different type, each entry in the array corresponds to a sprite type. Every ArrayList contains a list of objects of
 	 * type Observation, ordered asc. by distance to the reference passed. Each Observation holds the position, sprite type id and sprite id of that particular sprite.
 	 *
-	 * @param reference
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param reference Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return Observations of NPCs in the game.
 	 */
 	public ArrayList<Observation>[] getNPCPositions(Vector2d reference) {
@@ -301,8 +296,7 @@ public class StateObservation {
 	 * Returns a list of observations of immovable sprites in the game. As there can be immovable sprites of different type, each entry in the array corresponds to a sprite type. Every ArrayList
 	 * contains a list of objects of type Observation, ordered asc. by distance to the reference passed. Each Observation holds the position, sprite type id and sprite id of that particular sprite.
 	 *
-	 * @param reference
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param reference Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return Observations of immovable sprites in the game.
 	 */
 	public ArrayList<Observation>[] getImmovablePositions(Vector2d reference) {
@@ -324,8 +318,7 @@ public class StateObservation {
 	 * Every ArrayList contains a list of objects of type Observation, ordered asc. by distance to the reference passed. Each Observation holds the position, sprite type id and sprite id of that
 	 * particular sprite.
 	 *
-	 * @param reference
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param reference Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return Observations of movable (not NPCs) sprites in the game.
 	 */
 	public ArrayList<Observation>[] getMovablePositions(Vector2d reference) {
@@ -346,8 +339,7 @@ public class StateObservation {
 	 * Returns a list of observations of resources in the game. As there can be resources of different type, each entry in the array corresponds to a sprite type. Every ArrayList contains a list of
 	 * objects of type Observation, ordered asc. by distance to the reference passed. Each Observation holds the position, sprite type id and sprite id of that particular sprite.
 	 *
-	 * @param reference
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param reference Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return Observations of resources in the game.
 	 */
 	public ArrayList<Observation>[] getResourcesPositions(Vector2d reference) {
@@ -368,8 +360,7 @@ public class StateObservation {
 	 * Returns a list of observations of portals in the game. As there can be portals of different type, each entry in the array corresponds to a sprite type. Every ArrayList contains a list of
 	 * objects of type Observation, ordered asc. by distance to the reference passed. Each Observation holds the position, sprite type id and sprite id of that particular sprite.
 	 *
-	 * @param reference
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param reference Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return Observations of portals in the game.
 	 */
 	public ArrayList<Observation>[] getPortalsPositions(Vector2d reference) {
@@ -391,8 +382,7 @@ public class StateObservation {
 	 * corresponds to a sprite type. Every ArrayList contains a list of objects of type Observation, ordered asc. by distance to the reference passed. Each Observation holds the position, sprite type
 	 * id and sprite id of that particular sprite.
 	 *
-	 * @param reference
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param reference Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return Observations of sprites the avatar created.
 	 */
 	public ArrayList<Observation>[] getFromAvatarSpritesPositions(Vector2d reference) {
@@ -402,8 +392,7 @@ public class StateObservation {
 	/**
 	 * Returns key handler available to the player.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return KeyHandler object.
 	 */
 	public KeyHandler getKeyHandler(int playerID) {
@@ -413,8 +402,7 @@ public class StateObservation {
 	/**
 	 * Compares if this and the received StateObservation state are equivalent. DEBUG ONLY METHOD.
 	 * 
-	 * @param o
-	 *            Object to compare this to.
+	 * @param o Object to compare this to.
 	 * @return true if o has the same components as this.
 	 */
 	public boolean equiv(Object o) {

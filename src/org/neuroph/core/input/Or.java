@@ -23,8 +23,7 @@ public class Or extends InputFunction implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @param inputVector
-	 *            Input values >= 0.5d are considered true, otherwise false.
+	 * @param inputVector Input values >= 0.5d are considered true, otherwise false.
 	 */
 	public double getOutput(List<Connection> inputConnections) {
 		if (inputConnections.size() == 0) return 0d;

@@ -28,10 +28,8 @@ public class StepController {
 	/**
 	 * Initialize the Step Agent
 	 * 
-	 * @param agent
-	 *            agent used to play the game
-	 * @param stepTime
-	 *            amount of time spend for each step
+	 * @param agent agent used to play the game
+	 * @param stepTime amount of time spend for each step
 	 */
 	public StepController(AbstractPlayer agent, long stepTime) {
 		this.stepTime = stepTime;
@@ -41,10 +39,8 @@ public class StepController {
 	/**
 	 * play the current game for a specific amount of time using the initialized player
 	 * 
-	 * @param stateObs
-	 *            starting observation object
-	 * @param elapsedTimer
-	 *            amount of time that can be spent in this function
+	 * @param stateObs starting observation object
+	 * @param elapsedTimer amount of time that can be spent in this function
 	 */
 	public void playGame(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
 		solution = new ArrayList<Types.ACTIONS>();

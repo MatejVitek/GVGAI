@@ -99,8 +99,7 @@ public class Cluster {
 	/**
 	 * Assignes vector to this cluster.
 	 * 
-	 * @param vector
-	 *            vector to assign
+	 * @param vector vector to assign
 	 */
 	public void assignVector(KVector vector) {
 		// if vector's cluster is allready set to this, save some cpu cycles

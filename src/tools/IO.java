@@ -17,8 +17,7 @@ public class IO {
 	/**
 	 * Reads a file and returns its content as a String[]
 	 * 
-	 * @param filename
-	 *            file to read
+	 * @param filename file to read
 	 * @return file content as String[], one line per element
 	 */
 	public String[] readFile(String filename) {

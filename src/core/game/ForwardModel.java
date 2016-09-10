@@ -92,8 +92,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Dumps the game state into 'this' object. Effectively, creates a state observation from a game state (of class Game).
 	 * 
-	 * @param a_gameState
-	 *            game to take the state from.
+	 * @param a_gameState game to take the state from.
 	 */
 	final public void update(Game a_gameState) {
 		int numSpriteTypes = a_gameState.spriteGroups.length;
@@ -160,8 +159,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Updates the persistent observation of this sprite, or creates it if the observation is new.
 	 * 
-	 * @param sprite
-	 *            sprite to take the observation from.
+	 * @param sprite sprite to take the observation from.
 	 */
 	private void updateObservation(VGDLSprite sprite) {
 		int spriteId = sprite.spriteID;
@@ -187,8 +185,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Removes an sprite observation.
 	 * 
-	 * @param sprite
-	 *            sprite to remove.
+	 * @param sprite sprite to remove.
 	 */
 	public final void removeSpriteObservation(VGDLSprite sprite) {
 		int spriteId = sprite.spriteID;
@@ -203,14 +200,10 @@ public class ForwardModel extends Game {
 	/**
 	 * Updates a grid observation.
 	 * 
-	 * @param obs
-	 *            observation to update
-	 * @param newObs
-	 *            if this is a new observation.
-	 * @param moved
-	 *            if it is a past observation, and it moved.
-	 * @param oldPosition
-	 *            the old position of this observation if it moved.
+	 * @param obs observation to update
+	 * @param newObs if this is a new observation.
+	 * @param moved if it is a past observation, and it moved.
+	 * @param oldPosition the old position of this observation if it moved.
 	 */
 	private void updateGrid(Observation obs, boolean newObs, boolean moved, Vector2d oldPosition) {
 		// Insert observation in the grid position.
@@ -225,10 +218,8 @@ public class ForwardModel extends Game {
 	/**
 	 * Removes an observation to the grid, from the position specified.
 	 * 
-	 * @param obs
-	 *            observation to delete.
-	 * @param position
-	 *            where the sprite was located last time seen.
+	 * @param obs observation to delete.
+	 * @param position where the sprite was located last time seen.
 	 */
 	private void removeObservationFromGrid(Observation obs, Vector2d position) {
 		int x = (int) position.x / block_size;
@@ -249,10 +240,8 @@ public class ForwardModel extends Game {
 	/**
 	 * Adds an observation to the grid, in the position specified.
 	 * 
-	 * @param obs
-	 *            observation to add.
-	 * @param position
-	 *            where to be added.
+	 * @param obs observation to add.
+	 * @param position where to be added.
 	 */
 	private void addObservationToGrid(Observation obs, Vector2d position) {
 		int x = (int) position.x / block_size;
@@ -288,8 +277,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Creates the sprite observation of a given sprite.
 	 * 
-	 * @param sprite
-	 *            sprite to create the observation from.
+	 * @param sprite sprite to create the observation from.
 	 * @return the observation object.
 	 */
 	private Observation createSpriteObservation(VGDLSprite sprite) {
@@ -302,8 +290,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Gets the sprite observation of a given sprite. Creates it if id didn't exist.
 	 * 
-	 * @param sprite
-	 *            sprite to get/create the observation from.
+	 * @param sprite sprite to get/create the observation from.
 	 * @return the observation object.
 	 */
 	private Observation getSpriteObservation(VGDLSprite sprite) {
@@ -320,10 +307,8 @@ public class ForwardModel extends Game {
 	/**
 	 * Checks some features of the sprite, to categorize it.
 	 * 
-	 * @param sp
-	 *            Sprite to categorize.
-	 * @param itype
-	 *            itype of the sprite.
+	 * @param sp Sprite to categorize.
+	 * @param itype itype of the sprite.
 	 */
 	private void checkSpriteFeatures(VGDLSprite sp, int itype) {
 		int category = getSpriteCategory(sp);
@@ -391,8 +376,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Initializes the non volatile elements of a game (constructors, termination conditions, effects, etc). 'this' takes these from a_gameState,
 	 * 
-	 * @param a_gameState
-	 *            Reference to the original game
+	 * @param a_gameState Reference to the original game
 	 */
 	private void initNonVolatile(Game a_gameState) {
 		// We skip this.resource_colors and sampleRandom.
@@ -453,8 +437,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Sets a new seed for the forward model's random generator (creates a new object)
 	 *
-	 * @param seed
-	 *            the new seed.
+	 * @param seed the new seed.
 	 */
 	public void setNewSeed(int seed) {
 		randomObs = new Random(seed);
@@ -474,8 +457,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Calls update(this) in avatar sprites. It uses the action received as the action of the avatar. Doesn't update disabled avatars.
 	 * 
-	 * @param action
-	 *            Action to be performed by the avatar for this game tick.
+	 * @param action Action to be performed by the avatar for this game tick.
 	 */
 	protected void updateAvatars(Types.ACTIONS action, int playerID) {
 		MovingAvatar a = avatars[playerID];
@@ -529,8 +511,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Advances the forward model using the actions supplied.
 	 * 
-	 * @param actions
-	 *            array of actions of all players (index in array corresponds to playerID).
+	 * @param actions array of actions of all players (index in array corresponds to playerID).
 	 */
 	final public void advance(Types.ACTIONS[] actions) {
 
@@ -601,8 +582,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games. Gets the game score of a particular player (identified by playerID).
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 * @return the game score.
 	 */
 	public double getGameScore(int playerID) {
@@ -686,8 +666,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public Vector2d getAvatarPosition(int playerID) {
 		if (isEnded) return Types.NIL;
@@ -707,8 +686,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public double getAvatarSpeed(int playerID) {
 		if (isEnded) return 0;
@@ -728,8 +706,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public Vector2d getAvatarOrientation(int playerID) {
 		if (isEnded) return Types.NIL;
@@ -740,8 +717,7 @@ public class ForwardModel extends Game {
 	 * Returns the actions that are available in this game for the avatar. If the parameter 'includeNIL' is true, the array contains the (always available) NIL action. If it is false, this is
 	 * equivalent to calling getAvailableActions().
 	 * 
-	 * @param includeNIL
-	 *            true to include Types.ACTIONS.ACTION_NIL in the array of actions.
+	 * @param includeNIL true to include Types.ACTIONS.ACTION_NIL in the array of actions.
 	 * @return the available actions.
 	 */
 	public ArrayList<Types.ACTIONS> getAvatarActions(boolean includeNIL) {
@@ -751,8 +727,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public ArrayList<Types.ACTIONS> getAvatarActions(int playerID, boolean includeNIL) {
 		if (isEnded) return new ArrayList<Types.ACTIONS>();
@@ -774,8 +749,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public HashMap<Integer, Integer> getAvatarResources(int playerID) {
 		// Determine how many different resources does the avatar have.
@@ -805,8 +779,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public Types.ACTIONS getAvatarLastAction(int playerID) {
 		if (avatarLastAction[playerID] != null) return avatarLastAction[0];
@@ -825,8 +798,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public int getAvatarType(int playerID) {
 		return avatars[playerID].getType();
@@ -844,8 +816,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public int getAvatarHealthPoints(int playerID) {
 		return avatars[playerID].healthPoints;
@@ -863,8 +834,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public int getAvatarMaxHealthPoints(int playerID) {
 		return avatars[playerID].maxHealthPoints;
@@ -882,8 +852,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games.
 	 * 
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public int getAvatarLimitHealthPoints(int playerID) {
 		return avatars[playerID].limitHealthPoints;
@@ -901,8 +870,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Method overloaded for multi player games, returns true if the avatar is still alive.
 	 *
-	 * @param playerID
-	 *            ID of the player to query.
+	 * @param playerID ID of the player to query.
 	 */
 	public boolean isAvatarAlive(int playerID) {
 		return !avatars[playerID].is_disabled();
@@ -913,8 +881,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Gets position from the sprites corresponding to the boolean map passed by parameter.
 	 * 
-	 * @param groupArray
-	 *            boolean map that indicates which sprite types must be considered.
+	 * @param groupArray boolean map that indicates which sprite types must be considered.
 	 * @return List of arrays with Observations. Each entry in the array corresponds to a different sprite type.
 	 */
 	private ArrayList<Observation>[] getPositionsFrom(boolean[] groupArray, Vector2d refPosition) {
@@ -982,8 +949,7 @@ public class ForwardModel extends Game {
 	 * Returns a list of observations of NPC in the game. As there can be NPCs of different type, each entry in the array corresponds to a sprite type. Every ArrayList contains a list of objects of
 	 * type Observation, ordered asc. by distance to the avatar. Each Observation holds the position, unique id and sprite id of that particular sprite.
 	 *
-	 * @param refPosition
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param refPosition Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return Observations of NPCs in the game.
 	 */
 	public ArrayList<Observation>[] getNPCPositions(Vector2d refPosition) {
@@ -993,8 +959,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Observations of static objects in the game.
 	 * 
-	 * @param refPosition
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param refPosition Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return a list with the observations of static objects in the game..
 	 */
 	public ArrayList<Observation>[] getImmovablePositions(Vector2d refPosition) {
@@ -1004,8 +969,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Returns a list with observations of sprites that move, but are NOT NPCs.
 	 * 
-	 * @param refPosition
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param refPosition Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return a list with observations of sprites that move, but are NOT NPCs.
 	 */
 	public ArrayList<Observation>[] getMovablePositions(Vector2d refPosition) {
@@ -1033,8 +997,7 @@ public class ForwardModel extends Game {
 	/**
 	 * Returns a list of observations of objects created by the avatar's actions.
 	 * 
-	 * @param refPosition
-	 *            Reference position to use when sorting this array, by ascending distance to this point.
+	 * @param refPosition Reference position to use when sorting this array, by ascending distance to this point.
 	 * @return a list with observations of sprites.
 	 */
 	public ArrayList<Observation>[] getFromAvatarSpPositions(Vector2d refPosition) {

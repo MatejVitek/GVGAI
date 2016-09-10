@@ -25,12 +25,9 @@ public class Agent extends AbstractMultiPlayer {
 	/**
 	 * initialize all variables for the agent
 	 * 
-	 * @param stateObs
-	 *            Observation of the current state.
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
-	 * @param playerID
-	 *            ID if this agent
+	 * @param stateObs Observation of the current state.
+	 * @param elapsedTimer Timer when the action returned is due.
+	 * @param playerID ID if this agent
 	 */
 	public Agent(StateObservationMulti stateObs, ElapsedCpuTimer elapsedTimer, int playerID) {
 		m_rnd = new Random();
@@ -45,10 +42,8 @@ public class Agent extends AbstractMultiPlayer {
 	 * Very simple one step lookahead agent. Pass player ID to all state observation methods to query the right player. Omitting the player ID will result in it being set to the default 0 (first
 	 * player, whichever that is).
 	 *
-	 * @param stateObs
-	 *            Observation of the current state.
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param stateObs Observation of the current state.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
 	public Types.ACTIONS act(StateObservationMulti stateObs, ElapsedCpuTimer elapsedTimer) {

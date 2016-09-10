@@ -36,8 +36,7 @@ public class HopfieldLearning extends LearningRule {
 	/**
 	 * Calculates weights for the hopfield net to learn the specified training set
 	 * 
-	 * @param trainingSet
-	 *            training set to learn
+	 * @param trainingSet training set to learn
 	 */
 	public void learn(DataSet trainingSet) {
 		int M = trainingSet.size();

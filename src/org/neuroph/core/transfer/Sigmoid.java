@@ -38,8 +38,7 @@ public class Sigmoid extends TransferFunction implements Serializable {
 	/**
 	 * Creates an instance of Sigmoid neuron transfer function with specified value for slope parametar.
 	 * 
-	 * @param slope
-	 *            the slope parametar for the sigmoid function
+	 * @param slope the slope parametar for the sigmoid function
 	 */
 	public Sigmoid(double slope) {
 		this.slope = slope;
@@ -48,8 +47,7 @@ public class Sigmoid extends TransferFunction implements Serializable {
 	/**
 	 * Creates an instance of Sigmoid neuron transfer function with the specified properties.
 	 * 
-	 * @param properties
-	 *            properties of the sigmoid function
+	 * @param properties properties of the sigmoid function
 	 */
 	public Sigmoid(Properties properties) {
 		try {
@@ -75,8 +73,7 @@ public class Sigmoid extends TransferFunction implements Serializable {
 	/**
 	 * Sets the slope parametar for this function
 	 * 
-	 * @param slope
-	 *            value for the slope parametar
+	 * @param slope value for the slope parametar
 	 */
 	public void setSlope(double slope) {
 		this.slope = slope;

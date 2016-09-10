@@ -104,8 +104,7 @@ public class Chaser extends RandomNPC {
 	/**
 	 * Sets a list with the closest targets (sprites with the type 'stype'), by distance
 	 * 
-	 * @param game
-	 *            game to access all sprites
+	 * @param game game to access all sprites
 	 */
 	protected void closestTargets(Game game) {
 		targets.clear();

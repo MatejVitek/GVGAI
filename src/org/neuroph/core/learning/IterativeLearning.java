@@ -69,8 +69,7 @@ abstract public class IterativeLearning extends LearningRule implements Serializ
 	/**
 	 * Sets learning rate for this algorithm
 	 *
-	 * @param learningRate
-	 *            learning rate for this algorithm
+	 * @param learningRate learning rate for this algorithm
 	 */
 	public void setLearningRate(double learningRate) {
 		this.learningRate = learningRate;
@@ -79,8 +78,7 @@ abstract public class IterativeLearning extends LearningRule implements Serializ
 	/**
 	 * Sets iteration limit for this learning algorithm
 	 *
-	 * @param maxIterations
-	 *            iteration limit for this learning algorithm
+	 * @param maxIterations iteration limit for this learning algorithm
 	 */
 	public void setMaxIterations(int maxIterations) {
 		if (maxIterations > 0) {
@@ -208,10 +206,8 @@ abstract public class IterativeLearning extends LearningRule implements Serializ
 	/**
 	 * Trains network for the specified training set and number of iterations
 	 *
-	 * @param trainingSet
-	 *            training set to learn
-	 * @param maxIterations
-	 *            maximum numberof iterations to learn
+	 * @param trainingSet training set to learn
+	 * @param maxIterations maximum numberof iterations to learn
 	 */
 	public void learn(DataSet trainingSet, int maxIterations) {
 		this.setMaxIterations(maxIterations);
@@ -221,8 +217,7 @@ abstract public class IterativeLearning extends LearningRule implements Serializ
 	/**
 	 * Runs one learning iteration for the specified training set and notfies observers. This method does the the doLearningEpoch() and in addtion notifes observrs when iteration is done.
 	 *
-	 * @param trainingSet
-	 *            training set to learn
+	 * @param trainingSet training set to learn
 	 */
 	public void doOneLearningIteration(DataSet trainingSet) {
 		beforeEpoch();
@@ -235,8 +230,7 @@ abstract public class IterativeLearning extends LearningRule implements Serializ
 	/**
 	 * Override this method to implement specific learning epoch - one learning iteration, one pass through whole training set
 	 *
-	 * @param trainingSet
-	 *            training set
+	 * @param trainingSet training set
 	 */
 	abstract public void doLearningEpoch(DataSet trainingSet);
 }

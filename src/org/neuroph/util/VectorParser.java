@@ -21,8 +21,7 @@ public class VectorParser {
 	/**
 	 * This method parses input String and returns Integer vector
 	 * 
-	 * @param str
-	 *            input String
+	 * @param str input String
 	 * @return Integer vector
 	 */
 	static public ArrayList<Integer> parseInteger(String str) {
@@ -38,8 +37,7 @@ public class VectorParser {
 	/**
 	 * This method parses input String and returns double array
 	 * 
-	 * @param inputStr
-	 *            input String
+	 * @param inputStr input String
 	 * @return double array
 	 */
 	static public double[] parseDoubleArray(String inputStr) {

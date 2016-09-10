@@ -33,8 +33,7 @@ public class Hopfield extends NeuralNetwork {
 	/**
 	 * Creates new Hopfield network with specified neuron number
 	 * 
-	 * @param neuronsCount
-	 *            neurons number in Hopfied network
+	 * @param neuronsCount neurons number in Hopfied network
 	 */
 	public Hopfield(int neuronsCount) {
 
@@ -52,10 +51,8 @@ public class Hopfield extends NeuralNetwork {
 	/**
 	 * Creates new Hopfield network with specified neuron number and neuron properties
 	 * 
-	 * @param neuronsCount
-	 *            neurons number in Hopfied network
-	 * @param neuronProperties
-	 *            neuron properties
+	 * @param neuronsCount neurons number in Hopfied network
+	 * @param neuronProperties neuron properties
 	 */
 	public Hopfield(int neuronsCount, NeuronProperties neuronProperties) {
 		this.createNetwork(neuronsCount, neuronProperties);
@@ -64,10 +61,8 @@ public class Hopfield extends NeuralNetwork {
 	/**
 	 * Creates Hopfield network architecture
 	 * 
-	 * @param neuronsCount
-	 *            neurons number in Hopfied network
-	 * @param neuronProperties
-	 *            neuron properties
+	 * @param neuronsCount neurons number in Hopfied network
+	 * @param neuronProperties neuron properties
 	 */
 	private void createNetwork(int neuronsCount, NeuronProperties neuronProperties) {
 

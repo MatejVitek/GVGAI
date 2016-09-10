@@ -61,10 +61,8 @@ public abstract class Player {
 	 * Picks an action. This function is called every game step to request an action from the player. The action returned must be contained in the actions accessible from
 	 * stateObs.getAvailableActions(), or no action will be applied. Single Player method.
 	 * 
-	 * @param stateObs
-	 *            Observation of the current state.
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param stateObs Observation of the current state.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
 	public abstract Types.ACTIONS act(StateObservation stateObs, ElapsedCpuTimer elapsedTimer);
@@ -73,10 +71,8 @@ public abstract class Player {
 	 * Picks an action. This function is called every game step to request an action from the player. The action returned must be contained in the actions accessible from
 	 * stateObs.getAvailableActions(), or no action will be applied. Multi player method.
 	 * 
-	 * @param stateObs
-	 *            Observation of the current state.
-	 * @param elapsedTimer
-	 *            Timer when the action returned is due.
+	 * @param stateObs Observation of the current state.
+	 * @param elapsedTimer Timer when the action returned is due.
 	 * @return An action for the current state
 	 */
 	public abstract Types.ACTIONS act(StateObservationMulti stateObs, ElapsedCpuTimer elapsedTimer);
@@ -84,10 +80,8 @@ public abstract class Player {
 	/**
 	 * Function called when the game is over. This method must finish before CompetitionParameters.TEAR_DOWN_TIME, or the agent will be DISQUALIFIED
 	 * 
-	 * @param stateObs
-	 *            the game state at the end of the game
-	 * @param elapsedCpuTimer
-	 *            timer when this method is meant to finish.
+	 * @param stateObs the game state at the end of the game
+	 * @param elapsedCpuTimer timer when this method is meant to finish.
 	 */
 	public void result(StateObservation stateObs, ElapsedCpuTimer elapsedCpuTimer) {}
 
@@ -96,12 +90,9 @@ public abstract class Player {
 	/**
 	 * This function sets up the controller to save the actions executed in a given game.
 	 * 
-	 * @param actionFile
-	 *            file to save the actions to.
-	 * @param randomSeed
-	 *            Seed for the sampleRandom generator of the game to be played.
-	 * @param isHuman
-	 *            Indicates if the player is a human or not.
+	 * @param actionFile file to save the actions to.
+	 * @param randomSeed Seed for the sampleRandom generator of the game to be played.
+	 * @param isHuman Indicates if the player is a human or not.
 	 */
 	public void setup(String actionFile, int randomSeed, boolean isHuman) {
 		this.actionFile = actionFile;
@@ -136,8 +127,7 @@ public abstract class Player {
 	/**
 	 * Logs a single action
 	 * 
-	 * @param action
-	 *            the action to log.
+	 * @param action the action to log.
 	 */
 	final public void logAction(Types.ACTIONS action) {
 
@@ -176,8 +166,7 @@ public abstract class Player {
 	/**
 	 * Set the ID of this player.
 	 * 
-	 * @param id
-	 *            - the player's ID
+	 * @param id - the player's ID
 	 */
 	public void setPlayerID(int id) {
 		playerID = id;
@@ -195,8 +184,7 @@ public abstract class Player {
 	/**
 	 * Gets the player the control to draw something on the screen. It can be used for debug purposes.
 	 * 
-	 * @param g
-	 *            Graphics device to draw to.
+	 * @param g Graphics device to draw to.
 	 */
 	public void draw(Graphics2D g) {
 		// Overwrite this method in your controller to draw on the screen.

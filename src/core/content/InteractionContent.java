@@ -36,10 +36,8 @@ public class InteractionContent extends Content {
 	/**
 	 * Simple constructor that receives an identifier and a reference class
 	 * 
-	 * @param id1
-	 *            identifier of the first object in the interaction.
-	 * @param id2List
-	 *            list of identifiers of the second part in the interaction.
+	 * @param id1 identifier of the first object in the interaction.
+	 * @param id2List list of identifiers of the second part in the interaction.
 	 */
 	public InteractionContent(String id1, String id2List, String function) {
 		super();
@@ -52,8 +50,7 @@ public class InteractionContent extends Content {
 	/**
 	 * Constructor that extracts the contents from a String line
 	 * 
-	 * @param line
-	 *            String with the contents in VGDL format, to be mapped to the data structures of this class.
+	 * @param line String with the contents in VGDL format, to be mapped to the data structures of this class.
 	 */
 	public InteractionContent(String line) {
 		this.line = line;

@@ -76,10 +76,8 @@ public class ContinuousPhysics extends GridPhysics {
 	/**
 	 * Euclidean distance between two rectangles.
 	 * 
-	 * @param r1
-	 *            rectangle 1
-	 * @param r2
-	 *            rectangle 2
+	 * @param r1 rectangle 1
+	 * @param r2 rectangle 2
 	 * @return Euclidean distance between the top-left corner of the rectangles.
 	 */
 	public double distance(Rectangle r1, Rectangle r2) {

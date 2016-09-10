@@ -26,8 +26,7 @@ public class DistortRandomizer extends WeightsRandomizer {
 	/**
 	 * Create a new instance of DistortRandomizer with specified distortion factor
 	 * 
-	 * @param distortionFactor
-	 *            amount to distort existing weights
+	 * @param distortionFactor amount to distort existing weights
 	 */
 	public DistortRandomizer(double distortionFactor) {
 		this.distortionFactor = distortionFactor;
@@ -66,8 +65,7 @@ public class DistortRandomizer extends WeightsRandomizer {
 	/**
 	 * Returns distorted weight value
 	 * 
-	 * @param weight
-	 *            current weight value
+	 * @param weight current weight value
 	 * @return distorted weight value
 	 */
 	private double distort(double weight) {

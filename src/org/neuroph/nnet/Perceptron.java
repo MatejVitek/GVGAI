@@ -35,10 +35,8 @@ public class Perceptron extends NeuralNetwork {
 	/**
 	 * Creates new Perceptron with specified number of neurons in input and output layer, with Step trqansfer function
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	public Perceptron(int inputNeuronsCount, int outputNeuronsCount) {
 		this.createNetwork(inputNeuronsCount, outputNeuronsCount, TransferFunctionType.STEP);
@@ -47,12 +45,9 @@ public class Perceptron extends NeuralNetwork {
 	/**
 	 * Creates new Perceptron with specified number of neurons in input and output layer, and specified transfer function
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
-	 * @param transferFunctionType
-	 *            transfer function type
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
+	 * @param transferFunctionType transfer function type
 	 */
 	public Perceptron(int inputNeuronsCount, int outputNeuronsCount, TransferFunctionType transferFunctionType) {
 		this.createNetwork(inputNeuronsCount, outputNeuronsCount, transferFunctionType);
@@ -61,12 +56,9 @@ public class Perceptron extends NeuralNetwork {
 	/**
 	 * Creates perceptron architecture with specified number of neurons in input and output layer, specified transfer function
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
-	 * @param transferFunctionType
-	 *            neuron transfer function type
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param outputNeuronsCount number of neurons in output layer
+	 * @param transferFunctionType neuron transfer function type
 	 */
 	private void createNetwork(int inputNeuronsCount, int outputNeuronsCount, TransferFunctionType transferFunctionType) {
 		// set network type

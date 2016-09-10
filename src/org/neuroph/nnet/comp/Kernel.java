@@ -33,10 +33,8 @@ public class Kernel implements Serializable {
 	/**
 	 * Creates new kernel with specified width and height
 	 *
-	 * @param width
-	 *            kernel width
-	 * @param height
-	 *            kernel height
+	 * @param width kernel width
+	 * @param height kernel height
 	 */
 	public Kernel(Dimension2D dimension) {
 		this.width = dimension.getWidth();
@@ -46,10 +44,8 @@ public class Kernel implements Serializable {
 	/**
 	 * Creates new kernel with specified width and height
 	 *
-	 * @param width
-	 *            kernel width
-	 * @param height
-	 *            kernel height
+	 * @param width kernel width
+	 * @param height kernel height
 	 */
 	public Kernel(int width, int height) {
 		this.width = width;
@@ -68,8 +64,7 @@ public class Kernel implements Serializable {
 	/**
 	 * Sets width of this kernel
 	 *
-	 * @param width
-	 *            kernel width
+	 * @param width kernel width
 	 */
 	public void setWidth(int width) {
 		this.width = width;
@@ -87,8 +82,7 @@ public class Kernel implements Serializable {
 	/**
 	 * Sets height of this kernel
 	 *
-	 * @param height
-	 *            kernel height
+	 * @param height kernel height
 	 */
 	public void setHeight(int height) {
 		this.height = height;

@@ -34,10 +34,8 @@ public class GaussianRandomizer extends WeightsRandomizer {
 	/**
 	 * Compute a Gaussian random number.
 	 * 
-	 * @param mean
-	 *            The mean.
-	 * @param std
-	 *            The standard deviation.
+	 * @param mean The mean.
+	 * @param std The standard deviation.
 	 * @return The random number.
 	 */
 	private double boxMuller(double mean, double std) {

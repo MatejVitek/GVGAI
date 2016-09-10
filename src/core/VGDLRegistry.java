@@ -47,8 +47,7 @@ public class VGDLRegistry {
 	/**
 	 * Register a new sprite string.
 	 * 
-	 * @param key
-	 *            key in the hashmap.
+	 * @param key key in the hashmap.
 	 * @return Returns its new index, or a new one if it was already registered.
 	 */
 	public int registerSprite(String key) {
@@ -64,8 +63,7 @@ public class VGDLRegistry {
 	/**
 	 * Returns the index (value in map) of a given key, for sprites.
 	 * 
-	 * @param key
-	 *            key to check
+	 * @param key key to check
 	 * @return the value in map, -1 if it does not exist.
 	 */
 	public int getRegisteredSpriteValue(String key) {
@@ -76,8 +74,7 @@ public class VGDLRegistry {
 	/**
 	 * Returns an array of indexes (value in map) of a set of keys, for sprites.
 	 * 
-	 * @param keys
-	 *            list of keys, separated by commas.
+	 * @param keys list of keys, separated by commas.
 	 * @return array with values in the map, -1 if it does not exist.
 	 */
 	public int[] explode(String keys) {
@@ -94,8 +91,7 @@ public class VGDLRegistry {
 	/**
 	 * Returns the String associated with the first (and in theory, unique) sprite value passed. This method is for <b>debug purposes only</b>, should not be used for game execution.
 	 * 
-	 * @param value
-	 *            value whose key is returned.
+	 * @param value value whose key is returned.
 	 * @return the String associated with the value passed.
 	 */
 	public String getRegisteredSpriteKey(int value) {

@@ -38,8 +38,7 @@ public class Gaussian extends TransferFunction implements Serializable {
 	/**
 	 * Creates an instance of Gaussian neuron transfer function with the specified properties.
 	 * 
-	 * @param properties
-	 *            properties of the Gaussian function
+	 * @param properties properties of the Gaussian function
 	 */
 	public Gaussian(Properties properties) {
 		try {
@@ -79,8 +78,7 @@ public class Gaussian extends TransferFunction implements Serializable {
 	/**
 	 * Sets the sigma parametar for this function
 	 * 
-	 * @param sigma
-	 *            value for the slope parametar
+	 * @param sigma value for the slope parametar
 	 */
 	public void setSigma(double sigma) {
 		this.sigma = sigma;

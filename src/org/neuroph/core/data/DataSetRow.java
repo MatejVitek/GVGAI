@@ -38,10 +38,8 @@ public class DataSetRow implements Serializable {
 	/**
 	 * Creates new training element with specified input and desired output vectors specifed as strings
 	 *
-	 * @param input
-	 *            input vector as space separated string
-	 * @param desiredOutput
-	 *            desired output vector as space separated string
+	 * @param input input vector as space separated string
+	 * @param desiredOutput desired output vector as space separated string
 	 */
 	public DataSetRow(String input, String desiredOutput) {
 		this.input = VectorParser.parseDoubleArray(input);
@@ -51,10 +49,8 @@ public class DataSetRow implements Serializable {
 	/**
 	 * Creates new training element with specified input and desired output vectors
 	 *
-	 * @param input
-	 *            input array
-	 * @param desiredOutput
-	 *            desired output array
+	 * @param input input array
+	 * @param desiredOutput desired output array
 	 */
 	public DataSetRow(double[] input, double[] desiredOutput) {
 		this.input = input;
@@ -64,8 +60,7 @@ public class DataSetRow implements Serializable {
 	/**
 	 * Creates new training element with input array
 	 *
-	 * @param input
-	 *            input array
+	 * @param input input array
 	 */
 	public DataSetRow(double... input) {
 		this.input = input;
@@ -74,10 +69,8 @@ public class DataSetRow implements Serializable {
 	/**
 	 * Creates new training element with specified input and desired output vectors
 	 * 
-	 * @param input
-	 *            input vector
-	 * @param desiredOutput
-	 *            desired output vector
+	 * @param input input vector
+	 * @param desiredOutput desired output vector
 	 */
 	public DataSetRow(ArrayList<Double> input, ArrayList<Double> desiredOutput) {
 		this.input = VectorParser.toDoubleArray(input);
@@ -100,8 +93,7 @@ public class DataSetRow implements Serializable {
 	/**
 	 * Sets input vector
 	 *
-	 * @param input
-	 *            input vector
+	 * @param input input vector
 	 */
 	public void setInput(double[] input) {
 		this.input = input;
@@ -127,8 +119,7 @@ public class DataSetRow implements Serializable {
 	/**
 	 * Set training element label
 	 *
-	 * @param label
-	 *            label for this training element
+	 * @param label label for this training element
 	 */
 	public void setLabel(String label) {
 		this.label = label;

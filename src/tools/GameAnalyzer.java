@@ -88,12 +88,9 @@ public class GameAnalyzer {
 	/**
 	 * Checks if the object is created by other object
 	 * 
-	 * @param stype
-	 *            current sprite name to test
-	 * @param game
-	 *            game description object that describe the current game
-	 * @param allSprites
-	 *            list of all sprites to test
+	 * @param stype current sprite name to test
+	 * @param game game description object that describe the current game
+	 * @param allSprites list of all sprites to test
 	 * @return return true if object is created by other object
 	 */
 	private boolean checkIsCreate(String stype, GameDescription game, ArrayList<SpriteData> allSprites) {
@@ -118,8 +115,7 @@ public class GameAnalyzer {
 	/**
 	 * Calculate the minimum number for each sprite
 	 * 
-	 * @param game
-	 *            the current game description object
+	 * @param game the current game description object
 	 */
 	private void calculateMinRequiredNumber(GameDescription game) {
 		ArrayList<SpriteData> allSprites = game.getAllSpriteData();
@@ -143,8 +139,7 @@ public class GameAnalyzer {
 	/**
 	 * calculate the priority values for all game sprites and save it in hashmap
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	private void calculatePriorityValues(GameDescription game) {
 		ArrayList<SpriteData> allSprites = game.getAllSpriteData();
@@ -158,8 +153,7 @@ public class GameAnalyzer {
 	/**
 	 * search for all solid sprites that blocks the avatar from moving
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	private void findSolidObjects(GameDescription game) {
 		ArrayList<SpriteData> avatars = game.getAvatar();
@@ -194,12 +188,9 @@ public class GameAnalyzer {
 	/**
 	 * get a list of all interactions for a certain game sprite
 	 * 
-	 * @param stype
-	 *            sprite required to be checked
-	 * @param type
-	 *            type of checked interaction (if the sprite is always on left or right or don't care)
-	 * @param game
-	 *            game description object for the current game
+	 * @param stype sprite required to be checked
+	 * @param type type of checked interaction (if the sprite is always on left or right or don't care)
+	 * @param game game description object for the current game
 	 * @return list of all interactions for the listed sprite name
 	 */
 	private ArrayList<InteractionData> getAllInteractions(String stype, InteractionType type, GameDescription game) {
@@ -221,8 +212,7 @@ public class GameAnalyzer {
 	/**
 	 * get a list of all avatar sprites in the game
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	private void findAvatarObjects(GameDescription game) {
 		ArrayList<SpriteData> avatars = game.getAvatar();
@@ -237,8 +227,7 @@ public class GameAnalyzer {
 	/**
 	 * find all sprites listed in the termination set
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	private void findGoalSprites(GameDescription game) {
 		ArrayList<TerminationData> terminations = game.getTerminationConditions();
@@ -255,8 +244,7 @@ public class GameAnalyzer {
 	/**
 	 * find all sprites that can kill the avatar
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	private void findHarmfulSprites(GameDescription game) {
 		ArrayList<String> avatars = getAvatarSprites();
@@ -289,8 +277,7 @@ public class GameAnalyzer {
 	/**
 	 * find all sprites that can be collected by the avatar
 	 * 
-	 * @param game
-	 *            game description object of the current game
+	 * @param game game description object of the current game
 	 */
 	private void findCollectableSprites(GameDescription game) {
 		ArrayList<String> avatars = getAvatarSprites();
@@ -313,8 +300,7 @@ public class GameAnalyzer {
 	/**
 	 * analyze the game description object and list all other sprites
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	private void findOtherSprites(GameDescription game) {
 		ArrayList<SpriteData> allSprites = game.getAllSpriteData();
@@ -337,8 +323,7 @@ public class GameAnalyzer {
 	/**
 	 * calculate the min and max score change in the instruction set
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	private void calculateMinMaxScoreUnit(GameDescription game) {
 		maxScoreUnit = 0;
@@ -369,8 +354,7 @@ public class GameAnalyzer {
 	/**
 	 * Remove all sprites that are not appearing in the level mapping
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	private void removeUselessObjects(GameDescription game) {
 		HashMap<Character, ArrayList<String>> levelMapping = game.getLevelMapping();
@@ -439,8 +423,7 @@ public class GameAnalyzer {
 	/**
 	 * Initialize GameAnalyzer
 	 * 
-	 * @param game
-	 *            game description object for the current game
+	 * @param game game description object for the current game
 	 */
 	public GameAnalyzer(GameDescription game) {
 		minRequiredNumber = new HashMap<String, Integer>();
@@ -470,8 +453,7 @@ public class GameAnalyzer {
 	/**
 	 * Checks if the object is spawned by other object
 	 * 
-	 * @param stype
-	 *            sprite name to be checked
+	 * @param stype sprite name to be checked
 	 * @return return 1 if not spawned by other object and 0 otherwise
 	 */
 	public int checkIfSpawned(String stype) {
@@ -481,8 +463,7 @@ public class GameAnalyzer {
 	/**
 	 * Get the priority value for a specific sprite
 	 * 
-	 * @param stype
-	 *            sprite name to be checked
+	 * @param stype sprite name to be checked
 	 * @return number of occurence of the sprite in the InteractionSet
 	 */
 	public int getPriorityNumber(String stype) {

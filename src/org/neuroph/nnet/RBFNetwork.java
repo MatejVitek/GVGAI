@@ -30,12 +30,9 @@ public class RBFNetwork extends NeuralNetwork {
 	/**
 	 * Creates new RBFNetwork with specified number of neurons in input, rbf and output layer
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param rbfNeuronsCount
-	 *            number of neurons in rbf layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param rbfNeuronsCount number of neurons in rbf layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	public RBFNetwork(int inputNeuronsCount, int rbfNeuronsCount, int outputNeuronsCount) {
 		this.createNetwork(inputNeuronsCount, rbfNeuronsCount, outputNeuronsCount);
@@ -44,12 +41,9 @@ public class RBFNetwork extends NeuralNetwork {
 	/**
 	 * Creates RBFNetwork architecture with specified number of neurons in input layer, output layer and transfer function
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of neurons in input layer
-	 * @param rbfNeuronsCount
-	 *            number of neurons in rbf layer
-	 * @param outputNeuronsCount
-	 *            number of neurons in output layer
+	 * @param inputNeuronsCount number of neurons in input layer
+	 * @param rbfNeuronsCount number of neurons in rbf layer
+	 * @param outputNeuronsCount number of neurons in output layer
 	 */
 	private void createNetwork(int inputNeuronsCount, int rbfNeuronsCount, int outputNeuronsCount) {
 		// init neuron settings for this network

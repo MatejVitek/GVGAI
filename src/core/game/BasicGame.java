@@ -33,8 +33,7 @@ public class BasicGame extends Game {
 	/**
 	 * Default constructor for a basic game.
 	 * 
-	 * @param content
-	 *            Contains parameters for the game.
+	 * @param content Contains parameters for the game.
 	 */
 	public BasicGame(GameContent content) {
 		super();
@@ -57,8 +56,7 @@ public class BasicGame extends Game {
 	/**
 	 * Builds a level, receiving a file name.
 	 * 
-	 * @param gamelvl
-	 *            file name containing the level.
+	 * @param gamelvl file name containing the level.
 	 */
 	public void buildLevel(String gamelvl, int randomSeed) {
 		String[] lines = new IO().readFile(gamelvl);
@@ -85,8 +83,7 @@ public class BasicGame extends Game {
 	/**
 	 * Builds a level from this game, reading it from file.
 	 * 
-	 * @param gamelvl
-	 *            filename of the level to load.
+	 * @param gamelvl filename of the level to load.
 	 */
 	public void buildStringLevel(String[] lines, int randomSeed) {
 		// Read the level description
@@ -165,8 +162,7 @@ public class BasicGame extends Game {
 	/**
 	 * Reads the parameters of a game type.
 	 * 
-	 * @param content
-	 *            list of parameter-value pairs.
+	 * @param content list of parameter-value pairs.
 	 */
 	protected void parseParameters(GameContent content) {
 		super.parseParameters(content);
@@ -190,10 +186,8 @@ public class BasicGame extends Game {
 	/**
 	 * Adds one sprites in the position indicated.
 	 * 
-	 * @param key
-	 *            sprite type to add.
-	 * @param position
-	 *            position where the sprite will be placed
+	 * @param key sprite type to add.
+	 * @param position position where the sprite will be placed
 	 */
 	public VGDLSprite addSpriteIn(String key, Vector2d position) {
 		int itype = VGDLRegistry.GetInstance().getRegisteredSpriteValue(key);
@@ -203,10 +197,8 @@ public class BasicGame extends Game {
 	/**
 	 * Adds all sprites that 'c' represents in the position indicated.
 	 * 
-	 * @param keys
-	 *            List of sprite types to add.
-	 * @param position
-	 *            position where all these sprites will be placed.
+	 * @param keys List of sprite types to add.
+	 * @param position position where all these sprites will be placed.
 	 */
 	public void addSpritesIn(ArrayList<String> keys, Vector2d position) {
 		// We might have more than one sprite in the same position.
@@ -218,12 +210,9 @@ public class BasicGame extends Game {
 	/**
 	 * Takes a line and concats filler as many times as specified.
 	 * 
-	 * @param base
-	 *            initial string.
-	 * @param occurrences
-	 *            how many times filler is appended
-	 * @param filler
-	 *            string to append occurrences times to base.
+	 * @param base initial string.
+	 * @param occurrences how many times filler is appended
+	 * @param filler string to append occurrences times to base.
 	 * @return the resultant string.
 	 */
 	private String completeLine(String base, int occurrences, String filler) {

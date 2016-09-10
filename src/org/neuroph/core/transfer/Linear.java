@@ -65,8 +65,7 @@ public class Linear extends TransferFunction implements Serializable {
 	/**
 	 * Sets the slope parametar for this function
 	 * 
-	 * @param slope
-	 *            value for the slope parametar
+	 * @param slope value for the slope parametar
 	 */
 	public void setSlope(double slope) {
 		this.slope = slope;

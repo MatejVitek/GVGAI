@@ -34,8 +34,7 @@ public class UnsupervisedHebbianLearning extends UnsupervisedLearning {
 	/**
 	 * This method does one learning epoch for the unsupervised learning rules. It iterates through the training set and trains network weights for each element. Stops learning after one epoch.
 	 * 
-	 * @param trainingSet
-	 *            training set for training network
+	 * @param trainingSet training set for training network
 	 */
 	@Override
 	public void doLearningEpoch(DataSet trainingSet) {
@@ -56,8 +55,7 @@ public class UnsupervisedHebbianLearning extends UnsupervisedLearning {
 	/**
 	 * This method implements weights update procedure for the single neuron
 	 * 
-	 * @param neuron
-	 *            neuron to update weights
+	 * @param neuron neuron to update weights
 	 */
 	protected void updateNeuronWeights(Neuron neuron) {
 		double output = neuron.getOutput();

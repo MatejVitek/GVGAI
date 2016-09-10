@@ -61,8 +61,7 @@ public class PluginBase implements Serializable {
 	/**
 	 * Sets the parent network for this plugin
 	 * 
-	 * @param parentNetwork
-	 *            parent network for this plugin
+	 * @param parentNetwork parent network for this plugin
 	 */
 	public void setParentNetwork(NeuralNetwork parentNetwork) {
 		this.parentNetwork = parentNetwork;

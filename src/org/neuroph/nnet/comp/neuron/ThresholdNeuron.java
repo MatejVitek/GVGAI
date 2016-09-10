@@ -30,10 +30,8 @@ public class ThresholdNeuron extends Neuron {
 	/**
 	 * Creates a neuron with threshold behaviour, and with the specified input and transfer functions.
 	 * 
-	 * @param inputFunction
-	 *            input function for this neuron
-	 * @param transferFunction
-	 *            transfer function for this neuron
+	 * @param inputFunction input function for this neuron
+	 * @param transferFunction transfer function for this neuron
 	 */
 	public ThresholdNeuron(InputFunction inputFunction, TransferFunction transferFunction) {
 		this.inputFunction = inputFunction;
@@ -62,8 +60,7 @@ public class ThresholdNeuron extends Neuron {
 	/**
 	 * Sets threshold value for this neuron
 	 * 
-	 * @param thresh
-	 *            threshold value for this neuron
+	 * @param thresh threshold value for this neuron
 	 */
 	public void setThresh(double thresh) {
 		this.thresh = thresh;

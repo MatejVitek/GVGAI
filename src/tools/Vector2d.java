@@ -25,8 +25,7 @@ public class Vector2d {
 	/**
 	 * Checks if a vector and this are the same.
 	 * 
-	 * @param o
-	 *            the other vector to check
+	 * @param o the other vector to check
 	 * @return true if their coordinates are the same.
 	 */
 	@Override
@@ -43,10 +42,8 @@ public class Vector2d {
 	/**
 	 * Builds a vector from its coordinates.
 	 * 
-	 * @param x
-	 *            x coordinate
-	 * @param y
-	 *            y coordinate
+	 * @param x x coordinate
+	 * @param y y coordinate
 	 */
 	public Vector2d(double x, double y) {
 		this.x = x;
@@ -56,8 +53,7 @@ public class Vector2d {
 	/**
 	 * Builds a vector from another vector.
 	 * 
-	 * @param v
-	 *            Vector to copy from.
+	 * @param v Vector to copy from.
 	 */
 	public Vector2d(Vector2d v) {
 		this.x = v.x;
@@ -76,8 +72,7 @@ public class Vector2d {
 	/**
 	 * Sets this vector's coordinates to the coordinates of another vector.
 	 * 
-	 * @param v
-	 *            that other vector.
+	 * @param v that other vector.
 	 */
 	public void set(Vector2d v) {
 		this.x = v.x;
@@ -87,10 +82,8 @@ public class Vector2d {
 	/**
 	 * Sets this vector's coordinates to the coordinates given.
 	 * 
-	 * @param x
-	 *            x coordinate.
-	 * @param y
-	 *            y coordinate.
+	 * @param x x coordinate.
+	 * @param y y coordinate.
 	 */
 	public void set(double x, double y) {
 		this.x = x;
@@ -118,8 +111,7 @@ public class Vector2d {
 	/**
 	 * Adds another vector to this.
 	 * 
-	 * @param v
-	 *            vector to add.
+	 * @param v vector to add.
 	 * @return this, after the addition.
 	 */
 	public Vector2d add(Vector2d v) {
@@ -131,10 +123,8 @@ public class Vector2d {
 	/**
 	 * Adds to this vector two coordinates
 	 * 
-	 * @param x
-	 *            x coordinate
-	 * @param y
-	 *            y coordinate
+	 * @param x x coordinate
+	 * @param y y coordinate
 	 * @return returns this, after the addition.
 	 */
 	public Vector2d add(double x, double y) {
@@ -146,10 +136,8 @@ public class Vector2d {
 	/**
 	 * Adds to this vector another vector, scaled it by a factor..
 	 * 
-	 * @param v
-	 *            Vector to add, to be scaled by w
-	 * @param w
-	 *            Scale of v.
+	 * @param v Vector to add, to be scaled by w
+	 * @param w Scale of v.
 	 * @return this vector, after the addition.
 	 */
 	public Vector2d add(Vector2d v, double w) {
@@ -162,10 +150,8 @@ public class Vector2d {
 	/**
 	 * Performs a wrap operation over this vector.
 	 * 
-	 * @param w
-	 *            width
-	 * @param h
-	 *            height
+	 * @param w width
+	 * @param h height
 	 * @return This vector, after the wrap.
 	 */
 	public Vector2d wrap(double w, double h) {
@@ -179,8 +165,7 @@ public class Vector2d {
 	/**
 	 * Subtracts another vector from this.
 	 * 
-	 * @param v
-	 *            vector to subtract.
+	 * @param v vector to subtract.
 	 * @return this, after the subtraction.
 	 */
 	public Vector2d subtract(Vector2d v) {
@@ -192,10 +177,8 @@ public class Vector2d {
 	/**
 	 * Subtracts two coordinates to this vector.
 	 * 
-	 * @param x
-	 *            x coordinate
-	 * @param y
-	 *            y coordinate
+	 * @param x x coordinate
+	 * @param y y coordinate
 	 * @return returns this, after the subtraction.
 	 */
 	public Vector2d subtract(double x, double y) {
@@ -207,8 +190,7 @@ public class Vector2d {
 	/**
 	 * Multiplies this vector by a factor.
 	 * 
-	 * @param fac
-	 *            factor to multiply this vector by.
+	 * @param fac factor to multiply this vector by.
 	 * @return This vector, after the operation.
 	 */
 	public Vector2d mul(double fac) {
@@ -220,8 +202,7 @@ public class Vector2d {
 	/**
 	 * Rotates the vector an angle given, in radians.
 	 * 
-	 * @param theta
-	 *            angle given, in radians
+	 * @param theta angle given, in radians
 	 */
 	public void rotate(double theta) {
 		// rotate this vector by the angle made to the horizontal by this line
@@ -239,8 +220,7 @@ public class Vector2d {
 	/**
 	 * Calculates the scalar product of this vector and the one passed by parameter
 	 * 
-	 * @param v
-	 *            vector to do the scalar product with.
+	 * @param v vector to do the scalar product with.
 	 * @return the value of the scalar product.
 	 */
 	public double scalarProduct(Vector2d v) {
@@ -250,8 +230,7 @@ public class Vector2d {
 	/**
 	 * Gets the square value of the parameter passed.
 	 * 
-	 * @param x
-	 *            parameter
+	 * @param x parameter
 	 * @return x * x
 	 */
 	public static double sqr(double x) {
@@ -261,8 +240,7 @@ public class Vector2d {
 	/**
 	 * Returns the square distance from this vector to the one in the arguments.
 	 * 
-	 * @param v
-	 *            the other vector, to calculate the distance to.
+	 * @param v the other vector, to calculate the distance to.
 	 * @return the square distance, in pixels, between this vector and v.
 	 */
 	public double sqDist(Vector2d v) {
@@ -281,8 +259,7 @@ public class Vector2d {
 	/**
 	 * Returns the distance from this vector to the one in the arguments.
 	 * 
-	 * @param v
-	 *            the other vector, to calculate the distance to.
+	 * @param v the other vector, to calculate the distance to.
 	 * @return the distance, in pixels, between this vector and v.
 	 */
 	public double dist(Vector2d v) {
@@ -292,10 +269,8 @@ public class Vector2d {
 	/**
 	 * Returns the distance from this vector to a pair of coordinates.
 	 * 
-	 * @param xx
-	 *            x coordinate
-	 * @param yy
-	 *            y coordinate
+	 * @param xx x coordinate
+	 * @param yy y coordinate
 	 * @return the distance, in pixels, between this vector and the pair of coordinates.
 	 */
 	public double dist(double xx, double yy) {
@@ -328,8 +303,7 @@ public class Vector2d {
 	/**
 	 * Calculates the dot product between this vector and the one passed by parameter.
 	 * 
-	 * @param v
-	 *            the other vector.
+	 * @param v the other vector.
 	 * @return the dot product between these two vectors.
 	 */
 	public double dot(Vector2d v) {

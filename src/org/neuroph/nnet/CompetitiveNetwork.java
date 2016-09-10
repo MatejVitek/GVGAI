@@ -34,10 +34,8 @@ public class CompetitiveNetwork extends NeuralNetwork {
 	/**
 	 * Creates new competitive network with specified neuron number
 	 * 
-	 * @param inputNeuronsCount
-	 *            number of input neurons
-	 * @param outputNeuronsCount
-	 *            number of output neurons
+	 * @param inputNeuronsCount number of input neurons
+	 * @param outputNeuronsCount number of output neurons
 	 */
 	public CompetitiveNetwork(int inputNeuronsCount, int outputNeuronsCount) {
 		this.createNetwork(inputNeuronsCount, outputNeuronsCount);
@@ -46,12 +44,9 @@ public class CompetitiveNetwork extends NeuralNetwork {
 	/**
 	 * Creates Competitive network architecture
 	 * 
-	 * @param inputNeuronsCount
-	 *            input neurons number
-	 * @param outputNeuronsCount
-	 *            output neurons number
-	 * @param neuronProperties
-	 *            neuron properties
+	 * @param inputNeuronsCount input neurons number
+	 * @param outputNeuronsCount output neurons number
+	 * @param neuronProperties neuron properties
 	 */
 	private void createNetwork(int inputNeuronsCount, int outputNeuronsCount) {
 		// set network type

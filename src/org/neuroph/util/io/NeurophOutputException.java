@@ -28,8 +28,7 @@ public class NeurophOutputException extends NeurophException {
 	/**
 	 * Constructs an NeurophOutputException with the specified detail message.
 	 * 
-	 * @param message
-	 *            the detail message.
+	 * @param message the detail message.
 	 */
 	public NeurophOutputException(String message) {
 		super(message);
@@ -38,10 +37,8 @@ public class NeurophOutputException extends NeurophException {
 	/**
 	 * Constructs a NeurophOutputException with the specified detail message and specified cause.
 	 * 
-	 * @param message
-	 *            the detail message.
-	 * @param cause
-	 *            the cause for exception
+	 * @param message the detail message.
+	 * @param cause the cause for exception
 	 */
 	public NeurophOutputException(String message, Throwable cause) {
 		super(message, cause);
@@ -50,8 +47,7 @@ public class NeurophOutputException extends NeurophException {
 	/**
 	 * Constructs a new runtime exception with the specified cause
 	 * 
-	 * @param cause
-	 *            the cause for exception
+	 * @param cause the cause for exception
 	 */
 	public NeurophOutputException(Throwable cause) {
 		super(cause);

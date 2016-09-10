@@ -18,8 +18,7 @@ public interface Normalizer {
 	/**
 	 * Normalize specified data set
 	 * 
-	 * @param dataSet
-	 *            data set to normalize
+	 * @param dataSet data set to normalize
 	 */
 	public void normalize(DataSet dataSet);
 

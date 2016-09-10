@@ -41,8 +41,7 @@ public class MultiLayerPerceptron extends NeuralNetwork<BackPropagation> {
 	/**
 	 * Creates new MultiLayerPerceptron with specified number of neurons in layers
 	 *
-	 * @param neuronsInLayers
-	 *            collection of neuron number in layers
+	 * @param neuronsInLayers collection of neuron number in layers
 	 */
 	public MultiLayerPerceptron(List<Integer> neuronsInLayers) {
 		// init neuron settings
@@ -95,10 +94,8 @@ public class MultiLayerPerceptron extends NeuralNetwork<BackPropagation> {
 	/**
 	 * Creates new MultiLayerPerceptron net with specified number neurons in getLayersIterator
 	 *
-	 * @param neuronsInLayers
-	 *            collection of neuron numbers in layers
-	 * @param neuronProperties
-	 *            neuron properties
+	 * @param neuronsInLayers collection of neuron numbers in layers
+	 * @param neuronProperties neuron properties
 	 */
 	public MultiLayerPerceptron(List<Integer> neuronsInLayers, NeuronProperties neuronProperties) {
 		this.createNetwork(neuronsInLayers, neuronProperties);
@@ -107,10 +104,8 @@ public class MultiLayerPerceptron extends NeuralNetwork<BackPropagation> {
 	/**
 	 * Creates MultiLayerPerceptron Network architecture - fully connected feed forward with specified number of neurons in each layer
 	 *
-	 * @param neuronsInLayers
-	 *            collection of neuron numbers in getLayersIterator
-	 * @param neuronProperties
-	 *            neuron properties
+	 * @param neuronsInLayers collection of neuron numbers in getLayersIterator
+	 * @param neuronProperties neuron properties
 	 */
 	private void createNetwork(List<Integer> neuronsInLayers, NeuronProperties neuronProperties) {
 

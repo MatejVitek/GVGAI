@@ -31,10 +31,8 @@ public class ArcadeMachine {
 	/**
 	 * Reads and launches a game for a human to be played. Graphics always on.
 	 * 
-	 * @param game_file
-	 *            game description file.
-	 * @param level_file
-	 *            file with the level to be played.
+	 * @param game_file game description file.
+	 * @param level_file file with the level to be played.
 	 */
 	public static double[] playOneGame(String game_file, String level_file, String actionFile, int randomSeed) {
 		String agentName = "controllers.singlePlayer.human.Agent";
@@ -45,14 +43,10 @@ public class ArcadeMachine {
 	/**
 	 * Reads and launches a game for a human to be played. Graphics always on.
 	 * 
-	 * @param game_file
-	 *            game description file.
-	 * @param level_file
-	 *            file with the level to be played.
-	 * @param actionFile
-	 *            to save the actions of the game.
-	 * @param randomSeed
-	 *            for the game to be played.
+	 * @param game_file game description file.
+	 * @param level_file file with the level to be played.
+	 * @param actionFile to save the actions of the game.
+	 * @param randomSeed for the game to be played.
 	 */
 	public static double[] playOneGameMulti(String game_file, String level_file, String actionFile, int randomSeed) {
 		String agentName = "controllers.multiPlayer.human.Agent";
@@ -63,12 +57,9 @@ public class ArcadeMachine {
 	/**
 	 * Reads game description then generate level using the supplied generator. It also launches the game for a human to be played. Graphics always on.
 	 * 
-	 * @param gameFile
-	 *            the game description file
-	 * @param actionFile
-	 *            the action file name
-	 * @param levelFile
-	 *            a file to save the generated level
+	 * @param gameFile the game description file
+	 * @param actionFile the action file name
+	 * @param levelFile a file to save the generated level
 	 */
 	public static double playOneGeneratedLevel(String gameFile, String actionFile, String levelFile, int randomSeed) {
 		String agentName = "controllers.singlePlayer.human.Agent";
@@ -79,20 +70,13 @@ public class ArcadeMachine {
 	/**
 	 * Reads and launches a game for a bot to be played. Graphics can be on or off.
 	 * 
-	 * @param game_file
-	 *            game description file.
-	 * @param level_file
-	 *            file with the level to be played.
-	 * @param visuals
-	 *            true to show the graphics, false otherwise.
-	 * @param agentNames
-	 *            names (inc. package) where the controllers are otherwise. Names separated by space.
-	 * @param actionFile
-	 *            filename of the files where the actions of these players, for this game, should be recorded.
-	 * @param randomSeed
-	 *            sampleRandom seed for the sampleRandom generator.
-	 * @param playerID
-	 *            ID of the human player
+	 * @param game_file game description file.
+	 * @param level_file file with the level to be played.
+	 * @param visuals true to show the graphics, false otherwise.
+	 * @param agentNames names (inc. package) where the controllers are otherwise. Names separated by space.
+	 * @param actionFile filename of the files where the actions of these players, for this game, should be recorded.
+	 * @param randomSeed sampleRandom seed for the sampleRandom generator.
+	 * @param playerID ID of the human player
 	 */
 	public static double[] runOneGame(String game_file, String level_file, boolean visuals, String agentNames, String actionFile, int randomSeed, int playerID) {
 		VGDLFactory.GetInstance().init(); // This always first thing to do.
@@ -182,12 +166,9 @@ public class ArcadeMachine {
 	/**
 	 * Generate a level for a certain described game and test it against a supplied agent
 	 * 
-	 * @param gameFile
-	 *            game description file.
-	 * @param levelGenerator
-	 *            level generator class path.
-	 * @param levelFile
-	 *            file to save the generated level in it
+	 * @param gameFile game description file.
+	 * @param levelGenerator level generator class path.
+	 * @param levelFile file to save the generated level in it
 	 */
 	public static boolean generateOneLevel(String gameFile, String levelGenerator, String levelFile) {
 		VGDLFactory.GetInstance().init(); // This always first thing to do.
@@ -238,20 +219,13 @@ public class ArcadeMachine {
 	/**
 	 * A player (human or bot) plays a generated level, which is passed by parameter, in a determined game.
 	 * 
-	 * @param gameFile
-	 *            game description file.
-	 * @param visuals
-	 *            true to show the graphics, false otherwise.
-	 * @param agentName
-	 *            name (inc. package) where the controller is otherwise.
-	 * @param actionFile
-	 *            filename of the file where the actions of this player, for this game, should be recorded.
-	 * @param levelFile
-	 *            level file to play in
-	 * @param randomSeed
-	 *            random seed for the game to be played
-	 * @param isHuman
-	 *            indicates if the game is played by a human or a bot
+	 * @param gameFile game description file.
+	 * @param visuals true to show the graphics, false otherwise.
+	 * @param agentName name (inc. package) where the controller is otherwise.
+	 * @param actionFile filename of the file where the actions of this player, for this game, should be recorded.
+	 * @param levelFile level file to play in
+	 * @param randomSeed random seed for the game to be played
+	 * @param isHuman indicates if the game is played by a human or a bot
 	 * @return score of the game plaayed
 	 */
 	public static double runOneGeneratedLevel(String gameFile, boolean visuals, String agentName, String actionFile, String levelFile, int randomSeed, boolean isHuman) {
@@ -308,14 +282,10 @@ public class ArcadeMachine {
 	/**
 	 * Runs a replay given a game, level and file with the actions to execute.
 	 * 
-	 * @param game_file
-	 *            game description file.
-	 * @param level_file
-	 *            file with the level to be played.
-	 * @param visuals
-	 *            true to show the graphics, false otherwise.
-	 * @param actionFile
-	 *            name of the file where the actions of these players, for this game, must be read from. If the game is multi player, this file contains meta game information (winner, scores,
+	 * @param game_file game description file.
+	 * @param level_file file with the level to be played.
+	 * @param visuals true to show the graphics, false otherwise.
+	 * @param actionFile name of the file where the actions of these players, for this game, must be read from. If the game is multi player, this file contains meta game information (winner, scores,
 	 *            timesteps, random seed) and names of all the files for player actions.
 	 */
 	public static double[] replayGame(String game_file, String level_file, boolean visuals, String actionFile) {
@@ -489,15 +459,11 @@ public class ArcadeMachine {
 	/**
 	 * Reads and launches a game for a bot to be played. It specifies which levels to play and how many times. Filenames for saving actions can be specified. Graphics always off.
 	 * 
-	 * @param game_file
-	 *            game description file.
-	 * @param level_files
-	 *            array of level file names to play.
-	 * @param level_times
-	 *            how many times each level has to be played.
-	 * @param actionFiles
-	 *            names of the files where the actions of this player, for this game, should be recorded. Accepts null if no recording is desired. If not null, this array must contain as much String
-	 *            objects as level_files.length*level_times.
+	 * @param game_file game description file.
+	 * @param level_files array of level file names to play.
+	 * @param level_times how many times each level has to be played.
+	 * @param actionFiles names of the files where the actions of this player, for this game, should be recorded. Accepts null if no recording is desired. If not null, this array must contain as much
+	 *            String objects as level_files.length*level_times.
 	 */
 	public static StatSummary performance;
 
@@ -624,12 +590,9 @@ public class ArcadeMachine {
 	/**
 	 * Generate multiple levels for a certain game
 	 * 
-	 * @param gameFile
-	 *            The game description file path
-	 * @param levelGenerator
-	 *            The current used level generator
-	 * @param levelFile
-	 *            array of level files to save the generated levels
+	 * @param gameFile The game description file path
+	 * @param levelGenerator The current used level generator
+	 * @param levelFile array of level files to save the generated levels
 	 */
 	public static void generateLevels(String gameFile, String levelGenerator, String[] levelFile) {
 		VGDLFactory.GetInstance().init(); // This always first thing to do.
@@ -680,14 +643,10 @@ public class ArcadeMachine {
 	/**
 	 * play a couple of generated levels for a certain game
 	 * 
-	 * @param gameFile
-	 *            The game description file path
-	 * @param actionFile
-	 *            array of files to save the actions in
-	 * @param levelFile
-	 *            array of level files to save the generated levels
-	 * @param isHuman
-	 *            indicates if the level will be played by a human or a bot.
+	 * @param gameFile The game description file path
+	 * @param actionFile array of files to save the actions in
+	 * @param levelFile array of level files to save the generated levels
+	 * @param isHuman indicates if the level will be played by a human or a bot.
 	 */
 	public static void playGeneratedLevels(String gameFile, String[] actionFile, String[] levelFile, boolean isHuman) {
 		String agentName = "controllers.singlePlayer.human.Agent";
@@ -767,16 +726,11 @@ public class ArcadeMachine {
 	/**
 	 * Creates a player given its name with package. This class calls the constructor of the agent and initializes the action recording procedure. PlayerID used is 0, default for single player games.
 	 * 
-	 * @param playerName
-	 *            name of the agent to create. It must be of the type "<agentPackage>.Agent".
-	 * @param actionFile
-	 *            filename of the file where the actions of this player, for this game, should be recorded.
-	 * @param so
-	 *            Initial state of the game to be played by the agent.
-	 * @param randomSeed
-	 *            Seed for the sampleRandom generator of the game to be played.
-	 * @param isHuman
-	 *            Indicates if the player is human
+	 * @param playerName name of the agent to create. It must be of the type "<agentPackage>.Agent".
+	 * @param actionFile filename of the file where the actions of this player, for this game, should be recorded.
+	 * @param so Initial state of the game to be played by the agent.
+	 * @param randomSeed Seed for the sampleRandom generator of the game to be played.
+	 * @param isHuman Indicates if the player is human
 	 * @return the player, created and initialized, ready to start playing the game.
 	 */
 	private static AbstractPlayer createPlayer(String playerName, String actionFile, StateObservation so, int randomSeed, boolean isHuman) {
@@ -804,16 +758,11 @@ public class ArcadeMachine {
 	 * Creates a player given its name with package for multiplayer. This class calls the constructor of the agent and initializes the action recording procedure. PlayerID used is 0, default for
 	 * single player games.
 	 * 
-	 * @param playerName
-	 *            name of the agent to create. It must be of the type "<agentPackage>.Agent".
-	 * @param actionFile
-	 *            filename of the file where the actions of this player, for this game, should be recorded.
-	 * @param so
-	 *            Initial state of the game to be played by the agent.
-	 * @param randomSeed
-	 *            Seed for the sampleRandom generator of the game to be played.
-	 * @param isHuman
-	 *            Indicates if the player is human
+	 * @param playerName name of the agent to create. It must be of the type "<agentPackage>.Agent".
+	 * @param actionFile filename of the file where the actions of this player, for this game, should be recorded.
+	 * @param so Initial state of the game to be played by the agent.
+	 * @param randomSeed Seed for the sampleRandom generator of the game to be played.
+	 * @param isHuman Indicates if the player is human
 	 * @return the player, created and initialized, ready to start playing the game.
 	 */
 	private static AbstractMultiPlayer createMultiPlayer(String playerName, String actionFile, StateObservationMulti so, int randomSeed, int id, boolean isHuman) {
@@ -839,10 +788,8 @@ public class ArcadeMachine {
 	/**
 	 * Creates and initializes a new controller with the given name. Takes into account the initialization time, calling the appropriate constructor with the state observation and time due parameters.
 	 * 
-	 * @param playerName
-	 *            Name of the controller to instantiate.
-	 * @param so
-	 *            Initial state of the game to be played by the agent.
+	 * @param playerName Name of the controller to instantiate.
+	 * @param so Initial state of the game to be played by the agent.
 	 * @return the player if it could be created, null otherwise.
 	 */
 
@@ -868,7 +815,7 @@ public class ArcadeMachine {
 
 			}
 			else { // multi player
-				// Get the class and the constructor with arguments (StateObservation, long, int).
+					// Get the class and the constructor with arguments (StateObservation, long, int).
 				Class<? extends AbstractMultiPlayer> controllerClass = Class.forName(playerName).asSubclass(AbstractMultiPlayer.class);
 				Class[] gameArgClass = new Class[]{StateObservationMulti.class, ElapsedCpuTimer.class, int.class};
 				Constructor controllerArgsConstructor = controllerClass.getConstructor(gameArgClass);
@@ -931,10 +878,8 @@ public class ArcadeMachine {
 	/**
 	 * Generate AbstractLevelGenerator object to generate levels for the game using the supplied class path.
 	 * 
-	 * @param levelGenerator
-	 *            class path for the supplied level generator
-	 * @param gd
-	 *            abstract object describes the game
+	 * @param levelGenerator class path for the supplied level generator
+	 * @param gd abstract object describes the game
 	 * @return AbstractLevelGenerator object.
 	 */
 	protected static AbstractLevelGenerator createLevelGenerator(String levelGenerator, GameDescription gd) throws RuntimeException {
@@ -1003,12 +948,9 @@ public class ArcadeMachine {
 	/**
 	 * Generate a level for the described game using the supplied level generator.
 	 * 
-	 * @param gd
-	 *            Abstract description of game elements
-	 * @param game
-	 *            Current game object.
-	 * @param generator
-	 *            Current level generator.
+	 * @param gd Abstract description of game elements
+	 * @param game Current game object.
+	 * @param generator Current level generator.
 	 * @return String of symbols contains the generated level. Same as Level Description File string.
 	 */
 	private static String getGeneratedLevel(GameDescription gd, Game game, AbstractLevelGenerator generator) {
@@ -1037,10 +979,8 @@ public class ArcadeMachine {
 	/**
 	 * Saves a level string to a file
 	 * 
-	 * @param level
-	 *            current level to save
-	 * @param levelFile
-	 *            saved file
+	 * @param level current level to save
+	 * @param levelFile saved file
 	 */
 	private static void saveLevel(String level, String levelFile, HashMap<Character, ArrayList<String>> charMapping) {
 		try {
@@ -1070,10 +1010,8 @@ public class ArcadeMachine {
 	/**
 	 * Load a generated level file
 	 * 
-	 * @param currentGame
-	 *            Current Game object to se the Level Mapping
-	 * @param levelFile
-	 *            The generated level file path
+	 * @param currentGame Current Game object to se the Level Mapping
+	 * @param levelFile The generated level file path
 	 * @return Level String to be loaded
 	 */
 	public static String loadGeneratedFile(Game currentGame, String levelFile) {
@@ -1119,10 +1057,8 @@ public class ArcadeMachine {
 	/**
 	 * This methods takes the game and warms it up. This allows Java to finish the runtime compilation process and optimize the code before the proper game starts.
 	 * 
-	 * @param toPlay
-	 *            game to be warmed up.
-	 * @param howLong
-	 *            for how long the warming up process must last (in milliseconds).
+	 * @param toPlay game to be warmed up.
+	 * @param howLong for how long the warming up process must last (in milliseconds).
 	 */
 	public static void warmUp(Game toPlay, long howLong) {
 		ElapsedCpuTimer ect = new ElapsedCpuTimer(CompetitionParameters.TIMER_TYPE);
@@ -1229,16 +1165,11 @@ public class ArcadeMachine {
 	/**
 	 * Tears the player down. This initiates the saving of actions to file. It should be called when the game played is over.
 	 * 
-	 * @param toPlay
-	 *            game played.
-	 * @param players
-	 *            players to be closed.
-	 * @param actionFile
-	 *            file where players' actions should be saved.
-	 * @param randomSeed
-	 *            random seed of the game.
-	 * @param record
-	 *            boolean, true if actions should be recorded, false otherwise
+	 * @param toPlay game played.
+	 * @param players players to be closed.
+	 * @param actionFile file where players' actions should be saved.
+	 * @param randomSeed random seed of the game.
+	 * @param record boolean, true if actions should be recorded, false otherwise
 	 * @return false if there was a timeout from the players. true otherwise.
 	 */
 	private static boolean tearPlayerDown(Game toPlay, Player[] players, String actionFile, int randomSeed, boolean record) {

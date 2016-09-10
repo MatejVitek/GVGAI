@@ -27,8 +27,7 @@ public class GridPhysics implements Physics {
 	/**
 	 * Constructor of the physics, specifying the gridsize
 	 * 
-	 * @param gridsize
-	 *            Size of the grid.
+	 * @param gridsize Size of the grid.
 	 */
 	public GridPhysics(Dimension gridsize) {
 		this.gridsize = gridsize;
@@ -72,10 +71,8 @@ public class GridPhysics implements Physics {
 	/**
 	 * Hamming distance between two rectangles.
 	 * 
-	 * @param r1
-	 *            rectangle 1
-	 * @param r2
-	 *            rectangle 2
+	 * @param r1 rectangle 1
+	 * @param r2 rectangle 2
 	 * @return Hamming distance between the top-left corner of the rectangles.
 	 */
 	public double distance(Rectangle r1, Rectangle r2) {

@@ -18,10 +18,8 @@ public class LevelData {
 	/**
 	 * construct data for a level
 	 * 
-	 * @param width
-	 *            level width
-	 * @param length
-	 *            level height
+	 * @param width level width
+	 * @param length level height
 	 */
 	public LevelData(int width, int length) {
 		level = new String[width][length];
@@ -60,12 +58,9 @@ public class LevelData {
 	/**
 	 * set a position in the map to a certain type
 	 * 
-	 * @param x
-	 *            x position on the map
-	 * @param y
-	 *            y position on the map
-	 * @param stype
-	 *            the sprite to added
+	 * @param x x position on the map
+	 * @param y y position on the map
+	 * @param stype the sprite to added
 	 */
 	public void set(int x, int y, String stype) {
 		level[x][y] = stype;
@@ -74,10 +69,8 @@ public class LevelData {
 	/**
 	 * get the sprite at a certain position
 	 * 
-	 * @param x
-	 *            x position on the map
-	 * @param y
-	 *            y position on the map
+	 * @param x x position on the map
+	 * @param y y position on the map
 	 * @return sprite at a certain position on the map
 	 */
 	public String get(int x, int y) {
@@ -105,14 +98,10 @@ public class LevelData {
 	/**
 	 * check if the two positions are connected
 	 * 
-	 * @param x1
-	 *            x position of the first point
-	 * @param y1
-	 *            y position of the first point
-	 * @param x2
-	 *            x position of the second point
-	 * @param y2
-	 *            y position of the second point
+	 * @param x1 x position of the first point
+	 * @param y1 y position of the first point
+	 * @param x2 x position of the second point
+	 * @param y2 y position of the second point
 	 * @return true if they are connected and false otherwise
 	 */
 	public boolean checkConnectivity(int x1, int y1, int x2, int y2) {
@@ -145,10 +134,8 @@ public class LevelData {
 	/**
 	 * check if this wall will case the world not to be connected any more
 	 * 
-	 * @param x
-	 *            x position for the point
-	 * @param y
-	 *            y position for the point
+	 * @param x x position for the point
+	 * @param y y position for the point
 	 * @return true if the wall didn't split the world into two halves and false otherwise
 	 */
 	public boolean checkConnectivity(int x, int y) {
@@ -167,10 +154,8 @@ public class LevelData {
 	/**
 	 * check if the point is inside the borders of the level
 	 * 
-	 * @param x
-	 *            x position for the point
-	 * @param y
-	 *            y position for the point
+	 * @param x x position for the point
+	 * @param y y position for the point
 	 * @return true if the point in the level and false otherwise
 	 */
 	public boolean checkInLevel(int x, int y) {
@@ -248,8 +233,7 @@ public class LevelData {
 		/**
 		 * get distance between this point and the input point
 		 * 
-		 * @param p
-		 *            an input point
+		 * @param p an input point
 		 * @return distance between this point and the input point
 		 */
 		public double getDistance(Point p) {
