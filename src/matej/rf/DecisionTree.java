@@ -41,7 +41,7 @@ public class DecisionTree implements Serializable {
 				else extendedFeatures.addAll(instances.parallelStream().map(x -> x.features.get(feature.name)).distinct().collect(Collectors.toList()));
 
 			// rank features in order of best split to worst
-			Metric metric = new Gini(extendedFeatures, instances);
+			Metric metric = new InfGain(extendedFeatures, instances);
 			List<Pair<Feature, Split>> features = metric.rankFeatures();
 
 			// while there are still features to try
