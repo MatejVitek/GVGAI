@@ -12,7 +12,7 @@ import matej.*;
 public class NNCreator {
 
 	public static final String PATH = "datasets/nn/";
-	public static final String NAME = "extra_with_errors.csv";
+	public static final String NAME = "errors.csv";
 
 	// All public games
 	public static final String[] allGames = {"aliens", "boulderdash", "butterflies", "chase", "frogs", "missilecommand", "portals", "sokoban", "survivezombies", "zelda", "camelRace", "digdug",
@@ -24,7 +24,7 @@ public class NNCreator {
 	private static final String controller = "matej.nn.DataSetAgent";
 	private static final int N_SAMPLES = 10;
 	private static final Random rnd = new Random();
-	private static final double THRESHOLD = 0.1;
+	private static final double THRESHOLD = 0.5;
 
 	// things for DataSetAgent
 	public static DataSet data;
@@ -33,8 +33,8 @@ public class NNCreator {
 	public static boolean errors;
 
 	public static void main(String[] args) throws IOException {
-		// createDataSet();
-		// trainNeuralNetwork();
+		//createDataSet();
+		//trainNeuralNetwork();
 		testNeuralNetwork();
 	}
 
@@ -185,10 +185,16 @@ public class NNCreator {
 		for (DataSetRow row : data.getRows()) {
 			nn.setInput(row.getInput());
 			nn.calculate();
-			double[] out = nn.getOutput();
-			if (Utils.max(out) < THRESHOLD && Utils.allZero(row.getDesiredOutput()) || Utils.max(out) >= THRESHOLD && Utils.argmax(out) == Utils.argmax(row.getDesiredOutput())) correct++;
-			System.out.print(Utils.max(nn.getOutput()) + " " + Utils.argmax(nn.getOutput()) + " " + Utils.argmax(row.getDesiredOutput()));
-			System.out.println();
+			
+			double[] predictedOut = nn.getOutput();
+			double[] desiredOut = row.getDesiredOutput();
+			boolean predictedNone = Utils.max(predictedOut) < THRESHOLD;
+			boolean desiredNone = Utils.allZero(desiredOut);
+			if (predictedNone && desiredNone || !predictedNone && Utils.argmax(predictedOut) == Utils.argmax(desiredOut)) correct++;
+			
+			int out = predictedNone ? -1 : Utils.argmax(predictedOut);
+			int desired = desiredNone ? -1 : Utils.argmax(desiredOut);
+			System.out.printf("%.5f\t%2d %2d%n", Utils.max(predictedOut), out, desired);
 		}
 		System.out.println("CA: " + 100.0 * correct / data.size());
 	}

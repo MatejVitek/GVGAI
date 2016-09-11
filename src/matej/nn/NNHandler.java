@@ -10,7 +10,7 @@ import ontology.Types;
 public class NNHandler extends ClassificationHandler {
 
 	public static final String PATH = "nns/";
-	public static final String NAME = "MLP.nnet";
+	public static final String NAME = "MLP_errors.nnet";
 
 	public NNHandler(StateObservation so, String[] games) {
 		super(so, games);

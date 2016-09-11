@@ -8,9 +8,9 @@ import matej.*;
 
 public class RFHandler extends ClassificationHandler {
 
-	public static final String RF_PATH = "rfs/basic.rf";
-	public static final String DS_PATH = "datasets/rf/extra_with_errors_balanced.csv";
-	public static final String TEST_DS_PATH = "datasets/rf/extra_with_errors_test.csv";
+	public static final String RF_PATH = "rfs/errors_balanced.rf";
+	public static final String DS_PATH = "datasets/rf/errors_balanced.csv";
+	public static final String TEST_DS_PATH = "datasets/rf/errors_test.csv";
 
 	public RFHandler(StateObservation so, String[] games) {
 		super(so, games);
@@ -28,10 +28,9 @@ public class RFHandler extends ClassificationHandler {
 	 */
 
 	public static void main(String[] args) {
-		createDataSet();
-		trainRandomForest();
-		RandomForest rf = RandomForest.loadFromFile(RF_PATH);
-		testRandomForest(rf);
+		//createDataSet();
+		//trainRandomForest();
+		testRandomForest();
 	}
 
 	// All public games
@@ -49,7 +48,9 @@ public class RFHandler extends ClassificationHandler {
 	// things for DataSetAgent
 	public static BufferedWriter writer;
 	public static String currentGame;
-	public static boolean errors;
+	
+	// simulate errors for extra attributes?
+	public static boolean errors = true;
 
 	/**
 	 * Runs through all available games and creates a dataset for training.
@@ -59,8 +60,6 @@ public class RFHandler extends ClassificationHandler {
 		boolean levels = false;
 		// balance the dataset?
 		boolean balanced = true;
-		// simulate errors for extra attributes?
-		errors = true;
 
 		StringBuilder sb = new StringBuilder();
 		for (String s : ClassificationHandler.FEATURE_NAMES)
@@ -163,9 +162,15 @@ public class RFHandler extends ClassificationHandler {
 		rf.saveToFile(RF_PATH);
 		return rf;
 	}
+	
+	public static void testRandomForest() {
+		RandomForest rf = RandomForest.loadFromFile(RF_PATH);
+		testRandomForest(rf);
+	}
 
 	public static void testRandomForest(RandomForest rf) {
-		try (BufferedReader br = new BufferedReader(new FileReader(TEST_DS_PATH))) {
+		String path = errors ? TEST_DS_PATH : DS_PATH;
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String[] names = br.readLine().split(";");
 			String line;
 
